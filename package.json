@@ -27,7 +27,8 @@
     "format": "npx prettier --write .",
     "publish:latest": "npm run build && npm publish --access public",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "deploy-storybook": "gh-pages -d storybook-static"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.0.4",
@@ -37,6 +38,7 @@
     "@storybook/addon-docs": "^9.1.10",
     "@storybook/react-vite": "^9.1.10",
     "eslint-plugin-storybook": "^9.1.10",
+    "gh-pages": "^6.3.0",
     "prop-types": "^15.8.1",
     "storybook": "^9.1.10"
   }
