@@ -46,6 +46,7 @@ export default App;
 | `ChevronLeft`  | Left navigation icon                  |
 | `ChevronRight` | Right navigation icon                 |
 
+
 ## 🌱 Features
 
 ⚛️ Built with React + Styled Components
@@ -57,6 +58,7 @@ export default App;
 🪶 Small bundle size
 
 📦 ESM + CJS support out of the box
+
 
 ## 🛠️ Build Setup (for contributors)
 
