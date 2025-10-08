@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sources":["../../src/colors/index.js"],"sourcesContent":["export const WHITE = '#FFFFFF';\nexport const TEAL = '#12A2AB';\nexport const GREY = '#828282';\n"],"names":["WHITE","TEAL","GREY"],"mappings":"AAAY,MAACA,IAAQ,WACRC,IAAO,WACPC,IAAO;"}

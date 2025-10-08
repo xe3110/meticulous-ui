@@ -1,0 +1,26 @@
+{
+  "name": "meticulous-ui",
+  "version": "1.0.1",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": ["dist"],
+  "type": "module",
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "styled-components": "^6.0.0"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "meticulous-ui"
+  ],
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^5.0.4",
+    "lodash-es": "^4.17.21"
+  }
+}
