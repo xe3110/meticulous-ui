@@ -19,9 +19,8 @@ yarn add meticulous-ui
 ## 🧩 Usage
 
 ```jsx
-
-import { useState } from "react";
-import Pagination from "meticulous-ui/components/Pagination";
+import { useState } from 'react';
+import Pagination from 'meticulous-ui/components/Pagination';
 
 function App() {
   const [pageNumber, setPageNumber] = useState(1);
@@ -35,7 +34,6 @@ function App() {
 }
 
 export default App;
-
 ```
 
 ## 📦 Components
@@ -45,7 +43,6 @@ export default App;
 | `Pagination`   | Fully responsive pagination component |
 | `ChevronLeft`  | Left navigation icon                  |
 | `ChevronRight` | Right navigation icon                 |
-
 
 ## 🌱 Features
 
@@ -58,7 +55,6 @@ export default App;
 🪶 Small bundle size
 
 📦 ESM + CJS support out of the box
-
 
 ## 🛠️ Build Setup (for contributors)
 

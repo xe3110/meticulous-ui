@@ -23,9 +23,9 @@ const Pagination = ({ pageNumber, setPageNumber, totalPages }) => {
   if (totalPages <= 7) {
     return (
       <AllPages>
-        <ClickableChevronLeft onClick={setPrevPage} />
+        <ClickableChevronLeft size={20} onClick={setPrevPage} />
         {_range(1, totalPages + 1).map(renderPageNum(pageNumber, setPageNumber))}
-        <ClickableChevronRight onClick={setPrevPage} />
+        <ClickableChevronRight size={20} onClick={setNextPage} />
       </AllPages>
     );
   }

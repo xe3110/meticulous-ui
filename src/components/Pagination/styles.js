@@ -13,8 +13,8 @@ export const AllPages = styled.div`
   justify-content: center;
   align-items: center;
   gap: 0.6rem;
-  min-width: 175rem;
-  width: 175rem;
+  min-width: 100%;
+  width: 100%;
 `;
 
 export const Page = styled.div`
