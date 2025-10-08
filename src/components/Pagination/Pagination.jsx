@@ -37,38 +37,26 @@ const Pagination = ({ pageNumber, setPageNumber, totalPages }) => {
   ) {
     return (
       <AllPages>
-        <ClickableChevronLeft
-          size={20}
-          onClick={setPrevPage}
-        />
+        <ClickableChevronLeft size={20} onClick={setPrevPage} />
         {_range(1, 5).map(renderPageNum(pageNumber, setPageNumber))}
         {renderThreeDots()}
         {[totalPages - 3, totalPages - 2, totalPages - 1, totalPages].map(
           renderPageNum(pageNumber, setPageNumber)
         )}
-        <ClickableChevronRight
-          size={20}
-          onClick={setNextPage}
-        />
+        <ClickableChevronRight size={20} onClick={setNextPage} />
       </AllPages>
     );
   }
 
   return (
     <AllPages>
-      <ClickableChevronLeft
-        size={20}
-        onClick={setPrevPage}
-      />
+      <ClickableChevronLeft size={20} onClick={setPrevPage} />
       {_range(1, 3).map(renderPageNum(pageNumber, setPageNumber))}
       {renderThreeDots()}
       {[pageNumber - 1, pageNumber, pageNumber + 1].map(renderPageNum(pageNumber, setPageNumber))}
       {renderThreeDots()}
       {[totalPages - 1, totalPages].map(renderPageNum(pageNumber, setPageNumber))}
-      <ClickableChevronRight
-        size={20}
-        onClick={setNextPage}
-      />
+      <ClickableChevronRight size={20} onClick={setNextPage} />
     </AllPages>
   );
 };

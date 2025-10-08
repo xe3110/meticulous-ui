@@ -14,10 +14,10 @@ export default defineConfig({
     rollupOptions: {
       external: ['react', 'react-dom'], // don’t bundle React
       output: {
-        preserveModules: true,          // keep file per component
-        preserveModulesRoot: 'src',     // make dist/ mirror src/
-        dir: 'dist',                    // output directory
-        entryFileNames: '[name].js',    // cleaner filenames
+        preserveModules: true, // keep file per component
+        preserveModulesRoot: 'src', // make dist/ mirror src/
+        dir: 'dist', // output directory
+        entryFileNames: '[name].js', // cleaner filenames
         chunkFileNames: '[name].js',
         globals: {
           react: 'React',

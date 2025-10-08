@@ -11,18 +11,18 @@ const Image = styled.img`
 `;
 
 const ChevronRight = (props) => {
-  const {color, size} = props;
+  const { color, size } = props;
 
   return (
     <Image
       {...props}
       color={color || GREY}
-      src="https://www.svgrepo.com/show/533661/chevron-right.svg"
-      alt="Chevron Right"
+      src='https://www.svgrepo.com/show/533661/chevron-right.svg'
+      alt='Chevron Right'
       width={size}
       height={size}
     />
   );
-}
+};
 
 export default ChevronRight;

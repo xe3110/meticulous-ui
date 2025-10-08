@@ -3,7 +3,9 @@
   "version": "1.0.1",
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "peerDependencies": {
     "react": "^18.0.0",
@@ -17,7 +19,8 @@
     "meticulous-ui"
   ],
   "scripts": {
-    "build": "vite build"
+    "build": "vite build",
+    "format": "npx prettier --write ."
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.0.4",

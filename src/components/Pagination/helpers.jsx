@@ -6,7 +6,11 @@ export const renderPageNum = (selected, setPageNumber) => (page) => {
   };
 
   return (
-    <Page data-testid={selected === page ? "current-page" : `test-${page}`} isSelected={selected === page} onClick={clickHandler}>
+    <Page
+      data-testid={selected === page ? 'current-page' : `test-${page}`}
+      isSelected={selected === page}
+      onClick={clickHandler}
+    >
       {page}
     </Page>
   );
