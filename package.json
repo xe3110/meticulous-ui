@@ -20,8 +20,10 @@
     "meticulous-ui"
   ],
   "scripts": {
+    "dev": "vite",
     "build": "vite build",
-    "format": "npx prettier --write ."
+    "format": "npx prettier --write .",
+    "publish:latest": "npm run build && npm publish --access public"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.0.4",
