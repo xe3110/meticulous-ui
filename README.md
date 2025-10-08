@@ -44,6 +44,12 @@ export default App;
 | `ChevronLeft`  | Left navigation icon                  |
 | `ChevronRight` | Right navigation icon                 |
 
+## Demo
+
+```
+https://xe3110.github.io/meticulous-ui/
+```
+
 ## 🌱 Features
 
 ⚛️ Built with React + Styled Components
