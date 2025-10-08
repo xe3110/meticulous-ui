@@ -5,5 +5,8 @@ node_modules
 dist
 main.jsx
 eslint.config.js
+.storybook
+storybook-static
+src/stories
 *.log
 *.tgz
