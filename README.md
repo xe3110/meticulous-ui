@@ -46,9 +46,7 @@ export default App;
 
 ## Demo
 
-```
-https://xe3110.github.io/meticulous-ui/
-```
+<a href="https://xe3110.github.io/meticulous-ui/" target="_blank">https://xe3110.github.io/meticulous-ui/</a>
 
 ## 🌱 Features
 

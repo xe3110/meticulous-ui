@@ -15,24 +15,47 @@ export default {
 
 // Default story
 export const Default = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [pageNumber, setPageNumber] = useState(1);
   const totalPages = 5;
 
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
+  return (
+    <Pagination
+      {...{
+        pageNumber,
+        totalPages,
+        setPageNumber
+      }}
+    />
+  );
+};
+
+export const FewPages = () => {
+  const [pageNumber, setPageNumber] = useState(1);
+  const totalPages = 10;
 
   return (
-    <Pagination pageNumber={currentPage} totalPages={totalPages} setPageNumber={handlePageChange} />
+    <Pagination
+      {...{
+        pageNumber,
+        totalPages,
+        setPageNumber
+      }}
+    />
   );
 };
 
 export const ManyPages = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [pageNumber, setPageNumber] = useState(1);
   const totalPages = 50;
 
   return (
-    <Pagination pageNumber={currentPage} totalPages={totalPages} setPageNumber={setCurrentPage} />
+    <Pagination
+      {...{
+        pageNumber,
+        totalPages,
+        setPageNumber
+      }}
+    />
   );
 };
 
