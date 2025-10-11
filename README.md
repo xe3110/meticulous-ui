@@ -41,6 +41,7 @@ export default App;
 | Component      | Description                           |
 | -------------- | ------------------------------------- |
 | `Pagination`   | Fully responsive pagination component |
+| `Ripple`       | A concentric circles visual animation |
 | `ChevronLeft`  | Left navigation icon                  |
 | `ChevronRight` | Right navigation icon                 |
 
