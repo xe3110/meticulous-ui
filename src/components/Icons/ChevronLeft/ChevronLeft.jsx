@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 // constants
-import { GREY } from '../../../colors';
+import grey from '../../../colors/grey';
 
 const Image = styled.img`
   display: inline-block;
@@ -16,7 +16,7 @@ const ChevronLeft = (props) => {
   return (
     <Image
       {...props}
-      color={color || GREY}
+      color={color || grey.m500}
       src='https://www.svgrepo.com/show/533659/chevron-left.svg'
       alt='Chevron Left'
       width={size}

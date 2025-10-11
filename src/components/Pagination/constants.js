@@ -31,3 +31,7 @@ export const ICON_SIZE_MAPPING = {
   [MEDIUM]: MEDIUM_ICON_SIZE,
   [LARGE]: LARGE_ICON_SIZE,
 };
+
+export const SELECTED_BG = 'selected_bg';
+export const NOT_SELECTED_BG = 'not_selected_bg';
+export const ACTIVE_NOT_SELECTED_BG = 'active_not_selected_bg';

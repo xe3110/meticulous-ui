@@ -1,0 +1,16 @@
+export default {
+  m50: '#FFFDE7',
+  m100: '#FFF9C4',
+  m200: '#FFF59D',
+  m300: '#FFF176',
+  m400: '#FFEE58',
+  m500: '#FFEB3B',
+  m600: '#FDD835',
+  m700: '#FBC02D',
+  m800: '#F9A825',
+  m900: '#F57F17',
+  a100: '#FFFF8D',
+  a200: '#FFFF00',
+  a400: '#FFEA00',
+  a700: '#FFD600',
+};

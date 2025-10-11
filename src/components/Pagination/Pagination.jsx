@@ -1,16 +1,19 @@
 // Libraries
+import _get from 'lodash-es/get';
 import _range from 'lodash-es/range';
 
 // helpers
-import { renderThreeDots, renderPageNum } from './helpers.jsx';
+import { renderThreeDots, renderPageNum, PrevArrow, NextArrow } from './helpers.jsx';
 
 // constants
+import colors from '../../colors';
+import teal from '../../colors/teal';
 import { ICON_SIZE_MAPPING, LARGE, MEDIUM, SIZE_REM_MAPPING, SMALL } from './constants.js';
 
 // styles
-import { AllPages, ClickableChevronLeft, ClickableChevronRight, MiddleLayer } from './styles';
+import { AllPages, MiddleLayer } from './styles';
 
-const Pagination = ({ pageNumber, setPageNumber, totalPages, size = LARGE }) => {
+const Pagination = ({ pageNumber, setPageNumber, totalPages, theme = 'lime', size = LARGE }) => {
   const setPrevPage = () => {
     if (pageNumber > 1) {
       setPageNumber(pageNumber - 1);
@@ -23,17 +26,30 @@ const Pagination = ({ pageNumber, setPageNumber, totalPages, size = LARGE }) => 
     }
   };
 
+  const handleKeyDown = (e) => {
+    console.log({ e });
+
+    if (['ArrowLeft', 'ArrowUp'].includes(e.code)) {
+      setPrevPage();
+    }
+
+    if (['ArrowRight', 'ArrowDown'].includes(e.code)) {
+      setNextPage();
+    }
+  };
+
+  const shades = _get(colors, theme, teal);
   const individualRemSize = SIZE_REM_MAPPING[size];
   const iconSize = ICON_SIZE_MAPPING[size];
 
   if (totalPages <= 7) {
     return (
-      <AllPages>
-        <ClickableChevronLeft size={iconSize} onClick={setPrevPage} />
+      <AllPages onKeyDown={handleKeyDown} tabIndex='0'>
+        <PrevArrow {...{ iconSize, shades, setPrevPage }} />
         <MiddleLayer size={`${totalPages * individualRemSize}rem`}>
-          {_range(1, totalPages + 1).map(renderPageNum(size, pageNumber, setPageNumber))}
+          {_range(1, totalPages + 1).map(renderPageNum(size, pageNumber, shades, setPageNumber))}
         </MiddleLayer>
-        <ClickableChevronRight size={iconSize} onClick={setNextPage} />
+        <NextArrow {...{ iconSize, shades, setNextPage }} />
       </AllPages>
     );
   }
@@ -44,31 +60,33 @@ const Pagination = ({ pageNumber, setPageNumber, totalPages, size = LARGE }) => 
     (pageNumber > totalPages - 3 && pageNumber <= totalPages)
   ) {
     return (
-      <AllPages>
-        <ClickableChevronLeft size={iconSize} onClick={setPrevPage} />
+      <AllPages onKeyDown={handleKeyDown} tabIndex='0'>
+        <PrevArrow {...{ iconSize, shades, setPrevPage }} />
         <MiddleLayer size={`${9 * individualRemSize}rem`}>
-          {_range(1, 5).map(renderPageNum(size, pageNumber, setPageNumber))}
+          {_range(1, 5).map(renderPageNum(size, pageNumber, shades, setPageNumber))}
           {renderThreeDots()}
           {[totalPages - 3, totalPages - 2, totalPages - 1, totalPages].map(
-            renderPageNum(size, pageNumber, setPageNumber)
+            renderPageNum(size, pageNumber, shades, setPageNumber)
           )}
         </MiddleLayer>
-        <ClickableChevronRight size={iconSize} onClick={setNextPage} />
+        <NextArrow {...{ iconSize, shades, setNextPage }} />
       </AllPages>
     );
   }
 
   return (
-    <AllPages>
-      <ClickableChevronLeft size={iconSize} onClick={setPrevPage} />
+    <AllPages onKeyDown={handleKeyDown} tabIndex='0'>
+      <PrevArrow {...{ iconSize, shades, setPrevPage }} />
       <MiddleLayer size={`${9 * individualRemSize}rem`}>
-        {_range(1, 3).map(renderPageNum(size, pageNumber, setPageNumber))}
+        {_range(1, 3).map(renderPageNum(size, pageNumber, shades, setPageNumber))}
         {renderThreeDots()}
-        {[pageNumber - 1, pageNumber, pageNumber + 1].map(renderPageNum(size, pageNumber, setPageNumber))}
+        {[pageNumber - 1, pageNumber, pageNumber + 1].map(
+          renderPageNum(size, pageNumber, shades, setPageNumber)
+        )}
         {renderThreeDots()}
-        {[totalPages - 1, totalPages].map(renderPageNum(size, pageNumber, setPageNumber))}
+        {[totalPages - 1, totalPages].map(renderPageNum(size, pageNumber, shades, setPageNumber))}
       </MiddleLayer>
-      <ClickableChevronRight size={iconSize} onClick={setNextPage} />
+      <NextArrow {...{ iconSize, shades, setNextPage }} />
     </AllPages>
   );
 };

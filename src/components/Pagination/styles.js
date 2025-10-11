@@ -6,7 +6,30 @@ import ChevronLeft from '../Icons/ChevronLeft';
 import ChevronRight from '../Icons/ChevronRight';
 
 // constants
-import { GREY, TEAL, WHITE } from '../../colors';
+import grey from '../../colors/grey';
+import white from '../../colors/white';
+import black from '../../colors/black';
+import { SELECTED_BG, NOT_SELECTED_BG, ACTIVE_NOT_SELECTED_BG } from './constants';
+
+const getShade =
+  (type) =>
+  ({ shades }) => {
+    if (['#FFFFFF'].includes(shades)) {
+      return black.m900;
+    }
+
+    if (type === SELECTED_BG) {
+      return shades['m500'];
+    }
+
+    if (type === NOT_SELECTED_BG) {
+      return shades['m50'];
+    }
+
+    if (type === ACTIVE_NOT_SELECTED_BG) {
+      return shades['m100'];
+    }
+  };
 
 export const AllPages = styled.div`
   display: flex;
@@ -18,34 +41,39 @@ export const AllPages = styled.div`
 `;
 
 export const Page = styled.div`
-  height: ${({individualRemSize}) => `${individualRemSize}rem`};
-  width: ${({individualRemSize}) => `${individualRemSize}rem`};
+  height: ${({ individualRemSize }) => `${individualRemSize}rem`};
+  width: ${({ individualRemSize }) => `${individualRemSize}rem`};
   border-radius: 50%;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  font-size: ${({fontRemSize}) => fontRemSize}rem;
+  font-size: ${({ fontRemSize }) => fontRemSize}rem;
   ${({ isSelected }) =>
     isSelected
       ? css`
           cursor: auto;
-          color: ${WHITE};
-          background-color: ${TEAL};
+          color: ${white};
+          background-color: ${getShade(SELECTED_BG)};
         `
       : css`
           cursor: pointer;
-          color: ${GREY};
-        `}
+          color: ${grey.m500};
 
+          &:hover {
+            background-color: ${getShade(NOT_SELECTED_BG)};
+          }
+
+          &:active {
+            background-color: ${getShade(ACTIVE_NOT_SELECTED_BG)};
+            color: ${white};
+          }
+        `}
 `;
-        // :hover {
-        //   color: red;
-        // }
 
 export const P = styled.p`
-  color: ${GREY};
+  color: ${grey.m500};
 `;
 
 export const ClickableChevronLeft = styled(ChevronLeft)`
@@ -57,7 +85,7 @@ export const ClickableChevronRight = styled(ChevronRight)`
 `;
 
 export const MiddleLayer = styled.div`
-  min-width: ${({size}) => size};
+  min-width: ${({ size }) => size};
   display: flex;
   align-items: center;
   justify-content: space-between;
