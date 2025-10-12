@@ -86,7 +86,7 @@ export default App;
 
 | Functions         | Description                                                                                                    |
 | ----------------- | -------------------------------------------------------------------------------------------------------------- |
-| `capFirstLetter`  | Takes a string and returns with first letter cpitalised                                                        |
+| `capFirstLetter`  | Takes a string and returns with first letter capitalised                                                       |
 | `compose`         | Performs right-to-left function composition using transforming function                                        |
 | `hasEqualProps`   | Takes two args: Component’s previous props & its new props; returns true if all-non functional props are equal |
 | `isNonEmptyArray` | Takes an array & returns true if is not empty                                                                  |
