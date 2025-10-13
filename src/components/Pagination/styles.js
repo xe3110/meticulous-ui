@@ -38,6 +38,13 @@ export const AllPages = styled.div`
   gap: 0.6rem;
   min-width: 100%;
   width: 100%;
+
+  ${({ isDisabled }) =>
+    isDisabled &&
+    css`
+      pointer-events: none;
+      opacity: 0.4;
+    `};
 `;
 
 export const Page = styled.div`

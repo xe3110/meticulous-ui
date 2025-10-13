@@ -8,13 +8,13 @@ import { FONT_SIZE_MAPPING, SIZE_REM_MAPPING } from './constants';
 import { Page, P, ClickableChevronRight, ClickableChevronLeft } from './styles';
 
 export const renderPageNum =
-  ({ size, selected, shades, setPageNumber }) =>
+  ({ size, selected, shades, changePage }) =>
   (page) => {
     const individualRemSize = SIZE_REM_MAPPING[size];
     const fontRemSize = FONT_SIZE_MAPPING[size];
 
     const clickHandler = () => {
-      setPageNumber(page);
+      changePage(page);
     };
 
     return (

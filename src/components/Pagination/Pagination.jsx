@@ -13,16 +13,29 @@ import { ICON_SIZE_MAPPING, LARGE, MEDIUM, SIZE_REM_MAPPING, SMALL } from './con
 // styles
 import { AllPages, MiddleLayer } from './styles';
 
-const Pagination = ({ pageNumber, setPageNumber, totalPages, theme = 'lime', size = LARGE }) => {
+const Pagination = ({
+  pageNumber,
+  setPageNumber,
+  totalPages,
+  theme = 'lime',
+  size = LARGE,
+  isDisabled = false,
+}) => {
+  const changePage = (newPage) => {
+    if (newPage !== pageNumber) {
+      setPageNumber(newPage);
+    }
+  };
+
   const setPrevPage = () => {
     if (pageNumber > 1) {
-      setPageNumber(pageNumber - 1);
+      changePage(pageNumber - 1);
     }
   };
 
   const setNextPage = () => {
     if (pageNumber < totalPages) {
-      setPageNumber(pageNumber + 1);
+      changePage(pageNumber + 1);
     }
   };
 
@@ -44,11 +57,11 @@ const Pagination = ({ pageNumber, setPageNumber, totalPages, theme = 'lime', siz
 
   if (totalPages <= 7) {
     return (
-      <AllPages onKeyDown={handleKeyDown} tabIndex='0'>
+      <AllPages onKeyDown={handleKeyDown} tabIndex='0' isDisabled={isDisabled}>
         <PrevArrow {...{ iconSize, shades, setPrevPage }} />
         <MiddleLayer size={`${totalPages * individualRemSize}rem`}>
           {_range(1, totalPages + 1).map(
-            renderPageNum({ size, selected: pageNumber, shades, setPageNumber })
+            renderPageNum({ size, selected: pageNumber, shades, changePage })
           )}
         </MiddleLayer>
         <NextArrow {...{ iconSize, shades, setNextPage }} />
@@ -62,13 +75,13 @@ const Pagination = ({ pageNumber, setPageNumber, totalPages, theme = 'lime', siz
     (pageNumber > totalPages - 3 && pageNumber <= totalPages)
   ) {
     return (
-      <AllPages onKeyDown={handleKeyDown} tabIndex='0'>
+      <AllPages onKeyDown={handleKeyDown} tabIndex='0' isDisabled={isDisabled}>
         <PrevArrow {...{ iconSize, shades, setPrevPage }} />
         <MiddleLayer size={`${9 * individualRemSize}rem`}>
-          {_range(1, 5).map(renderPageNum({ size, selected: pageNumber, shades, setPageNumber }))}
+          {_range(1, 5).map(renderPageNum({ size, selected: pageNumber, shades, changePage }))}
           {renderThreeDots()}
           {[totalPages - 3, totalPages - 2, totalPages - 1, totalPages].map(
-            renderPageNum({ size, selected: pageNumber, shades, setPageNumber })
+            renderPageNum({ size, selected: pageNumber, shades, changePage })
           )}
         </MiddleLayer>
         <NextArrow {...{ iconSize, shades, setNextPage }} />
@@ -77,17 +90,17 @@ const Pagination = ({ pageNumber, setPageNumber, totalPages, theme = 'lime', siz
   }
 
   return (
-    <AllPages onKeyDown={handleKeyDown} tabIndex='0'>
+    <AllPages onKeyDown={handleKeyDown} tabIndex='0' isDisabled={isDisabled}>
       <PrevArrow {...{ iconSize, shades, setPrevPage }} />
       <MiddleLayer size={`${9 * individualRemSize}rem`}>
-        {_range(1, 3).map(renderPageNum({ size, selected: pageNumber, shades, setPageNumber }))}
+        {_range(1, 3).map(renderPageNum({ size, selected: pageNumber, shades, changePage }))}
         {renderThreeDots()}
         {[pageNumber - 1, pageNumber, pageNumber + 1].map(
-          renderPageNum({ size, selected: pageNumber, shades, setPageNumber })
+          renderPageNum({ size, selected: pageNumber, shades, changePage })
         )}
         {renderThreeDots()}
         {[totalPages - 1, totalPages].map(
-          renderPageNum({ size, selected: pageNumber, shades, setPageNumber })
+          renderPageNum({ size, selected: pageNumber, shades, changePage })
         )}
       </MiddleLayer>
       <NextArrow {...{ iconSize, shades, setNextPage }} />

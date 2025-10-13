@@ -23,6 +23,7 @@ import { useState } from 'react';
 
 import Pagination from 'meticulous-ui/components/Pagination';
 import ChevronLeft from 'meticulous-ui/components/Icons/ChevronLeft';
+import Ripple from 'meticulous-ui/components/Ripple';
 import blue from 'meticulous-ui/colors/blue';
 import capFirstLetter from 'meticulous-ui/utils/capFirstLetter';
 
@@ -32,7 +33,9 @@ function App() {
   return (
     <div>
       <h2>{capFirstLetter('example with pagination')}</h2> // returns: Example with pagination
-      <ChevronLeft size={10} color={blue.m400} />
+      <Ripple rippleColor={shades['m50']}>
+        <ChevronLeft size={10} color={blue.m400} onClick={setPrevPage} />
+      </Ripple>
       <Pagination totalPages={10} pageNumber={pageNumber} setPageNumber={setPageNumber} />
     </div>
   );
