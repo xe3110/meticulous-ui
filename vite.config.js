@@ -19,7 +19,6 @@ export default defineConfig({
         preserveModulesRoot: 'src',
         dir: 'dist', // output directory
         entryFileNames: '[name].js', // cleaner filenames
-        chunkFileNames: '[name].js',
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
