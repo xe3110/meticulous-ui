@@ -5,6 +5,7 @@ import path from 'path';
 export default defineConfig({
   plugins: [react()],
   build: {
+    minify: 'esbuild',
     lib: {
       entry: path.resolve(__dirname, 'src/index.js'),
       name: 'MeticulousUI',
@@ -12,10 +13,10 @@ export default defineConfig({
       formats: ['es'], // only ESM; simplest for tree-shakable libs
     },
     rollupOptions: {
-      external: ['react', 'react-dom'], // don’t bundle React
+      external: ['react', 'react-dom', 'lodash-es'], // add lodash-es
       output: {
         preserveModules: true, // keep file per component
-        preserveModulesRoot: 'src', // make dist/ mirror src/
+        preserveModulesRoot: 'src',
         dir: 'dist', // output directory
         entryFileNames: '[name].js', // cleaner filenames
         chunkFileNames: '[name].js',
@@ -25,6 +26,6 @@ export default defineConfig({
         },
       },
     },
-    sourcemap: true,
+    sourcemap: false,
   },
 });
