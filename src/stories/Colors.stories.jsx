@@ -88,6 +88,8 @@ export default {
         component: 'Collection of colors and shades commonly used accross websites & dashboards.',
       },
     },
+    controls: { disable: true },
+    actions: { disable: true },
   },
 };
 

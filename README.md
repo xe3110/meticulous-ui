@@ -33,7 +33,7 @@ function App() {
   return (
     <div>
       <h2>{capFirstLetter('example with pagination')}</h2> // returns: Example with pagination
-      <Ripple rippleColor={shades['m50']}>
+      <Ripple rippleColor={blue.m50}>
         <ChevronLeft size={10} color={blue.m400} onClick={setPrevPage} />
       </Ripple>
       <Pagination totalPages={10} pageNumber={pageNumber} setPageNumber={setPageNumber} />

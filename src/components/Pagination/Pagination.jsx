@@ -8,7 +8,7 @@ import { renderThreeDots, renderPageNum, PrevArrow, NextArrow } from './helpers.
 // constants
 import colors from '../../colors';
 import teal from '../../colors/teal';
-import { ICON_SIZE_MAPPING, LARGE, MEDIUM, SIZE_REM_MAPPING, SMALL } from './constants.js';
+import { ICON_SIZE_MAPPING, MEDIUM, SIZE_REM_MAPPING } from './constants.js';
 
 // styles
 import { AllPages, MiddleLayer } from './styles';
@@ -18,7 +18,7 @@ const Pagination = ({
   setPageNumber,
   totalPages,
   theme = 'lime',
-  size = LARGE,
+  size = MEDIUM,
   isDisabled = false,
 }) => {
   const changePage = (newPage) => {
