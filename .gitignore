@@ -10,6 +10,10 @@
 /build
 /dist
 
+# icons
+/src/scripts
+/svg
+
 # misc
 package-lock.json
 .DS_Store

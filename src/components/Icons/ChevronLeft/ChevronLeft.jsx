@@ -1,28 +1,24 @@
-// Libraries
-import styled from 'styled-components';
-
-// constants
+import React from 'react';
 import grey from '../../../colors/grey';
 
-const Image = styled.img`
-  display: inline-block;
-  vertical-align: middle;
-  fill: ${({ color }) => color};
-`;
-
-const ChevronLeft = (props) => {
-  const { color, size } = props;
-
-  return (
-    <Image
-      {...props}
-      color={color || grey.m500}
-      src='https://www.svgrepo.com/show/533659/chevron-left.svg'
-      alt='Chevron Left'
-      width={size}
-      height={size}
+const ChevronLeft = ({ color = grey.m500, size = 24, ...props }) => (
+  <svg
+    viewBox='0 0 24 24'
+    width={size}
+    height={size}
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+    aria-label='Chevron Left'
+    {...props}
+  >
+    <path
+      d='m15 6-6 6 6 6'
+      stroke={color}
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
-  );
-};
+  </svg>
+);
 
 export default ChevronLeft;

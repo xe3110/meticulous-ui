@@ -8,5 +8,7 @@ eslint.config.js
 .storybook
 storybook-static
 src/stories
+src/scripts
+svg
 *.log
 *.tgz

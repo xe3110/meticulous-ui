@@ -1,3 +1,1 @@
-import ChevronRight from './ChevronRight.jsx';
-
-export default ChevronRight;
+export { default } from './ChevronRight.jsx';

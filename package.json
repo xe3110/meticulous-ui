@@ -1,6 +1,6 @@
 {
   "name": "meticulous-ui",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "repository": {
@@ -17,10 +17,10 @@
   ],
   "type": "module",
   "peerDependencies": {
+    "lodash-es": "^4.17.21",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "styled-components": "^6.0.0",
-    "lodash-es": "^4.17.21"
+    "styled-components": "^6.0.0"
   },
   "keywords": [
     "react",
@@ -41,7 +41,8 @@
     "publish:latest": "npm run build && npm publish --access public",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "deploy-storybook": "gh-pages -d storybook-static"
+    "deploy-storybook": "gh-pages -d storybook-static",
+    "generate-icons": "node src/scripts/generateIcons.js"
   },
   "devDependencies": {
     "@storybook/addon-docs": "^9.1.10",
@@ -50,6 +51,8 @@
     "eslint-plugin-storybook": "^9.1.10",
     "gh-pages": "^6.3.0",
     "prop-types": "^15.8.1",
-    "storybook": "^9.1.10"
+    "storybook": "^9.1.10",
+    "svgo": "^4.0.0",
+    "vite-plugin-svgr": "^4.5.0"
   }
 }
