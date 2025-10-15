@@ -46,12 +46,74 @@ export default App;
 
 ## 📦 Components
 
-| Component      | Description                           |
-| -------------- | ------------------------------------- |
-| `Pagination`   | Fully responsive pagination component |
-| `Ripple`       | A concentric circles visual animation |
-| `ChevronLeft`  | Left navigation icon                  |
-| `ChevronRight` | Right navigation icon                 |
+| Component    | Description                           |
+| ------------ | ------------------------------------- |
+| `Pagination` | Fully responsive pagination component |
+| `Ripple`     | A concentric circles visual animation |
+
+## 📦 Icon Components
+
+| Icons                   | Description                        |
+| ----------------------- | ---------------------------------- |
+| `ChevronLeft`           | Left navigation icon               |
+| `ChevronRight`          | Right navigation icon              |
+| `ChevronUp`             | Up navigation icon                 |
+| `ChevronDown`           | Down navigation icon               |
+| `Add`                   | Add icon                           |
+| `AddCircle`             | Add circle icon                    |
+| `AddCircleFilled`       | Add Circle Filled icon             |
+| `ArrowRight`            | Right Arrow icon                   |
+| `ArrowLeft`             | Left Arrow icon                    |
+| `ArrowUp`               | Up Arrow icon                      |
+| `ArrowDown`             | Down Arrow icon                    |
+| `BellFilled`            | Bell/Notification filled icon      |
+| `BellOffFilled`         | Bell/Notification off filled icon  |
+| `BellOutline`           | Bell/Notification outline icon     |
+| `BellOffOutline`        | Bell/Notification off outline icon |
+| `BookmarkFilled`        | Bookmark filled icon               |
+| `BookmarkOutline`       | Bookmark outline icon              |
+| `ClockCircleOutline`    | Clock circle outline icon          |
+| `ClockSquareOutline`    | Clock square outline icon          |
+| `Close`                 | Close icon                         |
+| `CloseCircleFilled`     | Close circle filled icon           |
+| `CloseCircleOutline`    | Close circle outline icon          |
+| `CommentBubbleFilled`   | Comment bubble filled icon         |
+| `CommentBubbleOutline`  | Comment bubble outline icon        |
+| `CommentFilled`         | Comment filled icon                |
+| `CommentLineFilled`     | Comment line filled icon           |
+| `CommentLineOutline`    | Comment line outline icon          |
+| `CommentOutline`        | Comment outline icon               |
+| `DotsHorizontalFilled`  | Dots horizontal filled icon        |
+| `DotsHorizontalOutline` | Dots horizontal outline icon       |
+| `DotsVerticalFilled`    | Dots vertical filled icon          |
+| `HamburgerMenu`         | Hamburger menu icon                |
+| `HamburgerSpaced`       | Spaced Hamburger icon              |
+| `HeartFilled`           | Heart filled icon                  |
+| `HeartOutline`          | Heart outline icon                 |
+| `HomeFilled`            | Home filled icon                   |
+| `HomeOutline`           | Home outline icon                  |
+| `Link`                  | Link icon                          |
+| `Minus`                 | Minus icon                         |
+| `MinusCircle`           | Minus circle outline icon          |
+| `MinusCircleFilled`     | Minus circle filled icon           |
+| `Search`                | Search icon                        |
+| `SettingFilled`         | Setting filled icon                |
+| `SettingOutline`        | Setting outline icon               |
+| `ShareAllFilled`        | Share all filled icon              |
+| `ShareAllOutline`       | Share all outline icon             |
+| `ShareBoxOutline`       | Share box outline icon             |
+| `ShareFilled`           | Share filled icon                  |
+| `ShareOutline`          | Share outline icon                 |
+| `ShareThickFilled`      | Share thick filled icon            |
+| `StarFilled`            | Star filled icon                   |
+| `StarOutline`           | Star outline icon                  |
+| `ThumbsDownFilled`      | Thumbs down filled icon            |
+| `ThumbsDownOutline`     | Thumbs down outline icon           |
+| `ThumbsUpFilled`        | Thumbs up filled icon              |
+| `ThumbsUpOutline`       | Thumbs up outline icon             |
+| `Upload`                | Upload icon                        |
+| `UploadBoxFilled`       | Upload box filled icon             |
+| `UploadBoxOutline`      | Upload box outline icon            |
 
 ## 📦 Tokens
 
