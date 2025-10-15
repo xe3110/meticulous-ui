@@ -1,4 +1,3 @@
-import React from 'react';
 import grey from '../../../colors/grey';
 
 const BookmarkOutline = ({ color = grey.m500, size = 24, ...props }) => (

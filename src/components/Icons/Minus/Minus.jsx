@@ -1,4 +1,3 @@
-import React from 'react';
 import grey from '../../../colors/grey';
 
 const Minus = ({ color = grey.m500, size = 24, ...props }) => (

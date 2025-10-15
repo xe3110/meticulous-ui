@@ -33,7 +33,7 @@ const renderIcon = (name) => {
 
   return (
     <IconWrapper key={name}>
-      <Icon color={red.m700} size={40} />
+      <Icon color={red.m700} size={60} />
       <P>{name}</P>
     </IconWrapper>
   );

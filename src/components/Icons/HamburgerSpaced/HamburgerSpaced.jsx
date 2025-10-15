@@ -1,14 +1,13 @@
-import React from 'react';
 import grey from '../../../colors/grey';
 
-const SpacedHamburger = ({ color = grey.m500, size = 24, ...props }) => (
+const HamburgerSpaced = ({ color = grey.m500, size = 24, ...props }) => (
   <svg
     viewBox='0 -1 20 20'
     width={size}
     height={size}
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    aria-label='Spaced Hamburger'
+    aria-label='Hamburger Spaced'
     {...props}
   >
     <g stroke={color} strokeWidth='1' fill={color} fillRule='evenodd'>
@@ -19,4 +18,4 @@ const SpacedHamburger = ({ color = grey.m500, size = 24, ...props }) => (
   </svg>
 );
 
-export default SpacedHamburger;
+export default HamburgerSpaced;
