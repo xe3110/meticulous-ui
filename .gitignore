@@ -9,6 +9,8 @@
 # production
 /build
 /dist
+/.storybook
+/stories
 
 # icons
 /src/scripts
