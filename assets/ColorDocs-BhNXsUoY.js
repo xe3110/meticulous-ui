@@ -1,0 +1,4 @@
+import{j as o}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as e}from"./index-C8qdvYTI.js";import{M as s,P as i}from"./blocks-C7ldOg4b.js";import{C as m}from"./Colors.stories-BA5kFyzw.js";import"./iframe-Dnet4Jze.js";import"./preload-helper-PPVm8Dsz.js";import"./index-By092XZE.js";import"./index-BeaGPHUe.js";import"./styled-components.browser.esm-DgW84kJJ.js";function n(r){const t={code:"code",h1:"h1",p:"p",...e(),...r.components};return o.jsxs(o.Fragment,{children:[o.jsx(s,{of:m}),`
+`,o.jsx(t.h1,{id:"colors",children:"Colors"}),`
+`,o.jsxs(t.p,{children:["A Color can be imported as ",o.jsx(t.code,{children:"meticulous-ui/colors/grey"})," & can be from the following:"]}),`
+`,o.jsx(i,{})]})}function h(r={}){const{wrapper:t}={...e(),...r.components};return t?o.jsx(t,{...r,children:o.jsx(n,{...r})}):n(r)}export{h as default};
