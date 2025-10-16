@@ -39,13 +39,13 @@ const renderIcon = (name) => {
   );
 };
 
-const Icons = () => {
+const AllIcons = () => {
   return <IconsWrapper>{Object.keys(icons).map(renderIcon)}</IconsWrapper>;
 };
 
 export default {
   title: 'Icons',
-  component: Icons,
+  component: AllIcons,
   parameters: {
     docs: {
       description: {
@@ -59,7 +59,30 @@ export default {
 
 // Default story
 export const Default = () => {
-  return <Icons />;
+  // import red from 'meticulous-ui/colors/red';
+
+  // import Add from 'meticulous-ui/components/Icons/Add';
+  // return <Add color={red.m500} size={20} />
+
+  // import ArrowDown from 'meticulous-ui/components/Icons/ArrowDown';
+  // return <ArrowDown color={red.m500} size={10} />
+
+  // import Close from 'meticulous-ui/components/Icons/Close';
+  // return <Close color={red.m500} size={14} />
+
+  // import ThumbsUpFilled from 'meticulous-ui/components/Icons/ThumbsUpFilled';
+  // return <ThumbsUpFilled color={red.m500} size={14} />
+
+  // import DotsVerticalFilled from 'meticulous-ui/components/Icons/DotsVerticalFilled';
+  // return <DotsVerticalFilled color={red.m500} size={14} />
+
+  // import HomeFilled from 'meticulous-ui/components/Icons/HomeFilled';
+  // return <HomeFilled color={red.m500} size={14} />
+
+  // import DotsVerticalFilled from 'meticulous-ui/components/Icons/DotsVerticalFilled';
+  // return <DotsVerticalFilled color={red.m500} size={14} />
+
+  return <AllIcons />;
 };
 
 Default.storyName = 'All Icons';

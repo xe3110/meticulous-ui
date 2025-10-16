@@ -6,9 +6,6 @@ const config = {
     name: '@storybook/react-vite',
     options: {},
   },
-  docs: {
-    autodocs: true, // SB 9 will generate docs automatically
-  },
 };
 
 export default config;

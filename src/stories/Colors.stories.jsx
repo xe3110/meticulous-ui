@@ -60,7 +60,7 @@ const sortColors = (a, b) => {
   return -1;
 };
 
-const Colors = () => {
+const AllColors = () => {
   const keys = Object.keys(colors).filter((x) => x !== 'white');
 
   return (
@@ -81,7 +81,7 @@ const Colors = () => {
 
 export default {
   title: 'Colors',
-  component: Colors,
+  component: AllColors,
   parameters: {
     docs: {
       description: {
@@ -95,7 +95,18 @@ export default {
 
 // Default story
 export const Default = () => {
-  return <Colors />;
+  // import Add from 'meticulous-ui/components/Icons/Add';
+
+  // import red from 'meticulous-ui/colors/red';
+  // return <Add color={red.m500} size={20} />
+
+  // import blue from 'meticulous-ui/colors/blue';
+  // return <Add color={blue.m500} size={20} />
+
+  // import green from 'meticulous-ui/colors/green';
+  // return <Add color={green.m500} size={20} />
+
+  return <AllColors />;
 };
 
 Default.storyName = 'All Colors';
