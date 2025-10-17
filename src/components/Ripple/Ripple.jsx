@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import './Ripple.css';
 
 const Ripple = ({ children, rippleColor = 'rgba(0,0,0,0.3)', className = '', ...props }) => {

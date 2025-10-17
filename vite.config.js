@@ -19,7 +19,7 @@ export default defineConfig({
       output: {
         preserveModules: true, // keep file per component
         preserveModulesRoot: 'src',
-        dir: 'dist', // output directory
+        dir: 'dist/', // output directory
         entryFileNames: '[name].js', // cleaner filenames
         globals: {
           react: 'React',

@@ -1,6 +1,6 @@
 {
   "name": "meticulous-ui",
-  "version": "1.0.26",
+  "version": "1.0.32",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "repository": {
@@ -12,11 +12,11 @@
   },
   "sideEffects": false,
   "files": [
-    "dist/index.js",
-    "dist/colors",
-    "dist/components",
-    "dist/utils",
-    "!dist/_virtual",
+    "index.js",
+    "colors",
+    "components",
+    "utils",
+    "package.json",
     "README.md"
   ],
   "type": "module",
@@ -47,7 +47,7 @@
     "build-storybook": "storybook build",
     "deploy-storybook": "gh-pages -d storybook-static",
     "generate-icons": "node src/scripts/generateIcons.js",
-    "prepublish": "npm run build && cp package.json dist/ && rm -rf dist/_virtual",
+    "prepublish": "npm run build && cp package.json dist/ && cp README.md dist/ && rm -rf dist/_virtual",
     "publish:dist": "npm publish dist/"
   },
   "devDependencies": {
