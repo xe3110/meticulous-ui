@@ -1,6 +1,6 @@
 {
   "name": "meticulous-ui",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "repository": {
@@ -12,7 +12,9 @@
   },
   "sideEffects": false,
   "files": [
-    "dist",
+    "dist/index.js",
+    "dist/colors",
+    "dist/components",
     "README.md"
   ],
   "type": "module",
