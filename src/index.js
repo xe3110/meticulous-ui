@@ -1,9 +1,12 @@
 // components
 export { default as Pagination } from './components/Pagination';
+export { default as Ripple } from './components/Ripple';
 
 // colors
 export { default as colors } from './colors';
 
+// utils
+export { default as utils } from './utils';
+
 // icons
-export { default as ChevronLeft } from './components/Icons/ChevronLeft';
-export { default as ChevronRight } from './components/Icons/ChevronRight';
+export { default as icons } from './components/Icons';

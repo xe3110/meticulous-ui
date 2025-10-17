@@ -6,6 +6,7 @@ import path from 'path';
 export default defineConfig({
   plugins: [react(), svgr()],
   build: {
+    outDir: 'dist/',
     minify: 'esbuild',
     lib: {
       entry: path.resolve(__dirname, 'src/index.js'),
@@ -14,7 +15,7 @@ export default defineConfig({
       formats: ['es'], // only ESM; simplest for tree-shakable libs
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'lodash-es'], // add lodash-es
+      external: ['react', 'react-dom', 'lodash-es', 'react-fast-compare'], // add lodash-es
       output: {
         preserveModules: true, // keep file per component
         preserveModulesRoot: 'src',
