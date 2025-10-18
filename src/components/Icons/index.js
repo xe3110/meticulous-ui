@@ -41,6 +41,10 @@ import Link from './Link';
 import Minus from './Minus';
 import MinusCircle from './MinusCircle';
 import MinusCircleFilled from './MinusCircleFilled';
+import ProfileFemaleOutline from './ProfileFemaleOutline';
+import ProfileGroupFilled from './ProfileGroupFilled';
+import ProfileMaleFilled from './ProfileMaleFilled';
+import ProfileMaleOutline from './ProfileMaleOutline';
 import Search from './Search';
 import SettingFilled from './SettingFilled';
 import SettingOutline from './SettingOutline';
@@ -103,6 +107,10 @@ export default {
   Minus,
   MinusCircle,
   MinusCircleFilled,
+  ProfileFemaleOutline,
+  ProfileGroupFilled,
+  ProfileMaleFilled,
+  ProfileMaleOutline,
   Search,
   SettingFilled,
   SettingOutline,

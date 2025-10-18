@@ -1,6 +1,6 @@
 {
   "name": "meticulous-ui",
-  "version": "1.0.32",
+  "version": "1.0.33",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "repository": {
@@ -46,12 +46,13 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "deploy-storybook": "gh-pages -d storybook-static",
-    "generate-icons": "node src/scripts/generateIcons.js",
+    "generate-icons": "node src/scripts/generateIcons.js && npx prettier --write .",
     "prepublish": "npm run build && cp package.json dist/ && cp README.md dist/ && rm -rf dist/_virtual",
     "publish:dist": "npm publish dist/"
   },
   "devDependencies": {
-    "@storybook/addon-docs": "^9.1.10",
+    "@storybook/addon-docs": "^9.1.13",
+    "@storybook/mdx2-csf": "^1.1.0",
     "@storybook/react-vite": "^9.1.10",
     "@vitejs/plugin-react": "^5.0.4",
     "eslint-plugin-storybook": "^9.1.10",

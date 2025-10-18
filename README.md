@@ -96,6 +96,10 @@ export default App;
 | `Minus`                 | Minus icon                         |
 | `MinusCircle`           | Minus circle outline icon          |
 | `MinusCircleFilled`     | Minus circle filled icon           |
+| `ProfileFemaleOutline`  | Female profile outline icon        |
+| `ProfileGroupFilled`    | Profiles filled icon               |
+| `ProfileMaleFilled`     | Male profile filled icon           |
+| `ProfileMaleOutline`    | Male profile ouline icon           |
 | `Search`                | Search icon                        |
 | `SettingFilled`         | Setting filled icon                |
 | `SettingOutline`        | Setting outline icon               |
