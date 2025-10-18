@@ -1,0 +1,4 @@
+import{j as o}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as r}from"./index-yXCEIxMq.js";import{M as c,C as i,S as m}from"./blocks-DMsserPR.js";import{I as e}from"./Icons.stories-DUCgQB1B.js";import"./iframe-Dk5rlsMR.js";import"./preload-helper-PPVm8Dsz.js";import"./index-BRdWwtUT.js";import"./styled-components.browser.esm-h8fhUPPd.js";import"./ChevronRight-DzpBWfoL.js";function s(n){const t={code:"code",h1:"h1",p:"p",...r(),...n.components};return o.jsxs(o.Fragment,{children:[o.jsx(c,{title:"components/Icons",of:e}),`
+`,o.jsx(t.h1,{id:"icons",children:"Icons"}),`
+`,o.jsxs(t.p,{children:["An Icon can be imported as ",o.jsx(t.code,{children:"meticulous-ui/components/Icons/Add"})," & can be from the following:"]}),`
+`,o.jsx(i,{children:o.jsx(m,{name:"All Colors",children:o.jsx(e,{})})})]})}function C(n={}){const{wrapper:t}={...r(),...n.components};return t?o.jsx(t,{...n,children:o.jsx(s,{...n})}):s(n)}export{C as default};
