@@ -46,7 +46,7 @@ export default App;
 
 ## 🚀 Demo
 
-<a href="https://xe3110.github.io/meticulous-ui/" target="_blank">https://xe3110.github.io/meticulous-ui/</a>
+<a href="https://meticulous-ui-dkim-xe3110s-projects.vercel.app" target="_blank">meticulous-ui</a>
 
 ## 📦 Components
 
