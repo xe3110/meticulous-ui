@@ -44,6 +44,10 @@ function App() {
 export default App;
 ```
 
+## 🚀 Demo
+
+<a href="https://xe3110.github.io/meticulous-ui/" target="_blank">https://xe3110.github.io/meticulous-ui/</a>
+
 ## 📦 Components
 
 | Component    | Description                           |
@@ -148,7 +152,7 @@ export default App;
 | `red`        | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
 | `teal`       | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
 | `violet`     | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
-| `white`      | #FFFFFF                                                                           |
+| `white`      | #FFFFFF                                                                         |
 | `yellow`     | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
 
 ## 📦 Utils
@@ -159,10 +163,6 @@ export default App;
 | `compose`         | Performs right-to-left function composition using transforming function                                        |
 | `hasEqualProps`   | Takes two args: Component’s previous props & its new props; returns true if all-non functional props are equal |
 | `isNonEmptyArray` | Takes an array & returns true if is not empty                                                                  |
-
-## Demo
-
-<a href="https://xe3110.github.io/meticulous-ui/" target="_blank">https://xe3110.github.io/meticulous-ui/</a>
 
 ## 🌱 Features
 
