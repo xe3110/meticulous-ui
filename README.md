@@ -23,7 +23,6 @@ import { useState } from 'react';
 
 import Pagination from 'meticulous-ui/components/Pagination';
 import ChevronLeft from 'meticulous-ui/components/Icons/ChevronLeft';
-import Ripple from 'meticulous-ui/components/Ripple';
 import blue from 'meticulous-ui/colors/blue';
 import capFirstLetter from 'meticulous-ui/utils/capFirstLetter';
 
@@ -33,9 +32,7 @@ function App() {
   return (
     <div>
       <h2>{capFirstLetter('example with pagination')}</h2> // returns: Example with pagination
-      <Ripple rippleColor={blue.m50}>
-        <ChevronLeft size={10} color={blue.m400} onClick={setPrevPage} />
-      </Ripple>
+      <ChevronLeft size={10} color={blue.m400} onClick={setPrevPage} />
       <Pagination totalPages={10} pageNumber={pageNumber} setPageNumber={setPageNumber} />
     </div>
   );
@@ -53,7 +50,6 @@ export default App;
 | Component    | Description                           |
 | ------------ | ------------------------------------- |
 | `Pagination` | Fully responsive pagination component |
-| `Ripple`     | A concentric circles visual animation |
 
 ## 📦 Icon Components
 
@@ -152,7 +148,7 @@ export default App;
 | `red`        | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
 | `teal`       | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
 | `violet`     | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
-| `white`      | #FFFFFF                                                                         |
+| `white`      | #FFFFFF                                                                           |
 | `yellow`     | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
 
 ## 📦 Utils
