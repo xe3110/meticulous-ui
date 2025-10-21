@@ -2,8 +2,8 @@
  * generate-icons.js
  *
  * Converts all SVG files in ./svg into React components inside ./src/components/Icons,
- * each inside its own folder with a component file.
- * Main index.js exports all icons with named exports.
+ * each inside its own folder with a component file and folder index.js.
+ * Main index.js exports all icons with named exports and default export.
  *
  * Usage: node scripts/generate-icons.js
  */
@@ -55,10 +55,7 @@ for (const file of svgFiles) {
 
   // component file
   const componentFile = path.join(iconDir, `${name}.jsx`);
-
   const component = `
-import React from 'react';
-
 const ${componentName} = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
@@ -74,8 +71,12 @@ const ${componentName} = ({ size = 24, color = 'currentColor', ...props }) => (
 
 export default ${componentName};
 `;
+  fs.writeFileSync(componentFile, component, 'utf8');
 
-  fs.writeFileSync(componentFile, component);
+  // folder index.js
+  const folderIndexFile = path.join(iconDir, 'index.js');
+  const folderIndexContent = `import ${name} from './${name}.jsx';\n\n\nexport default ${name};`;
+  fs.writeFileSync(folderIndexFile, folderIndexContent, 'utf8');
 }
 
 // --- Generate main index.js with named exports + default export ---
@@ -85,7 +86,7 @@ let mainIndexExports = [];
 
 for (const file of svgFiles) {
   const name = toPascalCase(file); // e.g., ArrowUp
-  mainIndexImports.push(`import ${name} from './${name}/${name}.jsx';`);
+  mainIndexImports.push(`import ${name} from './${name}';`);
   mainIndexExports.push(`  ${name},`);
 }
 
@@ -103,7 +104,4 @@ ${mainIndexExports.join('\n')}
 fs.writeFileSync(MAIN_INDEX, mainIndexContent, 'utf8');
 
 console.log(`✅ Generated main index.js with ${svgFiles.length} icons and default export`);
-
-fs.writeFileSync(MAIN_INDEX, mainIndexContent);
-
 console.log(`✅ Generated ${svgFiles.length} icons in ${OUT_DIR}`);
