@@ -1,35 +1,37 @@
-import grey from '../../../colors/grey';
+import React from 'react';
 
-const Add = ({ color = grey.m500, size = 24, ...props }) => (
+const AddIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
-    viewBox='0 0 24 24'
     width={size}
     height={size}
+    viewBox='0 0 24 24'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    aria-label='Add'
     {...props}
   >
-    <g>
-      <g dataName='add'>
+    <title />
+
+    <g id='Complete'>
+      <g data-name='add' id='add-2'>
         <g>
           <line
-            fill={color}
+            fill='none'
             stroke={color}
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            strokeWidth='2'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            stroke-width='2'
             x1='12'
             x2='12'
             y1='19'
             y2='5'
           />
+
           <line
-            fill={color}
+            fill='none'
             stroke={color}
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            strokeWidth='2'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            stroke-width='2'
             x1='5'
             x2='19'
             y1='12'
@@ -41,4 +43,4 @@ const Add = ({ color = grey.m500, size = 24, ...props }) => (
   </svg>
 );
 
-export default Add;
+export default AddIcon;

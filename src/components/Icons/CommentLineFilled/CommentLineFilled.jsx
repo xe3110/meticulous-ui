@@ -1,21 +1,39 @@
-import grey from '../../../colors/grey';
+import React from 'react';
 
-const CommentLineFilled = ({ color = grey.m500, size = 24, ...props }) => (
+const CommentLineFilledIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
-    viewBox='0 0 32 32'
     width={size}
     height={size}
+    viewBox='0 0 32 32'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    aria-label='Comment Line Filled'
     {...props}
   >
-    <g stroke={color} strokeWidth='1' fill={color} fillRule='evenodd'>
-      <g transform='translate(-154 -257)' fill={color}>
-        <path d='M177 270h-14a1 1 0 1 1 0-2h14a1 1 0 0 1 0 2m-2 6h-10a1 1 0 1 1 0-2h10a1 1 0 1 1 0 2m-5-19c-8.836 0-16 6.269-16 14 0 4.419 2.345 8.354 6 10.919V289l7.009-4.253c.97.16 1.968.253 2.991.253 8.836 0 16-6.268 16-14 0-7.731-7.164-14-16-14' />
+    <title>comment 2</title>
+    <desc>Created with Sketch Beta.</desc>
+    <defs></defs>
+    <g
+      id='Page-1'
+      stroke='none'
+      stroke-width='1'
+      fill='none'
+      fill-rule='evenodd'
+      sketch:type='MSPage'
+    >
+      <g
+        id='Icon-Set-Filled'
+        sketch:type='MSLayerGroup'
+        transform='translate(-154.000000, -257.000000)'
+        fill={color}
+      >
+        <path
+          d='M177,270 L163,270 C162.448,270 162,269.553 162,269 C162,268.448 162.448,268 163,268 L177,268 C177.552,268 178,268.448 178,269 C178,269.553 177.552,270 177,270 L177,270 Z M175,276 L165,276 C164.448,276 164,275.553 164,275 C164,274.447 164.448,274 165,274 L175,274 C175.552,274 176,274.447 176,275 C176,275.553 175.552,276 175,276 L175,276 Z M170,257 C161.164,257 154,263.269 154,271 C154,275.419 156.345,279.354 160,281.919 L160,289 L167.009,284.747 C167.979,284.907 168.977,285 170,285 C178.836,285 186,278.732 186,271 C186,263.269 178.836,257 170,257 L170,257 Z'
+          id='comment-2'
+          sketch:type='MSShapeGroup'
+        ></path>
       </g>
     </g>
   </svg>
 );
 
-export default CommentLineFilled;
+export default CommentLineFilledIcon;

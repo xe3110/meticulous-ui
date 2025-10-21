@@ -1,20 +1,19 @@
-import grey from '../../../colors/grey';
+import React from 'react';
 
-const HeartFilled = ({ color = grey.m500, size = 24, ...props }) => (
+const HeartFilledIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
-    viewBox='0 0 16 16'
     width={size}
     height={size}
+    viewBox='0 0 16 16'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    aria-label='Heart Filled'
     {...props}
   >
     <path
-      d='M1.243 8.243 8 15l6.757-6.757a4.24 4.24 0 0 0 1.243-3v-.19A4.052 4.052 0 0 0 8.783 2.52L8 3.5l-.783-.98A4.052 4.052 0 0 0 0 5.053v.19c0 1.126.447 2.205 1.243 3'
+      d='M1.24264 8.24264L8 15L14.7574 8.24264C15.553 7.44699 16 6.36786 16 5.24264V5.05234C16 2.8143 14.1857 1 11.9477 1C10.7166 1 9.55233 1.55959 8.78331 2.52086L8 3.5L7.21669 2.52086C6.44767 1.55959 5.28338 1 4.05234 1C1.8143 1 0 2.8143 0 5.05234V5.24264C0 6.36786 0.44699 7.44699 1.24264 8.24264Z'
       fill={color}
     />
   </svg>
 );
 
-export default HeartFilled;
+export default HeartFilledIcon;

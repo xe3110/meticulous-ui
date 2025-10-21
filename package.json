@@ -1,6 +1,6 @@
 {
   "name": "meticulous-ui",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "repository": {
@@ -45,7 +45,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "deploy-storybook": "gh-pages -d storybook-static",
-    "generate-icons": "node src/scripts/generateIcons.js && npx prettier --write .",
+    "generate-icons": "rm -rf src/components/Icons/* && node src/scripts/generateIcons.js && npx prettier --write .",
     "prepublish": "npm run build && cp package.json dist/ && cp README.md dist/ && rm -rf dist/_virtual",
     "publish:dist": "npm publish dist/"
   },

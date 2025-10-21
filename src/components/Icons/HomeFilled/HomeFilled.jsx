@@ -1,22 +1,21 @@
-import grey from '../../../colors/grey';
+import React from 'react';
 
-const HomeFilled = ({ color = grey.m500, size = 24, ...props }) => (
+const HomeFilledIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
-    viewBox='0 0 16 16'
     width={size}
     height={size}
+    viewBox='0 0 16 16'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    aria-label='Home Filled'
     {...props}
   >
     <path
-      fillRule='evenodd'
-      clipRule='evenodd'
-      d='M8 0 0 6v2h1v7h3v-5h3v5h8V8h1V6l-2-1.5V1h-3v1.25zm1 10h3v3H9z'
+      fill-rule='evenodd'
+      clip-rule='evenodd'
+      d='M8 0L0 6V8H1V15H4V10H7V15H15V8H16V6L14 4.5V1H11V2.25L8 0ZM9 10H12V13H9V10Z'
       fill={color}
     />
   </svg>
 );
 
-export default HomeFilled;
+export default HomeFilledIcon;

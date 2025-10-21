@@ -1,22 +1,21 @@
-import grey from '../../../colors/grey';
+import React from 'react';
 
-const LockOpenFilled = ({ color = grey.m500, size = 24, ...props }) => (
+const LockOpenFilledIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
-    viewBox='0 0 16 16'
     width={size}
     height={size}
+    viewBox='0 0 16 16'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    aria-label='Lock Open Filled'
     {...props}
   >
     <path
-      fillRule='evenodd'
-      clipRule='evenodd'
-      d='M11.5 2A1.5 1.5 0 0 0 10 3.5V6h3v10H1V6h7V3.5a3.5 3.5 0 1 1 7 0V4h-2v-.5A1.5 1.5 0 0 0 11.5 2M9 10H5v2h4z'
+      fill-rule='evenodd'
+      clip-rule='evenodd'
+      d='M11.5 2C10.6716 2 10 2.67157 10 3.5V6H13V16H1V6H8V3.5C8 1.567 9.567 0 11.5 0C13.433 0 15 1.567 15 3.5V4H13V3.5C13 2.67157 12.3284 2 11.5 2ZM9 10H5V12H9V10Z'
       fill={color}
     />
   </svg>
 );
 
-export default LockOpenFilled;
+export default LockOpenFilledIcon;

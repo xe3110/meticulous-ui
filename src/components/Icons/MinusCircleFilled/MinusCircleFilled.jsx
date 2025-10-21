@@ -1,21 +1,39 @@
-import grey from '../../../colors/grey';
+import React from 'react';
 
-const MinusCircleFilled = ({ color = grey.m500, size = 24, ...props }) => (
+const MinusCircleFilledIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
-    viewBox='0 0 32 32'
     width={size}
     height={size}
+    viewBox='0 0 32 32'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    aria-label='Minus Circle Filled'
     {...props}
   >
-    <g stroke={color} strokeWidth='1' fill={color} fillRule='evenodd'>
-      <g transform='translate(-518 -1089)' fill={color}>
-        <path d='M540 1106h-12a1.001 1.001 0 0 1 0-2h12a1.001 1.001 0 0 1 0 2m-6-17c-8.837 0-16 7.16-16 16s7.163 16 16 16 16-7.16 16-16-7.163-16-16-16' />
+    <title>minus-circle</title>
+    <desc>Created with Sketch Beta.</desc>
+    <defs></defs>
+    <g
+      id='Page-1'
+      stroke='none'
+      stroke-width='1'
+      fill='none'
+      fill-rule='evenodd'
+      sketch:type='MSPage'
+    >
+      <g
+        id='Icon-Set-Filled'
+        sketch:type='MSLayerGroup'
+        transform='translate(-518.000000, -1089.000000)'
+        fill={color}
+      >
+        <path
+          d='M540,1106 L528,1106 C527.447,1106 527,1105.55 527,1105 C527,1104.45 527.447,1104 528,1104 L540,1104 C540.553,1104 541,1104.45 541,1105 C541,1105.55 540.553,1106 540,1106 L540,1106 Z M534,1089 C525.163,1089 518,1096.16 518,1105 C518,1113.84 525.163,1121 534,1121 C542.837,1121 550,1113.84 550,1105 C550,1096.16 542.837,1089 534,1089 L534,1089 Z'
+          id='minus-circle'
+          sketch:type='MSShapeGroup'
+        ></path>
       </g>
     </g>
   </svg>
 );
 
-export default MinusCircleFilled;
+export default MinusCircleFilledIcon;

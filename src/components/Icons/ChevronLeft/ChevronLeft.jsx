@@ -1,23 +1,22 @@
-import grey from '../../../colors/grey';
+import React from 'react';
 
-const ChevronLeft = ({ color = grey.m500, size = 24, ...props }) => (
+const ChevronLeftIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
-    viewBox='0 0 24 24'
     width={size}
     height={size}
+    viewBox='0 0 24 24'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    aria-label='Chevron Left'
     {...props}
   >
     <path
-      d='m15 6-6 6 6 6'
+      d='M15 6L9 12L15 18'
       stroke={color}
-      strokeWidth='2'
-      strokeLinecap='round'
-      strokeLinejoin='round'
+      stroke-width='2'
+      stroke-linecap='round'
+      stroke-linejoin='round'
     />
   </svg>
 );
 
-export default ChevronLeft;
+export default ChevronLeftIcon;

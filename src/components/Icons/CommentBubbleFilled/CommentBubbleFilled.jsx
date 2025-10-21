@@ -1,21 +1,39 @@
-import grey from '../../../colors/grey';
+import React from 'react';
 
-const CommentBubbleFilled = ({ color = grey.m500, size = 24, ...props }) => (
+const CommentBubbleFilledIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
-    viewBox='0 0 32 32'
     width={size}
     height={size}
+    viewBox='0 0 32 32'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    aria-label='Comment Bubble Filled'
     {...props}
   >
-    <g stroke={color} strokeWidth='1' fill={color} fillRule='evenodd'>
-      <g transform='translate(-207 -257)' fill={color}>
-        <path d='M231 273a2 2 0 1 1 .001-4.001A2 2 0 0 1 231 273m-8 0a2 2 0 1 1 .001-4.001A2 2 0 0 1 223 273m-8 0a2 2 0 1 1 .001-4.001A2 2 0 0 1 215 273m8-16c-8.836 0-16 6.269-16 14 0 4.419 2.345 8.354 6 10.919V289l7.009-4.253c.97.16 1.968.253 2.991.253 8.836 0 16-6.268 16-14 0-7.731-7.164-14-16-14' />
+    <title>comment 3</title>
+    <desc>Created with Sketch Beta.</desc>
+    <defs></defs>
+    <g
+      id='Page-1'
+      stroke='none'
+      stroke-width='1'
+      fill='none'
+      fill-rule='evenodd'
+      sketch:type='MSPage'
+    >
+      <g
+        id='Icon-Set-Filled'
+        sketch:type='MSLayerGroup'
+        transform='translate(-207.000000, -257.000000)'
+        fill={color}
+      >
+        <path
+          d='M231,273 C229.896,273 229,272.104 229,271 C229,269.896 229.896,269 231,269 C232.104,269 233,269.896 233,271 C233,272.104 232.104,273 231,273 L231,273 Z M223,273 C221.896,273 221,272.104 221,271 C221,269.896 221.896,269 223,269 C224.104,269 225,269.896 225,271 C225,272.104 224.104,273 223,273 L223,273 Z M215,273 C213.896,273 213,272.104 213,271 C213,269.896 213.896,269 215,269 C216.104,269 217,269.896 217,271 C217,272.104 216.104,273 215,273 L215,273 Z M223,257 C214.164,257 207,263.269 207,271 C207,275.419 209.345,279.354 213,281.919 L213,289 L220.009,284.747 C220.979,284.907 221.977,285 223,285 C231.836,285 239,278.732 239,271 C239,263.269 231.836,257 223,257 L223,257 Z'
+          id='comment-3'
+          sketch:type='MSShapeGroup'
+        ></path>
       </g>
     </g>
   </svg>
 );
 
-export default CommentBubbleFilled;
+export default CommentBubbleFilledIcon;

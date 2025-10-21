@@ -1,21 +1,39 @@
-import grey from '../../../colors/grey';
+import React from 'react';
 
-const Search = ({ color = grey.m500, size = 24, ...props }) => (
+const SearchIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
-    viewBox='0 0 32 32'
     width={size}
     height={size}
+    viewBox='0 0 32 32'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    aria-label='Search'
     {...props}
   >
-    <g stroke={color} strokeWidth='1' fill={color} fillRule='evenodd'>
-      <g transform='translate(-256 -1139)' fill={color}>
-        <path d='M269.46 1163.45c-6.29 0-11.389-5.01-11.389-11.2s5.099-11.21 11.389-11.21 11.39 5.02 11.39 11.21-5.1 11.2-11.39 11.2m18.228 5.8-8.259-8.13c2.162-2.35 3.491-5.45 3.491-8.87 0-7.32-6.026-13.25-13.46-13.25s-13.46 5.93-13.46 13.25c0 7.31 6.026 13.24 13.46 13.24a13.52 13.52 0 0 0 8.472-2.96l8.292 8.16c.405.4 1.06.4 1.464 0 .405-.39.405-1.04 0-1.44' />
+    <title>search</title>
+    <desc>Created with Sketch Beta.</desc>
+    <defs></defs>
+    <g
+      id='Page-1'
+      stroke='none'
+      stroke-width='1'
+      fill='none'
+      fill-rule='evenodd'
+      sketch:type='MSPage'
+    >
+      <g
+        id='Icon-Set'
+        sketch:type='MSLayerGroup'
+        transform='translate(-256.000000, -1139.000000)'
+        fill={color}
+      >
+        <path
+          d='M269.46,1163.45 C263.17,1163.45 258.071,1158.44 258.071,1152.25 C258.071,1146.06 263.17,1141.04 269.46,1141.04 C275.75,1141.04 280.85,1146.06 280.85,1152.25 C280.85,1158.44 275.75,1163.45 269.46,1163.45 L269.46,1163.45 Z M287.688,1169.25 L279.429,1161.12 C281.591,1158.77 282.92,1155.67 282.92,1152.25 C282.92,1144.93 276.894,1139 269.46,1139 C262.026,1139 256,1144.93 256,1152.25 C256,1159.56 262.026,1165.49 269.46,1165.49 C272.672,1165.49 275.618,1164.38 277.932,1162.53 L286.224,1170.69 C286.629,1171.09 287.284,1171.09 287.688,1170.69 C288.093,1170.3 288.093,1169.65 287.688,1169.25 L287.688,1169.25 Z'
+          id='search'
+          sketch:type='MSShapeGroup'
+        ></path>
       </g>
     </g>
   </svg>
 );
 
-export default Search;
+export default SearchIcon;

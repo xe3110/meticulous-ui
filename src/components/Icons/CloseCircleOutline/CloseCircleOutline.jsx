@@ -1,25 +1,25 @@
-import grey from '../../../colors/grey';
+import React from 'react';
 
-const CloseCircleOutline = ({ color = grey.m500, size = 24, ...props }) => (
+const CloseCircleOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
-    viewBox='0 0 24 24'
     width={size}
     height={size}
+    viewBox='0 0 24 24'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    aria-label='Close Circle Outline'
     {...props}
   >
-    <g>
+    <g id='Edit / Close_Circle'>
       <path
-        d='m9 9 3 3m0 0 3 3m-3-3-3 3m3-3 3-3m-3 12a9 9 0 1 1 0-18 9 9 0 0 1 0 18'
+        id='Vector'
+        d='M9 9L11.9999 11.9999M11.9999 11.9999L14.9999 14.9999M11.9999 11.9999L9 14.9999M11.9999 11.9999L14.9999 9M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21Z'
         stroke={color}
-        strokeWidth='2'
-        strokeLinecap='round'
-        strokeLinejoin='round'
+        stroke-width='2'
+        stroke-linecap='round'
+        stroke-linejoin='round'
       />
     </g>
   </svg>
 );
 
-export default CloseCircleOutline;
+export default CloseCircleOutlineIcon;

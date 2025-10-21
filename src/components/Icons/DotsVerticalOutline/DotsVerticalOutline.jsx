@@ -1,23 +1,36 @@
-import grey from '../../../colors/grey';
+import React from 'react';
 
-const DotsVerticalOutline = ({ color = grey.m500, size = 24, ...props }) => (
+const DotsVerticalOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
-    viewBox='0 0 24 24'
     width={size}
     height={size}
+    viewBox='0 0 24 24'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    aria-label='Dots Vertical Outline'
     {...props}
   >
     <path
-      d='M14 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0M14 19a2 2 0 1 1-4 0 2 2 0 0 1 4 0M14 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0'
+      d='M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z'
       stroke={color}
-      strokeWidth='2'
-      strokeLinecap='round'
-      strokeLinejoin='round'
+      stroke-width='2'
+      stroke-linecap='round'
+      stroke-linejoin='round'
+    />
+    <path
+      d='M14 19C14 20.1046 13.1046 21 12 21C10.8954 21 10 20.1046 10 19C10 17.8954 10.8954 17 12 17C13.1046 17 14 17.8954 14 19Z'
+      stroke={color}
+      stroke-width='2'
+      stroke-linecap='round'
+      stroke-linejoin='round'
+    />
+    <path
+      d='M14 5C14 6.10457 13.1046 7 12 7C10.8954 7 10 6.10457 10 5C10 3.89543 10.8954 3 12 3C13.1046 3 14 3.89543 14 5Z'
+      stroke={color}
+      stroke-width='2'
+      stroke-linecap='round'
+      stroke-linejoin='round'
     />
   </svg>
 );
 
-export default DotsVerticalOutline;
+export default DotsVerticalOutlineIcon;

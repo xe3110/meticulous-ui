@@ -1,25 +1,25 @@
-import grey from '../../../colors/grey';
+import React from 'react';
 
-const ExitArrowInOutline = ({ color = grey.m500, size = 24, ...props }) => (
+const ExitArrowInOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
-    viewBox='0 0 24 24'
     width={size}
     height={size}
+    viewBox='0 0 24 24'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    aria-label='Exit Arrow In Outline'
     {...props}
   >
-    <g>
+    <g id='Interface / Exit'>
       <path
-        d='m12 15 3-3m0 0-3-3m3 3H4m0-4.752V7.2c0-1.12 0-1.68.218-2.108.192-.377.497-.682.874-.874C5.52 4 6.08 4 7.2 4h9.6c1.12 0 1.68 0 2.107.218.377.192.683.497.875.874.218.427.218.987.218 2.105v9.607c0 1.118 0 1.677-.218 2.104a2 2 0 0 1-.875.874c-.427.218-.986.218-2.104.218H7.197c-1.118 0-1.678 0-2.105-.218a2 2 0 0 1-.874-.874C4 18.48 4 17.92 4 16.8v-.05'
+        id='Vector'
+        d='M12 15L15 12M15 12L12 9M15 12H4M4 7.24802V7.2002C4 6.08009 4 5.51962 4.21799 5.0918C4.40973 4.71547 4.71547 4.40973 5.0918 4.21799C5.51962 4 6.08009 4 7.2002 4H16.8002C17.9203 4 18.4796 4 18.9074 4.21799C19.2837 4.40973 19.5905 4.71547 19.7822 5.0918C20 5.5192 20 6.07899 20 7.19691V16.8036C20 17.9215 20 18.4805 19.7822 18.9079C19.5905 19.2842 19.2837 19.5905 18.9074 19.7822C18.48 20 17.921 20 16.8031 20H7.19691C6.07899 20 5.5192 20 5.0918 19.7822C4.71547 19.5905 4.40973 19.2839 4.21799 18.9076C4 18.4798 4 17.9201 4 16.8V16.75'
         stroke={color}
-        strokeWidth='2'
-        strokeLinecap='round'
-        strokeLinejoin='round'
+        stroke-width='2'
+        stroke-linecap='round'
+        stroke-linejoin='round'
       />
     </g>
   </svg>
 );
 
-export default ExitArrowInOutline;
+export default ExitArrowInOutlineIcon;

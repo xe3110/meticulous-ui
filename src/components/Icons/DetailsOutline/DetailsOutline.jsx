@@ -1,21 +1,21 @@
-import grey from '../../../colors/grey';
+import React from 'react';
 
-const DetailsOutline = ({ color = grey.m500, size = 24, ...props }) => (
+const DetailsOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
-    viewBox='0 0 512 512'
     width={size}
     height={size}
+    viewBox='0 0 512 512'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    aria-label='Details Outline'
     {...props}
   >
-    <g stroke={color} strokeWidth='1' fill={color} fillRule='evenodd'>
-      <g fill={color} transform='translate(64 64)'>
-        <path d='M384 64v320H64V64zm-42.667 42.667H106.667v234.666h234.666zM320 0v42.667l-277.334-.001V320H0V0zm-21.333 234.667v42.666H149.333v-42.666zm0-85.334V192H149.333v-42.667z' />
+    <title>details</title>
+    <g id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'>
+      <g id='Combined-Shape' fill={color} transform='translate(64.000000, 64.000000)'>
+        <path d='M384,64 L384,384 L64,384 L64,64 L384,64 Z M341.333333,106.666667 L106.666667,106.666667 L106.666667,341.333333 L341.333333,341.333333 L341.333333,106.666667 Z M320,1.42108547e-14 L320,42.6666667 L42.666,42.666 L42.6666667,320 L1.42108547e-14,320 L1.42108547e-14,1.42108547e-14 L320,1.42108547e-14 Z M298.666667,234.666667 L298.666667,277.333333 L149.333333,277.333333 L149.333333,234.666667 L298.666667,234.666667 Z M298.666667,149.333333 L298.666667,192 L149.333333,192 L149.333333,149.333333 L298.666667,149.333333 Z'></path>
       </g>
     </g>
   </svg>
 );
 
-export default DetailsOutline;
+export default DetailsOutlineIcon;

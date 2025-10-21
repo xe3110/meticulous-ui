@@ -1,29 +1,28 @@
-import grey from '../../../colors/grey';
+import React from 'react';
 
-const LockOpenOutline = ({ color = grey.m500, size = 24, ...props }) => (
+const LockOpenOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
-    viewBox='0 0 24 24'
     width={size}
     height={size}
+    viewBox='0 0 24 24'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    aria-label='Lock Open Outline'
     {...props}
   >
-    <rect fill={color} />
+    <rect width='24' height='24' fill={color} />
     <path
-      d='M6 19v-8a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1Z'
+      d='M6 19V11C6 10.4477 6.44772 10 7 10H17C17.5523 10 18 10.4477 18 11V19C18 19.5523 17.5523 20 17 20H7C6.44772 20 6 19.5523 6 19Z'
       stroke={color}
-      strokeLinejoin='round'
+      stroke-linejoin='round'
     />
-    <circle cx='12' cy='15' r='2' stroke={color} strokeLinejoin='round' />
+    <circle cx='12' cy='15' r='2' stroke={color} stroke-linejoin='round' />
     <path
-      d='M16 10V6.5A2.5 2.5 0 0 1 18.5 4v0A2.5 2.5 0 0 1 21 6.5V10'
+      d='M16 10V6.5C16 5.11929 17.1193 4 18.5 4V4V4C19.8807 4 21 5.11929 21 6.5V10'
       stroke={color}
-      strokeLinecap='round'
-      strokeLinejoin='round'
+      stroke-linecap='round'
+      stroke-linejoin='round'
     />
   </svg>
 );
 
-export default LockOpenOutline;
+export default LockOpenOutlineIcon;

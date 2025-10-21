@@ -1,23 +1,22 @@
-import grey from '../../../colors/grey';
+import React from 'react';
 
-const ArrowLeft = ({ color = grey.m500, size = 24, ...props }) => (
+const ArrowLeftIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
-    viewBox='0 0 24 24'
     width={size}
     height={size}
+    viewBox='0 0 24 24'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    aria-label='Arrow Left'
     {...props}
   >
     <path
-      d='M5 12h14M5 12l6-6m-6 6 6 6'
+      d='M5 12H19M5 12L11 6M5 12L11 18'
       stroke={color}
-      strokeWidth='2'
-      strokeLinecap='round'
-      strokeLinejoin='round'
+      stroke-width='2'
+      stroke-linecap='round'
+      stroke-linejoin='round'
     />
   </svg>
 );
 
-export default ArrowLeft;
+export default ArrowLeftIcon;

@@ -1,30 +1,29 @@
-import grey from '../../../colors/grey';
+import React from 'react';
 
-const BellOutline = ({ color = grey.m500, size = 24, ...props }) => (
+const BellOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
-    viewBox='0 0 24 24'
     width={size}
     height={size}
+    viewBox='0 0 24 24'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    aria-label='Bell Outline'
     {...props}
   >
     <path
-      fillRule='evenodd'
-      clipRule='evenodd'
-      d='M12 3C8.444 3 6.667 5.507 6.667 8.6v1.733c0 1.105-.994 2.017-1.791 2.782A2.78 2.78 0 0 0 4 15.133C4 16.164 4.796 17 5.778 17h12.444c.982 0 1.778-.836 1.778-1.867 0-.826-.362-1.525-.876-2.018-.797-.765-1.79-1.677-1.79-2.782V8.6C17.333 5.507 15.555 3 12 3Z'
+      fill-rule='evenodd'
+      clip-rule='evenodd'
+      d='M12 3C8.44444 3 6.66667 5.50721 6.66667 8.6V10.3333C6.66667 11.4379 5.67308 12.3503 4.87601 13.115C4.36239 13.6078 4 14.3066 4 15.1333C4 16.1643 4.79594 17 5.77778 17H18.2222C19.2041 17 20 16.1643 20 15.1333C20 14.3066 19.6376 13.6078 19.124 13.115C18.3269 12.3503 17.3333 11.4379 17.3333 10.3333V8.6C17.3333 5.50721 15.5556 3 12 3Z'
       stroke={color}
-      strokeWidth='2'
+      stroke-width='2'
     />
     <path
-      d='M14 20a2.2 2.2 0 0 1-.846.73 2.6 2.6 0 0 1-1.154.267c-.405 0-.803-.093-1.154-.267A2.2 2.2 0 0 1 10 20'
+      d='M14 20C13.7968 20.3031 13.505 20.5547 13.154 20.7295C12.803 20.9044 12.4051 20.9965 12 20.9965C11.5949 20.9965 11.197 20.9044 10.846 20.7295C10.495 20.5547 10.2032 20.3031 10 20'
       stroke={color}
-      strokeWidth='2'
-      strokeLinecap='round'
-      strokeLinejoin='round'
+      stroke-width='2'
+      stroke-linecap='round'
+      stroke-linejoin='round'
     />
   </svg>
 );
 
-export default BellOutline;
+export default BellOutlineIcon;

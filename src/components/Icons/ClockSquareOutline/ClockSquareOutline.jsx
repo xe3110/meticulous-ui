@@ -1,28 +1,27 @@
-import grey from '../../../colors/grey';
+import React from 'react';
 
-const ClockSquareOutline = ({ color = grey.m500, size = 24, ...props }) => (
+const ClockSquareOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
-    viewBox='0 0 24 24'
     width={size}
     height={size}
+    viewBox='0 0 24 24'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    aria-label='Clock Square Outline'
     {...props}
   >
     <path
-      d='M12 8v4l2.5 2.5'
+      d='M12 8V12L14.5 14.5'
       stroke={color}
-      strokeWidth='1.5'
-      strokeLinecap='round'
-      strokeLinejoin='round'
+      stroke-width='1.5'
+      stroke-linecap='round'
+      stroke-linejoin='round'
     />
     <path
-      d='M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z'
+      d='M2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12Z'
       stroke={color}
-      strokeWidth='1.5'
+      stroke-width='1.5'
     />
   </svg>
 );
 
-export default ClockSquareOutline;
+export default ClockSquareOutlineIcon;
