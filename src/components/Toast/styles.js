@@ -7,14 +7,10 @@ import Close from '../Icons/Close';
 import grey from '../../colors/grey';
 
 export const ToastWrapper = styled.div`
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-`;
-
-export const Container = styled.div`
-  position: absolute;
+  position: fixed;
   top: 1rem;
+  left: 2rem;
+  z-index: 100;
   display: flex;
   align-items: center;
   background-color: ${({ bg }) => bg};

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 import Toast from '../src/components/Toast';
@@ -14,7 +15,77 @@ const P = styled.p`
 `;
 
 const ToastWrapper = () => {
-  return <Toast type='success' title='Help' subtitle='Do this' />;
+  const [success, showSuccess] = useState(false);
+  const [error, showError] = useState(false);
+  const [warning, showWarning] = useState(false);
+
+  const removeSuccess = () => {
+    showSuccess(false);
+  };
+
+  const removeError = () => {
+    showError(false);
+  };
+
+  const removeWarning = () => {
+    showWarning(false);
+  };
+
+  const popSuccess = () => {
+    showSuccess(true);
+    setTimeout(removeSuccess, 5000);
+  };
+
+  const popError = () => {
+    showError(true);
+    setTimeout(removeError, 5000);
+  };
+
+  const popWarning = () => {
+    showWarning(true);
+    setTimeout(removeWarning, 5000);
+  };
+
+  return (
+    <div>
+      {success && (
+        <Toast
+          type='success'
+          title='Congratulations'
+          subtitle='You have successfully logged in'
+          onExpire={removeSuccess}
+          duration={5000}
+        />
+      )}
+      {warning && (
+        <Toast
+          type='warning'
+          title='Successful'
+          subtitle='Your order has been placed successfully'
+          onExpire={removeWarning}
+          duration={5000}
+        />
+      )}
+      {error && (
+        <Toast
+          type='error'
+          title='Warning'
+          subtitle='Your session is about to expire'
+          onExpire={removeError}
+          duration={5000}
+        />
+      )}
+      <button onClick={popSuccess}>
+        <P>Success</P>
+      </button>
+      <button onClick={popError}>
+        <P>Error</P>
+      </button>
+      <button onClick={popWarning}>
+        <P>Warning</P>
+      </button>
+    </div>
+  );
 };
 
 export default {

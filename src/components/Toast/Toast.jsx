@@ -11,7 +11,7 @@ import grey from '../../colors/grey';
 import { COLOR_MAP, WARNING, WARNING_COLORS } from './constants';
 
 // styles
-import { ToastWrapper, Container, CloseWrapper, Title, Subtitle, Message } from './styles';
+import { ToastWrapper, CloseWrapper, Title, Subtitle, Message } from './styles';
 
 const Toast = ({
   type = WARNING,
@@ -26,29 +26,36 @@ const Toast = ({
 
   const durationMilli = duration * 1000;
 
+  const remove = () => {
+    setShow(false);
+    onExpire();
+  };
+
+  useEffect(() => {
+    setShow(visible);
+  }, [visible]);
+
   useEffect(() => {
     const timer = setTimeout(() => setFadeOut(true), durationMilli - 500);
-    const removeTimer = setTimeout(() => onExpire(), durationMilli);
+    const removeTimer = setTimeout(remove, durationMilli);
 
     return () => {
       clearTimeout(timer);
       clearTimeout(removeTimer);
     };
-  }, [durationMilli, onExpire]);
+  }, [durationMilli, remove]);
 
   const { main, side, bg } = _get(COLOR_MAP, type, WARNING_COLORS);
 
-  if (visible) {
+  if (show) {
     return (
-      <ToastWrapper>
-        <Container bg={bg} className={`${fadeOut ? 'fade-out' : 'fade-in'}`}>
-          <Logo {...{ type, main, side }} />
-          <Message>
-            <Title>{title}</Title>
-            {subtitle && <Subtitle>{subtitle}</Subtitle>}
-          </Message>
-          <CloseWrapper size={20} color={grey.m600} />
-        </Container>
+      <ToastWrapper bg={bg} className={`${fadeOut ? 'fade-out' : 'fade-in'}`}>
+        <Logo {...{ type, main, side }} />
+        <Message>
+          <Title>{title}</Title>
+          {subtitle && <Subtitle>{subtitle}</Subtitle>}
+        </Message>
+        <CloseWrapper size={20} color={grey.m600} onClick={remove} />
       </ToastWrapper>
     );
   }
