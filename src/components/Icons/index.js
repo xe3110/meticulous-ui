@@ -53,9 +53,7 @@ import HomeFilled from './HomeFilled';
 import HomeOutline from './HomeOutline';
 import Link from './Link';
 import LockClosedFilled from './LockClosedFilled';
-import LockClosedOutline from './LockClosedOutline';
 import LockOpenFilled from './LockOpenFilled';
-import LockOpenOutline from './LockOpenOutline';
 import MinusCircleFilled from './MinusCircleFilled';
 import MinusCircle from './MinusCircle';
 import Minus from './Minus';
@@ -146,9 +144,7 @@ export {
   HomeOutline,
   Link,
   LockClosedFilled,
-  LockClosedOutline,
   LockOpenFilled,
-  LockOpenOutline,
   MinusCircleFilled,
   MinusCircle,
   Minus,
@@ -240,9 +236,7 @@ export default {
   HomeOutline,
   Link,
   LockClosedFilled,
-  LockClosedOutline,
   LockOpenFilled,
-  LockOpenOutline,
   MinusCircleFilled,
   MinusCircle,
   Minus,
