@@ -42,8 +42,8 @@ export const LogoContainer = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: ${white};
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 1.8rem;
+  height: 1.8rem;
   border-radius: 50%;
 `;
 
@@ -60,8 +60,8 @@ export const Icon = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 1.26rem;
-  height: 1.26rem;
+  width: ${({ size }) => size}rem;
+  height: ${({ size }) => size}rem;
 `;
 
 export const OuterChild = styled.div`
@@ -69,8 +69,8 @@ export const OuterChild = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 3.2rem;
-  height: 3.2rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
   background-color: ${({ main }) => main};
 `;
