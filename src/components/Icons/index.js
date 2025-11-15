@@ -21,6 +21,7 @@ import CartMinusOutline from './CartMinusOutline/CartMinusOutline.jsx';
 import CartOutline from './CartOutline/CartOutline.jsx';
 import CartPlusFilled from './CartPlusFilled/CartPlusFilled.jsx';
 import CartPlusOutline from './CartPlusOutline/CartPlusOutline.jsx';
+import Check from './Check/Check.jsx';
 import ChevronDown from './ChevronDown/ChevronDown.jsx';
 import ChevronLeft from './ChevronLeft/ChevronLeft.jsx';
 import ChevronRight from './ChevronRight/ChevronRight.jsx';
@@ -51,6 +52,7 @@ import HeartFilled from './HeartFilled/HeartFilled.jsx';
 import HeartOutline from './HeartOutline/HeartOutline.jsx';
 import HomeFilled from './HomeFilled/HomeFilled.jsx';
 import HomeOutline from './HomeOutline/HomeOutline.jsx';
+import Info from './Info/Info.jsx';
 import Link from './Link/Link.jsx';
 import LockClosedFilled from './LockClosedFilled/LockClosedFilled.jsx';
 import LockOpenFilled from './LockOpenFilled/LockOpenFilled.jsx';
@@ -115,6 +117,7 @@ export {
   CartOutline,
   CartPlusFilled,
   CartPlusOutline,
+  Check,
   ChevronDown,
   ChevronLeft,
   ChevronRight,
@@ -145,6 +148,7 @@ export {
   HeartOutline,
   HomeFilled,
   HomeOutline,
+  Info,
   Link,
   LockClosedFilled,
   LockOpenFilled,
@@ -210,6 +214,7 @@ export default {
   CartOutline,
   CartPlusFilled,
   CartPlusOutline,
+  Check,
   ChevronDown,
   ChevronLeft,
   ChevronRight,
@@ -240,6 +245,7 @@ export default {
   HeartOutline,
   HomeFilled,
   HomeOutline,
+  Info,
   Link,
   LockClosedFilled,
   LockOpenFilled,
