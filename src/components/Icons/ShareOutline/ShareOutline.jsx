@@ -1,4 +1,6 @@
-const ShareOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const ShareOutline = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -23,4 +25,4 @@ const ShareOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   </svg>
 );
 
-export default ShareOutlineIcon;
+export default ShareOutline;

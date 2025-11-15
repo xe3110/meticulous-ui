@@ -1,4 +1,6 @@
-const BellOffOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const BellOffOutline = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -30,4 +32,4 @@ const BellOffOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) => 
   </svg>
 );
 
-export default BellOffOutlineIcon;
+export default BellOffOutline;

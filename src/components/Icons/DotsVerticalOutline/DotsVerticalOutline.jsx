@@ -1,4 +1,6 @@
-const DotsVerticalOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const DotsVerticalOutline = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -31,4 +33,4 @@ const DotsVerticalOutlineIcon = ({ size = 24, color = 'currentColor', ...props }
   </svg>
 );
 
-export default DotsVerticalOutlineIcon;
+export default DotsVerticalOutline;

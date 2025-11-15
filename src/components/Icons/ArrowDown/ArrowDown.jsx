@@ -1,4 +1,6 @@
-const ArrowDownIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const ArrowDown = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -16,4 +18,4 @@ const ArrowDownIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   </svg>
 );
 
-export default ArrowDownIcon;
+export default ArrowDown;

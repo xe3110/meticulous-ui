@@ -1,4 +1,6 @@
-const HamburgerMenuIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const HamburgerMenu = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -28,4 +30,4 @@ const HamburgerMenuIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   </svg>
 );
 
-export default HamburgerMenuIcon;
+export default HamburgerMenu;

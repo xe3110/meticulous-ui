@@ -1,4 +1,6 @@
-const BookmarkOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const BookmarkOutline = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -16,4 +18,4 @@ const BookmarkOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) =>
   </svg>
 );
 
-export default BookmarkOutlineIcon;
+export default BookmarkOutline;

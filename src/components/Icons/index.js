@@ -1,92 +1,95 @@
-import AddCircleFilled from './AddCircleFilled';
-import AddCircle from './AddCircle';
-import Add from './Add';
-import ArrowDown from './ArrowDown';
-import ArrowLeft from './ArrowLeft';
-import ArrowRight from './ArrowRight';
-import ArrowUp from './ArrowUp';
-import BellFilled from './BellFilled';
-import BellOffFilled from './BellOffFilled';
-import BellOffOutline from './BellOffOutline';
-import BellOutline from './BellOutline';
-import BookmarkFilled from './BookmarkFilled';
-import BookmarkOutline from './BookmarkOutline';
-import CartCheckFilled from './CartCheckFilled';
-import CartCheckOutline from './CartCheckOutline';
-import CartCrossFilled from './CartCrossFilled';
-import CartCrossOutline from './CartCrossOutline';
-import CartFilled from './CartFilled';
-import CartMinusFilled from './CartMinusFilled';
-import CartMinusOutline from './CartMinusOutline';
-import CartOutline from './CartOutline';
-import CartPlusFilled from './CartPlusFilled';
-import CartPlusOutline from './CartPlusOutline';
-import ChevronDown from './ChevronDown';
-import ChevronLeft from './ChevronLeft';
-import ChevronRight from './ChevronRight';
-import ChevronUp from './ChevronUp';
-import ClockCircleOutline from './ClockCircleOutline';
-import ClockSquareOutline from './ClockSquareOutline';
-import CloseCircleFilled from './CloseCircleFilled';
-import CloseCircleOutline from './CloseCircleOutline';
-import Close from './Close';
-import CommentBubbleFilled from './CommentBubbleFilled';
-import CommentBubbleOutline from './CommentBubbleOutline';
-import CommentFilled from './CommentFilled';
-import CommentLineFilled from './CommentLineFilled';
-import CommentLineOutline from './CommentLineOutline';
-import CommentOutline from './CommentOutline';
-import ContactDetailsFilled from './ContactDetailsFilled';
-import ContactDetailsOutline from './ContactDetailsOutline';
-import DetailsOutline from './DetailsOutline';
-import DotsHorizontalFilled from './DotsHorizontalFilled';
-import DotsHorizontalOutline from './DotsHorizontalOutline';
-import DotsVerticalFilled from './DotsVerticalFilled';
-import DotsVerticalOutline from './DotsVerticalOutline';
-import ExitArrowInOutline from './ExitArrowInOutline';
-import ExitArrowOutOutline from './ExitArrowOutOutline';
-import HamburgerMenu from './HamburgerMenu';
-import HamburgerSpaced from './HamburgerSpaced';
-import HeartFilled from './HeartFilled';
-import HeartOutline from './HeartOutline';
-import HomeFilled from './HomeFilled';
-import HomeOutline from './HomeOutline';
-import Link from './Link';
-import LockClosedFilled from './LockClosedFilled';
-import LockOpenFilled from './LockOpenFilled';
-import MinusCircleFilled from './MinusCircleFilled';
-import MinusCircle from './MinusCircle';
-import Minus from './Minus';
-import ProfileFemaleOutline from './ProfileFemaleOutline';
-import ProfileGroupFilled from './ProfileGroupFilled';
-import ProfileMaleFilled from './ProfileMaleFilled';
-import ProfileMaleOutline from './ProfileMaleOutline';
-import Search from './Search';
-import SettingFilled from './SettingFilled';
-import SettingOutline from './SettingOutline';
-import ShareAllFilled from './ShareAllFilled';
-import ShareAllOutline from './ShareAllOutline';
-import ShareBoxOutline from './ShareBoxOutline';
-import ShareFilled from './ShareFilled';
-import ShareOutline from './ShareOutline';
-import ShareThickFilled from './ShareThickFilled';
-import ShieldCheckFilled from './ShieldCheckFilled';
-import ShieldCheckOutline from './ShieldCheckOutline';
-import ShieldCrossFilled from './ShieldCrossFilled';
-import ShieldCrossOutline from './ShieldCrossOutline';
-import ShieldWarningFilled from './ShieldWarningFilled';
-import ShieldWarningOutline from './ShieldWarningOutline';
-import StarFilled from './StarFilled';
-import StarOutline from './StarOutline';
-import ThumbsDownFilled from './ThumbsDownFilled';
-import ThumbsDownOutline from './ThumbsDownOutline';
-import ThumbsUpFilled from './ThumbsUpFilled';
-import ThumbsUpOutline from './ThumbsUpOutline';
-import UploadBoxFilled from './UploadBoxFilled';
-import UploadBoxOutline from './UploadBoxOutline';
-import Upload from './Upload';
-import WalletFilled from './WalletFilled';
-import WalletOutline from './WalletOutline';
+import AddCircleFilled from './AddCircleFilled/AddCircleFilled.jsx';
+import AddCircle from './AddCircle/AddCircle.jsx';
+import Add from './Add/Add.jsx';
+import ArrowDown from './ArrowDown/ArrowDown.jsx';
+import ArrowLeft from './ArrowLeft/ArrowLeft.jsx';
+import ArrowRight from './ArrowRight/ArrowRight.jsx';
+import ArrowUp from './ArrowUp/ArrowUp.jsx';
+import BellFilled from './BellFilled/BellFilled.jsx';
+import BellOffFilled from './BellOffFilled/BellOffFilled.jsx';
+import BellOffOutline from './BellOffOutline/BellOffOutline.jsx';
+import BellOutline from './BellOutline/BellOutline.jsx';
+import BookmarkFilled from './BookmarkFilled/BookmarkFilled.jsx';
+import BookmarkOutline from './BookmarkOutline/BookmarkOutline.jsx';
+import CartCheckFilled from './CartCheckFilled/CartCheckFilled.jsx';
+import CartCheckOutline from './CartCheckOutline/CartCheckOutline.jsx';
+import CartCrossFilled from './CartCrossFilled/CartCrossFilled.jsx';
+import CartCrossOutline from './CartCrossOutline/CartCrossOutline.jsx';
+import CartFilled from './CartFilled/CartFilled.jsx';
+import CartMinusFilled from './CartMinusFilled/CartMinusFilled.jsx';
+import CartMinusOutline from './CartMinusOutline/CartMinusOutline.jsx';
+import CartOutline from './CartOutline/CartOutline.jsx';
+import CartPlusFilled from './CartPlusFilled/CartPlusFilled.jsx';
+import CartPlusOutline from './CartPlusOutline/CartPlusOutline.jsx';
+import ChevronDown from './ChevronDown/ChevronDown.jsx';
+import ChevronLeft from './ChevronLeft/ChevronLeft.jsx';
+import ChevronRight from './ChevronRight/ChevronRight.jsx';
+import ChevronUp from './ChevronUp/ChevronUp.jsx';
+import ClockCircleOutline from './ClockCircleOutline/ClockCircleOutline.jsx';
+import ClockSquareOutline from './ClockSquareOutline/ClockSquareOutline.jsx';
+import CloseCircleFilled from './CloseCircleFilled/CloseCircleFilled.jsx';
+import CloseCircleOutline from './CloseCircleOutline/CloseCircleOutline.jsx';
+import Close from './Close/Close.jsx';
+import CommentBubbleFilled from './CommentBubbleFilled/CommentBubbleFilled.jsx';
+import CommentBubbleOutline from './CommentBubbleOutline/CommentBubbleOutline.jsx';
+import CommentFilled from './CommentFilled/CommentFilled.jsx';
+import CommentLineFilled from './CommentLineFilled/CommentLineFilled.jsx';
+import CommentLineOutline from './CommentLineOutline/CommentLineOutline.jsx';
+import CommentOutline from './CommentOutline/CommentOutline.jsx';
+import ContactDetailsFilled from './ContactDetailsFilled/ContactDetailsFilled.jsx';
+import ContactDetailsOutline from './ContactDetailsOutline/ContactDetailsOutline.jsx';
+import DetailsOutline from './DetailsOutline/DetailsOutline.jsx';
+import DotsHorizontalFilled from './DotsHorizontalFilled/DotsHorizontalFilled.jsx';
+import DotsHorizontalOutline from './DotsHorizontalOutline/DotsHorizontalOutline.jsx';
+import DotsVerticalFilled from './DotsVerticalFilled/DotsVerticalFilled.jsx';
+import DotsVerticalOutline from './DotsVerticalOutline/DotsVerticalOutline.jsx';
+import ExitArrowInOutline from './ExitArrowInOutline/ExitArrowInOutline.jsx';
+import ExitArrowOutOutline from './ExitArrowOutOutline/ExitArrowOutOutline.jsx';
+import HamburgerMenu from './HamburgerMenu/HamburgerMenu.jsx';
+import HamburgerSpaced from './HamburgerSpaced/HamburgerSpaced.jsx';
+import HeartFilled from './HeartFilled/HeartFilled.jsx';
+import HeartOutline from './HeartOutline/HeartOutline.jsx';
+import HomeFilled from './HomeFilled/HomeFilled.jsx';
+import HomeOutline from './HomeOutline/HomeOutline.jsx';
+import Link from './Link/Link.jsx';
+import LockClosedFilled from './LockClosedFilled/LockClosedFilled.jsx';
+import LockOpenFilled from './LockOpenFilled/LockOpenFilled.jsx';
+import MinusCircleFilled from './MinusCircleFilled/MinusCircleFilled.jsx';
+import MinusCircle from './MinusCircle/MinusCircle.jsx';
+import Minus from './Minus/Minus.jsx';
+import MoneyBagOutline from './MoneyBagOutline/MoneyBagOutline.jsx';
+import MoneyBriefcaseFilled from './MoneyBriefcaseFilled/MoneyBriefcaseFilled.jsx';
+import MoneyBriefcaseOutline from './MoneyBriefcaseOutline/MoneyBriefcaseOutline.jsx';
+import ProfileFemaleOutline from './ProfileFemaleOutline/ProfileFemaleOutline.jsx';
+import ProfileGroupFilled from './ProfileGroupFilled/ProfileGroupFilled.jsx';
+import ProfileMaleFilled from './ProfileMaleFilled/ProfileMaleFilled.jsx';
+import ProfileMaleOutline from './ProfileMaleOutline/ProfileMaleOutline.jsx';
+import Search from './Search/Search.jsx';
+import SettingFilled from './SettingFilled/SettingFilled.jsx';
+import SettingOutline from './SettingOutline/SettingOutline.jsx';
+import ShareAllFilled from './ShareAllFilled/ShareAllFilled.jsx';
+import ShareAllOutline from './ShareAllOutline/ShareAllOutline.jsx';
+import ShareBoxOutline from './ShareBoxOutline/ShareBoxOutline.jsx';
+import ShareFilled from './ShareFilled/ShareFilled.jsx';
+import ShareOutline from './ShareOutline/ShareOutline.jsx';
+import ShareThickFilled from './ShareThickFilled/ShareThickFilled.jsx';
+import ShieldCheckFilled from './ShieldCheckFilled/ShieldCheckFilled.jsx';
+import ShieldCheckOutline from './ShieldCheckOutline/ShieldCheckOutline.jsx';
+import ShieldCrossFilled from './ShieldCrossFilled/ShieldCrossFilled.jsx';
+import ShieldCrossOutline from './ShieldCrossOutline/ShieldCrossOutline.jsx';
+import ShieldWarningFilled from './ShieldWarningFilled/ShieldWarningFilled.jsx';
+import ShieldWarningOutline from './ShieldWarningOutline/ShieldWarningOutline.jsx';
+import StarFilled from './StarFilled/StarFilled.jsx';
+import StarOutline from './StarOutline/StarOutline.jsx';
+import ThumbsDownFilled from './ThumbsDownFilled/ThumbsDownFilled.jsx';
+import ThumbsDownOutline from './ThumbsDownOutline/ThumbsDownOutline.jsx';
+import ThumbsUpFilled from './ThumbsUpFilled/ThumbsUpFilled.jsx';
+import ThumbsUpOutline from './ThumbsUpOutline/ThumbsUpOutline.jsx';
+import UploadBoxFilled from './UploadBoxFilled/UploadBoxFilled.jsx';
+import UploadBoxOutline from './UploadBoxOutline/UploadBoxOutline.jsx';
+import Upload from './Upload/Upload.jsx';
+import WalletFilled from './WalletFilled/WalletFilled.jsx';
+import WalletOutline from './WalletOutline/WalletOutline.jsx';
 
 export {
   AddCircleFilled,
@@ -148,6 +151,9 @@ export {
   MinusCircleFilled,
   MinusCircle,
   Minus,
+  MoneyBagOutline,
+  MoneyBriefcaseFilled,
+  MoneyBriefcaseOutline,
   ProfileFemaleOutline,
   ProfileGroupFilled,
   ProfileMaleFilled,
@@ -240,6 +246,9 @@ export default {
   MinusCircleFilled,
   MinusCircle,
   Minus,
+  MoneyBagOutline,
+  MoneyBriefcaseFilled,
+  MoneyBriefcaseOutline,
   ProfileFemaleOutline,
   ProfileGroupFilled,
   ProfileMaleFilled,

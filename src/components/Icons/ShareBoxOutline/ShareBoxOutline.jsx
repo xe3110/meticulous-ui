@@ -1,4 +1,6 @@
-const ShareBoxOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const ShareBoxOutline = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -14,4 +16,4 @@ const ShareBoxOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) =>
   </svg>
 );
 
-export default ShareBoxOutlineIcon;
+export default ShareBoxOutline;

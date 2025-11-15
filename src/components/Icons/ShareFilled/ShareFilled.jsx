@@ -1,4 +1,6 @@
-const ShareFilledIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const ShareFilled = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -20,4 +22,4 @@ const ShareFilledIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   </svg>
 );
 
-export default ShareFilledIcon;
+export default ShareFilled;

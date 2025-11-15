@@ -1,4 +1,6 @@
-const ChevronDownIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const ChevronDown = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -17,4 +19,4 @@ const ChevronDownIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   </svg>
 );
 
-export default ChevronDownIcon;
+export default ChevronDown;

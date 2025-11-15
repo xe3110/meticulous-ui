@@ -1,4 +1,6 @@
-const ShieldCrossFilledIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const ShieldCrossFilled = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -16,4 +18,4 @@ const ShieldCrossFilledIcon = ({ size = 24, color = 'currentColor', ...props }) 
   </svg>
 );
 
-export default ShieldCrossFilledIcon;
+export default ShieldCrossFilled;

@@ -1,4 +1,6 @@
-const CartMinusFilledIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const CartMinusFilled = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -24,4 +26,4 @@ const CartMinusFilledIcon = ({ size = 24, color = 'currentColor', ...props }) =>
   </svg>
 );
 
-export default CartMinusFilledIcon;
+export default CartMinusFilled;

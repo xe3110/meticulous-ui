@@ -1,4 +1,6 @@
-const CloseCircleFilledIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const CloseCircleFilled = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -16,4 +18,4 @@ const CloseCircleFilledIcon = ({ size = 24, color = 'currentColor', ...props }) 
   </svg>
 );
 
-export default CloseCircleFilledIcon;
+export default CloseCircleFilled;

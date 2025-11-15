@@ -1,4 +1,6 @@
-const AddCircleFilledIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const AddCircleFilled = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -16,4 +18,4 @@ const AddCircleFilledIcon = ({ size = 24, color = 'currentColor', ...props }) =>
   </svg>
 );
 
-export default AddCircleFilledIcon;
+export default AddCircleFilled;

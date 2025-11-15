@@ -1,4 +1,6 @@
-const CloseIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const Close = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -14,4 +16,4 @@ const CloseIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   </svg>
 );
 
-export default CloseIcon;
+export default Close;

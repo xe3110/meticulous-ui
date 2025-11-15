@@ -1,4 +1,6 @@
-const AddIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const Add = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -9,8 +11,8 @@ const AddIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   >
     <title />
 
-    <g id='Complete'>
-      <g data-name='add' id='add-2'>
+    <g>
+      <g data-name='add'>
         <g>
           <line
             fill='none'
@@ -41,4 +43,4 @@ const AddIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   </svg>
 );
 
-export default AddIcon;
+export default Add;

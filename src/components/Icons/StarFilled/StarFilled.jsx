@@ -1,4 +1,6 @@
-const StarFilledIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const StarFilled = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -19,4 +21,4 @@ const StarFilledIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   </svg>
 );
 
-export default StarFilledIcon;
+export default StarFilled;

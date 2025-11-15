@@ -1,4 +1,6 @@
-const UploadBoxOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const UploadBoxOutline = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -24,4 +26,4 @@ const UploadBoxOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) =
   </svg>
 );
 
-export default UploadBoxOutlineIcon;
+export default UploadBoxOutline;

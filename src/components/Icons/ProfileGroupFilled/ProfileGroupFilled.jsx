@@ -1,4 +1,6 @@
-const ProfileGroupFilledIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const ProfileGroupFilled = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -21,4 +23,4 @@ const ProfileGroupFilledIcon = ({ size = 24, color = 'currentColor', ...props })
   </svg>
 );
 
-export default ProfileGroupFilledIcon;
+export default ProfileGroupFilled;

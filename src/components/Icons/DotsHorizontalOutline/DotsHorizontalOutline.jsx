@@ -1,4 +1,6 @@
-const DotsHorizontalOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const DotsHorizontalOutline = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -31,4 +33,4 @@ const DotsHorizontalOutlineIcon = ({ size = 24, color = 'currentColor', ...props
   </svg>
 );
 
-export default DotsHorizontalOutlineIcon;
+export default DotsHorizontalOutline;

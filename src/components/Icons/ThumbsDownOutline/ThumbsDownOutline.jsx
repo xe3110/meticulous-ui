@@ -1,4 +1,6 @@
-const ThumbsDownOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const ThumbsDownOutline = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -14,4 +16,4 @@ const ThumbsDownOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) 
   </svg>
 );
 
-export default ThumbsDownOutlineIcon;
+export default ThumbsDownOutline;

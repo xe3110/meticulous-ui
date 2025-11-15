@@ -1,4 +1,6 @@
-const HeartOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const HeartOutline = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -19,4 +21,4 @@ const HeartOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   </svg>
 );
 
-export default HeartOutlineIcon;
+export default HeartOutline;

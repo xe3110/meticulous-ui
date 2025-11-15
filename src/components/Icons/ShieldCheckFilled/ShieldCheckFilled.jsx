@@ -1,4 +1,6 @@
-const ShieldCheckFilledIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const ShieldCheckFilled = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -16,4 +18,4 @@ const ShieldCheckFilledIcon = ({ size = 24, color = 'currentColor', ...props }) 
   </svg>
 );
 
-export default ShieldCheckFilledIcon;
+export default ShieldCheckFilled;

@@ -1,4 +1,6 @@
-const CartCrossFilledIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const CartCrossFilled = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -24,4 +26,4 @@ const CartCrossFilledIcon = ({ size = 24, color = 'currentColor', ...props }) =>
   </svg>
 );
 
-export default CartCrossFilledIcon;
+export default CartCrossFilled;

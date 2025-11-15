@@ -1,4 +1,6 @@
-const CartCrossOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const CartCrossOutline = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -30,4 +32,4 @@ const CartCrossOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) =
   </svg>
 );
 
-export default CartCrossOutlineIcon;
+export default CartCrossOutline;
