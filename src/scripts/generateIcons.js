@@ -55,6 +55,22 @@ function applyDynamicColor(svg) {
     .replace(/stroke="CURRENT_STROKE"/g, 'stroke={color}');
 }
 
+function convertAttributesToReact(svg, hasOutlined) {
+  let copied = svg
+    .replace(/fill-rule=/gi, 'fillRule=')
+    .replace(/clip-rule=/gi, 'clipRule=')
+    .replace(/stroke-width=/gi, 'strokeWidth=')
+    .replace(/stroke-linecap=/gi, 'strokeLinecap=')
+    .replace(/stroke-linejoin=/gi, 'strokeLinejoin=')
+    .replace(/stroke-miterlimit=/gi, 'strokeMiterlimit=');
+
+  if (hasOutlined) {
+    copied = copied.replace(/<path(?![^>]*\bfill=)/g, '<path fill={color}');
+  }
+
+  return copied;
+}
+
 // ---- MAIN ----
 function generateComponents() {
   setupDirectories();
@@ -64,6 +80,7 @@ function generateComponents() {
   files.forEach((file) => {
     const svgPath = path.join(INPUT_DIR, file);
     const name = toComponentName(file);
+    const hasOutlined = file.includes('outlined');
     const componentDir = path.join(ICON_COMPONENTS_DIR, name);
 
     generatedComponentNames.push(name);
@@ -72,7 +89,7 @@ function generateComponents() {
     const svgContent = fs.readFileSync(svgPath, 'utf8');
     const { viewBox, innerContent } = extractSvg(svgContent);
 
-    const finalSvg = applyDynamicColor(innerContent);
+    const finalSvg = convertAttributesToReact(applyDynamicColor(innerContent), hasOutlined);
 
     const componentCode = `
 import React from "react";

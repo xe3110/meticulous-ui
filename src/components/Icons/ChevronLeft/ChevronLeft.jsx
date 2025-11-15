@@ -12,9 +12,9 @@ const ChevronLeft = ({ size = 24, color = 'currentColor', ...props }) => (
     <path
       d='M15 6L9 12L15 18'
       stroke={color}
-      stroke-width='2'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );

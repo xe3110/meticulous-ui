@@ -12,9 +12,9 @@ const ArrowRight = ({ size = 24, color = 'currentColor', ...props }) => (
     <path
       d='M5 12H19M19 12L13 6M19 12L13 18'
       stroke={color}
-      stroke-width='2'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );

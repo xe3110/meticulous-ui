@@ -12,9 +12,9 @@ const Minus = ({ size = 24, color = 'currentColor', ...props }) => (
     <path
       d='M6 12L18 12'
       stroke={color}
-      stroke-width='2'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );

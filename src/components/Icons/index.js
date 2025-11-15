@@ -21,6 +21,7 @@ import CartMinusOutline from './CartMinusOutline/CartMinusOutline.jsx';
 import CartOutline from './CartOutline/CartOutline.jsx';
 import CartPlusFilled from './CartPlusFilled/CartPlusFilled.jsx';
 import CartPlusOutline from './CartPlusOutline/CartPlusOutline.jsx';
+import CheckDouble from './CheckDouble/CheckDouble.jsx';
 import Check from './Check/Check.jsx';
 import ChevronDown from './ChevronDown/ChevronDown.jsx';
 import ChevronLeft from './ChevronLeft/ChevronLeft.jsx';
@@ -54,8 +55,10 @@ import HomeFilled from './HomeFilled/HomeFilled.jsx';
 import HomeOutline from './HomeOutline/HomeOutline.jsx';
 import Info from './Info/Info.jsx';
 import Link from './Link/Link.jsx';
-import LockClosedFilled from './LockClosedFilled/LockClosedFilled.jsx';
-import LockOpenFilled from './LockOpenFilled/LockOpenFilled.jsx';
+import LockKeyholeOutline from './LockKeyholeOutline/LockKeyholeOutline.jsx';
+import LockKeyholeUnlockedOutline from './LockKeyholeUnlockedOutline/LockKeyholeUnlockedOutline.jsx';
+import LockKeyholeUnlocked from './LockKeyholeUnlocked/LockKeyholeUnlocked.jsx';
+import LockKeyhole from './LockKeyhole/LockKeyhole.jsx';
 import MinusCircleFilled from './MinusCircleFilled/MinusCircleFilled.jsx';
 import MinusCircle from './MinusCircle/MinusCircle.jsx';
 import Minus from './Minus/Minus.jsx';
@@ -66,6 +69,8 @@ import ProfileFemaleOutline from './ProfileFemaleOutline/ProfileFemaleOutline.js
 import ProfileGroupFilled from './ProfileGroupFilled/ProfileGroupFilled.jsx';
 import ProfileMaleFilled from './ProfileMaleFilled/ProfileMaleFilled.jsx';
 import ProfileMaleOutline from './ProfileMaleOutline/ProfileMaleOutline.jsx';
+import RupeeOutlined from './RupeeOutlined/RupeeOutlined.jsx';
+import RupeeSign from './RupeeSign/RupeeSign.jsx';
 import Search from './Search/Search.jsx';
 import SettingFilled from './SettingFilled/SettingFilled.jsx';
 import SettingOutline from './SettingOutline/SettingOutline.jsx';
@@ -117,6 +122,7 @@ export {
   CartOutline,
   CartPlusFilled,
   CartPlusOutline,
+  CheckDouble,
   Check,
   ChevronDown,
   ChevronLeft,
@@ -150,8 +156,10 @@ export {
   HomeOutline,
   Info,
   Link,
-  LockClosedFilled,
-  LockOpenFilled,
+  LockKeyholeOutline,
+  LockKeyholeUnlockedOutline,
+  LockKeyholeUnlocked,
+  LockKeyhole,
   MinusCircleFilled,
   MinusCircle,
   Minus,
@@ -162,6 +170,8 @@ export {
   ProfileGroupFilled,
   ProfileMaleFilled,
   ProfileMaleOutline,
+  RupeeOutlined,
+  RupeeSign,
   Search,
   SettingFilled,
   SettingOutline,
@@ -214,6 +224,7 @@ export default {
   CartOutline,
   CartPlusFilled,
   CartPlusOutline,
+  CheckDouble,
   Check,
   ChevronDown,
   ChevronLeft,
@@ -247,8 +258,10 @@ export default {
   HomeOutline,
   Info,
   Link,
-  LockClosedFilled,
-  LockOpenFilled,
+  LockKeyholeOutline,
+  LockKeyholeUnlockedOutline,
+  LockKeyholeUnlocked,
+  LockKeyhole,
   MinusCircleFilled,
   MinusCircle,
   Minus,
@@ -259,6 +272,8 @@ export default {
   ProfileGroupFilled,
   ProfileMaleFilled,
   ProfileMaleOutline,
+  RupeeOutlined,
+  RupeeSign,
   Search,
   SettingFilled,
   SettingOutline,
