@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import white from '../../colors/white';
 
@@ -6,33 +6,55 @@ import white from '../../colors/white';
 import Close from '../Icons/Close';
 import grey from '../../colors/grey';
 
+const slideIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(100%); /* Start off-screen to the right */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0); /* Move to its final position */
+  }
+`;
+
+/* Define the animation for exit */
+const slideOut = keyframes`
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%); /* Move off-screen to the right */
+  }
+`;
+
 export const ToastWrapper = styled.div`
   position: fixed;
   top: 1rem;
-  left: 2rem;
-  z-index: 100;
+  left: 50%;
+  z-index: 9999;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background-color: ${({ bg }) => bg};
   height: 4.8rem;
   width: 32rem;
   border-radius: 0.8rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 0.8rem 1.6rem;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
+  opacity: 0;
   transition: all 0.5s ease;
-  opacity: 1;
-  transform: translateX(0);
+  transform: translate(-50%, -20px); /* start slightly above */
 
-  .fade-out {
-    opacity: 0;
-    transform: translateX(100rem);
+  &.fade-in {
+    opacity: 1;
+    animation: ${slideIn} 0.5s ease-out forwards; /* slide down + fade */
   }
 
-  .fade-in {
-    opacity: 1;
-    transform: translateX(0);
+  &.fade-out {
+    opacity: 0;
+    animation: ${slideOut} 0.5s ease-in forwards; /* slide right */
   }
 `;
 
