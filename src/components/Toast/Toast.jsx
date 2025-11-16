@@ -1,5 +1,5 @@
 // Libraries
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import _get from 'lodash-es/get';
 import _noop from 'lodash-es/noop';
 
@@ -9,6 +9,9 @@ import { Logo } from './helpers';
 // constants
 import grey from '../../colors/grey';
 import { COLOR_MAP, WARNING, WARNING_COLORS } from './constants';
+
+// utils
+import hasEqualProps from '../../utils/hasEqualProps';
 
 // styles
 import { ToastWrapper, CloseWrapper, Title, Subtitle, Message } from './styles';
@@ -26,9 +29,14 @@ const Toast = ({
 
   const durationMilli = duration * 1000;
 
+  console.log({ show, fadeOut });
+
   const remove = () => {
-    setShow(false);
-    onExpire();
+    setFadeOut(true);
+    setTimeout(() => {
+      setShow(false);
+      onExpire();
+    }, 500);
   };
 
   useEffect(() => {
@@ -36,11 +44,9 @@ const Toast = ({
   }, [visible]);
 
   useEffect(() => {
-    const timer = setTimeout(() => setFadeOut(true), durationMilli - 500);
-    const removeTimer = setTimeout(remove, durationMilli);
+    const removeTimer = setTimeout(remove, durationMilli - 3000);
 
     return () => {
-      clearTimeout(timer);
       clearTimeout(removeTimer);
     };
   }, [durationMilli, remove]);
@@ -61,4 +67,4 @@ const Toast = ({
   }
 };
 
-export default Toast;
+export default memo(Toast, hasEqualProps);

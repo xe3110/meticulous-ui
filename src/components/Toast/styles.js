@@ -43,9 +43,7 @@ export const ToastWrapper = styled.div`
   border-radius: 0.8rem;
   padding: 0.4rem 1.6rem;
   box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
-  opacity: 0;
   transition: all 0.5s ease;
-  transform: translate(-50%, -20px); /* start slightly above */
 
   &.fade-in {
     opacity: 1;
