@@ -60,8 +60,8 @@ const ToastWrapper = () => {
       {warning && (
         <Toast
           type='warning'
-          title='Successful'
-          subtitle='Your order has been placed successfully'
+          title='Warning'
+          subtitle='Your session is about to expire'
           onExpire={removeWarning}
           duration={5000}
         />
@@ -69,8 +69,8 @@ const ToastWrapper = () => {
       {error && (
         <Toast
           type='error'
-          title='Warning'
-          subtitle='Your session is about to expire'
+          title='Error'
+          subtitle='Please login to continue'
           onExpire={removeError}
           duration={5000}
         />

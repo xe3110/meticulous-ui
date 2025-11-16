@@ -32,16 +32,16 @@ const slideOut = keyframes`
 export const ToastWrapper = styled.div`
   position: fixed;
   top: 1rem;
-  left: 50%;
+  right: 2rem;
   z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: ${({ bg }) => bg};
   height: 4.8rem;
-  width: 32rem;
+  width: 28rem;
   border-radius: 0.8rem;
-  padding: 0.8rem 1.6rem;
+  padding: 0.4rem 1.6rem;
   box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
   opacity: 0;
   transition: all 0.5s ease;
@@ -110,8 +110,8 @@ export const Title = styled.div`
 export const Message = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-  width: 24rem;
+  gap: 0.2rem;
+  width: 21rem;
 `;
 
 export const Subtitle = styled.div`
