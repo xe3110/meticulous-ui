@@ -38,7 +38,7 @@ export const ToastWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: ${({ bg }) => bg};
+  background-color: ${({ $bg }) => $bg};
   height: 4.8rem;
   width: 28rem;
   border-radius: 0.8rem;
@@ -64,11 +64,11 @@ export const LogoContainer = styled.div`
   transform: translate(-50%, -50%);
   background-color: ${white};
 
-  ${({ type, main }) =>
+  ${({ type, $main }) =>
     type === WARNING
       ? css`
           top: 48%;
-          border-color: ${main} ${main} ${white} ${main};
+          border-color: ${$main} ${$main} ${white} ${$main};
           border-style: solid;
           border-width: 0 0.9rem 1.4rem 0.9rem;
           height: 0;
@@ -87,7 +87,7 @@ export const Outer = styled.div`
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
-  background-color: ${({ side }) => side};
+  background-color: ${({ $side }) => $side};
 `;
 
 export const Icon = styled.div`
@@ -107,7 +107,7 @@ export const OuterChild = styled.div`
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background-color: ${({ main }) => main};
+  background-color: ${({ $main }) => $main};
 `;
 
 export const CloseWrapper = styled(Close)`

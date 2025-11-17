@@ -44,12 +44,12 @@ const Toast = ({
     };
   }, [duration, remove]);
 
-  const { main, side, bg } = _get(COLOR_MAP, type, INFO_COLORS);
+  const { main: $main, side: $side, bg } = _get(COLOR_MAP, type, INFO_COLORS);
 
   if (show) {
     return (
-      <ToastWrapper bg={bg} className={`${fadeOut ? 'fade-out' : 'fade-in'}`}>
-        <Logo {...{ type, main, side }} />
+      <ToastWrapper $bg={bg} className={`${fadeOut ? 'fade-out' : 'fade-in'}`}>
+        <Logo {...{ type, $main, $side }} />
         <Message>
           <Title>{title}</Title>
           {subtitle && <Subtitle>{subtitle}</Subtitle>}

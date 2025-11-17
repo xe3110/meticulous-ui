@@ -28,13 +28,13 @@ const getLogoContainerSize = (type) => {
   return 1.3;
 };
 
-export const Logo = ({ type, main, side }) => {
-  const logoImg = getLogoImage(type, main);
+export const Logo = ({ type, $main, $side }) => {
+  const logoImg = getLogoImage(type, $main);
 
   return (
-    <Outer {...{ side }}>
-      <OuterChild {...{ main }} />
-      <LogoContainer {...{ main, type }} />
+    <Outer {...{ $side }}>
+      <OuterChild {...{ $main }} />
+      <LogoContainer {...{ $main, type }} />
       <Icon size={getLogoContainerSize(type)}>{logoImg}</Icon>
     </Outer>
   );
