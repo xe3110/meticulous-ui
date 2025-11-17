@@ -38,19 +38,31 @@ const ToastWrapper = () => {
   const [toasts, setToasts] = useState([]);
 
   const popSuccess = () => {
-    setToasts((toasts) => [...toasts, SUCCESS]);
+    setToasts((toasts) => [
+      ...toasts,
+      { id: `${SUCCESS}-${Math.random().toString(16).slice(2)}`, type: SUCCESS },
+    ]);
   };
 
   const popError = () => {
-    setToasts((toasts) => [...toasts, ERROR]);
+    setToasts((toasts) => [
+      ...toasts,
+      { id: `${ERROR}-${Math.random().toString(16).slice(2)}`, type: ERROR },
+    ]);
   };
 
   const popWarning = () => {
-    setToasts((toasts) => [...toasts, WARNING]);
+    setToasts((toasts) => [
+      ...toasts,
+      { id: `${WARNING}-${Math.random().toString(16).slice(2)}`, type: WARNING },
+    ]);
   };
 
   const popInfo = () => {
-    setToasts((toasts) => [...toasts, INFO]);
+    setToasts((toasts) => [
+      ...toasts,
+      { id: `${INFO}-${Math.random().toString(16).slice(2)}`, type: INFO },
+    ]);
   };
 
   const onExpire = (i) => () => {
@@ -62,8 +74,8 @@ const ToastWrapper = () => {
     });
   };
 
-  const renderToasts = (type, i) => (
-    <Toast {...{ type }} key={`${i}-${type}`} {...TYPE_INFO_MAP[type]} onExpire={onExpire(i)} />
+  const renderToasts = ({ type, id }, i) => (
+    <Toast {...{ type }} key={id} {...TYPE_INFO_MAP[type]} onExpire={onExpire(i)} />
   );
 
   return (
