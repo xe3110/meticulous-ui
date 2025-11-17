@@ -31,10 +31,6 @@ const slideOut = keyframes`
 `;
 
 export const ToastWrapper = styled.div`
-  position: fixed;
-  top: 1rem;
-  right: 2rem;
-  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: space-between;

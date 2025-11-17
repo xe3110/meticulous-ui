@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-import Toast from '../src/components/Toast';
+import Toast, { ToastContainer } from '../src/components/Toast/Toast';
 import grey from '../src/colors/grey';
+import { ERROR, INFO, SUCCESS, WARNING } from '../src/components/Toast/constants';
 
 const P = styled.p`
   width: 100%;
@@ -14,86 +15,60 @@ const P = styled.p`
   color: ${grey.m600};
 `;
 
+const TYPE_INFO_MAP = {
+  [SUCCESS]: {
+    title: 'Successfull',
+    subtitle: 'You have logged in successfully',
+  },
+  [INFO]: {
+    title: 'Info',
+    subtitle: 'You will be logged out in 10 minutes',
+  },
+  [WARNING]: {
+    title: 'Attention',
+    subtitle: 'You will be logged out in 2 minutes',
+  },
+  [ERROR]: {
+    title: 'Error',
+    subtitle: 'Please check the password',
+  },
+};
+
 const ToastWrapper = () => {
-  const [success, showSuccess] = useState(false);
-  const [error, showError] = useState(false);
-  const [warning, showWarning] = useState(false);
-  const [info, showInfo] = useState(false);
-
-  const removeSuccess = () => {
-    showSuccess(false);
-  };
-
-  const removeError = () => {
-    showError(false);
-  };
-
-  const removeWarning = () => {
-    showWarning(false);
-  };
-
-  const removeInfo = () => {
-    showInfo(false);
-  };
+  const [toasts, setToasts] = useState([]);
 
   const popSuccess = () => {
-    showSuccess(true);
-    setTimeout(removeSuccess, 5000);
+    setToasts((toasts) => [...toasts, SUCCESS]);
   };
 
   const popError = () => {
-    showError(true);
-    setTimeout(removeError, 5000);
+    setToasts((toasts) => [...toasts, ERROR]);
   };
 
   const popWarning = () => {
-    showWarning(true);
-    setTimeout(removeWarning, 5000);
+    setToasts((toasts) => [...toasts, WARNING]);
   };
 
   const popInfo = () => {
-    showInfo(true);
-    setTimeout(removeInfo, 5000);
+    setToasts((toasts) => [...toasts, INFO]);
   };
+
+  const onExpire = (i) => () => {
+    setToasts((toasts) => {
+      const copy = [...toasts];
+      copy.splice(toasts.length - i - 1, 1);
+
+      return copy;
+    });
+  };
+
+  const renderToasts = (type, i) => (
+    <Toast {...{ type }} key={`${i}-${type}`} {...TYPE_INFO_MAP[type]} onExpire={onExpire(i)} />
+  );
 
   return (
     <div>
-      {success && (
-        <Toast
-          type='success'
-          title='Congratulations'
-          subtitle='You have successfully logged in'
-          onExpire={removeSuccess}
-          duration={5000}
-        />
-      )}
-      {warning && (
-        <Toast
-          type='warning'
-          title='Warning'
-          subtitle='Your session is about to expire'
-          onExpire={removeWarning}
-          duration={5000}
-        />
-      )}
-      {error && (
-        <Toast
-          type='error'
-          title='Error'
-          subtitle='Please login to continue'
-          onExpire={removeError}
-          duration={5000}
-        />
-      )}
-      {info && (
-        <Toast
-          type='info'
-          title='Info'
-          subtitle='You will be logged out in 10 minutes!'
-          onExpire={removeInfo}
-          duration={5000}
-        />
-      )}
+      <ToastContainer>{[...toasts].reverse().map(renderToasts)}</ToastContainer>
       <button onClick={popSuccess}>
         <P>Success</P>
       </button>

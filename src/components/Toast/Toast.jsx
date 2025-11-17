@@ -1,5 +1,6 @@
 // Libraries
 import { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import _get from 'lodash-es/get';
 import _noop from 'lodash-es/noop';
 
@@ -12,6 +13,17 @@ import { COLOR_MAP, INFO_COLORS, INFO } from './constants';
 
 // styles
 import { ToastWrapper, CloseWrapper, Title, Subtitle, Message } from './styles';
+
+export const ToastContainer = styled.div`
+  position: fixed;
+  top: 1rem;
+  right: 2rem;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
 
 const Toast = ({
   type = INFO,
@@ -37,7 +49,7 @@ const Toast = ({
   }, [visible]);
 
   useEffect(() => {
-    const removeTimer = setTimeout(remove, duration - 500);
+    const removeTimer = setTimeout(remove, duration * 1000 - 500);
 
     return () => {
       clearTimeout(removeTimer);
