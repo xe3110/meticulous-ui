@@ -1,5 +1,5 @@
 // Libraries
-import { memo, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import _get from 'lodash-es/get';
 import _noop from 'lodash-es/noop';
 
@@ -8,16 +8,13 @@ import { Logo } from './helpers';
 
 // constants
 import grey from '../../colors/grey';
-import { COLOR_MAP, WARNING, WARNING_COLORS } from './constants';
-
-// utils
-import hasEqualProps from '../../utils/hasEqualProps';
+import { COLOR_MAP, INFO_COLORS, INFO } from './constants';
 
 // styles
 import { ToastWrapper, CloseWrapper, Title, Subtitle, Message } from './styles';
 
 const Toast = ({
-  type = WARNING,
+  type = INFO,
   visible = true,
   duration = 5,
   onExpire = _noop,
@@ -26,10 +23,6 @@ const Toast = ({
 }) => {
   const [show, setShow] = useState(visible);
   const [fadeOut, setFadeOut] = useState(false);
-
-  const durationMilli = duration * 1000;
-
-  console.log({ show, fadeOut });
 
   const remove = () => {
     setFadeOut(true);
@@ -44,14 +37,14 @@ const Toast = ({
   }, [visible]);
 
   useEffect(() => {
-    const removeTimer = setTimeout(remove, durationMilli - 3000);
+    const removeTimer = setTimeout(remove, duration - 500);
 
     return () => {
       clearTimeout(removeTimer);
     };
-  }, [durationMilli, remove]);
+  }, [duration, remove]);
 
-  const { main, side, bg } = _get(COLOR_MAP, type, WARNING_COLORS);
+  const { main, side, bg } = _get(COLOR_MAP, type, INFO_COLORS);
 
   if (show) {
     return (
@@ -67,4 +60,4 @@ const Toast = ({
   }
 };
 
-export default memo(Toast, hasEqualProps);
+export default Toast;

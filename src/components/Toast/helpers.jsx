@@ -1,4 +1,4 @@
-import { ERROR, SUCCESS } from './constants';
+import { ERROR, SUCCESS, WARNING } from './constants';
 import Close from '../Icons/Close';
 import Check from '../Icons/Check';
 import Info from '../Icons/Info';
@@ -34,7 +34,7 @@ export const Logo = ({ type, main, side }) => {
   return (
     <Outer {...{ side }}>
       <OuterChild {...{ main }} />
-      <LogoContainer />
+      <LogoContainer {...{ main, type }} />
       <Icon size={getLogoContainerSize(type)}>{logoImg}</Icon>
     </Outer>
   );

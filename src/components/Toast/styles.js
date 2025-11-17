@@ -1,10 +1,11 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 import white from '../../colors/white';
 
 // Icons
 import Close from '../Icons/Close';
 import grey from '../../colors/grey';
+import { WARNING } from './constants';
 
 const slideIn = keyframes`
   from {
@@ -62,9 +63,23 @@ export const LogoContainer = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: ${white};
-  width: 1.8rem;
-  height: 1.8rem;
-  border-radius: 50%;
+
+  ${({ type, main }) =>
+    type === WARNING
+      ? css`
+          top: 48%;
+          border-color: ${main} ${main} ${white} ${main};
+          border-style: solid;
+          border-width: 0 0.9rem 1.4rem 0.9rem;
+          height: 0;
+          width: 0;
+        `
+      : css`
+          top: 50%;
+          width: 1.8rem;
+          height: 1.8rem;
+          border-radius: 50%;
+        `}
 `;
 
 export const Outer = styled.div`

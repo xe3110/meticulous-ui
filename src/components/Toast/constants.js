@@ -1,12 +1,14 @@
 import green from '../../colors/green';
-import blue from '../../colors/blue';
+import orange from '../../colors/orange';
 import red from '../../colors/red';
+import blue from '../../colors/blue';
 
 export const SUCCESS = 'success';
 export const WARNING = 'warning';
+export const INFO = 'info';
 export const ERROR = 'error';
 
-export const WARNING_COLORS = {
+export const INFO_COLORS = {
   main: blue.m500,
   side: blue.m100,
   bg: blue.m50,
@@ -18,7 +20,12 @@ export const COLOR_MAP = {
     side: green.m100,
     bg: green.m50,
   },
-  [WARNING]: WARNING_COLORS,
+  [WARNING]: {
+    main: orange.m500,
+    side: orange.m100,
+    bg: orange.m50,
+  },
+  [INFO]: INFO_COLORS,
   [ERROR]: {
     main: red.m500,
     side: red.m100,

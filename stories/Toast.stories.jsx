@@ -18,6 +18,7 @@ const ToastWrapper = () => {
   const [success, showSuccess] = useState(false);
   const [error, showError] = useState(false);
   const [warning, showWarning] = useState(false);
+  const [info, showInfo] = useState(false);
 
   const removeSuccess = () => {
     showSuccess(false);
@@ -29,6 +30,10 @@ const ToastWrapper = () => {
 
   const removeWarning = () => {
     showWarning(false);
+  };
+
+  const removeInfo = () => {
+    showInfo(false);
   };
 
   const popSuccess = () => {
@@ -44,6 +49,11 @@ const ToastWrapper = () => {
   const popWarning = () => {
     showWarning(true);
     setTimeout(removeWarning, 5000);
+  };
+
+  const popInfo = () => {
+    showInfo(true);
+    setTimeout(removeInfo, 5000);
   };
 
   return (
@@ -75,6 +85,15 @@ const ToastWrapper = () => {
           duration={5000}
         />
       )}
+      {info && (
+        <Toast
+          type='info'
+          title='Info'
+          subtitle='You will be logged out in 10 minutes!'
+          onExpire={removeInfo}
+          duration={5000}
+        />
+      )}
       <button onClick={popSuccess}>
         <P>Success</P>
       </button>
@@ -83,6 +102,9 @@ const ToastWrapper = () => {
       </button>
       <button onClick={popWarning}>
         <P>Warning</P>
+      </button>
+      <button onClick={popInfo}>
+        <P>Info</P>
       </button>
     </div>
   );
