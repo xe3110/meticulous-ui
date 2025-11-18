@@ -15,8 +15,31 @@ const P = styled.p`
   color: ${grey.m600};
 `;
 
+const TYPE_INFO_MAP = {
+  [SUCCESS]: {
+    title: 'Successfull',
+    subtitle: 'You have logged in successfully',
+  },
+  [INFO]: {
+    title: 'Info',
+    subtitle: 'You will be logged out in 10 minutes',
+  },
+  [WARNING]: {
+    title: 'Attention',
+    subtitle: 'You will be logged out in 2 minutes',
+  },
+  [ERROR]: {
+    title: 'Error',
+    subtitle: 'Please check the password',
+  },
+};
+
 const ToastWrapper = () => {
   const [toasts, setToasts] = useState([]);
+
+  const toastChangeHandler = (toasts) => {
+    setToasts(toasts);
+  };
 
   const popSuccess = () => {
     setToasts((toasts) => [
@@ -48,7 +71,14 @@ const ToastWrapper = () => {
 
   return (
     <div>
-      <ToastContainer toasts={toasts} />
+      <ToastContainer
+        toasts={toasts.map(({ id, type }) => ({
+          id,
+          type,
+          ...TYPE_INFO_MAP[type],
+        }))}
+        setToasts={toastChangeHandler}
+      />
       <button onClick={popSuccess}>
         <P>Success</P>
       </button>
@@ -81,7 +111,64 @@ export default {
 
 // Default story
 export const Default = () => {
-  return <ToastWrapper />;
+  const [toasts, setToasts] = useState([]);
+
+  const toastChangeHandler = (toasts) => {
+    setToasts(toasts);
+  };
+
+  const popSuccess = () => {
+    setToasts((toasts) => [
+      ...toasts,
+      { id: `${SUCCESS}-${Math.random().toString(16).slice(2)}`, type: SUCCESS },
+    ]);
+  };
+
+  const popError = () => {
+    setToasts((toasts) => [
+      ...toasts,
+      { id: `${ERROR}-${Math.random().toString(16).slice(2)}`, type: ERROR },
+    ]);
+  };
+
+  const popWarning = () => {
+    setToasts((toasts) => [
+      ...toasts,
+      { id: `${WARNING}-${Math.random().toString(16).slice(2)}`, type: WARNING },
+    ]);
+  };
+
+  const popInfo = () => {
+    setToasts((toasts) => [
+      ...toasts,
+      { id: `${INFO}-${Math.random().toString(16).slice(2)}`, type: INFO },
+    ]);
+  };
+
+  return (
+    <div>
+      <ToastContainer
+        toasts={toasts.map(({ id, type }) => ({
+          id,
+          type,
+          ...TYPE_INFO_MAP[type],
+        }))}
+        setToasts={toastChangeHandler}
+      />
+      <button onClick={popSuccess}>
+        <P>Success</P>
+      </button>
+      <button onClick={popError}>
+        <P>Error</P>
+      </button>
+      <button onClick={popWarning}>
+        <P>Warning</P>
+      </button>
+      <button onClick={popInfo}>
+        <P>Info</P>
+      </button>
+    </div>
+  );
 };
 
 Default.storyName = 'Toasts';

@@ -8,7 +8,7 @@ import { Logo } from './helpers';
 
 // constants
 import grey from '../../colors/grey';
-import { COLOR_MAP, INFO_COLORS, INFO, TYPE_INFO_MAP } from './constants';
+import { COLOR_MAP, INFO_COLORS, INFO } from './constants';
 
 // styles
 import { ToastWrapper, CloseWrapper, Title, Subtitle, Message, ToastsContainer } from './styles';
@@ -20,23 +20,14 @@ export const ToastContainer = ({ toasts }) => {
     setAllToasts(toasts);
   }, [toasts]);
 
-  const onExpire = (i) => () => {
-    setAllToasts((toasts) => {
-      const copy = [...toasts];
-      copy.splice(i, 1);
-
-      return copy;
-    });
-  };
-
-  const renderToasts = ({ type, id }, i) => (
-    <Toast {...{ type }} key={id} {...TYPE_INFO_MAP[type]} onExpire={onExpire(i)} />
+  const renderToasts = ({ type, id, title, subtitle, onExpire = _noop }, i) => (
+    <Toast {...{ type, title, subtitle }} key={id} onExpire={onExpire} />
   );
 
   return <ToastsContainer>{[...allToasts].reverse().map(renderToasts)}</ToastsContainer>;
 };
 
-const remove = (setFadeOut, setShow, onExpire) => {
+const remove = (setFadeOut, setShow, onExpire) => () => {
   setFadeOut(true);
   setTimeout(() => {
     setShow(false);
@@ -60,10 +51,7 @@ const Toast = ({
   }, [visible]);
 
   useEffect(() => {
-    const removeTimer = setTimeout(
-      () => remove(setFadeOut, setShow, onExpire),
-      duration * 1000 - 500
-    );
+    const removeTimer = setTimeout(remove(setFadeOut, setShow, onExpire), duration * 1000 - 500);
 
     return () => {
       clearTimeout(removeTimer);
@@ -80,7 +68,7 @@ const Toast = ({
           <Title>{title}</Title>
           {subtitle && <Subtitle>{subtitle}</Subtitle>}
         </Message>
-        <CloseWrapper size={20} color={grey.m600} onClick={remove} />
+        <CloseWrapper size={20} color={grey.m600} onClick={remove(setFadeOut, setShow, onExpire)} />
       </ToastWrapper>
     );
   }
