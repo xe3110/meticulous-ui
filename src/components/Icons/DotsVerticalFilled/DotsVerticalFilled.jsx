@@ -1,4 +1,6 @@
-const DotsVerticalFilledIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const DotsVerticalFilled = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -22,4 +24,4 @@ const DotsVerticalFilledIcon = ({ size = 24, color = 'currentColor', ...props })
   </svg>
 );
 
-export default DotsVerticalFilledIcon;
+export default DotsVerticalFilled;

@@ -1,4 +1,6 @@
-const UploadIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const Upload = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -18,4 +20,4 @@ const UploadIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   </svg>
 );
 
-export default UploadIcon;
+export default Upload;

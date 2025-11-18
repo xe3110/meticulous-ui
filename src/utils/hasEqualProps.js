@@ -1,6 +1,6 @@
 import _omitBy from 'lodash-es/omitBy';
 import _isFunction from 'lodash-es/isFunction';
-import _isEqual from 'react-fast-compare';
+import _isEqual from 'lodash-es/isEqual';
 
 const hasEqualProps = (oldProps, newProps) =>
   _isEqual(_omitBy(oldProps, _isFunction), _omitBy(newProps, _isFunction));

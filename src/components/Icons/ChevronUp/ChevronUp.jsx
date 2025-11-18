@@ -1,4 +1,6 @@
-const ChevronUpIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const ChevronUp = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -10,11 +12,11 @@ const ChevronUpIcon = ({ size = 24, color = 'currentColor', ...props }) => (
     <path
       d='M6 15L12 9L18 15'
       stroke={color}
-      stroke-width='2'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 
-export default ChevronUpIcon;
+export default ChevronUp;

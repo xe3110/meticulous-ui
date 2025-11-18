@@ -1,4 +1,6 @@
-const ThumbsUpFilledIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const ThumbsUpFilled = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -14,4 +16,4 @@ const ThumbsUpFilledIcon = ({ size = 24, color = 'currentColor', ...props }) => 
   </svg>
 );
 
-export default ThumbsUpFilledIcon;
+export default ThumbsUpFilled;

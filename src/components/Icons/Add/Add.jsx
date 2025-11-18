@@ -1,4 +1,6 @@
-const AddIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const Add = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -9,15 +11,15 @@ const AddIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   >
     <title />
 
-    <g id='Complete'>
-      <g data-name='add' id='add-2'>
+    <g>
+      <g data-name='add'>
         <g>
           <line
             fill='none'
             stroke={color}
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            stroke-width='2'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            strokeWidth='2'
             x1='12'
             x2='12'
             y1='19'
@@ -27,9 +29,9 @@ const AddIcon = ({ size = 24, color = 'currentColor', ...props }) => (
           <line
             fill='none'
             stroke={color}
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            stroke-width='2'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            strokeWidth='2'
             x1='5'
             x2='19'
             y1='12'
@@ -41,4 +43,4 @@ const AddIcon = ({ size = 24, color = 'currentColor', ...props }) => (
   </svg>
 );
 
-export default AddIcon;
+export default Add;

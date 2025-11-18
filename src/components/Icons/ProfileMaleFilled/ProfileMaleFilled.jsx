@@ -1,4 +1,6 @@
-const ProfileMaleFilledIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const ProfileMaleFilled = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -21,4 +23,4 @@ const ProfileMaleFilledIcon = ({ size = 24, color = 'currentColor', ...props }) 
   </svg>
 );
 
-export default ProfileMaleFilledIcon;
+export default ProfileMaleFilled;

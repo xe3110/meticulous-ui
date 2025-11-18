@@ -1,4 +1,6 @@
-const ClockCircleOutlineIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const ClockCircleOutline = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -7,15 +9,15 @@ const ClockCircleOutlineIcon = ({ size = 24, color = 'currentColor', ...props })
     xmlns='http://www.w3.org/2000/svg'
     {...props}
   >
-    <circle cx='12' cy='12' r='10' stroke={color} stroke-width='1.5' />
+    <circle cx='12' cy='12' r='10' stroke={color} strokeWidth='1.5' />
     <path
       d='M12 8V12L14.5 14.5'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 
-export default ClockCircleOutlineIcon;
+export default ClockCircleOutline;

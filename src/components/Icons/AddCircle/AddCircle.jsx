@@ -1,4 +1,6 @@
-const AddCircleIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const AddCircle = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -12,12 +14,12 @@ const AddCircleIcon = ({ size = 24, color = 'currentColor', ...props }) => (
       fill={color}
     />
     <path
-      fill-rule='evenodd'
-      clip-rule='evenodd'
+      fillRule='evenodd'
+      clipRule='evenodd'
       d='M23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12ZM3.00683 12C3.00683 16.9668 7.03321 20.9932 12 20.9932C16.9668 20.9932 20.9932 16.9668 20.9932 12C20.9932 7.03321 16.9668 3.00683 12 3.00683C7.03321 3.00683 3.00683 7.03321 3.00683 12Z'
       fill={color}
     />
   </svg>
 );
 
-export default AddCircleIcon;
+export default AddCircle;

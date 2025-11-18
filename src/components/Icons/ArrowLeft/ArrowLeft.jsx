@@ -1,4 +1,6 @@
-const ArrowLeftIcon = ({ size = 24, color = 'currentColor', ...props }) => (
+import React from 'react';
+
+const ArrowLeft = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
     height={size}
@@ -10,11 +12,11 @@ const ArrowLeftIcon = ({ size = 24, color = 'currentColor', ...props }) => (
     <path
       d='M5 12H19M5 12L11 6M5 12L11 18'
       stroke={color}
-      stroke-width='2'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 
-export default ArrowLeftIcon;
+export default ArrowLeft;

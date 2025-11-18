@@ -1,62 +1,100 @@
-/**
- * generate-icons.js
- *
- * Converts all SVG files in ./svg into React components inside ./src/components/Icons,
- * each inside its own folder with a component file and folder index.js.
- * Main index.js exports all icons with named exports and default export.
- *
- * Usage: node scripts/generate-icons.js
- */
-
 import fs from 'fs';
 import path from 'path';
 
-const ROOT_SVG_DIR = path.resolve('svg');
-const OUT_DIR = path.resolve('src/components/Icons');
-const MAIN_INDEX = path.join(OUT_DIR, 'index.js');
+// ---- CONFIG ----
+const INPUT_DIR = './svg';
+const ROOT_OUTPUT_DIR = './src/components';
+const ICON_COMPONENTS_DIR = path.join(ROOT_OUTPUT_DIR, 'Icons');
+const generatedComponentNames = [];
 
-fs.mkdirSync(OUT_DIR, { recursive: true });
+// ---- Ensure folder exists ----
+function setupDirectories() {
+  if (!fs.existsSync(ICON_COMPONENTS_DIR)) {
+    fs.mkdirSync(ICON_COMPONENTS_DIR, { recursive: true });
+  }
+}
 
-// helper: file name → PascalCase
-const toPascalCase = (str) =>
-  str
-    .replace(/[-_](.)/g, (_, c) => c.toUpperCase())
-    .replace(/^(.)/, (c) => c.toUpperCase())
-    .replace(/\.svg$/i, '');
+// Convert "arrow-left.svg" → "ArrowLeft"
+function toComponentName(filename) {
+  const base = path.basename(filename, '.svg');
+  return base
+    .split(/[^a-zA-Z0-9]/)
+    .map((p) => p.charAt(0).toUpperCase() + p.slice(1))
+    .join('');
+}
 
-// read all SVG files
-const svgFiles = fs.readdirSync(ROOT_SVG_DIR).filter((f) => f.endsWith('.svg'));
-
-for (const file of svgFiles) {
-  const name = toPascalCase(file);
-  const componentName = `${name}Icon`;
-
-  const svgContent = fs.readFileSync(path.join(ROOT_SVG_DIR, file), 'utf8');
-
-  // Extract original viewBox
-  const viewBoxMatch = svgContent.match(/viewBox="([^"]+)"/);
+// ---- Extract + clean SVG ----
+function extractSvg(svgContent) {
+  const viewBoxMatch = svgContent.match(/viewBox=["']([^"']*)["']/i);
   const viewBox = viewBoxMatch ? viewBoxMatch[1] : '0 0 24 24';
 
-  // Clean inner SVG
-  let innerSvg = svgContent
-    .replace(/<\?xml[^>]*>/g, '')
-    .replace(/<!DOCTYPE[^>]*>/g, '')
-    .replace(/<!--.*?-->/gs, '')
-    .replace(/<svg[^>]*>/, '')
-    .replace(/<\/svg>/, '')
-    .replace(/<path(?=\w)/g, '<path ')
-    .replace(/\b(fill|stroke)="(?!none)([^"]*)"/g, '$1={color}')
-    .replace(/\b(fill|stroke)='(?!none)([^']*)'/g, '$1={color}')
-    .trim();
+  let svg = svgContent;
 
-  // each icon in its own folder
-  const iconDir = path.join(OUT_DIR, name);
-  fs.mkdirSync(iconDir, { recursive: true });
+  // Remove width/height
+  svg = svg.replace(/\s(width|height)=["'][^"']*["']/gi, '');
 
-  // component file
-  const componentFile = path.join(iconDir, `${name}.jsx`);
-  const component = `
-const ${componentName} = ({ size = 24, color = 'currentColor', ...props }) => (
+  // Remove style + id + class
+  svg = svg.replace(/\s(class|id)=["'][^"']*["']/gi, '');
+  svg = svg.replace(/<style[\s\S]*?<\/style>/gi, '');
+
+  // ---- REMOVE ONLY REAL COLORS, KEEP "none" ----
+  svg = svg.replace(/\sfill=["'](?!none)([^"']*)["']/gi, ' fill="CURRENT_FILL"');
+  svg = svg.replace(/\sstroke=["'](?!none)([^"']*)["']/gi, ' stroke="CURRENT_STROKE"');
+
+  // Get inner content
+  const innerMatch = svg.match(/<svg[^>]*>([\s\S]*)<\/svg>/i);
+  const innerContent = innerMatch ? innerMatch[1].trim() : '';
+
+  return { viewBox, innerContent };
+}
+
+// ---- Replace placeholders with props ----
+function applyDynamicColor(svg) {
+  return svg
+    .replace(/fill="CURRENT_FILL"/g, 'fill={color}')
+    .replace(/stroke="CURRENT_STROKE"/g, 'stroke={color}');
+}
+
+function convertAttributesToReact(svg, hasOutlined) {
+  let copied = svg
+    .replace(/fill-rule=/gi, 'fillRule=')
+    .replace(/clip-rule=/gi, 'clipRule=')
+    .replace(/stroke-width=/gi, 'strokeWidth=')
+    .replace(/stroke-linecap=/gi, 'strokeLinecap=')
+    .replace(/stroke-linejoin=/gi, 'strokeLinejoin=')
+    .replace(/stroke-miterlimit=/gi, 'strokeMiterlimit=');
+
+  if (hasOutlined) {
+    copied = copied.replace(/<path(?![^>]*\bfill=)/g, '<path fill={color}');
+  }
+
+  return copied;
+}
+
+// ---- MAIN ----
+function generateComponents() {
+  setupDirectories();
+
+  const files = fs.readdirSync(INPUT_DIR).filter((f) => f.endsWith('.svg'));
+
+  files.forEach((file) => {
+    const svgPath = path.join(INPUT_DIR, file);
+    const name = toComponentName(file);
+    const hasOutlined = file.includes('outlined');
+    const componentDir = path.join(ICON_COMPONENTS_DIR, name);
+
+    generatedComponentNames.push(name);
+    if (!fs.existsSync(componentDir)) fs.mkdirSync(componentDir);
+
+    const svgContent = fs.readFileSync(svgPath, 'utf8');
+    const { viewBox, innerContent } = extractSvg(svgContent);
+
+    const finalSvg = convertAttributesToReact(applyDynamicColor(innerContent), hasOutlined);
+
+    const componentCode = `
+import React from "react";
+
+const ${name} = ({ size = 24, color = "currentColor", ...props }) => (
   <svg
     width={size}
     height={size}
@@ -65,43 +103,43 @@ const ${componentName} = ({ size = 24, color = 'currentColor', ...props }) => (
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    ${innerSvg}
+    ${finalSvg}
   </svg>
 );
 
-export default ${componentName};
+export default ${name};
 `;
-  fs.writeFileSync(componentFile, component, 'utf8');
 
-  // folder index.js
-  const folderIndexFile = path.join(iconDir, 'index.js');
-  const folderIndexContent = `import ${name} from './${name}.jsx';\n\n\nexport default ${name};`;
-  fs.writeFileSync(folderIndexFile, folderIndexContent, 'utf8');
-}
+    fs.writeFileSync(path.join(componentDir, `${name}.jsx`), componentCode);
 
-// --- Generate main index.js with named exports + default export ---
+    fs.writeFileSync(
+      path.join(componentDir, 'index.js'),
+      `import ${name} from './${name}.jsx';\nexport default ${name};\n`
+    );
+  });
 
-let mainIndexImports = [];
-let mainIndexExports = [];
+  // Root index file
+  const imports = generatedComponentNames
+    .map((n) => `import ${n} from './${n}/${n}.jsx';`)
+    .join('\n');
 
-for (const file of svgFiles) {
-  const name = toPascalCase(file); // e.g., ArrowUp
-  mainIndexImports.push(`import ${name} from './${name}';`);
-  mainIndexExports.push(`  ${name},`);
-}
+  const exportsBlock = generatedComponentNames.map((n) => `  ${n},`).join('\n');
 
-const mainIndexContent = `${mainIndexImports.join('\n')}
+  const indexFile = `
+${imports}
 
 export {
-${mainIndexExports.join('\n')}
+${exportsBlock}
 };
 
 export default {
-${mainIndexExports.join('\n')}
+${exportsBlock}
 };
 `;
 
-fs.writeFileSync(MAIN_INDEX, mainIndexContent, 'utf8');
+  fs.writeFileSync(path.join(ICON_COMPONENTS_DIR, 'index.js'), indexFile);
 
-console.log(`✅ Generated main index.js with ${svgFiles.length} icons and default export`);
-console.log(`✅ Generated ${svgFiles.length} icons in ${OUT_DIR}`);
+  console.log(`✅ Generated ${generatedComponentNames.length} icons`);
+}
+
+generateComponents();
