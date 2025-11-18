@@ -148,7 +148,7 @@ export const Default = () => {
   };
 
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
       <ToastContainer
         toasts={toasts.map(({ id, type }) => ({
           id,
@@ -157,16 +157,16 @@ export const Default = () => {
         }))}
         setToasts={toastChangeHandler}
       />
-      <button onClick={popSuccess}>
+      <button style={{ width: '8rem', height: '2.4rem' }} onClick={popSuccess}>
         <P>Success</P>
       </button>
-      <button onClick={popError}>
+      <button style={{ width: '8rem', height: '2.4rem' }} onClick={popError}>
         <P>Error</P>
       </button>
-      <button onClick={popWarning}>
+      <button style={{ width: '8rem', height: '2.4rem' }} onClick={popWarning}>
         <P>Warning</P>
       </button>
-      <button onClick={popInfo}>
+      <button style={{ width: '8rem', height: '2.4rem' }} onClick={popInfo}>
         <P>Info</P>
       </button>
     </div>
