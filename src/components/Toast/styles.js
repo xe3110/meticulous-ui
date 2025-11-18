@@ -30,6 +30,17 @@ const slideOut = keyframes`
   }
 `;
 
+export const ToastsContainer = styled.div`
+  position: fixed;
+  top: 1rem;
+  right: 2rem;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
 export const ToastWrapper = styled.div`
   display: flex;
   align-items: center;

@@ -1,6 +1,5 @@
 // Libraries
 import { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import _get from 'lodash-es/get';
 import _noop from 'lodash-es/noop';
 
@@ -9,21 +8,41 @@ import { Logo } from './helpers';
 
 // constants
 import grey from '../../colors/grey';
-import { COLOR_MAP, INFO_COLORS, INFO } from './constants';
+import { COLOR_MAP, INFO_COLORS, INFO, TYPE_INFO_MAP } from './constants';
 
 // styles
-import { ToastWrapper, CloseWrapper, Title, Subtitle, Message } from './styles';
+import { ToastWrapper, CloseWrapper, Title, Subtitle, Message, ToastsContainer } from './styles';
 
-export const ToastContainer = styled.div`
-  position: fixed;
-  top: 1rem;
-  right: 2rem;
-  z-index: 9999;
+export const ToastContainer = ({ toasts }) => {
+  const [allToasts, setAllToasts] = useState(toasts);
 
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-`;
+  useEffect(() => {
+    setAllToasts(toasts);
+  }, [toasts]);
+
+  const onExpire = (i) => () => {
+    setAllToasts((toasts) => {
+      const copy = [...toasts];
+      copy.splice(i, 1);
+
+      return copy;
+    });
+  };
+
+  const renderToasts = ({ type, id }, i) => (
+    <Toast {...{ type }} key={id} {...TYPE_INFO_MAP[type]} onExpire={onExpire(i)} />
+  );
+
+  return <ToastsContainer>{[...allToasts].reverse().map(renderToasts)}</ToastsContainer>;
+};
+
+const remove = (setFadeOut, setShow, onExpire) => {
+  setFadeOut(true);
+  setTimeout(() => {
+    setShow(false);
+    onExpire();
+  }, 500);
+};
 
 const Toast = ({
   type = INFO,
@@ -36,20 +55,15 @@ const Toast = ({
   const [show, setShow] = useState(visible);
   const [fadeOut, setFadeOut] = useState(false);
 
-  const remove = () => {
-    setFadeOut(true);
-    setTimeout(() => {
-      setShow(false);
-      onExpire();
-    }, 500);
-  };
-
   useEffect(() => {
     setShow(visible);
   }, [visible]);
 
   useEffect(() => {
-    const removeTimer = setTimeout(remove, duration * 1000 - 500);
+    const removeTimer = setTimeout(
+      () => remove(setFadeOut, setShow, onExpire),
+      duration * 1000 - 500
+    );
 
     return () => {
       clearTimeout(removeTimer);

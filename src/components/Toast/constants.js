@@ -32,3 +32,22 @@ export const COLOR_MAP = {
     bg: red.m50,
   },
 };
+
+export const TYPE_INFO_MAP = {
+  [SUCCESS]: {
+    title: 'Successfull',
+    subtitle: 'You have logged in successfully',
+  },
+  [INFO]: {
+    title: 'Info',
+    subtitle: 'You will be logged out in 10 minutes',
+  },
+  [WARNING]: {
+    title: 'Attention',
+    subtitle: 'You will be logged out in 2 minutes',
+  },
+  [ERROR]: {
+    title: 'Error',
+    subtitle: 'Please check the password',
+  },
+};
