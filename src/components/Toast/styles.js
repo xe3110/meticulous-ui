@@ -33,7 +33,7 @@ const slideOut = keyframes`
 export const ToastsContainer = styled.div`
   position: fixed;
   top: 1rem;
-  right: 2rem;
+  right: 1rem;
   z-index: 9999;
 
   display: flex;
@@ -62,6 +62,13 @@ export const ToastWrapper = styled.div`
     opacity: 0;
     animation: ${slideOut} 0.5s ease-in forwards; /* slide right */
   }
+
+  @media screen and (max-width: 768px) {
+    height: 3.6rem;
+    width: 21rem;
+    border-radius: 0.6rem;
+    padding: 0.3rem 0.8rem;
+  }
 `;
 
 export const LogoContainer = styled.div`
@@ -87,6 +94,25 @@ export const LogoContainer = styled.div`
           height: 1.8rem;
           border-radius: 50%;
         `}
+
+  @media screen and (max-width: 768px) {
+    ${({ type, $main }) =>
+      type === WARNING
+        ? css`
+            top: 48%;
+            border-color: ${$main} ${$main} ${white} ${$main};
+            border-style: solid;
+            border-width: 0 0.7rem 1.05rem 0.68rem;
+            height: 0;
+            width: 0;
+          `
+        : css`
+            top: 50%;
+            width: 1.35rem;
+            height: 1.35rem;
+            border-radius: 50%;
+          `}
+  }
 `;
 
 export const Outer = styled.div`
@@ -95,6 +121,11 @@ export const Outer = styled.div`
   height: 4rem;
   border-radius: 50%;
   background-color: ${({ $side }) => $side};
+
+  @media screen and (max-width: 768px) {
+    width: 3rem;
+    height: 3rem;
+  }
 `;
 
 export const Icon = styled.div`
@@ -104,6 +135,13 @@ export const Icon = styled.div`
   transform: translate(-50%, -50%);
   width: ${({ size }) => size}rem;
   height: ${({ size }) => size}rem;
+
+  @media screen and (max-width: 768px) {
+    top: 42.8%;
+    left: 42.8%;
+    transform: translate(-42.8%, -42.8%);
+    scale: 0.75;
+  }
 `;
 
 export const OuterChild = styled.div`
@@ -115,6 +153,11 @@ export const OuterChild = styled.div`
   height: 3rem;
   border-radius: 50%;
   background-color: ${({ $main }) => $main};
+
+  @media screen and (max-width: 768px) {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
 `;
 
 export const CloseWrapper = styled(Close)`
@@ -132,6 +175,10 @@ export const Message = styled.div`
   flex-direction: column;
   gap: 0.2rem;
   width: 21rem;
+
+  @media screen and (max-width: 768px) {
+    width: 15rem;
+  }
 `;
 
 export const Subtitle = styled.div`

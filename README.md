@@ -4,6 +4,10 @@ A lightweight, modern React component library designed for elegance and precisio
 
 ---
 
+## 🚀 Demo
+
+<a href="https://meticulous-ui-dkim-xe3110s-projects.vercel.app" target="_blank">meticulous-ui</a>
+
 ## 🚀 Installation
 
 ```
@@ -41,10 +45,6 @@ function App() {
 export default App;
 ```
 
-## 🚀 Demo
-
-<a href="https://meticulous-ui-dkim-xe3110s-projects.vercel.app" target="_blank">meticulous-ui</a>
-
 ## 📦 Components
 
 | Component    | Description                             |
@@ -79,6 +79,7 @@ export default App;
 | `CartOutline`                | Cart outline icon                   |
 | `CartPlusFilled`             | Cart plus filled icon               |
 | `CartPlusOutline`            | Cart plus outline icon              |
+| `CheckDouble`                | Check double icon                   |
 | `Check`                      | Check icon                          |
 | `ChevronLeft`                | Left navigation icon                |
 | `ChevronRight`               | Right navigation icon               |
@@ -136,6 +137,7 @@ export default App;
 | `ShareBoxOutline`            | Share box outline icon              |
 | `ShareFilled`                | Share filled icon                   |
 | `ShareOutline`               | Share outline icon                  |
+| `ShareThickFilled`           | Share thick filled icon             |
 | `ShieldCheckFilled`          | Shield check filled icon            |
 | `ShieldCheckOutline`         | Shield check outline icon           |
 | `ShieldCrossFilled`          | Shield cross filled icon            |

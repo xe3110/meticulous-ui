@@ -153,7 +153,7 @@ export const Default = () => {
         toasts={toasts.map(({ id, type }) => ({
           id,
           type,
-          ...TYPE_INFO_MAP[type],
+          ...TYPE_INFO_MAP[type], // title, subtitle
         }))}
         setToasts={toastChangeHandler}
       />
