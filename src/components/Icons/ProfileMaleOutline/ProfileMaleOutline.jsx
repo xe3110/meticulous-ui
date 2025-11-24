@@ -1,5 +1,3 @@
-import React from 'react';
-
 const ProfileMaleOutline = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
