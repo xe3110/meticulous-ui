@@ -1,5 +1,3 @@
-import React from 'react';
-
 const ProfileGroupFilled = ({ size = 24, color = 'currentColor', ...props }) => (
   <svg
     width={size}
