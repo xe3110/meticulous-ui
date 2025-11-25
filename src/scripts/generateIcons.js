@@ -30,6 +30,9 @@ function extractSvg(svgContent) {
 
   let svg = svgContent;
 
+  // ---- REMOVE ALL COMMENTS ----
+  svg = svg.replace(/<!--[\s\S]*?-->/g, '');
+
   // Remove width/height
   svg = svg.replace(/\s(width|height)=["'][^"']*["']/gi, '');
 
@@ -55,7 +58,28 @@ function applyDynamicColor(svg) {
     .replace(/stroke="CURRENT_STROKE"/g, 'stroke={color}');
 }
 
-const KEYWORDS = ['truck', 'email'];
+const KEYWORDS = [
+  'truck',
+  'email',
+  'discord-conversation',
+  'discord-filled',
+  'facebook-filled',
+  'facebook-round-filled',
+  'full-screen-arrow',
+  'instagram',
+  'linkedin-filled',
+  'linkedin-round-filled',
+  'loading',
+  'no-entry',
+  'reddit-round-filled',
+  'reddit-round-outline',
+  'telegram-filled',
+  'telegram-round-filled',
+  'tiktok-box',
+  'tiktok-thick-filled',
+  'warning-triangle-filled',
+  'youtube',
+];
 
 function convertAttributesToReact(svg, file) {
   const hasOutlined = file.includes('outlined');
@@ -70,7 +94,9 @@ function convertAttributesToReact(svg, file) {
     .replace(/stroke-miterlimit=/gi, 'strokeMiterlimit=');
 
   if (hasOutlined || hasKeyword) {
-    copied = copied.replace(/<path(?![^>]*\bfill=)/g, '<path fill={color}');
+    copied = copied
+      .replace(/<path(?![^>]*\bfill=)/g, '<path fill={color}')
+      .replace(/<polygon(?![^>]*\bfill=)/g, '<polygon fill={color}');
   }
 
   return copied;

@@ -1,0 +1,23 @@
+const PinSubOutline = ({ size = 24, color = 'currentColor', ...props }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox='-3 0 20 20'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+    {...props}
+  >
+    <title>pin_sharp_minus [#626]</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
+      <g transform='translate(-143.000000, -5439.000000)' fill={color}>
+        <g transform='translate(56.000000, 160.000000)'>
+          <path d='M99,5286 C99,5283.243 96.757,5281 94,5281 C91.243,5281 89,5283.243 89,5286 C89,5289 94,5296 94,5296 C94,5296 99,5289 99,5286 M101,5286 C101,5289.866 94,5299 94,5299 C94,5299 87,5289.866 87,5286 C87,5282.134 90.134,5279 94,5279 C97.866,5279 101,5282.134 101,5286 M97,5286 C97,5286.552 96.552,5287 96,5287 L92,5287 C91.448,5287 91,5286.552 91,5286 C91,5285.448 91.448,5285 92,5285 L96,5285 C96.552,5285 97,5285.448 97,5286'></path>
+        </g>
+      </g>
+    </g>
+  </svg>
+);
+
+export default PinSubOutline;

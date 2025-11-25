@@ -1,0 +1,18 @@
+const NoEntry = ({ size = 24, color = 'currentColor', ...props }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox='0 0 16 16'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+    {...props}
+  >
+    <path
+      fill={color}
+      d='M11.477 3.11a6 6 0 0 0-8.367 8.367l8.367-8.368zm1.414 1.413l-8.368 8.368a6 6 0 0 0 8.367-8.367zM8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0z'
+      fillRule='evenodd'
+    />
+  </svg>
+);
+
+export default NoEntry;
