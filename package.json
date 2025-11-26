@@ -1,6 +1,6 @@
 {
   "name": "meticulous-ui",
-  "version": "1.2.2",
+  "version": "1.2.4",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "repository": {
@@ -32,6 +32,9 @@
     "icons",
     "components",
     "pagination",
+    "toasts",
+    "notification",
+    "otp",
     "colors",
     "shades",
     "utils",
