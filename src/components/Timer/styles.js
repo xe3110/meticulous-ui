@@ -1,5 +1,10 @@
 import styled, { css } from 'styled-components';
 
+import Add from '../../components/Icons/Add';
+import MediaStopFilled from '../../components/Icons/MediaStopFilled';
+import MediaPauseFilled from '../../components/Icons/MediaPauseFilled';
+import MediaPlayFilled from '../../components/Icons/MediaPlayFilled';
+
 import white from '../../colors/white';
 import black from '../../colors/black';
 import red from '../../colors/red';
@@ -105,10 +110,65 @@ export const AlarmRing = styled.div`
   top: 14%;
 `;
 
-export const AddBtn = styled.div`
+export const LeftActions = styled.div`
   position: absolute;
-  bottom: 12%;
-  right: 10%;
+  bottom: 6%;
+  left: 8%;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  ${({ $noActions }) =>
+    $noActions &&
+    css`
+      pointer-events: none;
+      opacity: 0.5;
+    `}
+`;
+
+export const RightActions = styled.div`
+  position: absolute;
+  bottom: 6%;
+  right: 8%;
+  border-radius: 0.4rem;
+`;
+
+export const ActionBtn = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  height: 2.4rem;
+  width: 2.4rem;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.4);
+`;
+
+export const AddWrapper = styled(Add)`
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+export const MediaStopFilledWrapper = styled(MediaStopFilled)`
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+export const MediaPauseFilledWrapper = styled(MediaPauseFilled)`
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+export const MediaPlayFilledWrapper = styled(MediaPlayFilled)`
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 export const Bullet = styled.div`

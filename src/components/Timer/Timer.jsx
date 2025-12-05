@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 
 import Glass from '../Glass';
+import TimerRing from './components/TimerRing/TimerRing';
+
+import white from '../../colors/white';
+
 import {
   Wrapper,
   Dimmer,
@@ -12,11 +16,16 @@ import {
   MinuteHand,
   SecondHand,
   AlarmRing,
-  AddBtn,
+  RightActions,
   Bullet,
   BulletRing,
+  AddWrapper,
+  ActionBtn,
+  LeftActions,
+  MediaPauseFilledWrapper,
+  MediaStopFilledWrapper,
+  MediaPlayFilledWrapper,
 } from './styles';
-import TimerRing from './components/TimerRing/TimerRing';
 
 const Timer = ({
   color = 'green',
@@ -24,17 +33,36 @@ const Timer = ({
   showTimeWithSec = true,
   timeZone = 'Asia/Kolkata',
   isDigital = true,
-  timerSec,
 }) => {
   const [time, setTime] = useState(new Date());
+  const [timerSec, setTimerSec] = useState(0);
+  const [isPaused, setPaused] = useState(false);
+
+  const setTimer = () => {
+    setTimerSec(61);
+    setPaused(false);
+  };
+
+  const removeTimer = () => {
+    setTimerSec(0);
+  };
+
+  const pauseTimer = () => {
+    setPaused(true);
+  };
+
+  const playTimer = () => {
+    setPaused(false);
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
       setTime(new Date());
+      !isPaused && setTimerSec((timerSec) => timerSec - 1);
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isPaused]);
 
   const date = time.toLocaleString('en-Us', { hour12: true, timeZone });
   const currentTime = date.split(', ')[1];
@@ -42,6 +70,7 @@ const Timer = ({
   const amPm = currentTime.split(' ')[1];
   const withoutSec = currentTime.split(':').slice(0, 2).join(':');
   const currTimeArr = currentTimeWithoutAmPm.split(':');
+  const hasNoTimer = !(Number.isInteger(timerSec) && timerSec > 0);
 
   return (
     <Wrapper $color={color}>
@@ -68,7 +97,7 @@ const Timer = ({
           <Dots key={i} style={{ rotate: `${i * 6}deg` }} />
         ))}
       </AllDots>
-      {Number.isInteger(timerSec) && timerSec > 0 && (
+      {!hasNoTimer && (
         <>
           <AlarmRing>
             <TimerRing progress={timerSec >= 60 ? 1 : (timerSec % 60) / 60} />
@@ -78,6 +107,25 @@ const Timer = ({
           </BulletRing>
         </>
       )}
+      <LeftActions $noActions={hasNoTimer}>
+        <ActionBtn onClick={removeTimer}>
+          <MediaStopFilledWrapper color={white} size={14} />
+        </ActionBtn>
+        {hasNoTimer || !isPaused ? (
+          <ActionBtn onClick={pauseTimer}>
+            <MediaPauseFilledWrapper color={white} size={14} />
+          </ActionBtn>
+        ) : (
+          <ActionBtn onClick={playTimer}>
+            <MediaPlayFilledWrapper color={white} size={14} />
+          </ActionBtn>
+        )}
+      </LeftActions>
+      <RightActions>
+        <ActionBtn title='Add timer in seconds' onClick={setTimer}>
+          <AddWrapper color={white} size={20} />
+        </ActionBtn>
+      </RightActions>
     </Wrapper>
   );
 };
