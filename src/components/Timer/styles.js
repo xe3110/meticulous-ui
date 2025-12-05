@@ -1,0 +1,129 @@
+import styled, { css } from 'styled-components';
+
+import white from '../../colors/white';
+import black from '../../colors/black';
+import red from '../../colors/red';
+
+import { COLOR_MAPPING } from './constants';
+
+const getColor = ({ $color }) => COLOR_MAPPING[$color];
+
+const HAND_CSS = css`
+  position: absolute;
+  bottom: 50%;
+  transform-origin: bottom;
+  border-radius: 4px;
+`;
+
+export const Wrapper = styled.div`
+  position: relative;
+  height: 20rem;
+  width: 20rem;
+  border-radius: 1.2rem;
+  background-color: ${getColor};
+`;
+
+export const Dimmer = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  width: 12rem;
+  height: 12rem;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.16);
+  pointer-events: none;
+`;
+
+export const Time = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  transform: translate(-50%, -50%);
+`;
+
+export const TimeTxt = styled.div`
+  color: ${white};
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  opacity: 0.8;
+`;
+
+export const Dots = styled.span`
+  position: absolute;
+  width: 2.4px;
+  height: 2.4px;
+  background: rgba(255, 255, 255, 0.4);
+  transform-origin: 94px;
+  border-radius: 2px;
+
+  &:nth-child(5n) {
+    width: 3px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.7);
+  }
+
+  &:nth-child(15n) {
+    width: 6px;
+    height: 2px;
+    background: rgba(255, 255, 255);
+  }
+`;
+
+export const AllDots = styled.div`
+  position: absolute;
+  left: 21%;
+  top: 44.3%;
+  transform: translate(-50%, -50%) rotate(6.7deg);
+`;
+
+export const HourHand = styled.div`
+  ${HAND_CSS};
+  width: 6px;
+  height: 60px;
+  background: ${white};
+`;
+
+export const MinuteHand = styled.div`
+  ${HAND_CSS};
+  width: 4px;
+  height: 80px;
+  background: ${black.m200};
+`;
+
+export const SecondHand = styled.div`
+  ${HAND_CSS};
+  width: 2px;
+  height: 90px;
+  background: ${red.m800};
+`;
+
+export const AlarmRing = styled.div`
+  position: absolute;
+  left: 16%;
+  top: 14%;
+`;
+
+export const AddBtn = styled.div`
+  position: absolute;
+  bottom: 12%;
+  right: 10%;
+`;
+
+export const Bullet = styled.div`
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: ${white};
+`;
+
+export const BulletRing = styled.div`
+  position: absolute;
+  left: 26%;
+  top: 24%;
+  rotate: ${({ $angle }) => 45 + $angle}deg;
+  height: 157.5px;
+  width: 157.5px;
+  transform-origin: center;
+`;

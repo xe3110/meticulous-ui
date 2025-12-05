@@ -5,7 +5,7 @@ const OtpInputWrapper = () => {
     console.log(v);
   };
 
-  return <OtpInput  onComplete={onChange} onChange={onChange} />;
+  return <OtpInput onComplete={onChange} onChange={onChange} />;
 };
 
 export default {
