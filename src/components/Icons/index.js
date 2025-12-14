@@ -75,6 +75,8 @@ import EmailFilled from './EmailFilled/EmailFilled.jsx';
 import EmailOutline from './EmailOutline/EmailOutline.jsx';
 import ExitArrowInOutline from './ExitArrowInOutline/ExitArrowInOutline.jsx';
 import ExitArrowOutOutline from './ExitArrowOutOutline/ExitArrowOutOutline.jsx';
+import ExitFullScreenThick from './ExitFullScreenThick/ExitFullScreenThick.jsx';
+import ExitFullScreen from './ExitFullScreen/ExitFullScreen.jsx';
 import EyeClosed from './EyeClosed/EyeClosed.jsx';
 import EyeFilled from './EyeFilled/EyeFilled.jsx';
 import EyeOutline from './EyeOutline/EyeOutline.jsx';
@@ -88,6 +90,7 @@ import FilterThickOutline from './FilterThickOutline/FilterThickOutline.jsx';
 import Filter from './Filter/Filter.jsx';
 import FullScreenArrowThick from './FullScreenArrowThick/FullScreenArrowThick.jsx';
 import FullScreenArrowThin from './FullScreenArrowThin/FullScreenArrowThin.jsx';
+import FullScreenExit from './FullScreenExit/FullScreenExit.jsx';
 import FullScreenFilled from './FullScreenFilled/FullScreenFilled.jsx';
 import FullScreenOutline from './FullScreenOutline/FullScreenOutline.jsx';
 import HamburgerMenu from './HamburgerMenu/HamburgerMenu.jsx';
@@ -319,6 +322,8 @@ export {
   EmailOutline,
   ExitArrowInOutline,
   ExitArrowOutOutline,
+  ExitFullScreenThick,
+  ExitFullScreen,
   EyeClosed,
   EyeFilled,
   EyeOutline,
@@ -332,6 +337,7 @@ export {
   Filter,
   FullScreenArrowThick,
   FullScreenArrowThin,
+  FullScreenExit,
   FullScreenFilled,
   FullScreenOutline,
   HamburgerMenu,
@@ -564,6 +570,8 @@ export default {
   EmailOutline,
   ExitArrowInOutline,
   ExitArrowOutOutline,
+  ExitFullScreenThick,
+  ExitFullScreen,
   EyeClosed,
   EyeFilled,
   EyeOutline,
@@ -577,6 +585,7 @@ export default {
   Filter,
   FullScreenArrowThick,
   FullScreenArrowThin,
+  FullScreenExit,
   FullScreenFilled,
   FullScreenOutline,
   HamburgerMenu,

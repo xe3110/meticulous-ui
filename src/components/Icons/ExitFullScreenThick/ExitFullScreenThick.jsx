@@ -1,0 +1,18 @@
+const ExitFullScreenThick = ({ size = 24, color = 'currentColor', ...props }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox='0 0 1920 1920'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+    {...props}
+  >
+    <path
+      fill={color}
+      d='M884.311 1035.689v696.318H675.186v-339.162L147.926 1920 0 1772.074l527.26-527.155H187.889v-209.23H884.31ZM1772.116 0l147.926 147.926-527.155 527.155h339.162v209.335h-696.423V187.889h209.335v339.266L1772.116 0Z'
+      fillRule='evenodd'
+    />
+  </svg>
+);
+
+export default ExitFullScreenThick;

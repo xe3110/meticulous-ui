@@ -66,6 +66,7 @@ const KEYWORDS = [
   'facebook-filled',
   'facebook-round-filled',
   'full-screen-arrow',
+  'exit-full-screen',
   'instagram',
   'linkedin-filled',
   'linkedin-round-filled',
