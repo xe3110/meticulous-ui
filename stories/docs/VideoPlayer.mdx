@@ -1,0 +1,15 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+
+import * as VideoPlayerStories from '../VideoPlayer.stories.jsx';
+
+<Meta title='components/VideoPlayer' of={VideoPlayerStories} />
+
+# VideoPlayer
+
+A VideoPlayer is used to play any video with full controls, can be imported as `meticulous-ui/components/VideoPlayer`
+
+<Canvas>
+  <Story name='VideoPlayer'>
+    <Story of={VideoPlayerStories.Default} />
+  </Story>
+</Canvas>

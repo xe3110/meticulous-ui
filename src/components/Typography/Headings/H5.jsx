@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const H5Wrapper = styled.h5`
-  color: ${({$color}) => $color};
+  color: ${({ $color }) => $color};
   font-size: 1.4rem;
 `;
 
