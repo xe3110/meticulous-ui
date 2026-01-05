@@ -38,6 +38,12 @@ export const Default = () => {
   //   return (
   //     <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
   //       <Timer
+  //         color='green'
+  //         showTime={true}
+  //         showTimeWithSec={true}
+  //         timeZone='Asia/Kolkata'
+  //         isDigital={true}
+  //         timerSeconds={61}
   //         onTimerComplete={() => alert('complete')}
   //         onTimerRemove={() => alert('remove')}
   //         onTimerPause={() => alert('pause')}
