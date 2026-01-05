@@ -4,13 +4,14 @@ const TimerWrapper = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
       <Timer
+        timerSeconds={61}
         onTimerComplete={() => alert('complete')}
         onTimerRemove={() => alert('remove')}
         onTimerPause={() => alert('pause')}
         onTimerPlay={() => alert('play')}
         onTimerAdd={() => alert('timer added')}
       />
-      <Timer isDigital={false} color='blue' timerSec={32} />
+      <Timer isDigital={false} color='blue' timerSeconds={32} />
     </div>
   );
 };

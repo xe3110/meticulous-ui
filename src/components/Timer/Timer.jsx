@@ -34,6 +34,7 @@ const Timer = ({
   showTimeWithSec = true,
   timeZone = 'Asia/Kolkata',
   isDigital = true,
+  timerSeconds = 0,
   onTimerAdd = _noop,
   onTimerComplete = _noop,
   onTimerRemove = _noop,
@@ -45,7 +46,7 @@ const Timer = ({
   const [isPaused, setPaused] = useState(false);
 
   const setTimer = () => {
-    setTimerSec(61);
+    setTimerSec(timerSeconds);
     setPaused(false);
     onTimerAdd();
   };
