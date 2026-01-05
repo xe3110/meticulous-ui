@@ -3,7 +3,13 @@ import Timer from '../src/components/Timer/Timer';
 const TimerWrapper = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-      <Timer />
+      <Timer
+        onTimerComplete={() => alert('complete')}
+        onTimerRemove={() => alert('remove')}
+        onTimerPause={() => alert('pause')}
+        onTimerPlay={() => alert('play')}
+        onTimerAdd={() => alert('timer added')}
+      />
       <Timer isDigital={false} color='blue' timerSec={32} />
     </div>
   );
@@ -25,11 +31,22 @@ export default {
 
 // Default story
 export const Default = () => {
-  // import Timer from 'meticulous-ui/components/Timer';
+  // import Timer from '../src/components/Timer/Timer';
 
-  // return (
-  //   <Timer />
-  // )
+  // const TimerWrapper = () => {
+  //   return (
+  //     <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+  //       <Timer
+  //         onTimerComplete={() => alert('complete')}
+  //         onTimerRemove={() => alert('remove')}
+  //         onTimerPause={() => alert('pause')}
+  //         onTimerPlay={() => alert('play')}
+  //         onTimerAdd={() => alert('timer added')}
+  //       />
+  //       <Timer isDigital={false} color='blue' timerSec={32} />
+  //     </div>
+  //   );
+  // };
 
   return <TimerWrapper />;
 };

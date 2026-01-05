@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import _noop from 'lodash-es/noop';
 
 import Glass from '../Glass';
 import TimerRing from './components/TimerRing/TimerRing';
@@ -33,6 +34,11 @@ const Timer = ({
   showTimeWithSec = true,
   timeZone = 'Asia/Kolkata',
   isDigital = true,
+  onTimerAdd = _noop,
+  onTimerComplete = _noop,
+  onTimerRemove = _noop,
+  onTimerPause = _noop,
+  onTimerPlay = _noop,
 }) => {
   const [time, setTime] = useState(new Date());
   const [timerSec, setTimerSec] = useState(0);
@@ -41,24 +47,35 @@ const Timer = ({
   const setTimer = () => {
     setTimerSec(61);
     setPaused(false);
+    onTimerAdd();
   };
 
   const removeTimer = () => {
     setTimerSec(0);
+    onTimerRemove();
   };
 
   const pauseTimer = () => {
     setPaused(true);
+    onTimerPause();
   };
 
   const playTimer = () => {
     setPaused(false);
+    onTimerPlay();
   };
 
   useEffect(() => {
     const interval = setInterval(() => {
       setTime(new Date());
-      !isPaused && setTimerSec((timerSec) => timerSec - 1);
+      !isPaused &&
+        setTimerSec((timerSec) => {
+          if (timerSec - 1 === 0) {
+            onTimerComplete();
+          }
+
+          return timerSec - 1;
+        });
     }, 1000);
 
     return () => clearInterval(interval);
