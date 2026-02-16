@@ -2,7 +2,7 @@ import VideoPlayer from '../src/components/VideoPlayer/VideoPlayer';
 
 const VideoPlayerWrapper = () => {
   return (
-    <VideoPlayer link='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4' />
+    <VideoPlayer link='https://videos.pexels.com/video-files/35450385/15019071_2560_1440_25fps.mp4' />
   );
 };
 
@@ -26,7 +26,7 @@ export const Default = () => {
 
   // const VideoPlayerWrapper = () => {
   //   return (
-  //     <VideoPlayer link='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4' />
+  //     <VideoPlayer link='https://videos.pexels.com/video-files/35450385/15019071_2560_1440_25fps.mp4' />
   //   );
   // };
 
