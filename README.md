@@ -54,6 +54,7 @@ export default App;
 | `Timer`       | Renders analog / digital clock with alarm |
 | `OtpInput`    | Gives inputs to enter and edit OTP        |
 | `VideoPlayer` | Renders video with keyboard shortcuts     |
+| `Input`       | Renders input box to let user enter input |
 
 ## 📦 Icon Components
 
