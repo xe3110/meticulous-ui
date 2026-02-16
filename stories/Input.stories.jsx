@@ -12,7 +12,7 @@ export default {
       source: {
         language: 'jsx',
         code: `
-          import Input from 'meticulous-ui/components/Input';
+          import Input from 'meticulous-ui/components/Input/Input';
 
           function ExampleInput() {
             const [val, setVal] = useState('');

@@ -15,7 +15,6 @@ const Input = ({
   helperText = '',
   ...params
 }) => {
-  console.log({ hasError });
   const [$isFocused, setIsFocused] = useState(false);
   const $shade = getColor(color);
 
