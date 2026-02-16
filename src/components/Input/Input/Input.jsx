@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { InputBox, Wrapper, Label } from './styles';
+import { InputBox, Wrapper, Label, HelperText } from './styles';
 import { getColor } from './helpers';
 
 const Input = ({
@@ -8,10 +8,14 @@ const Input = ({
   value,
   type,
   hasError,
+  name = 'input',
   color = 'blue',
   size = '20',
   disableAutoComplete,
+  helperText = '',
+  ...params
 }) => {
+  console.log({ hasError });
   const [$isFocused, setIsFocused] = useState(false);
   const $shade = getColor(color);
 
@@ -25,14 +29,15 @@ const Input = ({
   return (
     <Wrapper>
       <InputBox
-        {...{ type, hasError, size, value, $isFocused, $shade }}
+        {...{ type, name, hasError, size, value, $isFocused, $shade }}
         onFocus={handleFocus}
         onBlur={handleBlur}
-        name='name'
         onChange={handleChange}
         autoComplete={disableAutoComplete ? 'off' : 'on'}
+        {...params}
       />
-      {label && <Label {...{ $isFocused, $shade, value }}>{label}</Label>}
+      {label && <Label {...{ hasError, $isFocused, $shade, value }}>{label}</Label>}
+      {helperText && <HelperText {...{ hasError, $isFocused, $shade }}>{helperText}</HelperText>}
     </Wrapper>
   );
 };
