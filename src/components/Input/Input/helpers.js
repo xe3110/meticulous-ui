@@ -28,12 +28,12 @@ const COLOR_SHADE_MAP = {
 
 export const getColor = (clr) => _get(COLOR_SHADE_MAP, clr, grey.m500);
 
-export const getCssShade = ({ hasError, $shade, $isFocused, value }) => {
+export const getCssShade = ({ hasError, $shade, $isFocused, value, onlyPh }) => {
   if (hasError) {
     return typeof value === 'string' && !value && !$isFocused ? grey.m500 : red.m400;
   }
 
-  if ($isFocused) {
+  if ($isFocused && !onlyPh) {
     return $shade;
   }
 

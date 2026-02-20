@@ -53,7 +53,12 @@ export default {
     helperText: {
       control: { type: 'text' },
       description: 'Shows beneath the input box, can be an error statement as well.',
-      defaultValue: false,
+      defaultValue: '',
+    },
+    background: {
+      control: { type: 'text' },
+      description: 'Defines background color of Label',
+      defaultValue: 'white',
     },
     disabled: {
       control: { type: 'boolean' },
@@ -68,6 +73,11 @@ export default {
     hasError: {
       control: { type: 'boolean' },
       description: 'Boolean prop, if true then error on input is visible',
+      defaultValue: false,
+    },
+    autoFocus: {
+      control: { type: 'boolean' },
+      description: 'Boolean prop, if true then auto focuses on input',
       defaultValue: false,
     },
   },
@@ -258,6 +268,63 @@ export const ErrorState = {
           onChange={onChange1}
           helperText={`Max. ${MAX_CHARS_LIMIT} characters allowed`}
           hasError={val1.length > MAX_CHARS_LIMIT}
+        />
+      </div>
+    );
+  },
+};
+
+export const AutoFocus = {
+  name: 'Auto Focus',
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => {
+    const MAX_CHARS_LIMIT = 10;
+    const [val1, setVal1] = useState('');
+
+    const onChange1 = (v) => {
+      setVal1(v.target.value);
+    };
+
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        <Input
+          label='Auto Focus'
+          value={val1}
+          color='blue'
+          size='30'
+          onChange={onChange1}
+          autoFocus
+        />
+      </div>
+    );
+  },
+};
+
+export const WithoutLabel = {
+  name: 'Without Label',
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => {
+    const [val1, setVal1] = useState('');
+
+    const onChange1 = (v) => {
+      setVal1(v.target.value);
+    };
+
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        <Input
+          placeholder='With helper text'
+          value={val1}
+          color='blue'
+          size='30'
+          onChange={onChange1}
+          autoFocus
         />
       </div>
     );

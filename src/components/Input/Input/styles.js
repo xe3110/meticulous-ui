@@ -24,6 +24,14 @@ export const InputBox = styled.input`
     transition: background-color 9999s ease-in-out 0s;
   }
 
+  &::placeholder {
+    color: ${grey.m500};
+    font-weight: 300;
+    font-size: 1.4rem;
+    background-color: ${({ background }) => background};
+    pointer-events: none;
+  }
+
   &:focus {
     border: 2px solid
       ${({ $shade, hasError }) => getCssShade({ $shade, hasError, $isFocused: true })};
@@ -47,18 +55,20 @@ export const Label = styled.div`
   top: -0.4rem;
   left: 0.5rem;
   font-size: 0.8rem;
-  background-color: white;
-  padding: 0 0.4rem;
+  background-color: ${({ background }) => background};
+  margin: 0 0.4rem;
   transition: 0.25s;
   font-weight: 400;
   pointer-events: none;
   color: ${getCssShade};
 
-  ${({ $isFocused, value }) =>
-    $isFocused || value
+  ${({ $isFocused, value, onlyPh }) =>
+    !onlyPh && ($isFocused || value)
       ? css`
           top: -0.4rem;
           left: 0.5rem;
+          padding: 0 0.4rem;
+          margin: 0;
         `
       : css`
           top: 0.8rem;
