@@ -10,6 +10,7 @@ import violet from '../../../colors/violet';
 import teal from '../../../colors/teal';
 import purple from '../../../colors/purple';
 import pink from '../../../colors/pink';
+import allIcons from '../../Icons';
 
 const COLOR_SHADE_MAP = {
   blue: blue.m500,
@@ -38,4 +39,22 @@ export const getCssShade = ({ hasError, $shade, $isFocused, value, onlyPh }) => 
   }
 
   return grey.m500;
+};
+
+export const getIcon = (icon) => _get(allIcons, icon, null);
+
+export const getPadding = ({ hasLeftIcon, hasRightIcon }) => {
+  if (hasLeftIcon && hasRightIcon) {
+    return '0 2.4rem';
+  }
+
+  if (hasLeftIcon) {
+    return '0 0.6rem 0 2.4rem';
+  }
+
+  if (hasRightIcon) {
+    return '0 2.4rem 0 0.6rem';
+  }
+
+  return '0 0.6rem';
 };

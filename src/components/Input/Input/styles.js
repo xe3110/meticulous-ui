@@ -2,14 +2,14 @@ import styled, { css } from 'styled-components';
 import black from '../../../colors/black';
 import grey from '../../../colors/grey';
 import red from '../../../colors/red';
-import { getCssShade } from './helpers';
+import { getCssShade, getPadding } from './helpers';
 
 export const InputBox = styled.input`
   height: 3rem;
   border-radius: 0.4rem;
   font-size: 1.4rem;
   border: 2px solid ${({ hasError }) => (hasError ? red.m400 : black.m200)};
-  padding: 0 0.6rem;
+  padding: ${getPadding};
   font-weight: 400;
   transition: border-color 0.3s ease;
   background-color: transparent !important;
@@ -48,6 +48,24 @@ export const HelperText = styled.p`
 
 export const Wrapper = styled.div`
   position: relative;
+  width: fit-content;
+`;
+
+export const LeftIconWrapper = styled.div`
+  position: absolute;
+  top: 0.8rem;
+  left: 0.6rem;
+`;
+
+export const RightIconWrapper = styled.div`
+  position: absolute;
+  top: 0.8rem;
+  right: 0.6rem;
+`;
+
+export const RightIconParent = styled.div`
+  position: relative;
+  width: 100%;
 `;
 
 export const Label = styled.div`
@@ -66,13 +84,13 @@ export const Label = styled.div`
     !onlyPh && ($isFocused || value)
       ? css`
           top: -0.4rem;
-          left: 0.5rem;
+          left: ${({ hasLeftIcon }) => (hasLeftIcon ? 2.2 : 0.5)}rem;
           padding: 0 0.4rem;
           margin: 0;
         `
       : css`
           top: 0.8rem;
-          left: 0.5rem;
+          left: ${({ hasLeftIcon }) => (hasLeftIcon ? 2.2 : 0.5)}rem;
           font-size: 1.4rem;
         `}
 `;

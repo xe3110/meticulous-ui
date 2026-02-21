@@ -60,6 +60,16 @@ export default {
       description: 'Defines background color of Label',
       defaultValue: 'white',
     },
+    leftIcon: {
+      control: { type: 'text' },
+      description: 'Defines the left icon placed in the input box.',
+      defaultValue: '',
+    },
+    rightIcon: {
+      control: { type: 'text' },
+      description: 'Defines the right icon placed in the input box.',
+      defaultValue: '',
+    },
     disabled: {
       control: { type: 'boolean' },
       description: 'Boolean prop, if true then disabled',
@@ -324,7 +334,62 @@ export const WithoutLabel = {
           color='blue'
           size='30'
           onChange={onChange1}
-          autoFocus
+        />
+      </div>
+    );
+  },
+};
+
+export const WithLeftIcon = {
+  name: 'With Left Icon',
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => {
+    const [val1, setVal1] = useState('');
+
+    const onChange1 = (v) => {
+      setVal1(v.target.value);
+    };
+
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        <Input
+          label='With Left Icon'
+          value={val1}
+          color='blue'
+          size='30'
+          onChange={onChange1}
+          leftIcon='Search'
+        />
+      </div>
+    );
+  },
+};
+
+export const WithRightIcon = {
+  name: 'With Right Icon',
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => {
+    const [val1, setVal1] = useState('');
+
+    const onChange1 = (v) => {
+      setVal1(v.target.value);
+    };
+
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        <Input
+          label='With Right Icon'
+          value={val1}
+          color='blue'
+          size='30'
+          onChange={onChange1}
+          rightIcon='StarOutline'
         />
       </div>
     );
