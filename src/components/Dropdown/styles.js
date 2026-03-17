@@ -70,6 +70,7 @@ export const OptionWrapper = styled.div`
   position: absolute;
   z-index: 1000;
   background-color: ${white};
+  left: 0.15rem;
 
   ${({ $top }) =>
     $top
