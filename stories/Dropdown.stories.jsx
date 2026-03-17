@@ -15,62 +15,32 @@ const OPTIONS = [
   { label: 'Delhi', value: 'Delhi' },
 ];
 
-const DropdownWrapper = () => {
-  const [value, setValue] = useState(null);
-
-  const onChange = (v) => {
-    setValue(v);
-  };
-
-  return (
-    <Dropdown onChange={onChange} value={value} options={OPTIONS} placeholder='Select a value' />
-  );
-};
-
-const DropdownThemeWrapper = ({ theme }) => {
-  const [value, setValue] = useState(null);
-
-  const onChange = (v) => {
-    setValue(v);
-  };
-
-  return (
-    <Dropdown
-      onChange={onChange}
-      value={value}
-      options={OPTIONS}
-      placeholder='Select a value'
-      theme={theme}
-    />
-  );
-};
-
 export default {
   title: 'Components/Dropdown',
-  component: DropdownWrapper,
+  component: Dropdown,
   parameters: {
     docs: {
       description: {
         component: 'A Dropdown component to select one option out of many.',
       },
-    },
-    source: {
-      language: 'jsx',
-      code: `
-        import Dropdown from 'meticulous-ui/components/Dropdown';
+      source: {
+        language: 'jsx',
+        code: `
+          import Dropdown from 'meticulous-ui/components/Dropdown';
 
-        const DropdownWrapper = () => {
-          const [value, setValue] = useState(null);
+          const DropdownWrapper = () => {
+            const [value, setValue] = useState(null);
 
-          const onChange = (v) => {
-            setValue(v);
+            const onChange = (v) => {
+              setValue(v);
+            };
+
+            return (
+              <Dropdown onChange={onChange} value={value} options={OPTIONS} placeholder='Select a value' />
+            );
           };
-
-          return (
-            <Dropdown onChange={onChange} value={value} options={OPTIONS} placeholder='Select a value' />
-          );
-        };
-      `,
+        `,
+      },
     },
   },
   argTypes: {
@@ -105,27 +75,41 @@ export default {
   },
 };
 
-// Default story
-export const Default = (args) => {
-  const DropdownWrapper = () => {
-    const [value, setValue] = useState(null);
+const DropdownThemeWrapper = ({ theme }) => {
+  const [value, setValue] = useState(null);
 
-    const onChange = (v) => {
-      setValue(v);
-    };
-
-    return (
-      <Dropdown
-        {...args}
-        onChange={onChange}
-        value={value}
-        options={OPTIONS}
-        placeholder='Select a value'
-      />
-    );
+  const onChange = (v) => {
+    setValue(v);
   };
 
-  return <DropdownWrapper />;
+  return (
+    <Dropdown
+      onChange={onChange}
+      value={value}
+      options={OPTIONS}
+      placeholder='Select a value'
+      theme={theme}
+    />
+  );
+};
+
+// Default story
+export const Default = (args) => {
+  const [value, setValue] = useState(null);
+
+  const onChange = (v) => {
+    setValue(v);
+  };
+
+  return (
+    <Dropdown
+      {...args}
+      onChange={onChange}
+      value={value}
+      options={OPTIONS}
+      placeholder='Select a value'
+    />
+  );
 };
 
 export const LoadingState = {
