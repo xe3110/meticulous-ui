@@ -47,14 +47,16 @@ export default App;
 
 ## 📦 Components
 
-| Component     | Description                               |
-| ------------- | ----------------------------------------- |
-| `Pagination`  | Fully responsive pagination component     |
-| `Toast`       | Push 4 types of notifications on screen   |
-| `Timer`       | Renders analog / digital clock with alarm |
-| `OtpInput`    | Gives inputs to enter and edit OTP        |
-| `VideoPlayer` | Renders video with keyboard shortcuts     |
-| `Input`       | Renders input box to let user enter input |
+| Component     | Description                                 |
+| ------------- | ------------------------------------------- |
+| `Pagination`  | Fully responsive pagination component       |
+| `Toast`       | Push 4 types of notifications on screen     |
+| `Timer`       | Renders analog / digital clock with alarm   |
+| `OtpInput`    | Gives inputs to enter and edit OTP          |
+| `VideoPlayer` | Renders video with keyboard shortcuts       |
+| `Input`       | Renders input box to let user enter input   |
+| `Dropdown`    | Renders dropdown to select from options     |
+| `Spinner`     | Renders a spinner to show the loading state |
 
 ## 📦 Icon Components
 

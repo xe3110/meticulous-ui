@@ -1,8 +1,11 @@
 import { PWrapper } from './styles';
+import _omit from 'lodash-es/omit';
 
-const P = ({ color, size, children }) => {
+const P = (props) => {
+  const { color, size, children } = props || {};
+
   return (
-    <PWrapper $color={color} $size={size}>
+    <PWrapper $color={color} $size={size} {..._omit(props, ['color', 'size', 'children'])}>
       {children}
     </PWrapper>
   );

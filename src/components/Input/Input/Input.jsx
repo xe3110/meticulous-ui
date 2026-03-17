@@ -12,7 +12,6 @@ import {
 import { getColor, getIcon } from './helpers';
 import white from '../../../colors/white';
 import grey from '../../../colors/grey';
-import red from '../../../colors/red';
 
 const Input = ({
   label,

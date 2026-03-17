@@ -53,7 +53,6 @@ export default {
         'cider',
         'deepOrange',
         'green',
-        'index',
         'lightBlue',
         'lime',
         'pink',
