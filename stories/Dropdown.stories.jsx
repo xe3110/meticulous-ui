@@ -128,8 +128,13 @@ export const Default = (args) => {
   return <DropdownWrapper />;
 };
 
-export const LoadingState = (args) => {
-  const DropdownWrapper = () => {
+export const LoadingState = {
+  name: 'Loading State',
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => {
     const [value, setValue] = useState(null);
 
     const onChange = (v) => {
@@ -138,7 +143,6 @@ export const LoadingState = (args) => {
 
     return (
       <Dropdown
-        {...args}
         onChange={onChange}
         value={value}
         options={OPTIONS}
@@ -146,9 +150,7 @@ export const LoadingState = (args) => {
         isLoading
       />
     );
-  };
-
-  return <DropdownWrapper />;
+  },
 };
 
 export const Themes = {
