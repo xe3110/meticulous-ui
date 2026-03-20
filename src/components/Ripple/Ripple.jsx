@@ -1,7 +1,12 @@
 import { useRef } from 'react';
 import './Ripple.css';
 
-const Ripple = ({ children, rippleColor = 'rgba(0,0,0,0.3)', className = '', ...props }) => {
+const Ripple = ({
+  children,
+  rippleColor = 'rgba(255, 255, 255, 0.3)',
+  className = '',
+  ...props
+}) => {
   const containerRef = useRef(null);
 
   const createRipple = (e) => {
@@ -9,26 +14,31 @@ const Ripple = ({ children, rippleColor = 'rgba(0,0,0,0.3)', className = '', ...
     if (!container) return;
 
     const ripple = document.createElement('span');
-    ripple.className = 'ripple';
-    ripple.style.backgroundColor = rippleColor;
-
     const rect = container.getBoundingClientRect();
-    const size = Math.max(rect.width, rect.height);
-    ripple.style.width = ripple.style.height = `${size}px`;
 
-    // Center ripple on click
-    ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
-    ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+    // Calculate size to cover the entire element
+    const size = Math.max(rect.width, rect.height);
+    const x = e.clientX - rect.left - size / 2;
+    const y = e.clientY - rect.top - size / 2;
+
+    ripple.style.width = ripple.style.height = `${size}px`;
+    ripple.style.left = `${x}px`;
+    ripple.style.top = `${y}px`;
+    ripple.style.backgroundColor = rippleColor;
+    ripple.classList.add('ripple-effect');
 
     container.appendChild(ripple);
-    ripple.addEventListener('animationend', () => ripple.remove());
+
+    ripple.addEventListener('animationend', () => {
+      ripple.remove();
+    });
   };
 
   return (
     <div
       ref={containerRef}
-      onClick={createRipple}
       className={`ripple-container ${className}`}
+      onClick={createRipple}
       {...props}
     >
       {children}

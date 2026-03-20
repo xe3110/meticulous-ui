@@ -1,0 +1,15 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+
+import * as ButtonStories from '../Button.stories';
+
+<Meta title='components/Button' of={ButtonStories} />
+
+# Button
+
+A Button is used display a button & click to make an action, can be imported as `meticulous-ui/components/Button`
+
+<Canvas>
+  <Story name='Button'>
+    <Story of={ButtonStories.Default} />
+  </Story>
+</Canvas>

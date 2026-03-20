@@ -57,6 +57,7 @@ export default App;
 | `Input`       | Renders input box to let user enter input   |
 | `Dropdown`    | Renders dropdown to select from options     |
 | `Spinner`     | Renders a spinner to show the loading state |
+| `Button`      | Renders a button to click & take an action  |
 
 ## 📦 Icon Components
 
