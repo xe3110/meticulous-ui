@@ -6,7 +6,7 @@ A lightweight, modern React component library designed for elegance and precisio
 
 ## 🚀 Demo
 
-<a href="https://meticulous-ui-dkim-xe3110s-projects.vercel.app" target="_blank">meticulous-ui</a>
+<a href="https://meticulous-ui.vercel.app/" target="_blank">meticulous-ui</a>
 
 ## 🚀 Installation
 
