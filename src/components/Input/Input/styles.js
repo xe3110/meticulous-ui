@@ -8,7 +8,7 @@ export const InputBox = styled.input`
   height: 3rem;
   border-radius: 0.4rem;
   font-size: 1.4rem;
-  border: 2px solid ${({ hasError }) => (hasError ? red.m400 : black.m200)};
+  border: 2px solid ${({ $hasError }) => ($hasError ? red.m400 : black.m200)};
   padding: ${getPadding};
   font-weight: 400;
   transition: border-color 0.3s ease;
@@ -34,7 +34,7 @@ export const InputBox = styled.input`
 
   &:focus {
     border: 2px solid
-      ${({ $shade, hasError }) => getCssShade({ $shade, hasError, $isFocused: true })};
+      ${({ $shade, $hasError }) => getCssShade({ $shade, $hasError, $isFocused: true })};
     outline: none;
   }
 `;
@@ -80,17 +80,17 @@ export const Label = styled.div`
   pointer-events: none;
   color: ${getCssShade};
 
-  ${({ $isFocused, value, onlyPh }) =>
-    !onlyPh && ($isFocused || value)
+  ${({ $isFocused, value, $onlyPh }) =>
+    !$onlyPh && ($isFocused || value)
       ? css`
           top: -0.4rem;
-          left: ${({ hasLeftIcon }) => (hasLeftIcon ? 2.2 : 0.5)}rem;
+          left: ${({ $hasLeftIcon }) => ($hasLeftIcon ? 2.2 : 0.5)}rem;
           padding: 0 0.4rem;
           margin: 0;
         `
       : css`
           top: 0.8rem;
-          left: ${({ hasLeftIcon }) => (hasLeftIcon ? 2.2 : 0.5)}rem;
+          left: ${({ $hasLeftIcon }) => ($hasLeftIcon ? 2.2 : 0.5)}rem;
           font-size: 1.4rem;
         `}
 `;

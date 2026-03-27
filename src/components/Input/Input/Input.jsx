@@ -44,8 +44,10 @@ const Input = ({
 
   const leftIconFn = getIcon(leftIcon);
   const rightIconFn = getIcon(rightIcon);
-  const hasLeftIcon = !!(leftIcon && leftIconFn);
-  const hasRightIcon = !!(rightIcon && rightIconFn);
+  const $hasLeftIcon = !!(leftIcon && leftIconFn);
+  const $hasRightIcon = !!(rightIcon && rightIconFn);
+
+  const $hasError = hasError;
 
   return (
     <Wrapper>
@@ -53,14 +55,14 @@ const Input = ({
         {...{
           type,
           name,
-          hasError,
+          $hasError,
           size,
           value,
           $isFocused,
           $shade,
           background,
-          hasLeftIcon,
-          hasRightIcon,
+          $hasLeftIcon,
+          $hasRightIcon,
         }}
         onFocus={handleFocus}
         onBlur={handleBlur}
@@ -73,21 +75,21 @@ const Input = ({
       {(label || (placeholder && !value)) && (
         <Label
           {...{
-            hasError,
+            $hasError,
             $isFocused,
             $shade,
             value,
             background,
-            hasLeftIcon,
-            hasRightIcon,
-            onlyPh: placeholder && !label,
+            $hasLeftIcon,
+            $hasRightIcon,
+            $onlyPh: placeholder && !label,
           }}
         >
           {label || placeholder}
         </Label>
       )}
       {helperText && (
-        <HelperText {...{ hasError, $isFocused, $shade, hasLeftIcon }}>{helperText}</HelperText>
+        <HelperText {...{ $hasError, $isFocused, $shade, $hasLeftIcon }}>{helperText}</HelperText>
       )}
     </Wrapper>
   );

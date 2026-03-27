@@ -160,7 +160,7 @@ export const Colors = {
         'violet',
         'yellow',
       ].map((clr) => (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div key={clr} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <Spinner color={clr} />
           <div style={{ marginTop: '1rem', textAlign: 'center' }}>
             <P>{clr}</P>

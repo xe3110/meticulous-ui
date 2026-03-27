@@ -57,7 +57,7 @@ const Pagination = ({
 
   if (totalPages <= 7) {
     return (
-      <AllPages onKeyDown={handleKeyDown} tabIndex='0' isDisabled={isDisabled}>
+      <AllPages onKeyDown={handleKeyDown} tabIndex='0' $isDisabled={isDisabled}>
         <PrevArrow {...{ iconSize, shades, setPrevPage }} />
         <MiddleLayer size={`${totalPages * individualRemSize}rem`}>
           {_range(1, totalPages + 1).map(
@@ -75,7 +75,7 @@ const Pagination = ({
     (pageNumber > totalPages - 3 && pageNumber <= totalPages)
   ) {
     return (
-      <AllPages onKeyDown={handleKeyDown} tabIndex='0' isDisabled={isDisabled}>
+      <AllPages onKeyDown={handleKeyDown} tabIndex='0' $isDisabled={isDisabled}>
         <PrevArrow {...{ iconSize, shades, setPrevPage }} />
         <MiddleLayer size={`${9 * individualRemSize}rem`}>
           {_range(1, 5).map(renderPageNum({ size, selected: pageNumber, shades, changePage }))}
@@ -90,7 +90,7 @@ const Pagination = ({
   }
 
   return (
-    <AllPages onKeyDown={handleKeyDown} tabIndex='0' isDisabled={isDisabled}>
+    <AllPages onKeyDown={handleKeyDown} tabIndex='0' $isDisabled={isDisabled}>
       <PrevArrow {...{ iconSize, shades, setPrevPage }} />
       <MiddleLayer size={`${9 * individualRemSize}rem`}>
         {_range(1, 3).map(renderPageNum({ size, selected: pageNumber, shades, changePage }))}

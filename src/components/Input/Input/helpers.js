@@ -29,12 +29,12 @@ const COLOR_SHADE_MAP = {
 
 export const getColor = (clr) => _get(COLOR_SHADE_MAP, clr, grey.m500);
 
-export const getCssShade = ({ hasError, $shade, $isFocused, value, onlyPh }) => {
-  if (hasError) {
+export const getCssShade = ({ $hasError, $shade, $isFocused, value, $onlyPh }) => {
+  if ($hasError) {
     return typeof value === 'string' && !value && !$isFocused ? grey.m500 : red.m400;
   }
 
-  if ($isFocused && !onlyPh) {
+  if ($isFocused && !$onlyPh) {
     return $shade;
   }
 
@@ -43,16 +43,16 @@ export const getCssShade = ({ hasError, $shade, $isFocused, value, onlyPh }) => 
 
 export const getIcon = (icon) => _get(allIcons, icon, null);
 
-export const getPadding = ({ hasLeftIcon, hasRightIcon }) => {
-  if (hasLeftIcon && hasRightIcon) {
+export const getPadding = ({ $hasLeftIcon, $hasRightIcon }) => {
+  if ($hasLeftIcon && $hasRightIcon) {
     return '0 2.4rem';
   }
 
-  if (hasLeftIcon) {
+  if ($hasLeftIcon) {
     return '0 0.6rem 0 2.4rem';
   }
 
-  if (hasRightIcon) {
+  if ($hasRightIcon) {
     return '0 2.4rem 0 0.6rem';
   }
 

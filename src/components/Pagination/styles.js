@@ -39,8 +39,8 @@ export const AllPages = styled.div`
   min-width: 100%;
   width: 100%;
 
-  ${({ isDisabled }) =>
-    isDisabled &&
+  ${({ $isDisabled }) =>
+    $isDisabled &&
     css`
       pointer-events: none;
       opacity: 0.4;
@@ -48,17 +48,17 @@ export const AllPages = styled.div`
 `;
 
 export const Page = styled.div`
-  height: ${({ individualRemSize }) => `${individualRemSize}rem`};
-  width: ${({ individualRemSize }) => `${individualRemSize}rem`};
+  height: ${({ $individualRemSize }) => `${$individualRemSize}rem`};
+  width: ${({ $individualRemSize }) => `${$individualRemSize}rem`};
   border-radius: 50%;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  font-size: ${({ fontRemSize }) => fontRemSize}rem;
-  ${({ isSelected }) =>
-    isSelected
+  font-size: ${({ $fontRemSize }) => $fontRemSize}rem;
+  ${({ $isSelected }) =>
+    $isSelected
       ? css`
           cursor: auto;
           color: ${white};

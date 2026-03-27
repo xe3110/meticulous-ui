@@ -20,21 +20,6 @@ const SIZES = [
   },
 ];
 
-const TYPES = [
-  {
-    type: 'compressed',
-    label: 'Compressed',
-  },
-  {
-    type: 'normal',
-    label: 'Normal',
-  },
-  {
-    type: 'extended',
-    label: 'Extended',
-  },
-];
-
 export default {
   title: 'Components/Button',
   component: Button,

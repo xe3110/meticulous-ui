@@ -1,36 +1,60 @@
+import { useEffect, useState } from 'react';
 import OtpInput from '../src/components/OtpInput/OtpInput';
-
-const OtpInputWrapper = () => {
-  const onChange = (v) => {
-    console.log(v);
-  };
-
-  return <OtpInput onComplete={onChange} onChange={onChange} />;
-};
 
 export default {
   title: 'Components/OTP',
-  component: OtpInputWrapper,
+  component: OtpInput,
   parameters: {
     docs: {
       description: {
         component: 'OTP input.',
       },
+      source: {
+        language: 'jsx',
+        code: `
+          import OtpInput from '../src/components/OtpInput/OtpInput';
+
+          export const Default = (args) => {
+            const [val, setVal] = useState('');
+
+            const onChange = (val) => {
+              setVal(val);
+            };
+
+            return <OtpInput value={val} onComplete={onChange} onChange={onChange} />;
+          };
+        `,
+      },
     },
-    controls: { disable: true },
-    actions: { disable: true },
+    argTypes: {
+      length: {
+        control: 'number',
+      },
+      value: {
+        control: 'text',
+      },
+    },
   },
 };
 
 // Default story
-export const Default = () => {
-  // import OtpInput from 'meticulous-ui/components/OtpInput';
+export const Default = (args) => {
+  const [val, setVal] = useState('');
 
-  // return (
-  //   <OtpInput length={6} value='123456' onComplete={onChange} onChange={onChange} />
-  // )
+  useEffect(() => {
+    setVal(args?.value);
+  }, [args?.value]);
 
-  return <OtpInputWrapper />;
+  const onChange = (val) => {
+    setVal(val);
+  };
+
+  return <OtpInput length={args?.length} value={val} onComplete={onChange} onChange={onChange} />;
 };
 
 Default.storyName = 'OTP Entry';
+
+Default.args = {
+  length: 6,
+  value: '',
+};

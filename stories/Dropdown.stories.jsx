@@ -169,7 +169,7 @@ export const Themes = {
         'violet',
         'yellow',
       ].map((clr) => (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+        <div key={clr} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
           <H6>{clr}</H6>
           <DropdownThemeWrapper theme={clr} />
         </div>

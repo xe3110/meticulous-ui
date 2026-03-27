@@ -10,8 +10,8 @@ import { Page, P, ClickableChevronRight, ClickableChevronLeft } from './styles';
 export const renderPageNum =
   ({ size, selected, shades, changePage }) =>
   (page) => {
-    const individualRemSize = SIZE_REM_MAPPING[size];
-    const fontRemSize = FONT_SIZE_MAPPING[size];
+    const $individualRemSize = SIZE_REM_MAPPING[size];
+    const $fontRemSize = FONT_SIZE_MAPPING[size];
 
     const clickHandler = () => {
       changePage(page);
@@ -20,13 +20,13 @@ export const renderPageNum =
     return (
       <Page
         data-testid={selected === page ? 'current-page' : `test-${page}`}
-        isSelected={selected === page}
+        $isSelected={selected === page}
         key={`page_${page}`}
         onClick={clickHandler}
         {...{
           shades,
-          individualRemSize,
-          fontRemSize,
+          $individualRemSize,
+          $fontRemSize,
         }}
       >
         {page}
