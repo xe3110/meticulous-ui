@@ -18,11 +18,38 @@ const TimerWrapper = () => {
 
 export default {
   title: 'Components/Timer',
-  component: TimerWrapper,
+  component: Timer,
   parameters: {
     docs: {
       description: {
         component: 'Analog Timer',
+      },
+      source: {
+        language: 'jsx',
+        code: `
+          import Timer from '../src/components/Timer/Timer';
+
+          const TimerWrapper = () => {
+            return (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                <Timer
+                  color='green'
+                  showTime
+                  showTimeWithSec
+                  timeZone='Asia/Kolkata'
+                  isDigital
+                  timerSeconds={61}
+                  onTimerComplete={() => alert('complete')}
+                  onTimerRemove={() => alert('remove')}
+                  onTimerPause={() => alert('pause')}
+                  onTimerPlay={() => alert('play')}
+                  onTimerAdd={() => alert('timer added')}
+                />
+                <Timer isDigital={false} color='blue' timerSec={32} />
+              </div>
+            );
+          };
+        `,
       },
     },
     controls: { disable: true },
@@ -32,29 +59,6 @@ export default {
 
 // Default story
 export const Default = () => {
-  // import Timer from '../src/components/Timer/Timer';
-
-  // const TimerWrapper = () => {
-  //   return (
-  //     <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-  //       <Timer
-  //         color='green'
-  //         showTime={true}
-  //         showTimeWithSec={true}
-  //         timeZone='Asia/Kolkata'
-  //         isDigital={true}
-  //         timerSeconds={61}
-  //         onTimerComplete={() => alert('complete')}
-  //         onTimerRemove={() => alert('remove')}
-  //         onTimerPause={() => alert('pause')}
-  //         onTimerPlay={() => alert('play')}
-  //         onTimerAdd={() => alert('timer added')}
-  //       />
-  //       <Timer isDigital={false} color='blue' timerSec={32} />
-  //     </div>
-  //   );
-  // };
-
   return <TimerWrapper />;
 };
 
