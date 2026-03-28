@@ -72,6 +72,45 @@ export default {
         'yellow',
       ],
     },
+    loaderColor: {
+      control: 'select',
+      options: [
+        'amber',
+        'blue',
+        'brown',
+        'cyan',
+        'deepPurple',
+        'grey',
+        'indigo',
+        'lightGreen',
+        'orange',
+        'purple',
+        'teal',
+        'white',
+        'black',
+        'blueGray',
+        'cider',
+        'deepOrange',
+        'green',
+        'lightBlue',
+        'lime',
+        'pink',
+        'red',
+        'violet',
+        'yellow',
+      ],
+    },
+    isLoading: {
+      control: 'select',
+      options: [false, true],
+    },
+    isDisabled: {
+      control: 'select',
+      options: [false, true],
+    },
+    placeholder: {
+      control: 'text',
+    },
   },
 };
 
@@ -101,15 +140,7 @@ export const Default = (args) => {
     setValue(v);
   };
 
-  return (
-    <Dropdown
-      {...args}
-      onChange={onChange}
-      value={value}
-      options={OPTIONS}
-      placeholder='Select a value'
-    />
-  );
+  return <Dropdown {...args} onChange={onChange} value={value} options={OPTIONS} />;
 };
 
 export const LoadingState = {
@@ -182,4 +213,8 @@ Default.args = {
   theme: 'blue',
   width: '20rem',
   menuHeight: '20rem',
+  loaderColor: 'green',
+  isLoading: false,
+  isDisabled: false,
+  placeholder: 'Select a value',
 };
