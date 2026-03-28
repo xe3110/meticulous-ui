@@ -14,6 +14,15 @@ const rotate = keyframes`
   }
 `;
 
+const reverse = keyframes`
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+`;
+
 export const DropdownWrapper = styled.div`
   max-width: ${({ $width }) => $width};
   position: relative;
@@ -54,16 +63,12 @@ export const PWrapper = styled(P)`
 `;
 
 export const ChevronDownWrapper = styled(ChevronDown)`
-  ${({ $isOpen }) =>
-    $isOpen &&
-    css`
-      animation: ${rotate} 0.2s linear;
-    `};
+  animation: ${({ $isOpen }) => ($isOpen ? rotate : reverse)} 0.15s linear;
   transform: rotate(${({ $isOpen }) => ($isOpen ? 180 : 0)}deg);
 `;
 
 export const OptionWrapper = styled.div`
-  border: 1px solid ${grey.m900};
+  border: 1px solid ${grey.m700};
   width: calc(${({ $width }) => $width} + 1rem);
   max-height: ${({ $height }) => $height};
   overflow: auto;
