@@ -43,52 +43,42 @@ export default {
         'purple',
         'pink',
       ],
-      defaultValue: 'blue',
     },
     size: {
       control: { type: 'number' },
       description: 'Mandatory numeric prop representing current page',
-      defaultValue: 20,
     },
     helperText: {
       control: { type: 'text' },
       description: 'Shows beneath the input box, can be an error statement as well.',
-      defaultValue: '',
     },
     background: {
       control: { type: 'text' },
       description: 'Defines background color of Label',
-      defaultValue: 'white',
     },
     leftIcon: {
       control: { type: 'text' },
       description: 'Defines the left icon placed in the input box.',
-      defaultValue: '',
     },
     rightIcon: {
       control: { type: 'text' },
       description: 'Defines the right icon placed in the input box.',
-      defaultValue: '',
     },
     disabled: {
       control: { type: 'boolean' },
       description: 'Boolean prop, if true then disabled',
-      defaultValue: false,
     },
     disableAutoComplete: {
       control: { type: 'boolean' },
       description: 'Boolean prop, if true then auto complete disabled',
-      defaultValue: false,
     },
     hasError: {
       control: { type: 'boolean' },
       description: 'Boolean prop, if true then error on input is visible',
-      defaultValue: false,
     },
     autoFocus: {
       control: { type: 'boolean' },
       description: 'Boolean prop, if true then auto focuses on input',
-      defaultValue: false,
     },
   },
 };
@@ -397,3 +387,17 @@ export const WithRightIcon = {
 };
 
 Default.storyName = 'Input';
+
+Default.args = {
+  name: 'input',
+  color: 'blue',
+  size: 20,
+  helperText: '',
+  background: 'white',
+  leftIcon: '',
+  rightIcon: '',
+  disableAutoComplete: false,
+  disabled: false,
+  hasError: false,
+  autoFocus: false,
+};
