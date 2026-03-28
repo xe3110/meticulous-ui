@@ -8,6 +8,8 @@ import white from '../../colors/white';
 import grey from '../../colors/grey';
 import { MEDIUM, SIZE } from './constants';
 
+const Rippled = ({ theme, children }) => <Ripple rippleColor={theme['m100']}>{children}</Ripple>;
+
 const Button = (props) => {
   const {
     children,
@@ -23,38 +25,40 @@ const Button = (props) => {
 
   const textColor = theme !== 'white' ? white : grey.m600;
 
+  const btnChild = (
+    <ButtonWrapper
+      {...{
+        $hoverColor: hoverColor,
+        $activeColor: activeColor,
+        $selectedColor: selectedColor,
+        $height,
+        $width: width || $width,
+        disabled: props.disabled,
+        $isLoading: isLoading,
+      }}
+    >
+      {isLoading ? (
+        <SpinnerWrapper>
+          <Spinner size='small' color={textColor} />
+        </SpinnerWrapper>
+      ) : (
+        <Content
+          {...{
+            $textColor: textColor,
+            $font,
+          }}
+        >
+          {children}
+        </Content>
+      )}
+    </ButtonWrapper>
+  );
+
   return (
     <ButtonContainer
       {...{ $height, $width: width || $width, disabled: props.disabled, $isLoading: isLoading }}
     >
-      <Ripple rippleColor={theme['m100']}>
-        <ButtonWrapper
-          {...{
-            $hoverColor: hoverColor,
-            $activeColor: activeColor,
-            $selectedColor: selectedColor,
-            $height,
-            $width: width || $width,
-            disabled: props.disabled,
-            $isLoading: isLoading,
-          }}
-        >
-          {isLoading ? (
-            <SpinnerWrapper>
-              <Spinner size='small' color={textColor} />
-            </SpinnerWrapper>
-          ) : (
-            <Content
-              {...{
-                $textColor: textColor,
-                $font,
-              }}
-            >
-              {children}
-            </Content>
-          )}
-        </ButtonWrapper>
-      </Ripple>
+      {isLoading ? btnChild : <Rippled theme={theme}>{btnChild}</Rippled>}
     </ButtonContainer>
   );
 };
