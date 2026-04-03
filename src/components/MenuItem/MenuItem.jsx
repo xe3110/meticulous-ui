@@ -3,6 +3,18 @@ import blue from '../../colors/blue';
 import white from '../../colors/white';
 import { PWrapper, Wrapper } from './styles';
 
+const getColor = ({ isSelected, isDisabled }) => {
+  if (isSelected) {
+    return grey.m700;
+  }
+
+  if (isDisabled) {
+    return grey.m300;
+  }
+
+  return grey.m500;
+};
+
 const MenuItem = ({
   value,
   label,
@@ -14,6 +26,7 @@ const MenuItem = ({
   activeColor = blue.m100,
   size = '1.2rem',
   onSelect,
+  isDisabled,
 }) => {
   const handleClick = () => {
     onSelect(value);
@@ -28,11 +41,12 @@ const MenuItem = ({
         $selectedColor: selectedColor,
         $hoverColor: hoverColor,
         $activeColor: activeColor,
+        $isDisabled: isDisabled,
       }}
       onClick={handleClick}
       title={label}
     >
-      <PWrapper size={size} color={isSelected ? grey.m700 : grey.m500} $width={width}>
+      <PWrapper size={size} color={getColor({ isSelected, isDisabled })} $width={width}>
         {label}
       </PWrapper>
     </Wrapper>

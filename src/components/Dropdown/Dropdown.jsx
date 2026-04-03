@@ -83,9 +83,9 @@ const Dropdown = ({
     m500: border,
   } = _get(colors, theme, blue);
 
-  const renderOption = ({ value: val, label }) => (
+  const renderOption = ({ value: val, label, disabled }) => (
     <MenuItem
-      {...{ value: val, label, onSelect: handleChange }}
+      {...{ value: val, label, isDisabled: disabled, onSelect: handleChange }}
       isSelected={val === value}
       key={val}
       width={width}

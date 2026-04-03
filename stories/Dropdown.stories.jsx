@@ -10,6 +10,7 @@ const OPTIONS = [
   { label: 'Seoul', value: 'Seoul' },
   { label: 'Paris', value: 'Paris' },
   { label: 'Chicago', value: 'Chicago' },
+  { label: 'Pyongyang', value: 'Pyongyang', disabled: true },
   { label: 'Shanghai', value: 'Shanghai' },
   { label: 'London', value: 'London' },
   { label: 'Delhi', value: 'Delhi' },
@@ -27,6 +28,20 @@ export default {
         language: 'jsx',
         code: `
           import Dropdown from 'meticulous-ui/components/Dropdown';
+
+          const OPTIONS = [
+            { label: 'New York', value: 'New York' },
+            { label: 'Tokyo', value: 'Tokyo' },
+            { label: 'Los Angeles', value: 'Los Angeles' },
+            { label: 'San Francisco', value: 'San Francisco' },
+            { label: 'Seoul', value: 'Seoul' },
+            { label: 'Paris', value: 'Paris' },
+            { label: 'Chicago', value: 'Chicago' },
+            { label: 'Pyongyang', value: 'Pyongyang', disabled: true },
+            { label: 'Shanghai', value: 'Shanghai' },
+            { label: 'London', value: 'London' },
+            { label: 'Delhi', value: 'Delhi' },
+          ];
 
           const DropdownWrapper = () => {
             const [value, setValue] = useState(null);
@@ -141,6 +156,30 @@ export const Default = (args) => {
   };
 
   return <Dropdown {...args} onChange={onChange} value={value} options={OPTIONS} />;
+};
+
+export const WithDisabledOption = {
+  name: 'With Disabled Option',
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => {
+    const [value, setValue] = useState(null);
+
+    const onChange = (v) => {
+      setValue(v);
+    };
+
+    return (
+      <Dropdown
+        onChange={onChange}
+        value={value}
+        options={OPTIONS.map((v, i) => ({ ...v, disabled: !i }))}
+        placeholder='Select a value'
+      />
+    );
+  },
 };
 
 export const LoadingState = {

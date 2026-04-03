@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   cursor: ${({ $isSelected }) => ($isSelected ? 'auto' : 'pointer')};
   padding: 0.6rem 0 0.8rem 1rem;
   margin-top: 0.1rem;
+  pointer-events: ${({ $isDisabled }) => ($isDisabled ? 'none' : 'auto')};
 
   &:hover {
     background-color: ${({ $isSelected, $hoverColor, $selectedColor }) =>
