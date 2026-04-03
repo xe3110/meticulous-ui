@@ -158,8 +158,8 @@ export const Default = (args) => {
   return <Dropdown {...args} onChange={onChange} value={value} options={OPTIONS} />;
 };
 
-export const WithDisabledOption = {
-  name: 'With Disabled Option',
+export const WithDisabledOptions = {
+  name: 'With Disabled Options',
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
@@ -175,7 +175,7 @@ export const WithDisabledOption = {
       <Dropdown
         onChange={onChange}
         value={value}
-        options={OPTIONS.map((v, i) => ({ ...v, disabled: !i }))}
+        options={OPTIONS.map((v, i) => ({ ...v, disabled: i > 3 }))}
         placeholder='Select a value'
       />
     );
