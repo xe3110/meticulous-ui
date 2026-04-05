@@ -8,6 +8,7 @@ export { default as Button } from './components/Button';
 
 // input
 export { default as Input } from './components/Input/Input';
+export { default as Textarea } from './components/Input/Textarea';
 
 // colors
 export { default as colors } from './colors';
