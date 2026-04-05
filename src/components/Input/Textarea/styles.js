@@ -2,18 +2,32 @@ import styled, { css } from 'styled-components';
 import black from '../../../colors/black';
 import grey from '../../../colors/grey';
 import red from '../../../colors/red';
-import { getCssShade, getPadding } from './helpers';
+import { getCssShade } from './helpers';
 
-export const InputBox = styled.input`
-  height: 3rem;
+export const TextareaBox = styled.textarea`
   border-radius: 0.4rem;
   font-size: 1.4rem;
   border: 2px solid ${({ $hasError }) => ($hasError ? red.m400 : black.m200)};
-  padding: ${getPadding};
+  padding: 0.6rem;
   font-weight: 400;
   transition: border-color 0.3s ease;
   background-color: ${({ background }) => background} !important;
-  overflow: hidden;
+  min-height: 1.4rem;
+  min-width: 3rem;
+
+  ${({ isResizeNone }) =>
+    isResizeNone &&
+    css`
+      resize: none;
+    `}
+
+  ${({ $isDynamic }) =>
+    $isDynamic &&
+    css`
+      resize: none;
+      display: block;
+      overflow: hidden;
+    `}
 
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
@@ -51,23 +65,6 @@ export const Wrapper = styled.div`
   width: fit-content;
 `;
 
-export const LeftIconWrapper = styled.div`
-  position: absolute;
-  top: 0.8rem;
-  left: 0.6rem;
-`;
-
-export const RightIconWrapper = styled.div`
-  position: absolute;
-  top: 0.8rem;
-  right: 0.6rem;
-`;
-
-export const RightIconParent = styled.div`
-  position: relative;
-  width: 100%;
-`;
-
 export const Label = styled.div`
   position: absolute;
   top: -0.4rem;
@@ -80,18 +77,28 @@ export const Label = styled.div`
   font-weight: 400;
   pointer-events: none;
   color: ${getCssShade};
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: -moz-available; /* Firefox */
+  max-width: -webkit-fill-available; /* Chrome, Safari, Edge */
+  max-width: stretch; /* Modern Standard */
 
   ${({ $isFocused, value, $onlyPh }) =>
     !$onlyPh && ($isFocused || value)
       ? css`
           top: -0.4rem;
-          left: ${({ $hasLeftIcon }) => ($hasLeftIcon ? 2.2 : 0.5)}rem;
+          left: 0.5rem;
           padding: 0 0.4rem;
           margin: 0;
         `
       : css`
           top: 0.8rem;
-          left: ${({ $hasLeftIcon }) => ($hasLeftIcon ? 2.2 : 0.5)}rem;
+          left: 0.5rem;
           font-size: 1.4rem;
         `}
+`;
+
+export const Parent = styled.div`
+  overflow: hidden;
 `;

@@ -1,25 +1,25 @@
 import { useState } from 'react';
-import Input from '../src/components/Input/Input';
+import Textarea from '../src/components/Input/Textarea';
 
 export default {
-  title: 'Components/Input',
-  component: Input,
+  title: 'Components/Textarea',
+  component: Textarea,
   parameters: {
     docs: {
       description: {
-        component: 'A simple input component that shows a box with content given by the user.',
+        component: 'A simple Textarea component that shows a box with content given by the user.',
       },
       source: {
         language: 'jsx',
         code: `
-          import Input from 'meticulous-ui/components/Input/Input';
+          import Textarea from 'meticulous-ui/components/Input/Textarea';
 
-          function ExampleInput() {
+          function ExampleTextarea() {
             const [val, setVal] = useState('');
             const onChange = (v) => setVal(v.target.value);
 
             return (
-              <Input label='Value' value={val} onChange={onChange} color='blue' size='20' />
+              <Textarea name='description' label='Value' value={val} onChange={onChange} color='blue' />
             )
           }
         `,
@@ -44,45 +44,49 @@ export default {
         'pink',
       ],
     },
-    size: {
-      control: { type: 'number' },
-      description: 'Mandatory numeric prop representing current page',
+    name: {
+      control: { type: 'text' },
+      description: 'Defines the type of value of Textarea',
+    },
+    rows: {
+      control: { type: 'text' },
+      description: 'Defines the height of the Textarea',
+    },
+    cols: {
+      control: { type: 'text' },
+      description: 'Defines the width of the Textarea',
     },
     helperText: {
       control: { type: 'text' },
-      description: 'Shows beneath the input box, can be an error statement as well.',
+      description: 'Shows beneath the Textarea box, can be an error statement as well.',
     },
     background: {
       control: { type: 'text' },
-      description: 'Defines background color of Input box',
+      description: 'Defines background color of Textarea box',
     },
     outerBackground: {
       control: { type: 'text' },
-      description: 'Defines background color of Label, when over Input box line',
-    },
-    leftIcon: {
-      control: { type: 'text' },
-      description: 'Defines the left icon placed in the input box.',
-    },
-    rightIcon: {
-      control: { type: 'text' },
-      description: 'Defines the right icon placed in the input box.',
+      description: 'Defines background color of Label, when over Textbox box line',
     },
     disabled: {
       control: { type: 'boolean' },
       description: 'Boolean prop, if true then disabled',
     },
-    disableAutoComplete: {
-      control: { type: 'boolean' },
-      description: 'Boolean prop, if true then auto complete disabled',
-    },
     hasError: {
       control: { type: 'boolean' },
-      description: 'Boolean prop, if true then error on input is visible',
+      description: 'Boolean prop, if true then error on Textarea is visible',
     },
     autoFocus: {
       control: { type: 'boolean' },
-      description: 'Boolean prop, if true then auto focuses on input',
+      description: 'Boolean prop, if true then auto focuses on Textarea',
+    },
+    isDynamic: {
+      control: { type: 'boolean' },
+      description: 'Boolean prop, if true then Textarea has no scroll or resize but dynamic height',
+    },
+    isResizeNone: {
+      control: { type: 'boolean' },
+      description: 'Boolean prop, if true then cannot resize Textarea',
     },
   },
 };
@@ -96,17 +100,20 @@ export const Default = (args) => {
   };
 
   return (
-    <Input
+    <Textarea
       label='Value'
       value={val}
       color={args?.color}
-      size={args?.size}
       disabled={!!args?.disabled}
       hasError={!!args?.hasError}
+      autoFocus={!!args?.autoFocus}
+      isDynamic={!!args?.isDynamic}
+      isResizeNone={!!args?.isResizeNone}
       helperText={args?.helperText}
       background={args?.background}
       outerBackground={args?.outerBackground}
-      disableAutoComplete={!!args?.disableAutoComplete}
+      rows={args?.rows}
+      cols={args?.cols}
       onChange={onChange}
     />
   );
@@ -145,42 +152,18 @@ export const DifferentColor = {
 
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        <Input label='Blue' value={val1} color='blue' size='30' onChange={onChange1} />
-        <Input label='Yellow' value={val2} color='yellow' size='30' onChange={onChange2} />
-        <Input label='Red' value={val3} color='red' size='30' onChange={onChange3} />
-        <Input label='Green' value={val4} color='green' size='30' onChange={onChange4} />
-        <Input label='Orange' value={val5} color='orange' size='30' onChange={onChange5} />
-        <Input label='Black' value={val6} color='black' size='30' onChange={onChange6} />
-        <Input label='Grey' value={val7} color='grey' size='30' onChange={onChange7} />
-        <Input label='Violet' value={val8} color='violet' size='30' onChange={onChange8} />
-        <Input label='Teal' value={val9} color='teal' size='30' onChange={onChange9} />
-        <Input label='Purple' value={val10} color='purple' size='30' onChange={onChange10} />
-        <Input label='Pink' value={val11} color='pink' size='30' onChange={onChange11} />
+        <Textarea label='Blue' value={val1} color='blue' onChange={onChange1} />
+        <Textarea label='Yellow' value={val2} color='yellow' onChange={onChange2} />
+        <Textarea label='Red' value={val3} color='red' onChange={onChange3} />
+        <Textarea label='Green' value={val4} color='green' onChange={onChange4} />
+        <Textarea label='Orange' value={val5} color='orange' onChange={onChange5} />
+        <Textarea label='Black' value={val6} color='black' onChange={onChange6} />
+        <Textarea label='Grey' value={val7} color='grey' onChange={onChange7} />
+        <Textarea label='Violet' value={val8} color='violet' onChange={onChange8} />
+        <Textarea label='Teal' value={val9} color='teal' onChange={onChange9} />
+        <Textarea label='Purple' value={val10} color='purple' onChange={onChange10} />
+        <Textarea label='Pink' value={val11} color='pink' onChange={onChange11} />
       </div>
-    );
-  },
-};
-
-export const NoAutoComplete = {
-  name: 'Without Auto Complete',
-  parameters: {
-    controls: { disable: true },
-    actions: { disable: true },
-  },
-  render: () => {
-    const [val, setVal] = useState('');
-
-    const onChange = (v) => setVal(v.target.value);
-
-    return (
-      <Input
-        label='Without AutoComplete'
-        value={val}
-        color='blue'
-        size='30'
-        onChange={onChange}
-        disableAutoComplete
-      />
     );
   },
 };
@@ -200,22 +183,41 @@ export const Disabled = {
 
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        <Input
+        <Textarea
           label='Disabled without value'
           value={val1}
           color='blue'
-          size='30'
           onChange={onChange1}
           disabled
         />
-        <Input
+        <Textarea
           label='Disabled with value'
           value={val2}
           color='blue'
-          size='30'
           onChange={onChange2}
           disabled
         />
+      </div>
+    );
+  },
+};
+
+export const DynamicHeight = {
+  name: 'With Dynamic Height',
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => {
+    const [val1, setVal1] = useState('');
+
+    const onChange1 = (v) => {
+      setVal1(v.target.value);
+    };
+
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        <Textarea label='Dynamic Height' value={val1} color='blue' onChange={onChange1} isDynamic />
       </div>
     );
   },
@@ -237,11 +239,10 @@ export const HelperText = {
 
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        <Input
+        <Textarea
           label='With helper text'
           value={val1}
           color='blue'
-          size='30'
           onChange={onChange1}
           helperText={`${MAX_CHARS_LIMIT - val1.length}/${MAX_CHARS_LIMIT} characters allowed`}
         />
@@ -257,7 +258,7 @@ export const ErrorState = {
     actions: { disable: true },
   },
   render: () => {
-    const MAX_CHARS_LIMIT = 10;
+    const MAX_CHARS_LIMIT = 20;
     const [val1, setVal1] = useState('This value exceeds limit.');
 
     const onChange1 = (v) => {
@@ -266,11 +267,11 @@ export const ErrorState = {
 
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        <Input
+        <Textarea
           label='Error State'
           value={val1}
           color='blue'
-          size='30'
+          outerBackground='white'
           onChange={onChange1}
           helperText={`Max. ${MAX_CHARS_LIMIT} characters allowed`}
           hasError={val1.length > MAX_CHARS_LIMIT}
@@ -296,14 +297,7 @@ export const AutoFocus = {
 
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        <Input
-          label='Auto Focus'
-          value={val1}
-          color='blue'
-          size='30'
-          onChange={onChange1}
-          autoFocus
-        />
+        <Textarea label='Auto Focus' value={val1} color='blue' onChange={onChange1} autoFocus />
       </div>
     );
   },
@@ -324,87 +318,25 @@ export const WithoutLabel = {
 
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        <Input
-          placeholder='With helper text'
-          value={val1}
-          color='blue'
-          size='30'
-          onChange={onChange1}
-        />
+        <Textarea placeholder='With helper text' value={val1} color='blue' onChange={onChange1} />
       </div>
     );
   },
 };
 
-export const WithLeftIcon = {
-  name: 'With Left Icon',
-  parameters: {
-    controls: { disable: true },
-    actions: { disable: true },
-  },
-  render: () => {
-    const [val1, setVal1] = useState('');
-
-    const onChange1 = (v) => {
-      setVal1(v.target.value);
-    };
-
-    return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        <Input
-          label='With Left Icon'
-          value={val1}
-          color='blue'
-          size='30'
-          onChange={onChange1}
-          leftIcon='Search'
-        />
-      </div>
-    );
-  },
-};
-
-export const WithRightIcon = {
-  name: 'With Right Icon',
-  parameters: {
-    controls: { disable: true },
-    actions: { disable: true },
-  },
-  render: () => {
-    const [val1, setVal1] = useState('');
-
-    const onChange1 = (v) => {
-      setVal1(v.target.value);
-    };
-
-    return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        <Input
-          label='With Right Icon'
-          value={val1}
-          color='blue'
-          size='30'
-          onChange={onChange1}
-          rightIcon='StarOutline'
-        />
-      </div>
-    );
-  },
-};
-
-Default.storyName = 'Input';
+Default.storyName = 'Textarea';
 
 Default.args = {
-  name: 'input',
+  name: 'Textarea',
   color: 'blue',
-  size: 20,
   helperText: '',
   background: 'transparent',
   outerBackground: 'white',
-  leftIcon: '',
-  rightIcon: '',
-  disableAutoComplete: false,
   disabled: false,
   hasError: false,
   autoFocus: false,
+  isDynamic: false,
+  isResizeNone: false,
+  rows: '2',
+  cols: '20',
 };

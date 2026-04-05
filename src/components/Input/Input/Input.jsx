@@ -24,7 +24,8 @@ const Input = ({
   size = '20',
   disableAutoComplete,
   helperText = '',
-  background = white,
+  background = 'transparent',
+  outerBackground = white,
   leftIcon,
   rightIcon,
   ...params
@@ -80,6 +81,7 @@ const Input = ({
             $shade,
             value,
             background,
+            outerBackground: $isFocused || !!value ? outerBackground : background,
             $hasLeftIcon,
             $hasRightIcon,
             $onlyPh: placeholder && !label,
