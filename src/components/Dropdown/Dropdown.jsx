@@ -14,6 +14,23 @@ import {
   SpinnerWrapper,
 } from './styles';
 
+const getPixelValue = (value) => {
+  if (typeof value !== 'string') return value;
+
+  if (value.endsWith('px')) {
+    return parseFloat(value);
+  }
+
+  if (value.endsWith('rem')) {
+    const remValue = parseFloat(value);
+    const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+    return remValue * rootFontSize;
+  }
+
+  // Handle other units or raw numbers if necessary
+  return parseFloat(value);
+};
+
 const Dropdown = ({
   options,
   onChange,
@@ -55,26 +72,23 @@ const Dropdown = ({
 
   useLayoutEffect(() => {
     if (isOpen && menuRef.current && containerRef.current) {
-      // 1. Get the dimensions of the menu and the button container
-      const menuRect = menuRef.current.getBoundingClientRect();
       const containerRect = containerRef.current.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
 
-      // 2. Calculate available space below the button
-      const spaceBelow = viewportHeight - containerRect.bottom;
+      // Convert your variable to pixels
+      const parsedMenuHeight = getPixelValue(menuHeight);
 
-      // 3. Add a small buffer (8px) so it's not flush against the screen edge
+      // Use the parsed value for your logic
+      const spaceBelow = viewportHeight - containerRect.bottom;
       const buffer = 8;
 
-      // 4. Priority Logic:
-      // Flip to 'top' ONLY if space below is too small AND there's more room above
-      if (spaceBelow < menuRect.height + buffer && containerRect.top > spaceBelow) {
+      if (spaceBelow < parsedMenuHeight + buffer && containerRect.top > spaceBelow) {
         setPosition('top');
       } else {
         setPosition('bottom');
       }
     }
-  }, [isOpen]);
+  }, [isOpen, menuHeight]);
 
   const {
     m50: hoverColor,
@@ -106,11 +120,9 @@ const Dropdown = ({
         </PWrapper>
         <ChevronDownWrapper color={grey.m500} size={22} $isOpen={isOpen} />
       </Box>
-      {isOpen && (
-        <OptionWrapper ref={menuRef} $width={width} $height={menuHeight} $top={position === 'top'}>
-          {options.map(renderOption)}
-        </OptionWrapper>
-      )}
+      <OptionWrapper $isOpen={isOpen} $width={width} $height={menuHeight} $top={position === 'top'}>
+        <div ref={menuRef}>{options.map(renderOption)}</div>
+      </OptionWrapper>
       {isLoading && (
         <SpinnerWrapper>
           <Spinner size='small' color={loaderColor} />

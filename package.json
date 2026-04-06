@@ -1,6 +1,6 @@
 {
   "name": "meticulous-ui",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "repository": {
@@ -35,6 +35,7 @@
     "toasts",
     "button",
     "input",
+    "textarea",
     "notification",
     "dropdown",
     "spinner",

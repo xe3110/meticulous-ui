@@ -70,12 +70,21 @@ export const ChevronDownWrapper = styled(ChevronDown)`
 export const OptionWrapper = styled.div`
   border: 1px solid ${grey.m700};
   width: calc(${({ $width }) => $width} + 1rem);
-  max-height: ${({ $height }) => $height};
   overflow: auto;
   position: absolute;
   z-index: 1000;
   background-color: ${white};
   left: 0.15rem;
+  max-height: 0;
+  transition: max-height 0.15s ease-out;
+  opacity: 0;
+
+  ${({ $isOpen }) =>
+    $isOpen &&
+    css`
+      max-height: ${({ $height }) => $height};
+      opacity: 1;
+    `};
 
   ${({ $top }) =>
     $top

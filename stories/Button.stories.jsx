@@ -34,8 +34,12 @@ export default {
           import Button from 'meticulous-ui/components/Button';
 
           const ButtonWrapper = () => {
+            const onClick = (e) => {
+              console.log(e)
+            };
+
             return (
-              <Button>Click me</Button>
+              <Button onClick={onClick}>Click me</Button>
             );
           };
         `,
