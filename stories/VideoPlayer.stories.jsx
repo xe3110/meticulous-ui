@@ -2,7 +2,7 @@ import VideoPlayer from '../src/components/VideoPlayer/VideoPlayer';
 
 const VideoPlayerWrapper = () => {
   return (
-    <VideoPlayer link='https://videos.pexels.com/video-files/35450385/15019071_2560_1440_25fps.mp4' />
+    <VideoPlayer link='https://filesamples.com/samples/video/mp4/sample_960x400_ocean_with_audio.mp4' />
   );
 };
 
@@ -21,7 +21,7 @@ export default {
 
           const VideoPlayerWrapper = () => {
             return (
-              <VideoPlayer link='https://videos.pexels.com/video-files/35450385/15019071_2560_1440_25fps.mp4' />
+              <VideoPlayer link='https://filesamples.com/samples/video/mp4/sample_960x400_ocean_with_audio.mp4' />
             );
           };
 

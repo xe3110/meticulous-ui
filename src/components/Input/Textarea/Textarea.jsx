@@ -66,7 +66,7 @@ const Textarea = ({
           $isDynamic,
           background,
           cols,
-          isResizeNone,
+          $isResizeNone: isResizeNone,
           ...rowsObj,
         }}
         ref={textAreaRef}
@@ -84,7 +84,7 @@ const Textarea = ({
               $shade,
               value,
               background,
-              outerBackground: $isFocused || !!value ? outerBackground : background,
+              $outerBackground: $isFocused || !!value ? outerBackground : background,
               $onlyPh: placeholder && !label,
             }}
           >

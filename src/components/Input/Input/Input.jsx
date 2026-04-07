@@ -81,7 +81,7 @@ const Input = ({
             $shade,
             value,
             background,
-            outerBackground: $isFocused || !!value ? outerBackground : background,
+            $outerBackground: $isFocused || !!value ? outerBackground : background,
             $hasLeftIcon,
             $hasRightIcon,
             $onlyPh: placeholder && !label,

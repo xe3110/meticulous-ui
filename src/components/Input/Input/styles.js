@@ -73,7 +73,7 @@ export const Label = styled.div`
   top: -0.4rem;
   left: 0.5rem;
   font-size: 0.8rem;
-  background-color: ${({ outerBackground }) => outerBackground};
+  background-color: ${({ $outerBackground }) => $outerBackground};
   border-radius: 0.4rem;
   margin: 0 0.4rem;
   transition: 0.25s;
