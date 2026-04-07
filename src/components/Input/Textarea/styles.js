@@ -15,8 +15,8 @@ export const TextareaBox = styled.textarea`
   min-height: 1.4rem;
   min-width: 3rem;
 
-  ${({ isResizeNone }) =>
-    isResizeNone &&
+  ${({ $isResizeNone }) =>
+    $isResizeNone &&
     css`
       resize: none;
     `}
