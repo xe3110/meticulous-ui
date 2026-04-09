@@ -24,12 +24,16 @@ const MenuItem = ({
   selectedColor = blue.m200,
   hoverColor = blue.m50,
   activeColor = blue.m100,
+  isHighlighted,
   size = '1.2rem',
   onSelect,
   isDisabled,
+  onMouseEnter,
 }) => {
   const handleClick = () => {
-    onSelect(value);
+    if (!isDisabled) {
+      onSelect(value);
+    }
   };
 
   return (
@@ -42,8 +46,10 @@ const MenuItem = ({
         $hoverColor: hoverColor,
         $activeColor: activeColor,
         $isDisabled: isDisabled,
+        $isHighlighted: isHighlighted,
       }}
       onClick={handleClick}
+      onMouseEnter={onMouseEnter}
       title={label}
     >
       <PWrapper size={size} color={getColor({ isSelected, isDisabled })} $width={width}>

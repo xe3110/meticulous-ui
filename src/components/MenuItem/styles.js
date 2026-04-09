@@ -3,17 +3,19 @@ import P from '../Typography/P';
 
 export const Wrapper = styled.div`
   width: ${({ $width }) => $width};
-  background-color: ${({ $isSelected, $defaultColor, $selectedColor }) =>
-    $isSelected ? $selectedColor : $defaultColor};
-  cursor: ${({ $isSelected }) => ($isSelected ? 'auto' : 'pointer')};
+  background-color: ${({
+    $isSelected,
+    $defaultColor,
+    $isHighlighted,
+    $hoverColor,
+    $selectedColor,
+  }) => ($isSelected ? $selectedColor : $isHighlighted ? $hoverColor : $defaultColor)};
+
+  cursor: ${({ $isSelected, $isDisabled }) =>
+    $isSelected ? 'auto' : $isDisabled ? 'not-allowed' : 'pointer'};
   padding: 0.6rem 0 0.8rem 1rem;
   margin-top: 0.1rem;
   pointer-events: ${({ $isDisabled }) => ($isDisabled ? 'none' : 'auto')};
-
-  &:hover {
-    background-color: ${({ $isSelected, $hoverColor, $selectedColor }) =>
-      $isSelected ? $selectedColor : $hoverColor};
-  }
 
   &:active {
     background-color: ${({ $isSelected, $activeColor, $selectedColor }) =>

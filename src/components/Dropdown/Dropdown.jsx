@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, useMemo, useCallback } from 'react';
 import _get from 'lodash-es/get';
 import grey from '../../colors/grey';
 import MenuItem from '../MenuItem/MenuItem';
@@ -12,22 +12,21 @@ import {
   OptionWrapper,
   DropdownWrapper,
   SpinnerWrapper,
+  SearchInput,
+  LoadMoreSentinel,
+  OptionsList,
+  SearchContainer,
+  SearchIcon,
 } from './styles';
 
 const getPixelValue = (value) => {
   if (typeof value !== 'string') return value;
-
-  if (value.endsWith('px')) {
-    return parseFloat(value);
-  }
-
+  if (value.endsWith('px')) return parseFloat(value);
   if (value.endsWith('rem')) {
     const remValue = parseFloat(value);
     const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
     return remValue * rootFontSize;
   }
-
-  // Handle other units or raw numbers if necessary
   return parseFloat(value);
 };
 
@@ -42,15 +41,23 @@ const Dropdown = ({
   isLoading,
   isDisabled,
   loaderColor,
+  searchable = false,
+  onLoadMore,
+  hasMore = false,
+  isLoadingMore = false,
 }) => {
   const [isOpen, setOpen] = useState(false);
   const [position, setPosition] = useState('bottom');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [activeIndex, setActiveIndex] = useState(-1);
+
   const containerRef = useRef(null);
   const menuRef = useRef(null);
+  const searchInputRef = useRef(null);
+  const sentinelRef = useRef(null);
+  const isInitialOpen = useRef(true);
 
-  const toggle = () => {
-    setOpen((isOpen) => !isOpen);
-  };
+  const toggle = () => setOpen((prev) => !prev);
 
   const handleChange = (val) => {
     if (val !== value) {
@@ -59,14 +66,57 @@ const Dropdown = ({
     }
   };
 
+  const filteredOptions = useMemo(() => {
+    if (!searchable || !searchQuery.trim()) return options;
+    const q = searchQuery.toLowerCase();
+    return options.filter(({ label }) => label.toLowerCase().includes(q));
+  }, [options, searchQuery, searchable]);
+
+  useEffect(() => {
+    if (isOpen) {
+      const selectedIndex = filteredOptions.findIndex((opt) => opt.value === value);
+
+      if (selectedIndex !== -1 && !filteredOptions[selectedIndex].disabled) {
+        setActiveIndex(selectedIndex);
+      } else {
+        const firstEnabled = filteredOptions.findIndex((opt) => !opt.disabled);
+        setActiveIndex(firstEnabled);
+      }
+    } else {
+      setSearchQuery('');
+      setActiveIndex(-1);
+    }
+  }, [isOpen, searchQuery, filteredOptions, value]);
+
+  useEffect(() => {
+    if (isOpen && activeIndex !== -1 && menuRef.current) {
+      const highlightedElement = menuRef.current.children[activeIndex];
+      if (highlightedElement) {
+        highlightedElement.scrollIntoView({
+          block: 'nearest',
+          behavior: 'auto',
+        });
+      }
+    }
+  }, [activeIndex, isOpen]);
+
+  useEffect(() => {
+    if (isOpen && searchable && searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  }, [isOpen, searchable]);
+
+  useEffect(() => {
+    if (!isOpen) isInitialOpen.current = true;
+  }, [isOpen]);
+
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (containerRef.current && !containerRef.current.contains(event.target)) {
-        setOpen(false); // Close dropdown
+        setOpen(false);
       }
     };
     document.addEventListener('mousedown', handleOutsideClick);
-
     return () => document.removeEventListener('mousedown', handleOutsideClick);
   }, []);
 
@@ -74,21 +124,93 @@ const Dropdown = ({
     if (isOpen && menuRef.current && containerRef.current) {
       const containerRect = containerRef.current.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
-
-      // Convert your variable to pixels
       const parsedMenuHeight = getPixelValue(menuHeight);
-
-      // Use the parsed value for your logic
       const spaceBelow = viewportHeight - containerRect.bottom;
       const buffer = 8;
-
-      if (spaceBelow < parsedMenuHeight + buffer && containerRect.top > spaceBelow) {
-        setPosition('top');
-      } else {
-        setPosition('bottom');
-      }
+      setPosition(
+        spaceBelow < parsedMenuHeight + buffer && containerRect.top > spaceBelow ? 'top' : 'bottom'
+      );
     }
   }, [isOpen, menuHeight]);
+
+  const getNextEnabledIndex = (currentIndex) => {
+    let next = currentIndex + 1;
+    while (next < filteredOptions.length) {
+      if (!filteredOptions[next].disabled) return next;
+      next++;
+    }
+    return currentIndex;
+  };
+
+  const getPrevEnabledIndex = (currentIndex) => {
+    let prev = currentIndex - 1;
+    while (prev >= 0) {
+      if (!filteredOptions[prev].disabled) return prev;
+      prev--;
+    }
+    return currentIndex;
+  };
+
+  const handleKeyDown = (e) => {
+    if (!isOpen) return;
+
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+        const nextIndex = getNextEnabledIndex(activeIndex);
+
+        if (nextIndex === activeIndex && hasMore && !isLoadingMore) {
+          onLoadMore?.();
+        }
+
+        setActiveIndex(nextIndex);
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        setActiveIndex((prev) => getPrevEnabledIndex(prev));
+        break;
+      case 'Enter':
+        e.preventDefault();
+        const selectedOption = filteredOptions[activeIndex];
+        if (selectedOption && !selectedOption.disabled) {
+          handleChange(selectedOption.value);
+        }
+        break;
+      case 'Escape':
+        setOpen(false);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const handleLoadMore = useCallback(() => {
+    if (hasMore && !isLoadingMore && onLoadMore) {
+      onLoadMore();
+    }
+  }, [hasMore, isLoadingMore, onLoadMore]);
+
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+    if (!sentinel || !onLoadMore || !hasMore) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Use isIntersecting AND check if it's actually visible
+        if (entry.isIntersecting && !isLoadingMore) {
+          handleLoadMore();
+        }
+      },
+      {
+        root: menuRef.current, // Observe relative to the scrollable container
+        threshold: 0.1,
+        rootMargin: '20px', // Start loading 20px before the user even hits the bottom
+      }
+    );
+
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [handleLoadMore, onLoadMore, hasMore, isLoadingMore]);
 
   const {
     m50: hoverColor,
@@ -97,20 +219,35 @@ const Dropdown = ({
     m500: border,
   } = _get(colors, theme, blue);
 
-  const renderOption = ({ value: val, label, disabled }) => (
+  const mouseHighlight = (disabled, index) => () => !disabled && setActiveIndex(index);
+
+  const renderOption = ({ value: val, label, disabled }, index) => (
     <MenuItem
-      {...{ value: val, label, isDisabled: disabled, onSelect: handleChange }}
+      {...{ value: val, label, isDisabled: disabled }}
+      onSelect={handleChange}
+      onMouseEnter={mouseHighlight(disabled, index)}
       isSelected={val === value}
+      isHighlighted={index === activeIndex}
       key={val}
       width={width}
       {...{ selectedColor, hoverColor, activeColor }}
     />
   );
 
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const onSearchClick = (e) => {
+    e.stopPropagation();
+  };
+
   return (
     <DropdownWrapper
       ref={containerRef}
       $width={width}
+      tabIndex={isDisabled ? -1 : 0}
+      onKeyDown={handleKeyDown}
       $isLoading={isLoading}
       $isDisabled={isDisabled}
     >
@@ -121,7 +258,25 @@ const Dropdown = ({
         <ChevronDownWrapper color={grey.m500} size={22} $isOpen={isOpen} />
       </Box>
       <OptionWrapper $isOpen={isOpen} $width={width} $height={menuHeight} $top={position === 'top'}>
-        <div ref={menuRef}>{options.map(renderOption)}</div>
+        {searchable && (
+          <SearchContainer onClick={onSearchClick}>
+            <SearchIcon size={18} color={grey.m800} />
+            <SearchInput
+              ref={searchInputRef}
+              value={searchQuery}
+              onChange={handleSearch}
+              placeholder='Search...'
+            />
+          </SearchContainer>
+        )}
+        <OptionsList ref={menuRef}>
+          {filteredOptions.map(renderOption)}
+          {onLoadMore && (
+            <LoadMoreSentinel ref={sentinelRef}>
+              {isLoadingMore && <Spinner size='small' color={loaderColor} />}
+            </LoadMoreSentinel>
+          )}
+        </OptionsList>
       </OptionWrapper>
       {isLoading && (
         <SpinnerWrapper>

@@ -182,6 +182,77 @@ export const WithDisabledOptions = {
   },
 };
 
+export const WithSearch = {
+  name: 'With Search',
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => {
+    const [value, setValue] = useState(null);
+
+    const onChange = (v) => {
+      setValue(v);
+    };
+
+    return (
+      <Dropdown
+        onChange={onChange}
+        value={value}
+        searchable
+        options={OPTIONS}
+        placeholder='Select a value'
+      />
+    );
+  },
+};
+
+export const WithAsyncLoadMore = {
+  name: 'With Async Load More',
+  render: () => {
+    // 1. Manage options and loading state locally for the demo
+    const [options, setOptions] = useState(OPTIONS.slice(0, 10)); // Start with first 10
+    const [value, setValue] = useState(null);
+    const [isLoadingMore, setIsLoadingMore] = useState(false);
+    const [hasMore, setHasMore] = useState(true);
+
+    const handleLoadMore = () => {
+      // Prevent multiple calls if already loading or no more data
+      if (isLoadingMore || !hasMore) return;
+
+      setIsLoadingMore(true);
+
+      // Simulate an API call delay
+      setTimeout(() => {
+        const currentLength = options.length;
+        const nextBatch = OPTIONS.slice(currentLength, currentLength + 10);
+
+        if (nextBatch.length > 0) {
+          setOptions((prev) => [...prev, ...nextBatch]);
+        } else {
+          setHasMore(false);
+        }
+
+        setIsLoadingMore(false);
+      }, 1500); // 1.5s delay to see the spinner
+    };
+
+    return (
+      <Dropdown
+        placeholder='Search and scroll down...'
+        searchable
+        value={value}
+        onChange={(v) => setValue(v)}
+        options={options}
+        onLoadMore={handleLoadMore}
+        hasMore={hasMore}
+        isLoadingMore={isLoadingMore}
+        loaderColor='#007bff' // Match your theme
+      />
+    );
+  },
+};
+
 export const LoadingState = {
   name: 'Loading State',
   parameters: {
