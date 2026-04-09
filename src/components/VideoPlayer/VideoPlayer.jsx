@@ -6,7 +6,7 @@ const VideoPlayer = ({ link }) => {
   const videoRef = useRef(null);
 
   const onVideoClick = () => {
-    videoRef.current?.blur();
+    videoRef.current?.focus();
   };
 
   useSpacebarToggle(videoRef);
