@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export const useSpacebarToggle = (videoRef) => {
+export const useSpacebarToggle = (videoRef, containerRef, showVolume) => {
   useEffect(() => {
     const onKeyDown = (e) => {
       console.log(e.code);
@@ -45,19 +45,20 @@ export const useSpacebarToggle = (videoRef) => {
           video.pause();
         }
       } else if (e.code === 'KeyF') {
-        video.requestFullscreen();
+        if (!document.fullscreenElement) {
+          containerRef.current?.requestFullscreen();
+        } else {
+          document.exitFullscreen();
+        }
       } else if (e.code === 'ArrowUp') {
-        if (video.volume <= 0.95) {
-          video.volume += 0.05;
-        } else if (video.volume < 1) {
-          video.volume = 1;
-        }
+        video.volume = Math.min(1, video.volume + 0.05);
+        showVolume?.(video.volume);
       } else if (e.code === 'ArrowDown') {
-        if (video.volume >= 0.05) {
-          video.volume -= 0.05;
-        } else if (video.volume > 0) {
-          video.volume = 0;
-        }
+        video.volume = Math.max(0, video.volume - 0.05);
+        showVolume?.(video.volume);
+      } else if (e.code === 'KeyM') {
+        video.volume = video.volume > 0 ? 0 : 1;
+        showVolume?.(video.volume);
       } else if (e.code === 'ArrowLeft') {
         if (video.currentTime > 5) {
           video.currentTime -= 5;
@@ -70,17 +71,11 @@ export const useSpacebarToggle = (videoRef) => {
         } else if (video.currentTime < video.duration) {
           video.currentTime = video.duration;
         }
-      } else if (e.code === 'KeyM') {
-        if (video.volume > 0) {
-          video.volume = 0;
-        } else {
-          video.volume = 1;
-        }
       }
     };
 
     window.addEventListener('keydown', onKeyDown);
 
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [videoRef]);
+  }, [videoRef, containerRef, showVolume]);
 };
