@@ -126,6 +126,18 @@ export default {
     placeholder: {
       control: 'text',
     },
+    searchable: {
+      control: 'select',
+      options: [false, true],
+    },
+    hasMore: {
+      control: 'select',
+      options: [false, true],
+    },
+    isLoadingMore: {
+      control: 'select',
+      options: [false, true],
+    },
   },
 };
 
@@ -327,4 +339,7 @@ Default.args = {
   isLoading: false,
   isDisabled: false,
   placeholder: 'Select a value',
+  searchable: false,
+  hasMore: false,
+  isLoadingMore: false,
 };
