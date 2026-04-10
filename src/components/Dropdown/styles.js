@@ -149,7 +149,7 @@ export const SearchInput = styled.input`
 `;
 
 export const SearchIcon = styled(Search)`
-  margin: 0 1.2rem;
+  margin: 0 0.8rem;
 `;
 
 export const LoadMoreSentinel = styled.div`

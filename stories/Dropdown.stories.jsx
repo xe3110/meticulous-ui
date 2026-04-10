@@ -126,6 +126,9 @@ export default {
     placeholder: {
       control: 'text',
     },
+    searchPh: {
+      control: 'text',
+    },
     searchable: {
       control: 'select',
       options: [false, true],
@@ -342,4 +345,5 @@ Default.args = {
   searchable: false,
   hasMore: false,
   isLoadingMore: false,
+  searchPh: 'Search...',
 };

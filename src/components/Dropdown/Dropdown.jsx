@@ -45,6 +45,7 @@ const Dropdown = ({
   onLoadMore,
   hasMore = false,
   isLoadingMore = false,
+  searchPh = 'Search...',
 }) => {
   const [isOpen, setOpen] = useState(false);
   const [position, setPosition] = useState('bottom');
@@ -260,12 +261,12 @@ const Dropdown = ({
       <OptionWrapper $isOpen={isOpen} $width={width} $height={menuHeight} $top={position === 'top'}>
         {searchable && (
           <SearchContainer onClick={onSearchClick}>
-            <SearchIcon size={18} color={grey.m800} />
+            <SearchIcon size={20} color={grey.m600} />
             <SearchInput
               ref={searchInputRef}
               value={searchQuery}
               onChange={handleSearch}
-              placeholder='Search...'
+              placeholder={searchPh}
             />
           </SearchContainer>
         )}
