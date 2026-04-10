@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   position: absolute;
-  right: 1.6rem;
+  right: 0.8rem;
   top: 1.6rem;
   display: flex;
   flex-direction: column;

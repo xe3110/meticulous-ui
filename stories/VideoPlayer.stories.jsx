@@ -1,11 +1,5 @@
 import VideoPlayer from '../src/components/VideoPlayer/VideoPlayer';
 
-const VideoPlayerWrapper = () => {
-  return (
-    <VideoPlayer link='https://filesamples.com/samples/video/mp4/sample_960x400_ocean_with_audio.mp4' />
-  );
-};
-
 export default {
   title: 'Components/VideoPlayer',
   component: VideoPlayer,
@@ -21,7 +15,7 @@ export default {
 
           const VideoPlayerWrapper = () => {
             return (
-              <VideoPlayer link='https://filesamples.com/samples/video/mp4/sample_960x400_ocean_with_audio.mp4' />
+              <VideoPlayer link='https://filesamples.com/samples/video/mp4/sample_960x400_ocean_with_audio.mp4' width=800 />
             );
           };
 
@@ -37,14 +31,27 @@ export default {
         `,
       },
     },
-    controls: { disable: true },
-    actions: { disable: true },
+  },
+  argTypes: {
+    link: {
+      control: { type: 'text' },
+      description: 'Defines the link of the video in video player',
+    },
+    width: {
+      control: { type: 'number' },
+      description: 'Defines the width of video player in non-full screen mode',
+    },
   },
 };
 
 // Default story
-export const Default = () => {
-  return <VideoPlayerWrapper />;
+export const Default = (args) => {
+  return <VideoPlayer {...args} />;
 };
 
 Default.storyName = 'VideoPlayer';
+
+Default.args = {
+  link: 'https://filesamples.com/samples/video/mp4/sample_960x400_ocean_with_audio.mp4',
+  width: 600,
+};

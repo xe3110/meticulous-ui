@@ -9,7 +9,7 @@ const VolumeBar = ({ volume }) => {
       <Track>
         <Fill $pct={pct} />
       </Track>
-      <Label>{pct}%</Label>
+      <Label>{pct}</Label>
     </Wrapper>
   );
 };
