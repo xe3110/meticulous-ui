@@ -19,8 +19,8 @@ export const Video = styled.video`
   border-radius: ${({ $borderRadius }) => $borderRadius}px;
   outline: none;
   width: 100%;
+  height: 100%;
   max-width: ${({ width }) => width}px;
-  height: auto;
   aspect-ratio: 16 / 9;
   background-color: #000;
   object-fit: contain;
