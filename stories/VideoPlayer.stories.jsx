@@ -37,9 +37,21 @@ export default {
       control: { type: 'text' },
       description: 'Defines the link of the video in video player',
     },
+    thumbnail: {
+      control: { type: 'text' },
+      description: 'Defines the thumbnail of the video in video player',
+    },
     width: {
-      control: { type: 'number' },
+      control: { type: 'text' },
       description: 'Defines the width of video player in non-full screen mode',
+    },
+    height: {
+      control: { type: 'text' },
+      description: 'Defines the height of video player in non-full screen mode',
+    },
+    borderRadius: {
+      control: { type: 'number' },
+      description: 'Defines the border radius of video player in non-full screen mode',
     },
   },
 };
@@ -53,5 +65,8 @@ Default.storyName = 'VideoPlayer';
 
 Default.args = {
   link: 'https://filesamples.com/samples/video/mp4/sample_960x400_ocean_with_audio.mp4',
-  width: 600,
+  width: '600',
+  height: 'auto',
+  thumbnail: '',
+  borderRadius: 8,
 };

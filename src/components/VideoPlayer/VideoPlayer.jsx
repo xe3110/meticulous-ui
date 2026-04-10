@@ -4,7 +4,7 @@ import { useSpacebarToggle } from './useSpacebarToggle';
 import VolumeBar from './components/Volumebar/Volumebar';
 import { useVolumeOverlay } from './useVolumeOverlay';
 
-const VideoPlayer = ({ link, width = 600 }) => {
+const VideoPlayer = ({ link, thumbnail, width = '600', borderRadius = 8, height = 'auto' }) => {
   const videoRef = useRef(null);
   const containerRef = useRef(null);
   const { volume, showVolume } = useVolumeOverlay();
@@ -22,12 +22,13 @@ const VideoPlayer = ({ link, width = 600 }) => {
   useSpacebarToggle(videoRef, containerRef, showVolume);
 
   return (
-    <VideoContainer ref={containerRef} style={{ position: 'relative' }}>
+    <VideoContainer ref={containerRef} $width={width} $height={height}>
       <Video
+        $borderRadius={borderRadius}
         ref={videoRef}
         src={link}
+        poster={thumbnail}
         controls
-        width={`${width}`}
         tabIndex={0}
         onClick={onVideoClick}
         onKeyDown={onVideoKeyDown}
