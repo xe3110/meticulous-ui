@@ -55,6 +55,7 @@ export default App;
 | `OtpInput`    | Gives inputs to enter and edit OTP                 |
 | `VideoPlayer` | Renders video with keyboard shortcuts              |
 | `Input`       | Renders input box to let user enter input          |
+| `Checkbox`    | Renders checkbox to let user give boolean value    |
 | `Textarea`    | Renders textarea box to let user enter description |
 | `Dropdown`    | Renders dropdown to select from options            |
 | `Spinner`     | Renders a spinner to show the loading state        |
