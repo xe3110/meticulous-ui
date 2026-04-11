@@ -150,7 +150,7 @@ Default.storyName = 'Checkbox';
 
 Default.args = {
   value: false,
-  label: '',
+  label: 'Click me',
   color: 'blue',
   textColor: '#616161',
 };
