@@ -49,6 +49,7 @@ const Input = ({
   const $hasRightIcon = !!(rightIcon && rightIconFn);
 
   const $hasError = hasError;
+  const $background = background;
 
   return (
     <Wrapper>
@@ -61,7 +62,7 @@ const Input = ({
           value,
           $isFocused,
           $shade,
-          background,
+          $background,
           $hasLeftIcon,
           $hasRightIcon,
         }}
@@ -80,7 +81,6 @@ const Input = ({
             $isFocused,
             $shade,
             value,
-            background,
             $outerBackground: $isFocused || !!value ? outerBackground : background,
             $hasLeftIcon,
             $hasRightIcon,

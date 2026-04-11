@@ -13,21 +13,21 @@ import { SELECTED_BG, NOT_SELECTED_BG, ACTIVE_NOT_SELECTED_BG } from './constant
 
 const getShade =
   (type) =>
-  ({ shades }) => {
-    if (['#FFFFFF'].includes(shades)) {
+  ({ $shades }) => {
+    if (['#FFFFFF'].includes($shades)) {
       return black.m900;
     }
 
     if (type === SELECTED_BG) {
-      return shades['m500'];
+      return $shades['m500'];
     }
 
     if (type === NOT_SELECTED_BG) {
-      return shades['m50'];
+      return $shades['m50'];
     }
 
     if (type === ACTIVE_NOT_SELECTED_BG) {
-      return shades['m100'];
+      return $shades['m100'];
     }
   };
 

@@ -12,6 +12,7 @@ export const renderPageNum =
   (page) => {
     const $individualRemSize = SIZE_REM_MAPPING[size];
     const $fontRemSize = FONT_SIZE_MAPPING[size];
+    const $shades = shades;
 
     const clickHandler = () => {
       changePage(page);
@@ -24,7 +25,7 @@ export const renderPageNum =
         key={`page_${page}`}
         onClick={clickHandler}
         {...{
-          shades,
+          $shades,
           $individualRemSize,
           $fontRemSize,
         }}

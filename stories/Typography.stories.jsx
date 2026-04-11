@@ -29,9 +29,9 @@ export default {
       source: {
         language: 'jsx',
         code: `
-          import { H1, H2, H3, H4, H5, H6 } from '../src/components/Typography/Headings';
-          import P from '../src/components/Typography/P';
-          import red from '../src/colors/red';
+          import { H1, H2, H3, H4, H5, H6 } from 'meticulous-ui/components/Typography/Headings';
+          import P from 'meticulous-ui/components/Typography/P';
+          import red from 'meticulous-ui/colors/red';
 
           const TypographyWrapper = () => {
             return (

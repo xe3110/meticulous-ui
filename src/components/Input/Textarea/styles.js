@@ -11,7 +11,7 @@ export const TextareaBox = styled.textarea`
   padding: 0.6rem;
   font-weight: 400;
   transition: border-color 0.3s ease;
-  background-color: ${({ background }) => background} !important;
+  background-color: ${({ $background }) => $background} !important;
   min-height: 1.4rem;
   min-width: 3rem;
 
@@ -42,7 +42,7 @@ export const TextareaBox = styled.textarea`
     color: ${grey.m500};
     font-weight: 300;
     font-size: 1.4rem;
-    background-color: ${({ background }) => background};
+    background-color: ${({ $background }) => $background};
     pointer-events: none;
   }
 

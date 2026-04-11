@@ -14,20 +14,19 @@ export default {
       description: {
         component: 'A circular Spinner to show loading state.',
       },
-    },
-  },
-  source: {
-    language: 'jsx',
-    code: `
+      source: {
+        language: 'jsx',
+        code: `
       import Spinner from 'meticulous-ui/components/Spinner';
 
       const SpinnerWrapper = () => {
-
         return (
           <Spinner />
         );
       };
     `,
+      },
+    },
   },
   argTypes: {
     color: {

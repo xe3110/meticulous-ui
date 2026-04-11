@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import OtpInput from '../src/components/OtpInput/OtpInput';
+import OtpInput from '../src/components/OtpInput';
 
 export default {
   title: 'Components/OTP',
@@ -12,7 +12,7 @@ export default {
       source: {
         language: 'jsx',
         code: `
-          import OtpInput from '../src/components/OtpInput/OtpInput';
+          import OtpInput from 'meticulous-ui/components/OtpInput';
 
           export const Default = (args) => {
             const [val, setVal] = useState('');

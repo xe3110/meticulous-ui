@@ -11,7 +11,7 @@ export default {
       source: {
         language: 'jsx',
         code: `
-          import VideoPlayer from '../src/components/VideoPlayer';
+          import VideoPlayer from 'meticulous-ui/components/VideoPlayer';
 
           const VideoPlayerWrapper = () => {
             return (

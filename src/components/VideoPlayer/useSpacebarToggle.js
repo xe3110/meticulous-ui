@@ -3,8 +3,6 @@ import { useEffect } from 'react';
 export const useSpacebarToggle = (videoRef, containerRef, showVolume) => {
   useEffect(() => {
     const onKeyDown = (e) => {
-      console.log(e.code);
-
       // Use code instead of key for layout safety
       if (
         ![

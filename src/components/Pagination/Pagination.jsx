@@ -40,8 +40,6 @@ const Pagination = ({
   };
 
   const handleKeyDown = (e) => {
-    console.log({ e });
-
     if (['ArrowLeft', 'ArrowUp'].includes(e.code)) {
       setPrevPage();
     }

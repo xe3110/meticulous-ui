@@ -51,6 +51,7 @@ const Textarea = ({
 
   const $hasError = hasError;
   const $isDynamic = isDynamic;
+  const $background = background;
   const rowsObj = isDynamic ? {} : { rows };
 
   return (
@@ -64,7 +65,7 @@ const Textarea = ({
           $isFocused,
           $shade,
           $isDynamic,
-          background,
+          $background,
           cols,
           $isResizeNone: isResizeNone,
           ...rowsObj,
@@ -83,7 +84,6 @@ const Textarea = ({
               $isFocused,
               $shade,
               value,
-              background,
               $outerBackground: $isFocused || !!value ? outerBackground : background,
               $onlyPh: placeholder && !label,
             }}

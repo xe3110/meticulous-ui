@@ -103,6 +103,73 @@ export default {
       description: {
         component: 'Toast types.',
       },
+      source: {
+        language: 'jsx',
+        code: `
+        import { ToastContainer } from 'meticulous-ui/components/Toast';
+
+        export const AllToasts = () => {
+          const [toasts, setToasts] = useState([]);
+
+          const toastChangeHandler = (toasts) => {
+            setToasts(toasts);
+          };
+
+          const popSuccess = () => {
+            setToasts((toasts) => [
+              ...toasts,
+              { id: \`\${SUCCESS}-\${Math.random().toString(16).slice(2)}\`, type: SUCCESS },
+            ]);
+          };
+
+          const popError = () => {
+            setToasts((toasts) => [
+              ...toasts,
+              { id: \`\${ERROR}-\${Math.random().toString(16).slice(2)}\`, type: ERROR },
+            ]);
+          };
+
+          const popWarning = () => {
+            setToasts((toasts) => [
+              ...toasts,
+              { id: \`\${WARNING}-\${Math.random().toString(16).slice(2)}\`, type: WARNING },
+            ]);
+          };
+
+          const popInfo = () => {
+            setToasts((toasts) => [
+              ...toasts,
+              { id: \`\${INFO}-\${Math.random().toString(16).slice(2)}\`, type: INFO },
+            ]);
+          };
+
+          return (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+              <ToastContainer
+                toasts={toasts.map(({ id, type }) => ({
+                  id,
+                  type,
+                  ...TYPE_INFO_MAP[type], // title, subtitle
+                }))}
+                setToasts={toastChangeHandler}
+              />
+              <button style={{ width: '8rem', height: '2.4rem' }} onClick={popSuccess}>
+                <P>Success</P>
+              </button>
+              <button style={{ width: '8rem', height: '2.4rem' }} onClick={popError}>
+                <P>Error</P>
+              </button>
+              <button style={{ width: '8rem', height: '2.4rem' }} onClick={popWarning}>
+                <P>Warning</P>
+              </button>
+              <button style={{ width: '8rem', height: '2.4rem' }} onClick={popInfo}>
+                <P>Info</P>
+              </button>
+            </div>
+          );
+        };
+        `,
+      },
     },
     controls: { disable: true },
     actions: { disable: true },

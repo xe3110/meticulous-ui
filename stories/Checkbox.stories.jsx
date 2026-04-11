@@ -12,7 +12,7 @@ export default {
       source: {
         language: 'jsx',
         code: `
-          import Checkbox from '../src/components/Checkbox/Checkbox';
+          import Checkbox from 'meticulous-ui/components/Input/Checkbox';
 
           export const Default = (args) => {
             const [val, setVal] = useState(false);
@@ -62,6 +62,7 @@ export const Default = (args) => {
 
   const onChange = (val) => {
     setVal(val);
+    console.log(val);
   };
 
   return <Checkbox label='Click Please' {...args} value={val} onChange={onChange} />;
