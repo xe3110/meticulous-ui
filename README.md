@@ -56,6 +56,7 @@ export default App;
 | `VideoPlayer` | Renders video with keyboard shortcuts              |
 | `Input`       | Renders input box to let user enter input          |
 | `Checkbox`    | Renders checkbox to let user give boolean value    |
+| `RadioGroup`  | Renders radio options ina group to let user select |
 | `Textarea`    | Renders textarea box to let user enter description |
 | `Dropdown`    | Renders dropdown to select from options            |
 | `Spinner`     | Renders a spinner to show the loading state        |
