@@ -21,7 +21,7 @@ const SIZES = [
 ];
 
 export default {
-  title: 'AtomicComponents/Button',
+  title: 'Atomic Components/Button',
   component: Button,
   parameters: {
     docs: {

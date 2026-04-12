@@ -17,7 +17,7 @@ const OPTIONS = [
 ];
 
 export default {
-  title: 'Molecules/Dropdown',
+  title: 'Atomic Components/Dropdown',
   component: Dropdown,
   parameters: {
     docs: {

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Checkbox from '../src/components/Input/Checkbox';
 
 export default {
-  title: 'AtomicComponents/Checkbox',
+  title: 'Atomic Components/Checkbox',
   component: Checkbox,
   parameters: {
     docs: {

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Textarea from '../src/components/Input/Textarea';
 
 export default {
-  title: 'AtomicComponents/Textarea',
+  title: 'Atomic Components/Textarea',
   component: Textarea,
   parameters: {
     docs: {
