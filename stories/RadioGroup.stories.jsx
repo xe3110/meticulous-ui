@@ -9,7 +9,7 @@ const OPTIONS = [
 ];
 
 export default {
-  title: 'Components/RadioGroup',
+  title: 'Molecules/RadioGroup',
   component: RadioGroup,
   parameters: {
     docs: {

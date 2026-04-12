@@ -3,7 +3,7 @@ import Pagination from '../src/components/Pagination'; // adjust path as needed
 import styled from 'styled-components';
 
 export default {
-  title: 'Components/Pagination',
+  title: 'Organisms/Pagination',
   component: Pagination,
   parameters: {
     docs: {

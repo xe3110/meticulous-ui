@@ -44,7 +44,7 @@ const AllIcons = () => {
 };
 
 export default {
-  title: 'Icons',
+  title: 'Tokens/Icons',
   component: AllIcons,
   parameters: {
     docs: {

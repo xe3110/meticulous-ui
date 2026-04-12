@@ -80,7 +80,7 @@ const AllColors = () => {
 };
 
 export default {
-  title: 'Colors',
+  title: 'Tokens/Colors',
   component: AllColors,
   parameters: {
     docs: {

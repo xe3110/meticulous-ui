@@ -96,7 +96,7 @@ const ToastWrapper = () => {
 };
 
 export default {
-  title: 'Components/Toast',
+  title: 'Organisms/Toast',
   component: ToastWrapper,
   parameters: {
     docs: {

@@ -1,7 +1,7 @@
 import VideoPlayer from '../src/components/VideoPlayer/VideoPlayer';
 
 export default {
-  title: 'Components/VideoPlayer',
+  title: 'Organisms/VideoPlayer',
   component: VideoPlayer,
   parameters: {
     docs: {

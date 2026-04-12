@@ -17,7 +17,7 @@ const TimerWrapper = () => {
 };
 
 export default {
-  title: 'Components/Timer',
+  title: 'Organisms/Timer',
   component: Timer,
   parameters: {
     docs: {

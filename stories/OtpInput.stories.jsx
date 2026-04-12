@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import OtpInput from '../src/components/OtpInput';
 
 export default {
-  title: 'Components/OTP',
+  title: 'Molecules/OTP',
   component: OtpInput,
   parameters: {
     docs: {
