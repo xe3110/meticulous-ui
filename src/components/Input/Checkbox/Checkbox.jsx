@@ -13,6 +13,8 @@ const Checkbox = ({ label, value, color = 'blue', textColor = grey.m700, disable
   };
 
   const shade = getColor(color);
+  const innerShade = _get(shade, 'm500', blue.m500);
+  const outerShade = _get(shade, 'm800', blue.m800);
 
   return (
     <Wrapper onClick={clickHandler} $disabled={disabled}>
@@ -23,7 +25,13 @@ const Checkbox = ({ label, value, color = 'blue', textColor = grey.m700, disable
         disabled={disabled}
         style={{ position: 'absolute', opacity: 0, width: 0, height: 0 }} // visually hidden
       />
-      <Box $value={value} size={8} color={white} $shade={_get(shade, 'm500', blue.m500)} />
+      <Box
+        $value={value}
+        size={6}
+        color={white}
+        $innerShade={innerShade}
+        $outerShade={outerShade}
+      />
       <P color={textColor} size='1.2rem'>
         {label}
       </P>

@@ -20,8 +20,12 @@ export const Wrapper = styled.div`
 export const Box = styled(Check)`
   width: 1.2rem;
   height: 1.2rem;
-  border: 1px solid ${grey.m700};
+  border: 1px solid ${({ $value, $outerShade }) => ($value ? $outerShade : grey.m800)};
   border-radius: 0.2rem;
-  background-color: ${({ $value, $shade }) => ($value ? $shade : 'transparent')};
+  background-color: ${({ $value, $innerShade }) => ($value ? $innerShade : 'transparent')};
   transition: background-color 0.35s ease;
+
+  path {
+    stroke-width: 3;
+  }
 `;
