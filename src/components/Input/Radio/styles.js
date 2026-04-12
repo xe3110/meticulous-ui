@@ -3,11 +3,12 @@ import grey from '../../../colors/grey';
 
 export const Circle = styled.div`
   position: absolute;
-  top: 0.2rem;
-  left: 0.2rem;
   width: 0.7rem;
   height: 0.7rem;
   border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   background-color: ${({ $isSelected, $shade }) => ($isSelected ? $shade : 'transparent')};
   transition: background-color 0.35s ease;
 `;
