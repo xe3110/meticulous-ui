@@ -1,0 +1,4 @@
+import{j as e}from"./jsx-runtime-u17CrQMm.js";import{u as s,M as i,C as a,S as n}from"./blocks-BLFtKydp.js";import{V as c,D as d}from"./VideoPlayer.stories-BBVNhZRt.js";import"./preload-helper-PPVm8Dsz.js";import"./iframe-v-kvBfBy.js";import"./index-BtbhvOeR.js";import"./styled-components.browser.esm-DOqSrTHP.js";import"./black-D_AkG8W8.js";function r(o){const t={code:"code",h1:"h1",p:"p",...s(),...o.components};return e.jsxs(e.Fragment,{children:[e.jsx(i,{title:"components/VideoPlayer",of:c}),`
+`,e.jsx(t.h1,{id:"videoplayer",children:"VideoPlayer"}),`
+`,e.jsxs(t.p,{children:["A VideoPlayer is used to play any video with full controls, can be imported as ",e.jsx(t.code,{children:"meticulous-ui/components/VideoPlayer"})]}),`
+`,e.jsx(a,{children:e.jsx(n,{name:"VideoPlayer",children:e.jsx(n,{of:d})})})]})}function f(o={}){const{wrapper:t}={...s(),...o.components};return t?e.jsx(t,{...o,children:e.jsx(r,{...o})}):r(o)}export{f as default};

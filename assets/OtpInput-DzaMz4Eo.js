@@ -1,0 +1,4 @@
+import{j as t}from"./jsx-runtime-u17CrQMm.js";import{u as p,M as r,C as i,S as c}from"./blocks-BLFtKydp.js";import{O as e}from"./OtpInput.stories-yl6qOcFS.js";import"./preload-helper-PPVm8Dsz.js";import"./iframe-v-kvBfBy.js";import"./index-BtbhvOeR.js";import"./styled-components.browser.esm-DOqSrTHP.js";import"./grey-B1SlOap1.js";function s(n){const o={code:"code",h1:"h1",p:"p",...p(),...n.components};return t.jsxs(t.Fragment,{children:[t.jsx(r,{title:"components/OtpInput",of:e}),`
+`,t.jsx(o.h1,{id:"otpinput",children:"OtpInput"}),`
+`,t.jsxs(o.p,{children:["A OtpInput is used display input boxes to enter otp, can be imported as ",t.jsx(o.code,{children:"meticulous-ui/components/OtpInput"})]}),`
+`,t.jsx(i,{children:t.jsx(c,{name:"OtpInput",children:t.jsx(e,{})})})]})}function f(n={}){const{wrapper:o}={...p(),...n.components};return o?t.jsx(o,{...n,children:t.jsx(s,{...n})}):s(n)}export{f as default};
