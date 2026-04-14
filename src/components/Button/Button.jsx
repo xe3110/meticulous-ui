@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import _get from 'lodash-es/get';
 import Spinner from '../Spinner/Spinner';
 import colors from '../../colors';
@@ -20,8 +21,24 @@ const Button = (props) => {
     rightIcon,
     isLoading,
     textColor,
+    onKeyDown,
     ...rest
   } = props || {};
+
+  const lastKeyPressRef = useRef(0);
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      const now = Date.now();
+      if (now - lastKeyPressRef.current < 500) {
+        e.preventDefault();
+        e.stopPropagation();
+        return;
+      }
+      lastKeyPressRef.current = now;
+    }
+    onKeyDown?.(e);
+  };
   const { m400: selectedColor, m500: hoverColor, m600: activeColor } = _get(colors, theme, blue);
   const { height: $height, width: $width, font: $font } = SIZE[size] || {};
 
@@ -30,6 +47,7 @@ const Button = (props) => {
   const btnChild = (
     <ButtonWrapper
       {...rest}
+      onKeyDown={handleKeyDown}
       {...{
         $hoverColor: hoverColor,
         $activeColor: activeColor,

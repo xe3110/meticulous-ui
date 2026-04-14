@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import _get from 'lodash-es/get';
 import grey from '../../../colors/grey';
 import P from '../../Typography/P';
@@ -14,9 +14,23 @@ const Checkbox = ({ label, value, color = 'blue', textColor = grey.m700, disable
   const innerShade = _get(shade, 'm500', blue.m500);
   const outerShade = _get(shade, 'm800', blue.m800);
 
+  const lastKeyPressRef = useRef(0);
+
   const changeHandler = (e) => onChange(e.target.checked);
   const keyDownHandler = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' || e.key === ' ') {
+      const now = Date.now();
+      if (now - lastKeyPressRef.current < 500) {
+        e.preventDefault();
+        e.stopPropagation();
+        return;
+      }
+      lastKeyPressRef.current = now;
+      if (e.key === ' ') {
+        e.preventDefault();
+        onChange(!value);
+        return;
+      }
       onChange(!value);
       setFocused(false);
     }
