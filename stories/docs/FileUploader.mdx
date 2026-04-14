@@ -1,0 +1,15 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+
+import * as FileUploaderStories from '../FileUploader.stories';
+
+<Meta title='components/FileUploader' of={FileUploaderStories} />
+
+# FileUploader
+
+A FileUploader is used to display a button type input where user can upload file(s), can be imported as `meticulous-ui/components/Input/FileUploader`
+
+<Canvas>
+  <Story name='FileUploader'>
+    <Story of={FileUploaderStories.Default} />
+  </Story>
+</Canvas>
