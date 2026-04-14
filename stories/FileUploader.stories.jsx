@@ -47,7 +47,7 @@ export default {
       source: {
         language: 'jsx',
         code: `
-          import FileUploader from 'meticulous-ui/components/FileUploader';
+          import FileUploader from 'meticulous-ui/components/Input/FileUploader';
 
           export const Default = (args) => {
             const [val, setVal] = useState('');

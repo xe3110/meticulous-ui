@@ -15,6 +15,7 @@ export { default as Input } from './components/Input/Input';
 export { default as Textarea } from './components/Input/Textarea';
 export { default as Checkbox } from './components/Input/Checkbox';
 export { default as RadioGroup } from './components/Input/RadioGroup';
+export { default as FileUploader } from './components/Input/FileUploader';
 
 // colors
 export { default as colors } from './colors';
