@@ -51,6 +51,28 @@ export default {
       description: {
         component: 'Collection of icons.',
       },
+      source: {
+        language: 'jsx',
+        code: `
+          import red from 'meticulous-ui/colors/red';
+
+          import Add from 'meticulous-ui/components/Icons/Add';
+          import ArrowDown from 'meticulous-ui/components/Icons/ArrowDown';
+          import Close from 'meticulous-ui/components/Icons/Close';
+          import ThumbsUpFilled from 'meticulous-ui/components/Icons/ThumbsUpFilled';
+          import DotsVerticalFilled from 'meticulous-ui/components/Icons/DotsVerticalFilled';
+          import HomeFilled from 'meticulous-ui/components/Icons/HomeFilled';
+          import DotsVerticalFilled from 'meticulous-ui/components/Icons/DotsVerticalFilled';
+
+          return <Add color={red.m500} size={20} />
+          return <ArrowDown color={red.m500} size={10} />
+          return <Close color={red.m500} size={14} />
+          return <ThumbsUpFilled color={red.m500} size={14} />
+          return <DotsVerticalFilled color={red.m500} size={14} />
+          return <HomeFilled color={red.m500} size={14} />
+          return <DotsVerticalFilled color={red.m500} size={14} />
+        `,
+      },
     },
     controls: { disable: true },
     actions: { disable: true },
@@ -59,29 +81,6 @@ export default {
 
 // Default story
 export const Default = () => {
-  // import red from 'meticulous-ui/colors/red';
-
-  // import Add from 'meticulous-ui/components/Icons/Add';
-  // return <Add color={red.m500} size={20} />
-
-  // import ArrowDown from 'meticulous-ui/components/Icons/ArrowDown';
-  // return <ArrowDown color={red.m500} size={10} />
-
-  // import Close from 'meticulous-ui/components/Icons/Close';
-  // return <Close color={red.m500} size={14} />
-
-  // import ThumbsUpFilled from 'meticulous-ui/components/Icons/ThumbsUpFilled';
-  // return <ThumbsUpFilled color={red.m500} size={14} />
-
-  // import DotsVerticalFilled from 'meticulous-ui/components/Icons/DotsVerticalFilled';
-  // return <DotsVerticalFilled color={red.m500} size={14} />
-
-  // import HomeFilled from 'meticulous-ui/components/Icons/HomeFilled';
-  // return <HomeFilled color={red.m500} size={14} />
-
-  // import DotsVerticalFilled from 'meticulous-ui/components/Icons/DotsVerticalFilled';
-  // return <DotsVerticalFilled color={red.m500} size={14} />
-
   return <AllIcons />;
 };
 
