@@ -108,6 +108,9 @@ export default {
     width: {
       control: 'number',
     },
+    textColor: {
+      control: 'text',
+    },
   },
 };
 
@@ -193,4 +196,5 @@ Default.args = {
   theme: 'blue',
   size: 'medium',
   width: 6,
+  textColor: '',
 };

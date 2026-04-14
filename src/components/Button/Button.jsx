@@ -19,12 +19,13 @@ const Button = (props) => {
     leftIcon,
     rightIcon,
     isLoading,
+    textColor,
     ...rest
   } = props || {};
   const { m400: selectedColor, m500: hoverColor, m600: activeColor } = _get(colors, theme, blue);
   const { height: $height, width: $width, font: $font } = SIZE[size] || {};
 
-  const textColor = theme !== 'white' ? white : grey.m600;
+  const txtClr = ['white', 'yellow'].includes(theme) ? grey.m600 : white;
 
   const btnChild = (
     <ButtonWrapper
@@ -41,12 +42,12 @@ const Button = (props) => {
     >
       {isLoading ? (
         <SpinnerWrapper>
-          <Spinner size='small' color={textColor} />
+          <Spinner size='small' color={textColor || txtClr} />
         </SpinnerWrapper>
       ) : (
         <Content
           {...{
-            $textColor: textColor,
+            $textColor: textColor || txtClr,
             $font,
           }}
         >
