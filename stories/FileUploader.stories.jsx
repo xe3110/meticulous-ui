@@ -56,7 +56,7 @@ export default {
               setVal(val);
             };
 
-            return <FileUploader value={val} onComplete={onChange} onChange={onChange} />;
+            return <FileUploader onChange={onChange} />;
           };
         `,
       },
