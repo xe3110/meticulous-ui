@@ -56,20 +56,32 @@ export default {
         code: `
           import red from 'meticulous-ui/colors/red';
 
+          // Add
           import Add from 'meticulous-ui/components/Icons/Add';
-          import ArrowDown from 'meticulous-ui/components/Icons/ArrowDown';
-          import Close from 'meticulous-ui/components/Icons/Close';
-          import ThumbsUpFilled from 'meticulous-ui/components/Icons/ThumbsUpFilled';
-          import DotsVerticalFilled from 'meticulous-ui/components/Icons/DotsVerticalFilled';
-          import HomeFilled from 'meticulous-ui/components/Icons/HomeFilled';
-          import DotsVerticalFilled from 'meticulous-ui/components/Icons/DotsVerticalFilled';
-
           return <Add color={red.m500} size={20} />
+
+          // ArrowDown
+          import ArrowDown from 'meticulous-ui/components/Icons/ArrowDown';
           return <ArrowDown color={red.m500} size={10} />
+
+          // Close
+          import Close from 'meticulous-ui/components/Icons/Close';
           return <Close color={red.m500} size={14} />
+
+          // ThumbsUpFilled
+          import ThumbsUpFilled from 'meticulous-ui/components/Icons/ThumbsUpFilled';
           return <ThumbsUpFilled color={red.m500} size={14} />
+
+          // DotsVerticalFilled
+          import DotsVerticalFilled from 'meticulous-ui/components/Icons/DotsVerticalFilled';
           return <DotsVerticalFilled color={red.m500} size={14} />
+
+          // HomeFilled
+          import HomeFilled from 'meticulous-ui/components/Icons/HomeFilled';
           return <HomeFilled color={red.m500} size={14} />
+
+          // DotsVerticalFilled
+          import DotsVerticalFilled from 'meticulous-ui/components/Icons/DotsVerticalFilled';
           return <DotsVerticalFilled color={red.m500} size={14} />
         `,
       },
