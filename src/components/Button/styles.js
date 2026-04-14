@@ -28,6 +28,10 @@ export const ButtonWrapper = styled.button`
         background-color: ${({ $activeColor }) => $activeColor};
       }
     `};
+
+  &:focus-visible {
+    outline: none;
+  }
 `;
 
 export const Content = styled.div`
@@ -53,7 +57,8 @@ export const ButtonContainer = styled.div`
         transform 0.2s,
         box-shadow 0.2s;
 
-      &:hover {
+      &:hover,
+      &:focus-within {
         box-shadow: 0 0.6rem 2rem rgba(0, 0, 0, 0.3);
         transform: translateY(-2px);
       }

@@ -19,6 +19,7 @@ const Button = (props) => {
     leftIcon,
     rightIcon,
     isLoading,
+    ...rest
   } = props || {};
   const { m400: selectedColor, m500: hoverColor, m600: activeColor } = _get(colors, theme, blue);
   const { height: $height, width: $width, font: $font } = SIZE[size] || {};
@@ -27,6 +28,7 @@ const Button = (props) => {
 
   const btnChild = (
     <ButtonWrapper
+      {...rest}
       {...{
         $hoverColor: hoverColor,
         $activeColor: activeColor,

@@ -1,6 +1,32 @@
 import Button from '../src/components/Button/Button';
 import { H6 } from '../src/components/Typography/Headings';
 
+const THEMES = [
+  'amber',
+  'blue',
+  'blueGray',
+  'brown',
+  'cider',
+  'cyan',
+  'deepOrange',
+  'deepPurple',
+  'green',
+  'grey',
+  'indigo',
+  'lightBlue',
+  'lightGreen',
+  'lime',
+  'orange',
+  'pink',
+  'purple',
+  'red',
+  'teal',
+  'violet',
+  'white',
+  'yellow',
+  'black',
+];
+
 const SIZES = [
   {
     size: 'small',
@@ -35,7 +61,7 @@ export default {
 
           const ButtonWrapper = () => {
             const onClick = (e) => {
-              console.log(e)
+              console.log(e);
             };
 
             return (
@@ -87,7 +113,15 @@ export default {
 
 // Default story
 export const Default = (args) => {
-  return <Button {...args}>Click me</Button>;
+  const onClick = (e) => {
+    console.log('Button clicked!', e);
+  };
+
+  return (
+    <Button {...args} onClick={onClick}>
+      Click me
+    </Button>
+  );
 };
 
 export const DifferentSizes = {
@@ -132,6 +166,27 @@ export const DisabledState = {
     actions: { disable: true },
   },
   render: () => <Button disabled>Click me</Button>,
+};
+
+export const DifferentThemes = {
+  name: 'Different Themes',
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
+      {THEMES.map((theme) => (
+        <div
+          key={theme}
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.4rem' }}
+        >
+          <Button theme={theme}>Click me</Button>
+          <H6>{theme}</H6>
+        </div>
+      ))}
+    </div>
+  ),
 };
 
 Default.args = {

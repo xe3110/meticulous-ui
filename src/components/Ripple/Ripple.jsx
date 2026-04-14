@@ -9,29 +9,34 @@ const Ripple = ({
 }) => {
   const containerRef = useRef(null);
 
-  const createRipple = (e) => {
+  const spawnRipple = (x, y) => {
     const container = containerRef.current;
     if (!container) return;
 
     const ripple = document.createElement('span');
     const rect = container.getBoundingClientRect();
 
-    // Calculate size to cover the entire element
     const size = Math.max(rect.width, rect.height);
-    const x = e.clientX - rect.left - size / 2;
-    const y = e.clientY - rect.top - size / 2;
-
     ripple.style.width = ripple.style.height = `${size}px`;
-    ripple.style.left = `${x}px`;
-    ripple.style.top = `${y}px`;
+    ripple.style.left = `${x - size / 2}px`;
+    ripple.style.top = `${y - size / 2}px`;
     ripple.style.backgroundColor = rippleColor;
     ripple.classList.add('ripple-effect');
 
     container.appendChild(ripple);
+    ripple.addEventListener('animationend', () => ripple.remove());
+  };
 
-    ripple.addEventListener('animationend', () => {
-      ripple.remove();
-    });
+  const createRipple = (e) => {
+    if (e.detail === 0) return; // keyboard-synthesized click, handled by onKeyDown
+    const rect = containerRef.current.getBoundingClientRect();
+    spawnRipple(e.clientX - rect.left, e.clientY - rect.top);
+  };
+
+  const createRippleFromCenter = (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const rect = containerRef.current.getBoundingClientRect();
+    spawnRipple(rect.width / 2, rect.height / 2);
   };
 
   return (
@@ -39,6 +44,7 @@ const Ripple = ({
       ref={containerRef}
       className={`ripple-container ${className}`}
       onClick={createRipple}
+      onKeyDown={createRippleFromCenter}
       {...props}
     >
       {children}
