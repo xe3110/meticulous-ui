@@ -47,20 +47,21 @@ export default App;
 
 ## 📦 Components
 
-| Component     | Description                                        |
-| ------------- | -------------------------------------------------- |
-| `Pagination`  | Fully responsive pagination component              |
-| `Toast`       | Push 4 types of notifications on screen            |
-| `Timer`       | Renders analog / digital clock with alarm          |
-| `OtpInput`    | Gives inputs to enter and edit OTP                 |
-| `VideoPlayer` | Renders video with keyboard shortcuts              |
-| `Input`       | Renders input box to let user enter input          |
-| `Checkbox`    | Renders checkbox to let user give boolean value    |
-| `RadioGroup`  | Renders radio options ina group to let user select |
-| `Textarea`    | Renders textarea box to let user enter description |
-| `Dropdown`    | Renders dropdown to select from options            |
-| `Spinner`     | Renders a spinner to show the loading state        |
-| `Button`      | Renders a button to click & take an action         |
+| Component     | Description                                            |
+| ------------- | ------------------------------------------------------ |
+| `Pagination`  | Fully responsive pagination component                  |
+| `Toast`       | Push 4 types of notifications on screen                |
+| `Timer`       | Renders analog / digital clock with alarm              |
+| `OtpInput`    | Gives inputs to enter and edit OTP                     |
+| `VideoPlayer` | Renders video with keyboard shortcuts                  |
+| `Input`       | Renders input box to let user enter input              |
+| `Checkbox`    | Renders checkbox to let user give boolean value        |
+| `RadioGroup`  | Renders radio options in a group to let user select    |
+| `FileUploader`| Renders a button type input from where user can upload |
+| `Textarea`    | Renders textarea box to let user enter description     |
+| `Dropdown`    | Renders dropdown to select from options                |
+| `Spinner`     | Renders a spinner to show the loading state            |
+| `Button`      | Renders a button to click & take an action             |
 
 ## 📦 Icon Components
 

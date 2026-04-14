@@ -1,6 +1,6 @@
 {
   "name": "meticulous-ui",
-  "version": "2.2.9",
+  "version": "2.3.0",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "repository": {
@@ -36,6 +36,9 @@
     "button",
     "input",
     "textarea",
+    "checkbox",
+    "radio",
+    "file-uploader",
     "notification",
     "dropdown",
     "spinner",
