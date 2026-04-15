@@ -1,14 +1,6 @@
 import _omit from 'lodash-es/omit';
 import { useState } from 'react';
-import {
-  InputBox,
-  Wrapper,
-  Label,
-  HelperText,
-  LeftIconWrapper,
-  RightIconWrapper,
-  RightIconParent,
-} from './styles';
+import { InputBox, Wrapper, Label, HelperText, LeftIconWrapper, RightIconWrapper } from './styles';
 import { getColor, getIcon } from './helpers';
 import white from '../../../colors/white';
 import grey from '../../../colors/grey';
@@ -50,6 +42,8 @@ const Input = ({
 
   const $hasError = hasError;
   const $background = background;
+  const inputId = `input-${name}`;
+  const helperId = helperText ? `${inputId}-helper` : undefined;
 
   return (
     <Wrapper>
@@ -66,16 +60,23 @@ const Input = ({
           $hasLeftIcon,
           $hasRightIcon,
         }}
+        id={inputId}
+        aria-invalid={$hasError ? true : undefined}
+        aria-describedby={helperId}
         onFocus={handleFocus}
         onBlur={handleBlur}
         onChange={handleChange}
         autoComplete={disableAutoComplete ? 'off' : 'on'}
         {..._omit(params, 'placeholder')}
       />
-      {leftIconFn && <LeftIconWrapper>{leftIconFn(iconStyles)}</LeftIconWrapper>}
-      {rightIconFn && <RightIconWrapper>{rightIconFn(iconStyles)}</RightIconWrapper>}
+      {leftIconFn && <LeftIconWrapper aria-hidden='true'>{leftIconFn(iconStyles)}</LeftIconWrapper>}
+      {rightIconFn && (
+        <RightIconWrapper aria-hidden='true'>{rightIconFn(iconStyles)}</RightIconWrapper>
+      )}
       {(label || (placeholder && !value)) && (
         <Label
+          as='label'
+          htmlFor={inputId}
           {...{
             $hasError,
             $isFocused,
@@ -91,7 +92,9 @@ const Input = ({
         </Label>
       )}
       {helperText && (
-        <HelperText {...{ $hasError, $isFocused, $shade, $hasLeftIcon }}>{helperText}</HelperText>
+        <HelperText id={helperId} {...{ $hasError, $isFocused, $shade, $hasLeftIcon }}>
+          {helperText}
+        </HelperText>
       )}
     </Wrapper>
   );

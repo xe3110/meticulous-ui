@@ -9,8 +9,15 @@ const Radio = ({ label, value, name, color, textColor, isSelected, disabled, onC
 
   const changeHandler = () => onChange(value);
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (!disabled) onChange(value);
+    }
+  };
+
   return (
-    <Wrapper $disabled={disabled}>
+    <Wrapper $disabled={disabled} $focusShade={outerShade}>
       <HiddenInput
         type='radio'
         name={name}
@@ -18,8 +25,9 @@ const Radio = ({ label, value, name, color, textColor, isSelected, disabled, onC
         checked={isSelected}
         disabled={disabled}
         onChange={changeHandler}
+        onKeyDown={handleKeyDown}
       />
-      <CircleBorder $isSelected={isSelected} $shade={outerShade}>
+      <CircleBorder aria-hidden='true' $isSelected={isSelected} $shade={outerShade}>
         <Circle $isSelected={isSelected} $shade={innerShade} />
       </CircleBorder>
       <P color={textColor} size='1.2rem'>

@@ -84,8 +84,8 @@ export const Label = styled.div`
   max-width: -webkit-fill-available; /* Chrome, Safari, Edge */
   max-width: stretch; /* Modern Standard */
 
-  ${({ $isFocused, value, $onlyPh }) =>
-    !$onlyPh && ($isFocused || value)
+  ${({ $isFocused, $value, $onlyPh }) =>
+    !$onlyPh && ($isFocused || $value)
       ? css`
           top: -0.4rem;
           left: 0.5rem;

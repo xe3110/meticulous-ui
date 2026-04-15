@@ -78,8 +78,12 @@ export const PWrapper = styled(P)`
 
 export const HiddenInput = styled.input`
   position: absolute;
-  width: 0;
-  height: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
   opacity: 0;
   pointer-events: none;
 `;

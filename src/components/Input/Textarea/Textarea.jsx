@@ -53,6 +53,8 @@ const Textarea = ({
   const $isDynamic = isDynamic;
   const $background = background;
   const rowsObj = isDynamic ? {} : { rows };
+  const textareaId = `textarea-${name}`;
+  const helperId = helperText ? `${textareaId}-helper` : undefined;
 
   return (
     <Wrapper>
@@ -70,6 +72,9 @@ const Textarea = ({
           $isResizeNone: isResizeNone,
           ...rowsObj,
         }}
+        id={textareaId}
+        aria-invalid={$hasError ? true : undefined}
+        aria-describedby={helperId}
         ref={textAreaRef}
         onFocus={handleFocus}
         onBlur={handleBlur}
@@ -79,11 +84,13 @@ const Textarea = ({
       <Parent>
         {(label || (placeholder && !value)) && (
           <Label
+            as='label'
+            htmlFor={textareaId}
             {...{
               $hasError,
               $isFocused,
               $shade,
-              value,
+              $value: value,
               $outerBackground: $isFocused || !!value ? outerBackground : background,
               $onlyPh: placeholder && !label,
             }}
@@ -91,7 +98,11 @@ const Textarea = ({
             {label || placeholder}
           </Label>
         )}
-        {helperText && <HelperText {...{ $hasError, $isFocused, $shade }}>{helperText}</HelperText>}
+        {helperText && (
+          <HelperText id={helperId} {...{ $hasError, $isFocused, $shade }}>
+            {helperText}
+          </HelperText>
+        )}
       </Parent>
     </Wrapper>
   );

@@ -23,11 +23,14 @@ export const CircleBorder = styled.div`
 
 export const HiddenInput = styled.input`
   position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
   opacity: 0;
-  width: 0;
-  height: 0;
   margin: 0;
-  pointer-events: none;
 `;
 
 export const Wrapper = styled.label`
@@ -35,6 +38,11 @@ export const Wrapper = styled.label`
   align-items: center;
   gap: 0.8rem;
   width: max-content;
+
+  &:focus-within ${CircleBorder} {
+    outline: 2px solid ${({ $focusShade }) => $focusShade || grey.m900};
+    outline-offset: 2px;
+  }
 
   ${({ $disabled }) =>
     $disabled
