@@ -6,7 +6,7 @@ const changeHandler = (handleChange, index) => (e) => {
 
 const keyDownHandler = (handleKeyDown, index) => (e) => handleKeyDown(e, index);
 
-const Num = ({ inputsRef, handleChange, handleKeyDown, digit, index }) => {
+const Num = ({ inputsRef, handleChange, handleKeyDown, handleFocus, digit, index }) => {
   const getRef = (el) => (inputsRef.current[index] = el);
 
   return (
@@ -19,12 +19,13 @@ const Num = ({ inputsRef, handleChange, handleKeyDown, digit, index }) => {
       value={digit}
       onChange={changeHandler(handleChange, index)}
       onKeyDown={keyDownHandler(handleKeyDown, index)}
+      onFocus={() => handleFocus(index)}
     />
   );
 };
 
 export const renderNums =
-  ({ inputsRef, handleChange, handleKeyDown }) =>
+  ({ inputsRef, handleChange, handleKeyDown, handleFocus }) =>
   (digit, index) => (
     <Num
       key={`otp-num-${index}`}
@@ -32,6 +33,7 @@ export const renderNums =
         inputsRef,
         handleChange,
         handleKeyDown,
+        handleFocus,
         digit,
         index,
       }}
