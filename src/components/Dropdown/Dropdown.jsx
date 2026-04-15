@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState, useMemo, useCallback } from 'react';
+import { useEffect, useId, useLayoutEffect, useRef, useState, useMemo, useCallback } from 'react';
 import _get from 'lodash-es/get';
 import grey from '../../colors/grey';
 import MenuItem from '../MenuItem/MenuItem';
@@ -48,9 +48,12 @@ const Dropdown = ({
   searchPh = 'Search...',
 }) => {
   const [isOpen, setOpen] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
   const [position, setPosition] = useState('bottom');
   const [searchQuery, setSearchQuery] = useState('');
   const [activeIndex, setActiveIndex] = useState(-1);
+
+  const listboxId = useId();
 
   const containerRef = useRef(null);
   const menuRef = useRef(null);
@@ -58,7 +61,7 @@ const Dropdown = ({
   const sentinelRef = useRef(null);
   const isInitialOpen = useRef(true);
 
-  const toggle = () => setOpen((prev) => !prev);
+  const toggle = () => !isLoading && !isDisabled && setOpen((prev) => !prev);
 
   const handleChange = (val) => {
     if (val !== value) {
@@ -153,7 +156,14 @@ const Dropdown = ({
   };
 
   const handleKeyDown = (e) => {
-    if (!isOpen) return;
+    if (isLoading || isDisabled) return;
+    if (!isOpen) {
+      if (e.key === ' ' || e.key === 'Enter' || e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        setOpen(true);
+      }
+      return;
+    }
 
     switch (e.key) {
       case 'ArrowDown':
@@ -222,6 +232,8 @@ const Dropdown = ({
 
   const mouseHighlight = (disabled, index) => () => !disabled && setActiveIndex(index);
 
+  const getOptionId = (index) => `${listboxId}-opt-${index}`;
+
   const renderOption = ({ value: val, label, disabled }, index) => (
     <MenuItem
       {...{ value: val, label, isDisabled: disabled }}
@@ -230,10 +242,15 @@ const Dropdown = ({
       isSelected={val === value}
       isHighlighted={index === activeIndex}
       key={val}
+      id={getOptionId(index)}
       width={width}
       {...{ selectedColor, hoverColor, activeColor }}
     />
   );
+
+  const changeFocus = (focus) => () => {
+    setIsFocused(focus);
+  };
 
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
@@ -247,30 +264,50 @@ const Dropdown = ({
     <DropdownWrapper
       ref={containerRef}
       $width={width}
-      tabIndex={isDisabled ? -1 : 0}
+      tabIndex={isDisabled || isLoading ? -1 : 0}
       onKeyDown={handleKeyDown}
       $isLoading={isLoading}
       $isDisabled={isDisabled}
+      role='combobox'
+      aria-expanded={isOpen}
+      aria-haspopup='listbox'
+      aria-controls={listboxId}
+      aria-disabled={isDisabled || undefined}
+      aria-activedescendant={activeIndex !== -1 ? getOptionId(activeIndex) : undefined}
+      onFocus={changeFocus(true)}
+      onBlur={changeFocus(false)}
     >
-      <Box $width={width} onClick={toggle} $isOpen={isOpen} $border={border}>
+      <Box
+        $width={width}
+        onClick={toggle}
+        $isOpen={isOpen}
+        $border={border}
+        $isFocused={isFocused && !isOpen}
+      >
         <PWrapper $width={width} color={!!value ? grey.m700 : grey.m500} size='1.2rem'>
           {value ? options.find(({ value: opt }) => value === opt)?.label : placeholder}
         </PWrapper>
-        <ChevronDownWrapper color={grey.m500} size={22} $isOpen={isOpen} />
+        <ChevronDownWrapper color={grey.m500} size={22} $isOpen={isOpen} aria-hidden />
       </Box>
       <OptionWrapper $isOpen={isOpen} $width={width} $height={menuHeight} $top={position === 'top'}>
         {searchable && (
           <SearchContainer onClick={onSearchClick}>
-            <SearchIcon size={20} color={grey.m600} />
+            <SearchIcon size={20} color={grey.m600} aria-hidden />
             <SearchInput
               ref={searchInputRef}
               value={searchQuery}
               onChange={handleSearch}
               placeholder={searchPh}
+              aria-label={searchPh}
+              aria-controls={listboxId}
+              aria-autocomplete='list'
+              aria-expanded={isOpen}
+              role='combobox'
+              tabIndex={isOpen ? 0 : -1}
             />
           </SearchContainer>
         )}
-        <OptionsList ref={menuRef}>
+        <OptionsList ref={menuRef} role='listbox' id={listboxId}>
           {filteredOptions.map(renderOption)}
           {onLoadMore && (
             <LoadMoreSentinel ref={sentinelRef}>

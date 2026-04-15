@@ -116,12 +116,10 @@ export default {
       ],
     },
     isLoading: {
-      control: 'select',
-      options: [false, true],
+      control: 'boolean',
     },
     isDisabled: {
-      control: 'select',
-      options: [false, true],
+      control: 'boolean',
     },
     placeholder: {
       control: 'text',
@@ -130,16 +128,13 @@ export default {
       control: 'text',
     },
     searchable: {
-      control: 'select',
-      options: [false, true],
+      control: 'boolean',
     },
     hasMore: {
-      control: 'select',
-      options: [false, true],
+      control: 'boolean',
     },
     isLoadingMore: {
-      control: 'select',
-      options: [false, true],
+      control: 'boolean',
     },
   },
 };
@@ -173,30 +168,6 @@ export const Default = (args) => {
   return <Dropdown {...args} onChange={onChange} value={value} options={OPTIONS} />;
 };
 
-export const WithDisabledOptions = {
-  name: 'With Disabled Options',
-  parameters: {
-    controls: { disable: true },
-    actions: { disable: true },
-  },
-  render: () => {
-    const [value, setValue] = useState(null);
-
-    const onChange = (v) => {
-      setValue(v);
-    };
-
-    return (
-      <Dropdown
-        onChange={onChange}
-        value={value}
-        options={OPTIONS.map((v, i) => ({ ...v, disabled: i > 3 }))}
-        placeholder='Select a value'
-      />
-    );
-  },
-};
-
 export const WithSearch = {
   name: 'With Search',
   parameters: {
@@ -216,6 +187,51 @@ export const WithSearch = {
         value={value}
         searchable
         options={OPTIONS}
+        placeholder='Select a value'
+      />
+    );
+  },
+};
+
+export const Disabled = {
+  name: 'Disabled',
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => {
+    const [value, setValue] = useState(null);
+
+    return (
+      <Dropdown
+        onChange={setValue}
+        value={value}
+        options={OPTIONS}
+        placeholder='Select a value'
+        isDisabled
+      />
+    );
+  },
+};
+
+export const WithDisabledOptions = {
+  name: 'With Disabled Options',
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => {
+    const [value, setValue] = useState(null);
+
+    const onChange = (v) => {
+      setValue(v);
+    };
+
+    return (
+      <Dropdown
+        onChange={onChange}
+        value={value}
+        options={OPTIONS.map((v, i) => ({ ...v, disabled: i > 3 }))}
         placeholder='Select a value'
       />
     );

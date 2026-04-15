@@ -40,6 +40,7 @@ export const DropdownWrapper = styled.div`
     $isDisabled &&
     css`
       pointer-events: none;
+      opacity: 0.7;
     `}
 `;
 
@@ -47,8 +48,8 @@ export const Box = styled.div`
   height: 2rem;
   width: ${({ $width }) => $width};
   border-radius: 0.6rem;
-  border: ${({ $isOpen, $border }) =>
-    $isOpen ? `2px solid ${$border}` : `1px solid ${DEFAULT_BORDER}`};
+  border: ${({ $isOpen, $isFocused, $border }) =>
+    $isOpen || $isFocused ? `2px solid ${$border}` : `1px solid ${DEFAULT_BORDER}`};
   padding: 0.4rem 0.6rem 0.4rem;
   display: flex;
   align-items: center;

@@ -16,6 +16,7 @@ const getColor = ({ isSelected, isDisabled }) => {
 };
 
 const MenuItem = ({
+  id,
   value,
   label,
   width = '20rem',
@@ -48,6 +49,10 @@ const MenuItem = ({
         $isDisabled: isDisabled,
         $isHighlighted: isHighlighted,
       }}
+      id={id}
+      role='option'
+      aria-selected={isSelected}
+      aria-disabled={isDisabled || undefined}
       onClick={handleClick}
       onMouseEnter={onMouseEnter}
       title={label}
