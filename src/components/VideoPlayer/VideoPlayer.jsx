@@ -9,30 +9,11 @@ const VideoPlayer = ({ link, thumbnail, width = '600', borderRadius = 8, height 
   const containerRef = useRef(null);
   const { volume, showVolume } = useVolumeOverlay();
 
-  const onVideoClick = () => {
-    videoRef.current?.focus();
-  };
-
-  const onVideoKeyDown = (e) => {
-    if (e.code === 'Space') {
-      e.preventDefault();
-    }
-  };
-
   useSpacebarToggle(videoRef, containerRef, showVolume);
 
   return (
     <VideoContainer ref={containerRef} $width={width} $height={height}>
-      <Video
-        $borderRadius={borderRadius}
-        ref={videoRef}
-        src={link}
-        poster={thumbnail}
-        controls
-        tabIndex={0}
-        onClick={onVideoClick}
-        onKeyDown={onVideoKeyDown}
-      >
+      <Video $borderRadius={borderRadius} ref={videoRef} src={link} poster={thumbnail} controls>
         Your browser does not support the video tag.
       </Video>
       <VolumeBar volume={volume} />

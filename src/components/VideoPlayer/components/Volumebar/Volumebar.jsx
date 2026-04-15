@@ -5,7 +5,7 @@ const VolumeBar = ({ volume }) => {
   const pct = Math.round(volume);
 
   return (
-    <Wrapper>
+    <Wrapper aria-hidden='true'>
       <Track>
         <Fill $pct={pct} />
       </Track>

@@ -31,7 +31,7 @@ const getShade =
     }
   };
 
-export const AllPages = styled.div`
+export const AllPages = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,7 +47,12 @@ export const AllPages = styled.div`
     `};
 `;
 
-export const Page = styled.div`
+export const Page = styled.button`
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  outline-offset: 2px;
+
   height: ${({ $individualRemSize }) => `${$individualRemSize}rem`};
   width: ${({ $individualRemSize }) => `${$individualRemSize}rem`};
   border-radius: 50%;
@@ -79,8 +84,21 @@ export const Page = styled.div`
         `}
 `;
 
-export const P = styled.p`
+export const Ellipsis = styled.span`
   color: ${grey.m500};
+  user-select: none;
+`;
+
+export const ArrowButton = styled.button`
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  outline-offset: 2px;
 `;
 
 export const ClickableChevronLeft = styled(ChevronLeft)`

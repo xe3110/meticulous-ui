@@ -17,7 +17,6 @@ export const VideoContainer = styled.div`
 
 export const Video = styled.video`
   border-radius: ${({ $borderRadius }) => $borderRadius}px;
-  outline: none;
   width: 100%;
   height: 100%;
   max-width: ${({ width }) => width}px;

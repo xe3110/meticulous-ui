@@ -1,4 +1,5 @@
 // Libraries
+import { useRef, useEffect } from 'react';
 import _get from 'lodash-es/get';
 import _range from 'lodash-es/range';
 
@@ -21,6 +22,16 @@ const Pagination = ({
   size = MEDIUM,
   isDisabled = false,
 }) => {
+  const navRef = useRef(null);
+  const focusActiveRef = useRef(false);
+
+  useEffect(() => {
+    if (focusActiveRef.current) {
+      focusActiveRef.current = false;
+      navRef.current?.querySelector('[aria-current="page"]')?.focus();
+    }
+  }, [pageNumber]);
+
   const changePage = (newPage) => {
     if (newPage !== pageNumber) {
       setPageNumber(newPage);
@@ -41,10 +52,12 @@ const Pagination = ({
 
   const handleKeyDown = (e) => {
     if (['ArrowLeft', 'ArrowUp'].includes(e.code)) {
+      focusActiveRef.current = true;
       setPrevPage();
     }
 
     if (['ArrowRight', 'ArrowDown'].includes(e.code)) {
+      focusActiveRef.current = true;
       setNextPage();
     }
   };
@@ -55,7 +68,12 @@ const Pagination = ({
 
   if (totalPages <= 7) {
     return (
-      <AllPages onKeyDown={handleKeyDown} tabIndex='0' $isDisabled={isDisabled}>
+      <AllPages
+        ref={navRef}
+        onKeyDown={handleKeyDown}
+        aria-label='Pagination'
+        $isDisabled={isDisabled}
+      >
         <PrevArrow {...{ iconSize, shades, setPrevPage }} />
         <MiddleLayer size={`${totalPages * individualRemSize}rem`}>
           {_range(1, totalPages + 1).map(
@@ -73,7 +91,12 @@ const Pagination = ({
     (pageNumber > totalPages - 3 && pageNumber <= totalPages)
   ) {
     return (
-      <AllPages onKeyDown={handleKeyDown} tabIndex='0' $isDisabled={isDisabled}>
+      <AllPages
+        ref={navRef}
+        onKeyDown={handleKeyDown}
+        aria-label='Pagination'
+        $isDisabled={isDisabled}
+      >
         <PrevArrow {...{ iconSize, shades, setPrevPage }} />
         <MiddleLayer size={`${9 * individualRemSize}rem`}>
           {_range(1, 5).map(renderPageNum({ size, selected: pageNumber, shades, changePage }))}
@@ -88,7 +111,12 @@ const Pagination = ({
   }
 
   return (
-    <AllPages onKeyDown={handleKeyDown} tabIndex='0' $isDisabled={isDisabled}>
+    <AllPages
+      ref={navRef}
+      onKeyDown={handleKeyDown}
+      aria-label='Pagination'
+      $isDisabled={isDisabled}
+    >
       <PrevArrow {...{ iconSize, shades, setPrevPage }} />
       <MiddleLayer size={`${9 * individualRemSize}rem`}>
         {_range(1, 3).map(renderPageNum({ size, selected: pageNumber, shades, changePage }))}

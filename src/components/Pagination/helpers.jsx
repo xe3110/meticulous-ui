@@ -5,7 +5,7 @@ import Ripple from '../Ripple';
 import { FONT_SIZE_MAPPING, SIZE_REM_MAPPING } from './constants';
 
 // styles
-import { Page, P, ClickableChevronRight, ClickableChevronLeft } from './styles';
+import { Page, Ellipsis, ArrowButton, ClickableChevronRight, ClickableChevronLeft } from './styles';
 
 export const renderPageNum =
   ({ size, selected, shades, changePage }) =>
@@ -13,17 +13,29 @@ export const renderPageNum =
     const $individualRemSize = SIZE_REM_MAPPING[size];
     const $fontRemSize = FONT_SIZE_MAPPING[size];
     const $shades = shades;
+    const isSelected = selected === page;
 
     const clickHandler = () => {
       changePage(page);
     };
 
+    const handleKeyDown = (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        clickHandler();
+      }
+    };
+
     return (
       <Page
-        data-testid={selected === page ? 'current-page' : `test-${page}`}
-        $isSelected={selected === page}
+        data-testid={isSelected ? 'current-page' : `test-${page}`}
+        $isSelected={isSelected}
         key={`page_${page}`}
         onClick={clickHandler}
+        onKeyDown={handleKeyDown}
+        tabIndex={isSelected ? 0 : -1}
+        aria-label={`Page ${page}`}
+        aria-current={isSelected ? 'page' : undefined}
         {...{
           $shades,
           $individualRemSize,
@@ -35,22 +47,20 @@ export const renderPageNum =
     );
   };
 
-export const renderThreeDots = () => (
-  <>
-    <P>.</P>
-    <P>.</P>
-    <P>.</P>
-  </>
-);
+export const renderThreeDots = () => <Ellipsis aria-hidden='true'>…</Ellipsis>;
 
 export const PrevArrow = ({ iconSize, shades, setPrevPage }) => (
-  <Ripple rippleColor={shades['m50']}>
-    <ClickableChevronLeft size={iconSize} onClick={setPrevPage} />
-  </Ripple>
+  <ArrowButton onClick={setPrevPage} aria-label='Previous page'>
+    <Ripple rippleColor={shades['m50']}>
+      <ClickableChevronLeft size={iconSize} aria-hidden='true' />
+    </Ripple>
+  </ArrowButton>
 );
 
 export const NextArrow = ({ iconSize, shades, setNextPage }) => (
-  <Ripple rippleColor={shades['m50']}>
-    <ClickableChevronRight size={iconSize} onClick={setNextPage} />
-  </Ripple>
+  <ArrowButton onClick={setNextPage} aria-label='Next page'>
+    <Ripple rippleColor={shades['m50']}>
+      <ClickableChevronRight size={iconSize} aria-hidden='true' />
+    </Ripple>
+  </ArrowButton>
 );

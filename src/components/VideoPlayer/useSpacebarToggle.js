@@ -28,12 +28,11 @@ export const useSpacebarToggle = (videoRef, containerRef, showVolume) => {
         return;
       }
 
-      e.preventDefault();
-
       const video = videoRef.current;
       if (!video) return;
 
       if (e.code === 'Space') {
+        e.preventDefault();
         if (video.paused) {
           const playPromise = video.play();
           if (playPromise && playPromise.catch) {
@@ -43,32 +42,29 @@ export const useSpacebarToggle = (videoRef, containerRef, showVolume) => {
           video.pause();
         }
       } else if (e.code === 'KeyF') {
+        e.preventDefault();
         if (!document.fullscreenElement) {
           containerRef.current?.requestFullscreen();
         } else {
           document.exitFullscreen();
         }
       } else if (e.code === 'ArrowUp') {
+        e.preventDefault();
         video.volume = Math.min(1, video.volume + 0.05);
         showVolume?.(video.volume);
       } else if (e.code === 'ArrowDown') {
+        e.preventDefault();
         video.volume = Math.max(0, video.volume - 0.05);
         showVolume?.(video.volume);
       } else if (e.code === 'KeyM') {
-        video.volume = video.volume > 0 ? 0 : 1;
-        showVolume?.(video.volume);
+        video.muted = !video.muted;
+        showVolume?.(video.muted ? 0 : video.volume);
       } else if (e.code === 'ArrowLeft') {
-        if (video.currentTime > 5) {
-          video.currentTime -= 5;
-        } else if (video.currentTime > 0) {
-          video.currentTime = 0;
-        }
+        if (isNaN(video.duration)) return;
+        video.currentTime = Math.max(0, video.currentTime - 5);
       } else if (e.code === 'ArrowRight') {
-        if (video.currentTime < video.duration - 5) {
-          video.currentTime += 5;
-        } else if (video.currentTime < video.duration) {
-          video.currentTime = video.duration;
-        }
+        if (isNaN(video.duration)) return;
+        video.currentTime = Math.min(video.duration, video.currentTime + 5);
       }
     };
 

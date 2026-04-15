@@ -21,7 +21,15 @@ const SIZE_PARAMS = {
 const Spinner = ({ color = 'green', size = 'medium' }) => {
   const { $border, $length } = SIZE_PARAMS[size];
 
-  return <SpinnerWrapper $color={_get(colors, color, green)?.m500} {...{ $border, $length }} />;
+  return (
+    <SpinnerWrapper
+      role='status'
+      aria-label='Loading'
+      aria-live='polite'
+      $color={_get(colors, color, green)?.m500}
+      {...{ $border, $length }}
+    />
+  );
 };
 
 export default Spinner;
