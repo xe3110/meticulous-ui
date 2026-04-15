@@ -4,17 +4,29 @@ import icons from '../src/components/Icons';
 import { H6 } from '../src/components/Typography/Headings';
 
 const THEMES = [
+  'amber',
   'blue',
+  'blueGray',
+  'brown',
+  'cider',
+  'cyan',
+  'deepOrange',
+  'deepPurple',
   'green',
-  'red',
-  'yellow',
-  'orange',
-  'black',
   'grey',
-  'violet',
-  'teal',
-  'purple',
+  'indigo',
+  'lightBlue',
+  'lightGreen',
+  'lime',
+  'orange',
   'pink',
+  'purple',
+  'red',
+  'teal',
+  'violet',
+  'white',
+  'yellow',
+  'black',
 ];
 
 const SIZES = [
@@ -130,7 +142,6 @@ Default.storyName = 'Default';
 
 Default.args = {
   label: 'Upload',
-  labelColor: 'white',
   theme: 'blue',
   size: 'medium',
   type: 'file',
