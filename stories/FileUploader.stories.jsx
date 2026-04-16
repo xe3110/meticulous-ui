@@ -220,10 +220,15 @@ export const Width = {
   },
   render: () => (
     <>
-      {[6, 10, 14, 20].map((width) => (
+      {[
+        { width: 6, label: 'Upload' },
+        { width: 10, label: 'Uploading' },
+        { width: 14, label: 'Uploading.' },
+        { width: 20, label: 'Uploading...' },
+      ].map(({ width, label }) => (
         <div key={width} style={rowStyle}>
           <H6 style={labelStyle}>{width}rem:</H6>
-          <FileUploader label='Upload' width={width} prefixIcon={icons.Link} />
+          <FileUploader label={label} width={width} prefixIcon={icons.Link} />
         </div>
       ))}
     </>
