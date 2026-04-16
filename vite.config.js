@@ -14,14 +14,15 @@ export default defineConfig({
       formats: ['es'],
     },
     rollupOptions: {
-      external: [
-        'react',
-        'react-dom',
-        'react/jsx-runtime',
-        'lodash-es',
-        'react-fast-compare',
-        'styled-components',
-      ],
+      external: (id) =>
+        [
+          'react',
+          'react-dom',
+          'react/jsx-runtime',
+          'lodash-es',
+          'react-fast-compare',
+          'styled-components',
+        ].some((pkg) => id === pkg || id.startsWith(pkg + '/')),
       output: {
         preserveModules: true,
         preserveModulesRoot: 'src',
