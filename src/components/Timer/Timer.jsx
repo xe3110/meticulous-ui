@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import _noop from 'lodash-es/noop';
 
 import Glass from '../Glass';
@@ -28,6 +28,18 @@ import {
   MediaPlayFilledWrapper,
 } from './styles';
 
+const getHandRotations = (timeZone) => () => {
+  const now = new Date();
+  const timeStr = now.toLocaleString('en-Us', { hour12: true, timeZone });
+  const timePart = timeStr.split(', ')[1].split(' ')[0];
+  const [h, m, s] = timePart.split(':').map(Number);
+  return {
+    second: s * 6,
+    minute: m * 6 + s * 0.1,
+    hour: h * 30 + m * 0.5,
+  };
+};
+
 const Timer = ({
   color = 'green',
   showTime = true,
@@ -44,15 +56,24 @@ const Timer = ({
   const [time, setTime] = useState(new Date());
   const [timerSec, setTimerSec] = useState(0);
   const [isPaused, setPaused] = useState(false);
+  const [handRotations, setHandRotations] = useState(getHandRotations(timeZone));
+  const [bulletAngle, setBulletAngle] = useState(0);
+  const isPausedRef = useRef(isPaused);
+
+  useEffect(() => {
+    isPausedRef.current = isPaused;
+  }, [isPaused]);
 
   const setTimer = () => {
     setTimerSec(timerSeconds);
+    setBulletAngle((timerSeconds % 60) * 6);
     setPaused(false);
     onTimerAdd();
   };
 
   const removeTimer = () => {
     setTimerSec(0);
+    setBulletAngle(0);
     onTimerRemove();
   };
 
@@ -68,80 +89,116 @@ const Timer = ({
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime(new Date());
-      !isPaused &&
+      const now = new Date();
+      setTime(now);
+      setHandRotations((prev) => {
+        const timeStr = now.toLocaleString('en-Us', { hour12: true, timeZone });
+        const timePart = timeStr.split(', ')[1].split(' ')[0];
+        const [h, m, s] = timePart.split(':').map(Number);
+        const rawSecond = s * 6;
+        const rawMinute = m * 6 + s * 0.1;
+        const rawHour = h * 30 + m * 0.5;
+        // Adjust for wrap: if raw value wrapped back below prev, add a full 360
+        const adjust = (prevVal, raw) => {
+          const prevMod = prevVal % 360;
+          return prevVal - prevMod + raw + (raw < prevMod ? 360 : 0);
+        };
+        return {
+          second: adjust(prev.second, rawSecond),
+          minute: adjust(prev.minute, rawMinute),
+          hour: adjust(prev.hour, rawHour),
+        };
+      });
+      if (!isPausedRef.current) {
         setTimerSec((timerSec) => {
           if (timerSec - 1 === 0) {
             onTimerComplete();
           }
-
           return timerSec - 1;
         });
+        setBulletAngle((prev) => prev - 6);
+      }
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, []);
 
   const date = time.toLocaleString('en-Us', { hour12: true, timeZone });
   const currentTime = date.split(', ')[1];
   const currentTimeWithoutAmPm = currentTime.split(' ')[0];
   const amPm = currentTime.split(' ')[1];
   const withoutSec = currentTime.split(':').slice(0, 2).join(':');
-  const currTimeArr = currentTimeWithoutAmPm.split(':');
   const hasNoTimer = !(Number.isInteger(timerSec) && timerSec > 0);
 
+  const timeLabel = `${showTimeWithSec ? currentTimeWithoutAmPm : withoutSec} ${amPm}`;
+
   return (
-    <Wrapper $color={color}>
-      <Glass borderRadius='1.2rem' />
+    <Wrapper $color={color} role='region' aria-label='Clock'>
+      <Glass borderRadius='1.2rem' aria-hidden='true' />
       {showTime && (
         <>
-          <Dimmer />
+          <Dimmer aria-hidden='true' />
           {isDigital ? (
-            <Time>
-              <TimeTxt>{showTimeWithSec ? currentTimeWithoutAmPm : withoutSec}</TimeTxt>
-              <TimeTxt>{amPm}</TimeTxt>
+            <Time as='time' dateTime={time.toISOString()} aria-label={timeLabel}>
+              <TimeTxt aria-hidden='true'>
+                {showTimeWithSec ? currentTimeWithoutAmPm : withoutSec}
+              </TimeTxt>
+              <TimeTxt aria-hidden='true'>{amPm}</TimeTxt>
             </Time>
           ) : (
-            <Time>
-              <HourHand style={{ rotate: `${currTimeArr[0] * 30 + currTimeArr[1] * 0.5}deg` }} />
-              <MinuteHand style={{ rotate: `${currTimeArr[1] * 6}deg` }} />
-              <SecondHand style={{ rotate: `${currTimeArr[2] * 6}deg` }} />
+            <Time as='time' dateTime={time.toISOString()} aria-label={timeLabel}>
+              <HourHand $rotate={handRotations.hour} aria-hidden='true' />
+              <MinuteHand $rotate={handRotations.minute} aria-hidden='true' />
+              <SecondHand $rotate={handRotations.second} aria-hidden='true' />
             </Time>
           )}
         </>
       )}
-      <AllDots>
+      <AllDots aria-hidden='true'>
         {[...Array(60)].map((_, i) => (
           <Dots key={i} style={{ rotate: `${i * 6}deg` }} />
         ))}
       </AllDots>
       {!hasNoTimer && (
         <>
-          <AlarmRing>
+          <AlarmRing aria-hidden='true'>
             <TimerRing progress={timerSec >= 60 ? 1 : (timerSec % 60) / 60} />
           </AlarmRing>
-          <BulletRing $angle={(timerSec % 60) * 6}>
+          <BulletRing $angle={bulletAngle} aria-hidden='true'>
             <Bullet />
           </BulletRing>
+          <span
+            role='timer'
+            aria-live='polite'
+            aria-label={`${timerSec} seconds remaining`}
+            style={{
+              position: 'absolute',
+              width: 1,
+              height: 1,
+              overflow: 'hidden',
+              clip: 'rect(0 0 0 0)',
+              whiteSpace: 'nowrap',
+            }}
+          />
         </>
       )}
       <LeftActions $noActions={hasNoTimer}>
-        <ActionBtn onClick={removeTimer}>
-          <MediaStopFilledWrapper color={white} size={14} />
+        <ActionBtn onClick={removeTimer} aria-label='Stop timer'>
+          <MediaStopFilledWrapper color={white} size={14} aria-hidden='true' />
         </ActionBtn>
         {hasNoTimer || !isPaused ? (
-          <ActionBtn onClick={pauseTimer}>
-            <MediaPauseFilledWrapper color={white} size={14} />
+          <ActionBtn onClick={pauseTimer} aria-label='Pause timer'>
+            <MediaPauseFilledWrapper color={white} size={14} aria-hidden='true' />
           </ActionBtn>
         ) : (
-          <ActionBtn onClick={playTimer}>
-            <MediaPlayFilledWrapper color={white} size={14} />
+          <ActionBtn onClick={playTimer} aria-label='Resume timer'>
+            <MediaPlayFilledWrapper color={white} size={14} aria-hidden='true' />
           </ActionBtn>
         )}
       </LeftActions>
       <RightActions>
-        <ActionBtn title='Add timer in seconds' onClick={setTimer}>
-          <AddWrapper color={white} size={20} />
+        <ActionBtn onClick={setTimer} aria-label={`Start ${timerSeconds} second timer`}>
+          <AddWrapper color={white} size={20} aria-hidden='true' />
         </ActionBtn>
       </RightActions>
     </Wrapper>

@@ -18,6 +18,8 @@ const HAND_CSS = css`
   bottom: 50%;
   transform-origin: bottom;
   border-radius: 4px;
+  transition: rotate 0.3s ease-in-out;
+  rotate: ${({ $rotate }) => $rotate}deg;
 `;
 
 export const Wrapper = styled.div`
@@ -133,7 +135,7 @@ export const RightActions = styled.div`
   border-radius: 0.4rem;
 `;
 
-export const ActionBtn = styled.div`
+export const ActionBtn = styled.button`
   position: relative;
   width: 100%;
   height: 100%;
@@ -141,6 +143,8 @@ export const ActionBtn = styled.div`
   width: 2.4rem;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  padding: 0;
 `;
 
 export const AddWrapper = styled(Add)`
@@ -186,4 +190,5 @@ export const BulletRing = styled.div`
   height: 157.5px;
   width: 157.5px;
   transform-origin: center;
+  transition: rotate 0.3s ease;
 `;

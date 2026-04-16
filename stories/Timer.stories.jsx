@@ -27,7 +27,7 @@ export default {
       source: {
         language: 'jsx',
         code: `
-          import Timer from 'meticulous-ui/components/Timer/Timer';
+          import Timer from 'meticulous-ui/components/Timer';
 
           const TimerWrapper = () => {
             return (
