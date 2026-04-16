@@ -1,6 +1,6 @@
 # meticulous-ui
 
-A lightweight, modern React component library designed for elegance and precision ✨
+A lightweight, modern React component library, following Semantic HTML & ARIA, designed for elegance and precision ✨
 
 ---
 

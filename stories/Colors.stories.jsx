@@ -87,6 +87,100 @@ export default {
       description: {
         component: 'Collection of colors and shades commonly used accross websites & dashboards.',
       },
+      source: {
+        language: 'jsx',
+        code: `
+          import Add from 'meticulous-ui/components/Icons/Add';
+
+          // amber
+          import amber from 'meticulous-ui/colors/amber';
+          return <Add color={amber.m500} size={20} />
+
+          // black
+          import black from 'meticulous-ui/colors/black';
+          return <Add color={black.m500} size={20} />
+
+          // blue
+          import blue from 'meticulous-ui/colors/blue';
+          return <Add color={blue.m500} size={20} />
+
+          // blueGray
+          import blueGray from 'meticulous-ui/colors/blueGray';
+          return <Add color={blueGray.m500} size={20} />
+
+          // brown
+          import brown from 'meticulous-ui/colors/brown';
+          return <Add color={brown.m500} size={20} />
+
+          // cider
+          import cider from 'meticulous-ui/colors/cider';
+          return <Add color={cider.m500} size={20} />
+
+          // deepOrange
+          import deepOrange from 'meticulous-ui/colors/deepOrange';
+          return <Add color={deepOrange.m500} size={20} />
+
+          // deepPurple
+          import deepPurple from 'meticulous-ui/colors/deepPurple';
+          return <Add color={deepPurple.m500} size={20} />
+
+          // green
+          import green from 'meticulous-ui/colors/green';
+          return <Add color={green.m500} size={20} />
+
+          // grey
+          import grey from 'meticulous-ui/colors/grey';
+          return <Add color={grey.m500} size={20} />
+
+          // indigo
+          import indigo from 'meticulous-ui/colors/indigo';
+          return <Add color={indigo.m500} size={20} />
+
+          // lightBlue
+          import lightBlue from 'meticulous-ui/colors/lightBlue';
+          return <Add color={lightBlue.m500} size={20} />
+
+          // lightGreen
+          import lightGreen from 'meticulous-ui/colors/lightGreen';
+          return <Add color={lightGreen.m500} size={20} />
+
+          // lime
+          import lime from 'meticulous-ui/colors/lime';
+          return <Add color={lime.m500} size={20} />
+
+          // orange
+          import orange from 'meticulous-ui/colors/orange';
+          return <Add color={orange.m500} size={20} />
+
+          // pink
+          import pink from 'meticulous-ui/colors/pink';
+          return <Add color={pink.m500} size={20} />
+
+          // purple
+          import purple from 'meticulous-ui/colors/purple';
+          return <Add color={purple.m500} size={20} />
+
+          // red
+          import red from 'meticulous-ui/colors/red';
+          return <Add color={red.m500} size={20} />
+
+          // teal
+          import teal from 'meticulous-ui/colors/teal';
+          return <Add color={teal.m500} size={20} />
+
+          // violet
+          import violet from 'meticulous-ui/colors/violet';
+          return <Add color={violet.m500} size={20} />
+
+          // white
+          import white from 'meticulous-ui/colors/white';
+          return <Add color={white} size={20} />
+
+          // yellow
+          import yellow from 'meticulous-ui/colors/yellow';
+          return <Add color={yellow.m500} size={20} />
+        `,
+      },
     },
     controls: { disable: true },
     actions: { disable: true },
@@ -95,17 +189,6 @@ export default {
 
 // Default story
 export const Default = () => {
-  // import Add from 'meticulous-ui/components/Icons/Add';
-
-  // import red from 'meticulous-ui/colors/red';
-  // return <Add color={red.m500} size={20} />
-
-  // import blue from 'meticulous-ui/colors/blue';
-  // return <Add color={blue.m500} size={20} />
-
-  // import green from 'meticulous-ui/colors/green';
-  // return <Add color={green.m500} size={20} />
-
   return <AllColors />;
 };
 
