@@ -222,9 +222,9 @@ export const Width = {
     <>
       {[
         { width: 6, label: 'Upload' },
-        { width: 10, label: 'Uploading' },
-        { width: 14, label: 'Uploading.' },
-        { width: 20, label: 'Uploading...' },
+        { width: 10, label: 'Upload now' },
+        { width: 14, label: 'Upload all files' },
+        { width: 20, label: 'Upload all files here' },
       ].map(({ width, label }) => (
         <div key={width} style={rowStyle}>
           <H6 style={labelStyle}>{width}rem:</H6>
