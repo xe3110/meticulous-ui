@@ -1,6 +1,6 @@
 {
   "name": "meticulous-ui",
-  "version": "2.3.13",
+  "version": "2.3.14",
   "license": "MIT",
   "description": "A comprehensive React UI component library with a wide range of customizable components, icons, colors, and utilities for building modern web applications.",
   "main": "dist/index.js",
@@ -59,7 +59,7 @@
     "build-storybook": "storybook build",
     "deploy-storybook": "gh-pages -d storybook-static",
     "generate-icons": "rm -rf src/components/Icons/* && node src/scripts/generateIcons.js && npx prettier --write .",
-    "prepublish": "npm run build && cp package.json dist/ && cp README.md dist/ && rm -rf dist/_virtual",
+    "prepublish": "npm run build && node -e \"const fs=require('fs');const p=JSON.parse(fs.readFileSync('package.json','utf8'));p.main='./index.js';p.module='./index.js';delete p.scripts;delete p.devDependencies;fs.writeFileSync('dist/package.json',JSON.stringify(p,null,2))\" && cp README.md dist/",
     "publish:dist": "npm publish dist/"
   },
   "devDependencies": {

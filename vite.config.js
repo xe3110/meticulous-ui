@@ -4,27 +4,32 @@ import svgr from 'vite-plugin-svgr';
 import path from 'path';
 
 export default defineConfig({
-  base: './',
   plugins: [react(), svgr()],
   build: {
-    outDir: 'dist/',
+    outDir: 'dist',
     minify: 'esbuild',
     lib: {
       entry: path.resolve(__dirname, 'src/index.js'),
       name: 'MeticulousUI',
-      fileName: (format) => `meticulous-ui.${format}.js`,
-      formats: ['es'], // only ESM; simplest for tree-shakable libs
+      formats: ['es'],
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'lodash-es', 'react-fast-compare'], // add lodash-es
+      external: [
+        'react',
+        'react-dom',
+        'react/jsx-runtime',
+        'lodash-es',
+        'react-fast-compare',
+        'styled-components',
+      ],
       output: {
-        preserveModules: true, // keep file per component
+        preserveModules: true,
         preserveModulesRoot: 'src',
-        dir: 'dist/', // output directory
-        entryFileNames: '[name].js', // cleaner filenames
+        entryFileNames: '[name].js',
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
+          'styled-components': 'styled',
         },
       },
     },
