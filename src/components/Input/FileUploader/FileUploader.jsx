@@ -89,7 +89,7 @@ const FileUploader = ({
 
   return (
     <UploadBtnContainer {...{ $height, $width: width || $width, disabled, $isLoading: isLoading }}>
-      {isLoading ? btnChild : <Rippled theme={theme}>{btnChild}</Rippled>}
+      {isLoading || disabled ? btnChild : <Rippled theme={theme}>{btnChild}</Rippled>}
     </UploadBtnContainer>
   );
 };
