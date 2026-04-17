@@ -91,6 +91,31 @@ export const Horizontal = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import RadioGroup from 'meticulous-ui/components/Input/RadioGroup';
+
+const OPTIONS = [
+  { label: 'New York', value: 'New York' },
+  { label: 'Shanghai', value: 'Shanghai', disabled: true },
+  { label: 'London', value: 'London' },
+  { label: 'Delhi', value: 'Delhi' },
+];
+
+const Horizontal = () => {
+  const [val, setVal] = useState('');
+  return (
+    <div style={{ width: '40rem' }}>
+      <RadioGroup value={val} options={OPTIONS} onChange={setVal} isHorizonatal />
+    </div>
+  );
+};
+        `,
+      },
+    },
   },
   render: () => {
     const [val, setVal] = useState('');
@@ -131,6 +156,43 @@ export const DifferentColors = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import RadioGroup from 'meticulous-ui/components/Input/RadioGroup';
+
+const OPTIONS = [
+  { label: 'New York', value: 'New York' },
+  { label: 'London', value: 'London' },
+  { label: 'Delhi', value: 'Delhi' },
+];
+
+const COLORS = ['blue', 'green', 'red', 'yellow', 'orange', 'black', 'grey', 'violet', 'teal', 'purple', 'pink'];
+
+const ColorGroup = ({ color }) => {
+  const [val, setVal] = useState('');
+  return (
+    <div style={{ width: '40rem' }}>
+      <RadioGroup value={val} options={OPTIONS} color={color} onChange={setVal} />
+    </div>
+  );
+};
+
+const DifferentColors = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+    {COLORS.map((color) => (
+      <div key={color}>
+        <h2>{color}</h2>
+        <ColorGroup color={color} />
+      </div>
+    ))}
+  </div>
+);
+        `,
+      },
+    },
   },
   render: () => {
     return (

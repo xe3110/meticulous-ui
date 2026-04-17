@@ -132,6 +132,41 @@ export const DifferentSizes = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import Button from 'meticulous-ui/components/Button';
+import { H6 } from 'meticulous-ui/components/Typography/Headings';
+
+const SIZES = [
+  { size: 'small', label: 'Small' },
+  { size: 'medium', label: 'Medium' },
+  { size: 'large', label: 'Large' },
+  { size: 'ex-large', label: 'Extra Large' },
+];
+
+const DifferentSizes = () => (
+  <>
+    {SIZES.map(({ size, label }) => (
+      <div
+        key={size}
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          width: '15rem',
+        }}
+      >
+        <H6>{\`\${label}:\`}</H6>
+        <Button size={size}>Click me</Button>
+      </div>
+    ))}
+  </>
+);
+        `,
+      },
+    },
   },
   render: () => (
     <>
@@ -158,6 +193,16 @@ export const LoadingState = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import Button from 'meticulous-ui/components/Button';
+
+const LoadingState = () => <Button isLoading>Click me</Button>;
+        `,
+      },
+    },
   },
   render: () => <Button isLoading>Click me</Button>,
 };
@@ -167,6 +212,16 @@ export const DisabledState = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import Button from 'meticulous-ui/components/Button';
+
+const DisabledState = () => <Button disabled>Click me</Button>;
+        `,
+      },
+    },
   },
   render: () => <Button disabled>Click me</Button>,
 };
@@ -176,6 +231,33 @@ export const DifferentThemes = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import Button from 'meticulous-ui/components/Button';
+import { H6 } from 'meticulous-ui/components/Typography/Headings';
+
+const THEMES = ['amber', 'blue', 'blueGray', 'brown', 'cider', 'cyan', 'deepOrange',
+  'deepPurple', 'green', 'grey', 'indigo', 'lightBlue', 'lightGreen', 'lime',
+  'orange', 'pink', 'purple', 'red', 'teal', 'violet', 'white', 'yellow', 'black'];
+
+const DifferentThemes = () => (
+  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
+    {THEMES.map((theme) => (
+      <div
+        key={theme}
+        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.4rem' }}
+      >
+        <Button theme={theme}>Click me</Button>
+        <H6>{theme}</H6>
+      </div>
+    ))}
+  </div>
+);
+        `,
+      },
+    },
   },
   render: () => (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>

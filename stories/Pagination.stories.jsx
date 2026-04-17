@@ -101,6 +101,20 @@ export const ManyPages = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Pagination from 'meticulous-ui/components/Pagination';
+
+const ManyPages = () => {
+  const [pageNumber, setPageNumber] = useState(1);
+  return <Pagination pageNumber={pageNumber} totalPages={50} setPageNumber={setPageNumber} />;
+};
+        `,
+      },
+    },
   },
   render: () => {
     const [pageNumber, setPageNumber] = useState(1);
@@ -123,6 +137,33 @@ export const DifferentColors = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Pagination from 'meticulous-ui/components/Pagination';
+
+const THEMES = ['red', 'blue', 'green', 'purple', 'grey', 'black'];
+
+const ThemePagination = ({ theme }) => {
+  const [pageNumber, setPageNumber] = useState(1);
+  return <Pagination pageNumber={pageNumber} totalPages={50} setPageNumber={setPageNumber} theme={theme} />;
+};
+
+const DifferentColors = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+    {THEMES.map((theme) => (
+      <div key={theme}>
+        <p style={{ width: '100%', textAlign: 'center', fontWeight: 600 }}>{theme.toUpperCase()}</p>
+        <ThemePagination theme={theme} />
+      </div>
+    ))}
+  </div>
+);
+        `,
+      },
+    },
   },
   render: () => {
     const [rPageNumber, setRPageNumber] = useState(1);
@@ -199,6 +240,20 @@ export const SmallSize = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Pagination from 'meticulous-ui/components/Pagination';
+
+const SmallSize = () => {
+  const [pageNumber, setPageNumber] = useState(1);
+  return <Pagination pageNumber={pageNumber} totalPages={10} setPageNumber={setPageNumber} size='small' />;
+};
+        `,
+      },
+    },
   },
   render: () => {
     const [pageNumber, setPageNumber] = useState(1);
@@ -222,6 +277,20 @@ export const MediumSize = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Pagination from 'meticulous-ui/components/Pagination';
+
+const MediumSize = () => {
+  const [pageNumber, setPageNumber] = useState(1);
+  return <Pagination pageNumber={pageNumber} totalPages={10} setPageNumber={setPageNumber} size='medium' />;
+};
+        `,
+      },
+    },
   },
   render: () => {
     const [pageNumber, setPageNumber] = useState(1);
@@ -245,6 +314,20 @@ export const LargeSize = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Pagination from 'meticulous-ui/components/Pagination';
+
+const LargeSize = () => {
+  const [pageNumber, setPageNumber] = useState(1);
+  return <Pagination pageNumber={pageNumber} totalPages={10} setPageNumber={setPageNumber} size='large' />;
+};
+        `,
+      },
+    },
   },
   render: () => {
     const [pageNumber, setPageNumber] = useState(1);
@@ -268,6 +351,20 @@ export const Disabled = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Pagination from 'meticulous-ui/components/Pagination';
+
+const Disabled = () => {
+  const [pageNumber, setPageNumber] = useState(1);
+  return <Pagination pageNumber={pageNumber} totalPages={10} setPageNumber={setPageNumber} size='large' isDisabled />;
+};
+        `,
+      },
+    },
   },
   render: () => {
     const [pageNumber, setPageNumber] = useState(1);

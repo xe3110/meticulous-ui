@@ -61,6 +61,7 @@ export default App;
 | `Textarea`     | Renders textarea box to let user enter description     |
 | `Dropdown`     | Renders dropdown to select from options                |
 | `Spinner`      | Renders a spinner to show the loading state            |
+| `Loader`       | Renders a loader with dots to show the loading state   |
 | `Button`       | Renders a button to click & take an action             |
 
 ## 📦 Icon Components

@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 
 import * as CheckboxStories from '../Checkbox.stories';
 
@@ -6,10 +6,41 @@ import * as CheckboxStories from '../Checkbox.stories';
 
 # Checkbox
 
-A Checkbox is used display input boxes to enter otp, can be imported as `meticulous-ui/components/Checkbox`
+A controlled checkbox input with a label and configurable accent color. Can be imported as `meticulous-ui/components/Input/Checkbox`.
 
-<Canvas>
-  <Story name='Checkbox'>
-    <CheckboxStories />
-  </Story>
-</Canvas>
+## Default
+
+<Canvas of={CheckboxStories.Default} />
+
+<Controls of={CheckboxStories.Default} />
+
+## Multiple Colors
+
+<Canvas of={CheckboxStories.MultipleColors} />
+
+## Disabled
+
+<Canvas of={CheckboxStories.Disabled} />
+
+## Props
+
+<table>
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>value</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Controlled checked state</td></tr>
+    <tr><td><code>onChange</code></td><td><code>(checked: boolean) =&gt; void</code></td><td>—</td><td>Called with the new boolean value on change</td></tr>
+    <tr><td><code>label</code></td><td><code>string</code></td><td>—</td><td>Text label rendered next to the checkbox</td></tr>
+    <tr><td><code>color</code></td><td><code>string</code></td><td><code>'blue'</code></td><td>Accent color when checked</td></tr>
+    <tr><td><code>textColor</code></td><td><code>string</code></td><td><code>'#616161'</code></td><td>Color of the label text</td></tr>
+    <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Disables interaction</td></tr>
+  </tbody>
+</table>
+
+## Accessibility
+
+- Renders a native `<input type="checkbox">` element, fully keyboard accessible via `Space` to toggle
+- The `label` prop is associated via `<label>` wrapping or `htmlFor`, so screen readers announce the field name
+- When `disabled` is true the native `disabled` attribute is set, removing the element from the tab order
+- Checked/unchecked state is communicated natively via the `checked` attribute

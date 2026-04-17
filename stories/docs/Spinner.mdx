@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 
 import * as SpinnerStories from '../Spinner.stories';
 
@@ -6,10 +6,36 @@ import * as SpinnerStories from '../Spinner.stories';
 
 # Spinner
 
-A Spinner is used to show a loading state, can be imported as `meticulous-ui/components/Spinner`
+A circular spinning indicator used to communicate a loading state. Can be imported as `meticulous-ui/components/Spinner`.
 
-<Canvas>
-  <Story name='Spinner'>
-    <SpinnerStories />
-  </Story>
-</Canvas>
+## Default
+
+<Canvas of={SpinnerStories.Default} />
+
+<Controls of={SpinnerStories.Default} />
+
+## Sizes
+
+<Canvas of={SpinnerStories.Sizes} />
+
+## Colors
+
+<Canvas of={SpinnerStories.Colors} />
+
+## Props
+
+<table>
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>color</code></td><td><code>string</code></td><td><code>'green'</code></td><td>Color theme of the spinner</td></tr>
+    <tr><td><code>size</code></td><td><code>'small' | 'medium' | 'large'</code></td><td><code>'medium'</code></td><td>Controls the spinner diameter</td></tr>
+  </tbody>
+</table>
+
+## Accessibility
+
+- Renders with `role="status"` so screen readers announce the loading state as a polite live region
+- A visually-hidden label (e.g. `"Loading…"`) should be provided by the consuming component when no other visible loading label is present
+- The spin animation is suppressed for users with `prefers-reduced-motion: reduce`

@@ -74,6 +74,29 @@ export const Sizes = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import Spinner from 'meticulous-ui/components/Spinner';
+import { H4 } from 'meticulous-ui/components/Typography/Headings';
+
+const Sizes = () => (
+  <div>
+    {['small', 'medium', 'large'].map((size) => (
+      <div
+        key={size}
+        style={{ marginLeft: '4rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '20rem' }}
+      >
+        <H4>{size.charAt(0).toUpperCase() + size.slice(1)}:</H4>
+        <Spinner size={size} />
+      </div>
+    ))}
+  </div>
+);
+        `,
+      },
+    },
   },
   render: () => (
     <div>
@@ -122,6 +145,32 @@ export const Colors = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import Spinner from 'meticulous-ui/components/Spinner';
+import P from 'meticulous-ui/components/Typography/P';
+
+const COLORS = ['amber', 'blue', 'brown', 'cyan', 'deepPurple', 'grey', 'indigo',
+  'lightGreen', 'orange', 'purple', 'teal', 'white', 'black', 'blueGray', 'cider',
+  'deepOrange', 'green', 'lightBlue', 'lime', 'pink', 'red', 'violet', 'yellow'];
+
+const Colors = () => (
+  <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '5rem', width: '70rem', margin: '2rem 5rem' }}>
+    {COLORS.map((color) => (
+      <div key={color} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <Spinner color={color} />
+        <div style={{ marginTop: '1rem', textAlign: 'center' }}>
+          <P>{color}</P>
+        </div>
+      </div>
+    ))}
+  </div>
+);
+        `,
+      },
+    },
   },
   render: () => (
     <div

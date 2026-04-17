@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 
 import * as DropdownStories from '../Dropdown.stories';
 
@@ -6,10 +6,69 @@ import * as DropdownStories from '../Dropdown.stories';
 
 # Dropdown
 
-A Dropdown is used display a list of Dropdownable options, can be imported as `meticulous-ui/components/Dropdown`
+A single-select dropdown with optional search, infinite scroll, and theming. Can be imported as `meticulous-ui/components/Dropdown`.
 
-<Canvas>
-  <Story name='Dropdown'>
-    <Story of={DropdownStories.Default} />
-  </Story>
-</Canvas>
+Options are passed as an array of `{ label, value, disabled? }` objects.
+
+## Default
+
+<Canvas of={DropdownStories.Default} />
+
+<Controls of={DropdownStories.Default} />
+
+## With Search
+
+<Canvas of={DropdownStories.WithSearch} />
+
+## Disabled
+
+<Canvas of={DropdownStories.Disabled} />
+
+## With Disabled Options
+
+<Canvas of={DropdownStories.WithDisabledOptions} />
+
+## Loading State
+
+<Canvas of={DropdownStories.LoadingState} />
+
+## Async Load More
+
+<Canvas of={DropdownStories.WithAsyncLoadMore} />
+
+## Themes
+
+<Canvas of={DropdownStories.Themes} />
+
+## Props
+
+<table>
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>options</code></td><td><code>{"{ label: string; value: string; disabled?: boolean }[]"}</code></td><td>—</td><td>List of selectable options</td></tr>
+    <tr><td><code>value</code></td><td><code>string | null</code></td><td><code>null</code></td><td>Currently selected value</td></tr>
+    <tr><td><code>onChange</code></td><td><code>(value: string) =&gt; void</code></td><td>—</td><td>Called when the user selects an option</td></tr>
+    <tr><td><code>theme</code></td><td><code>string</code></td><td><code>'blue'</code></td><td>Color theme for the trigger and highlighted option</td></tr>
+    <tr><td><code>placeholder</code></td><td><code>string</code></td><td><code>'Select a value'</code></td><td>Placeholder shown when no value is selected</td></tr>
+    <tr><td><code>searchable</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Shows a search input inside the menu</td></tr>
+    <tr><td><code>searchPh</code></td><td><code>string</code></td><td><code>'Search...'</code></td><td>Placeholder for the search input</td></tr>
+    <tr><td><code>isLoading</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Shows a loading spinner in the trigger</td></tr>
+    <tr><td><code>isDisabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Disables the entire dropdown</td></tr>
+    <tr><td><code>loaderColor</code></td><td><code>string</code></td><td><code>'green'</code></td><td>Color of the inline load-more spinner</td></tr>
+    <tr><td><code>hasMore</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Indicates more options can be loaded</td></tr>
+    <tr><td><code>isLoadingMore</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Shows a spinner at the bottom of the list while fetching</td></tr>
+    <tr><td><code>onLoadMore</code></td><td><code>() =&gt; void</code></td><td>—</td><td>Called when the user scrolls to the bottom of the list</td></tr>
+    <tr><td><code>width</code></td><td><code>string</code></td><td><code>'20rem'</code></td><td>Width of the trigger</td></tr>
+    <tr><td><code>menuHeight</code></td><td><code>string</code></td><td><code>'20rem'</code></td><td>Max height of the open menu</td></tr>
+  </tbody>
+</table>
+
+## Accessibility
+
+- The trigger renders as a `<button>` — keyboard focusable and openable via `Enter` / `Space`
+- The menu uses `role="listbox"` with each option as `role="option"` and `aria-selected`
+- Disabled options receive `aria-disabled="true"`
+- `isDisabled` sets `aria-disabled="true"` and `disabled` on the trigger button
+- `isLoading` should be paired with `aria-busy="true"` on the trigger by consuming code when options are not yet available

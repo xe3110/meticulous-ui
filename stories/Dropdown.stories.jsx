@@ -173,6 +173,28 @@ export const WithSearch = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Dropdown from 'meticulous-ui/components/Dropdown';
+
+const WithSearch = () => {
+  const [value, setValue] = useState(null);
+  return (
+    <Dropdown
+      onChange={setValue}
+      value={value}
+      searchable
+      options={OPTIONS}
+      placeholder='Select a value'
+    />
+  );
+};
+        `,
+      },
+    },
   },
   render: () => {
     const [value, setValue] = useState(null);
@@ -198,6 +220,28 @@ export const Disabled = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Dropdown from 'meticulous-ui/components/Dropdown';
+
+const Disabled = () => {
+  const [value, setValue] = useState(null);
+  return (
+    <Dropdown
+      onChange={setValue}
+      value={value}
+      options={OPTIONS}
+      placeholder='Select a value'
+      isDisabled
+    />
+  );
+};
+        `,
+      },
+    },
   },
   render: () => {
     const [value, setValue] = useState(null);
@@ -219,6 +263,27 @@ export const WithDisabledOptions = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Dropdown from 'meticulous-ui/components/Dropdown';
+
+const WithDisabledOptions = () => {
+  const [value, setValue] = useState(null);
+  return (
+    <Dropdown
+      onChange={setValue}
+      value={value}
+      options={OPTIONS.map((v, i) => ({ ...v, disabled: i > 3 }))}
+      placeholder='Select a value'
+    />
+  );
+};
+        `,
+      },
+    },
   },
   render: () => {
     const [value, setValue] = useState(null);
@@ -240,6 +305,51 @@ export const WithDisabledOptions = {
 
 export const WithAsyncLoadMore = {
   name: 'With Async Load More',
+  parameters: {
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Dropdown from 'meticulous-ui/components/Dropdown';
+
+const WithAsyncLoadMore = () => {
+  const [options, setOptions] = useState(OPTIONS.slice(0, 10));
+  const [value, setValue] = useState(null);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+
+  const handleLoadMore = () => {
+    if (isLoadingMore || !hasMore) return;
+    setIsLoadingMore(true);
+    setTimeout(() => {
+      const nextBatch = OPTIONS.slice(options.length, options.length + 10);
+      if (nextBatch.length > 0) {
+        setOptions((prev) => [...prev, ...nextBatch]);
+      } else {
+        setHasMore(false);
+      }
+      setIsLoadingMore(false);
+    }, 1500);
+  };
+
+  return (
+    <Dropdown
+      placeholder='Search and scroll down...'
+      searchable
+      value={value}
+      onChange={setValue}
+      options={options}
+      onLoadMore={handleLoadMore}
+      hasMore={hasMore}
+      isLoadingMore={isLoadingMore}
+    />
+  );
+};
+        `,
+      },
+    },
+  },
   render: () => {
     // 1. Manage options and loading state locally for the demo
     const [options, setOptions] = useState(OPTIONS.slice(0, 10)); // Start with first 10
@@ -289,6 +399,28 @@ export const LoadingState = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Dropdown from 'meticulous-ui/components/Dropdown';
+
+const LoadingState = () => {
+  const [value, setValue] = useState(null);
+  return (
+    <Dropdown
+      onChange={setValue}
+      value={value}
+      options={OPTIONS}
+      placeholder='Select a value'
+      isLoading
+    />
+  );
+};
+        `,
+      },
+    },
   },
   render: () => {
     const [value, setValue] = useState(null);
@@ -314,6 +446,38 @@ export const Themes = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Dropdown from 'meticulous-ui/components/Dropdown';
+import { H6 } from 'meticulous-ui/components/Typography/Headings';
+
+const THEMES = ['amber', 'blue', 'brown', 'cyan', 'deepPurple', 'grey', 'indigo',
+  'lightGreen', 'orange', 'purple', 'teal', 'black', 'blueGray', 'cider',
+  'deepOrange', 'green', 'lightBlue', 'lime', 'pink', 'red', 'violet', 'yellow'];
+
+const ThemeDropdown = ({ theme }) => {
+  const [value, setValue] = useState(null);
+  return (
+    <Dropdown onChange={setValue} value={value} options={OPTIONS} placeholder='Select a value' theme={theme} />
+  );
+};
+
+const Themes = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+    {THEMES.map((theme) => (
+      <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+        <H6>{theme}</H6>
+        <ThemeDropdown theme={theme} />
+      </div>
+    ))}
+  </div>
+);
+        `,
+      },
+    },
   },
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>

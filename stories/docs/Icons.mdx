@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 
 import * as IconStories from '../Icons.stories';
 
@@ -6,10 +6,38 @@ import * as IconStories from '../Icons.stories';
 
 # Icons
 
-An Icon can be imported as `meticulous-ui/components/Icons/Add` & can be from the following:
+A collection of SVG icon components. Each icon is individually importable from `meticulous-ui/components/Icons/<Name>` (e.g. `meticulous-ui/components/Icons/Add`).
 
-<Canvas>
-  <Story name='All Colors'>
-    <IconStories />
-  </Story>
-</Canvas>
+## All Icons
+
+<Canvas of={IconStories.Default} />
+
+## Usage
+
+```jsx
+import Add from 'meticulous-ui/components/Icons/Add';
+import red from 'meticulous-ui/colors/red';
+
+<Add color={red.m500} size={20} />
+```
+
+## Props
+
+All icon components share the same props interface:
+
+<table>
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>color</code></td><td><code>string</code></td><td>—</td><td>Fill / stroke color (any CSS color value)</td></tr>
+    <tr><td><code>size</code></td><td><code>number</code></td><td>—</td><td>Width and height of the icon in px</td></tr>
+  </tbody>
+</table>
+
+## Accessibility
+
+- Icons render as `<svg>` elements
+- When used as decorative elements alongside visible text, add `aria-hidden="true"` to remove them from the accessibility tree
+- When used as standalone interactive icons (e.g. inside an icon-only button), the parent `<button>` must have an `aria-label` describing the action
+- Avoid relying on color alone to convey meaning — pair with a visible label or tooltip when the icon is the sole indicator

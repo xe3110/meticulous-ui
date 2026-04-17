@@ -124,6 +124,34 @@ export const DifferentColor = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Textarea from 'meticulous-ui/components/Input/Textarea';
+
+const COLORS = ['blue', 'yellow', 'red', 'green', 'orange', 'black', 'grey', 'violet', 'teal', 'purple', 'pink'];
+
+const DifferentColor = () => {
+  const [vals, setVals] = useState(Object.fromEntries(COLORS.map((c) => [c, ''])));
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      {COLORS.map((color) => (
+        <Textarea
+          key={color}
+          label={color.charAt(0).toUpperCase() + color.slice(1)}
+          value={vals[color]}
+          color={color}
+          onChange={(e) => setVals((v) => ({ ...v, [color]: e.target.value }))}
+        />
+      ))}
+    </div>
+  );
+};
+        `,
+      },
+    },
   },
   render: () => {
     const [val1, setVal1] = useState('');
@@ -173,6 +201,21 @@ export const Disabled = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import Textarea from 'meticulous-ui/components/Input/Textarea';
+
+const Disabled = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+    <Textarea label='Disabled without value' value='' color='blue' onChange={() => {}} disabled />
+    <Textarea label='Disabled with value' value='Default value' color='blue' onChange={() => {}} disabled />
+  </div>
+);
+        `,
+      },
+    },
   },
   render: () => {
     const [val1, setVal1] = useState('');
@@ -207,6 +250,22 @@ export const DynamicHeight = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Textarea from 'meticulous-ui/components/Input/Textarea';
+
+const DynamicHeight = () => {
+  const [val, setVal] = useState('');
+  return (
+    <Textarea label='Dynamic Height' value={val} color='blue' onChange={(e) => setVal(e.target.value)} isDynamic />
+  );
+};
+        `,
+      },
+    },
   },
   render: () => {
     const [val1, setVal1] = useState('');
@@ -228,6 +287,33 @@ export const HelperText = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Textarea from 'meticulous-ui/components/Input/Textarea';
+
+const MAX_CHARS_LIMIT = 30;
+
+const HelperText = () => {
+  const [val, setVal] = useState('');
+  const onChange = (e) => {
+    if (e.target.value.length <= MAX_CHARS_LIMIT) setVal(e.target.value);
+  };
+  return (
+    <Textarea
+      label='With helper text'
+      value={val}
+      color='blue'
+      onChange={onChange}
+      helperText={\`\${MAX_CHARS_LIMIT - val.length}/\${MAX_CHARS_LIMIT} characters allowed\`}
+    />
+  );
+};
+        `,
+      },
+    },
   },
   render: () => {
     const MAX_CHARS_LIMIT = 30;
@@ -256,6 +342,32 @@ export const ErrorState = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Textarea from 'meticulous-ui/components/Input/Textarea';
+
+const MAX_CHARS_LIMIT = 20;
+
+const ErrorState = () => {
+  const [val, setVal] = useState('This value exceeds limit.');
+  return (
+    <Textarea
+      label='Error State'
+      value={val}
+      color='blue'
+      outerBackground='white'
+      onChange={(e) => setVal(e.target.value.slice(0, MAX_CHARS_LIMIT))}
+      helperText={\`Max. \${MAX_CHARS_LIMIT} characters allowed\`}
+      hasError={val.length > MAX_CHARS_LIMIT}
+    />
+  );
+};
+        `,
+      },
+    },
   },
   render: () => {
     const MAX_CHARS_LIMIT = 20;
@@ -286,6 +398,22 @@ export const AutoFocus = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Textarea from 'meticulous-ui/components/Input/Textarea';
+
+const AutoFocus = () => {
+  const [val, setVal] = useState('');
+  return (
+    <Textarea label='Auto Focus' value={val} color='blue' onChange={(e) => setVal(e.target.value)} autoFocus />
+  );
+};
+        `,
+      },
+    },
   },
   render: () => {
     const MAX_CHARS_LIMIT = 10;
@@ -308,6 +436,22 @@ export const WithoutLabel = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Textarea from 'meticulous-ui/components/Input/Textarea';
+
+const WithoutLabel = () => {
+  const [val, setVal] = useState('');
+  return (
+    <Textarea placeholder='Type something...' value={val} color='blue' onChange={(e) => setVal(e.target.value)} />
+  );
+};
+        `,
+      },
+    },
   },
   render: () => {
     const [val1, setVal1] = useState('');

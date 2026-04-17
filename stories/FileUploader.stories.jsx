@@ -158,6 +158,31 @@ export const Themes = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import FileUploader from 'meticulous-ui/components/Input/FileUploader';
+import { H6 } from 'meticulous-ui/components/Typography/Headings';
+import { Link } from 'meticulous-ui/components/Icons';
+
+const THEMES = ['amber', 'blue', 'blueGray', 'brown', 'cider', 'cyan', 'deepOrange',
+  'deepPurple', 'green', 'grey', 'indigo', 'lightBlue', 'lightGreen', 'lime',
+  'orange', 'pink', 'purple', 'red', 'teal', 'violet', 'white', 'yellow', 'black'];
+
+const Themes = () => (
+  <>
+    {THEMES.map((theme) => (
+      <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
+        <H6 style={{ width: '10rem', flexShrink: 0 }}>{theme}:</H6>
+        <FileUploader label='Upload' theme={theme} prefixIcon={Link} />
+      </div>
+    ))}
+  </>
+);
+        `,
+      },
+    },
   },
   render: () => (
     <>
@@ -177,6 +202,34 @@ export const Sizes = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import FileUploader from 'meticulous-ui/components/Input/FileUploader';
+import { H6 } from 'meticulous-ui/components/Typography/Headings';
+import { Link } from 'meticulous-ui/components/Icons';
+
+const SIZES = [
+  { size: 'small', label: 'Small' },
+  { size: 'medium', label: 'Medium' },
+  { size: 'large', label: 'Large' },
+  { size: 'ex-large', label: 'Extra Large' },
+];
+
+const Sizes = () => (
+  <>
+    {SIZES.map(({ size, label }) => (
+      <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
+        <H6 style={{ width: '10rem', flexShrink: 0 }}>{label}:</H6>
+        <FileUploader label='Upload' size={size} prefixIcon={Link} />
+      </div>
+    ))}
+  </>
+);
+        `,
+      },
+    },
   },
   render: () => (
     <>
@@ -196,6 +249,29 @@ export const Disabled = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import FileUploader from 'meticulous-ui/components/Input/FileUploader';
+import { H6 } from 'meticulous-ui/components/Typography/Headings';
+import { Link } from 'meticulous-ui/components/Icons';
+
+const Disabled = () => (
+  <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+    <div>
+      <H6 style={{ marginBottom: '0.5rem' }}>Enabled</H6>
+      <FileUploader label='Upload' prefixIcon={Link} />
+    </div>
+    <div>
+      <H6 style={{ marginBottom: '0.5rem' }}>Disabled</H6>
+      <FileUploader label='Upload' prefixIcon={Link} disabled />
+    </div>
+  </div>
+);
+        `,
+      },
+    },
   },
   render: () => (
     <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
@@ -217,6 +293,32 @@ export const Width = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import FileUploader from 'meticulous-ui/components/Input/FileUploader';
+import { H6 } from 'meticulous-ui/components/Typography/Headings';
+import { Link } from 'meticulous-ui/components/Icons';
+
+const Width = () => (
+  <>
+    {[
+      { width: 6, label: 'Upload' },
+      { width: 10, label: 'Upload now' },
+      { width: 14, label: 'Upload all files' },
+      { width: 20, label: 'Upload all files here' },
+    ].map(({ width, label }) => (
+      <div key={width} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
+        <H6 style={{ width: '10rem', flexShrink: 0 }}>{width}rem:</H6>
+        <FileUploader label={label} width={width} prefixIcon={Link} />
+      </div>
+    ))}
+  </>
+);
+        `,
+      },
+    },
   },
   render: () => (
     <>
@@ -241,6 +343,29 @@ export const MultipleFiles = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import FileUploader from 'meticulous-ui/components/Input/FileUploader';
+import { H6 } from 'meticulous-ui/components/Typography/Headings';
+import { Link } from 'meticulous-ui/components/Icons';
+
+const MultipleFiles = () => (
+  <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+    <div>
+      <H6 style={{ marginBottom: '0.5rem' }}>Single file</H6>
+      <FileUploader label='Upload' prefixIcon={Link} isMultiple={false} />
+    </div>
+    <div>
+      <H6 style={{ marginBottom: '0.5rem' }}>Multiple files</H6>
+      <FileUploader label='Upload Files' prefixIcon={Link} isMultiple />
+    </div>
+  </div>
+);
+        `,
+      },
+    },
   },
   render: () => (
     <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
@@ -262,6 +387,33 @@ export const AcceptTypes = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import FileUploader from 'meticulous-ui/components/Input/FileUploader';
+import { H6 } from 'meticulous-ui/components/Typography/Headings';
+import { Link } from 'meticulous-ui/components/Icons';
+
+const AcceptTypes = () => (
+  <>
+    {[
+      { accept: '*', label: 'Any file (*)' },
+      { accept: 'image/*', label: 'Images (image/*)' },
+      { accept: '.pdf', label: 'PDF (.pdf)' },
+      { accept: '.csv,.xlsx', label: 'Spreadsheets (.csv, .xlsx)' },
+      { accept: 'video/*', label: 'Videos (video/*)' },
+    ].map(({ accept, label }) => (
+      <div key={accept} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
+        <H6 style={{ width: '10rem', flexShrink: 0 }}>{label}:</H6>
+        <FileUploader label='Upload' accept={accept} prefixIcon={Link} />
+      </div>
+    ))}
+  </>
+);
+        `,
+      },
+    },
   },
   render: () => (
     <>
@@ -287,6 +439,41 @@ export const Icons = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import FileUploader from 'meticulous-ui/components/Input/FileUploader';
+import { H6 } from 'meticulous-ui/components/Typography/Headings';
+import { Link, Upload } from 'meticulous-ui/components/Icons';
+
+const Icons = () => (
+  <>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
+      <H6 style={{ width: '10rem', flexShrink: 0 }}>No icons:</H6>
+      <FileUploader label='Upload' prefixIcon={null} width={5.5} />
+    </div>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
+      <H6 style={{ width: '10rem', flexShrink: 0 }}>Prefix only:</H6>
+      <FileUploader label='Upload' prefixIcon={Link} />
+    </div>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
+      <H6 style={{ width: '10rem', flexShrink: 0 }}>Suffix only:</H6>
+      <FileUploader label='Upload' prefixIcon={null} suffixIcon={Upload} />
+    </div>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
+      <H6 style={{ width: '10rem', flexShrink: 0 }}>Both:</H6>
+      <FileUploader label='Upload' prefixIcon={Link} suffixIcon={Upload} width={10} />
+    </div>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
+      <H6 style={{ width: '10rem', flexShrink: 0 }}>Custom prefix:</H6>
+      <FileUploader label='Upload' prefixIcon={Upload} />
+    </div>
+  </>
+);
+        `,
+      },
+    },
   },
   render: () => (
     <>

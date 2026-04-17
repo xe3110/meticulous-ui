@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 
 import * as OtpInputStories from '../OtpInput.stories';
 
@@ -6,10 +6,31 @@ import * as OtpInputStories from '../OtpInput.stories';
 
 # OtpInput
 
-A OtpInput is used display input boxes to enter otp, can be imported as `meticulous-ui/components/OtpInput`
+A one-time password input that renders a row of single-character boxes. Automatically advances focus between boxes as the user types. Can be imported as `meticulous-ui/components/OtpInput`.
 
-<Canvas>
-  <Story name='OtpInput'>
-    <OtpInputStories />
-  </Story>
-</Canvas>
+## Default
+
+<Canvas of={OtpInputStories.Default} />
+
+<Controls of={OtpInputStories.Default} />
+
+## Props
+
+<table>
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>length</code></td><td><code>number</code></td><td><code>6</code></td><td>Number of input boxes to render</td></tr>
+    <tr><td><code>value</code></td><td><code>string</code></td><td><code>''</code></td><td>Controlled OTP value</td></tr>
+    <tr><td><code>onChange</code></td><td><code>(value: string) =&gt; void</code></td><td>—</td><td>Called on every keystroke with the current partial value</td></tr>
+    <tr><td><code>onComplete</code></td><td><code>(value: string) =&gt; void</code></td><td>—</td><td>Called when all boxes are filled</td></tr>
+  </tbody>
+</table>
+
+## Accessibility
+
+- Each box is a native `<input type="text" inputmode="numeric">` element, keyboard accessible by default
+- Focus moves automatically to the next box on input and back on `Backspace`, reducing navigation effort
+- The group should be wrapped in a `<fieldset>` with a `<legend>` (e.g. "Enter OTP") by the consuming layout so screen readers announce the purpose
+- Paste support fills all boxes from the clipboard value in a single operation

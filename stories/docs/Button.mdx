@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 
 import * as ButtonStories from '../Button.stories';
 
@@ -6,10 +6,52 @@ import * as ButtonStories from '../Button.stories';
 
 # Button
 
-A Button is used display a button & click to make an action, can be imported as `meticulous-ui/components/Button`
+A Button triggers an action or event. It can be imported as `meticulous-ui/components/Button`.
 
-<Canvas>
-  <Story name='Button'>
-    <Story of={ButtonStories.Default} />
-  </Story>
-</Canvas>
+Supports multiple themes, sizes, a loading state (renders an inline spinner), and a disabled state.
+
+## Default
+
+<Canvas of={ButtonStories.Default} />
+
+<Controls of={ButtonStories.Default} />
+
+## Sizes
+
+<Canvas of={ButtonStories.DifferentSizes} />
+
+## Loading State
+
+<Canvas of={ButtonStories.LoadingState} />
+
+## Disabled State
+
+<Canvas of={ButtonStories.DisabledState} />
+
+## Themes
+
+<Canvas of={ButtonStories.DifferentThemes} />
+
+## Props
+
+<table>
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>theme</code></td><td><code>string</code></td><td><code>'blue'</code></td><td>Color theme of the button</td></tr>
+    <tr><td><code>size</code></td><td><code>'small' | 'medium' | 'large' | 'ex-large'</code></td><td><code>'medium'</code></td><td>Controls button size</td></tr>
+    <tr><td><code>width</code></td><td><code>number</code></td><td><code>6</code></td><td>Button width in rem</td></tr>
+    <tr><td><code>textColor</code></td><td><code>string</code></td><td>—</td><td>Overrides the label text color</td></tr>
+    <tr><td><code>isLoading</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Replaces content with a loading spinner</td></tr>
+    <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Disables interaction and applies muted style</td></tr>
+    <tr><td><code>onClick</code></td><td><code>(e: MouseEvent) =&gt; void</code></td><td>—</td><td>Click handler</td></tr>
+    <tr><td><code>children</code></td><td><code>ReactNode</code></td><td>—</td><td>Button label content</td></tr>
+  </tbody>
+</table>
+
+## Accessibility
+
+- Renders a native `<button>` element — keyboard focusable and activatable via `Enter` / `Space` by default
+- When `disabled` is true the button receives the native `disabled` attribute, removing it from the tab order and preventing click events
+- When `isLoading` is true, consider pairing with an `aria-label` or `aria-busy` attribute on the wrapping context so screen readers can announce the pending state

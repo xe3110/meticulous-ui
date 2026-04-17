@@ -1,0 +1,39 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/addon-docs/blocks';
+
+import * as LoaderStories from '../Loader.stories';
+
+<Meta title='components/Loader' of={LoaderStories} />
+
+# Loader
+
+A Loader displays five dots in a sequential wave-bounce animation to communicate a loading state. Can be imported as `meticulous-ui/components/Loader`.
+
+The dots transition in color from **mint green → teal → cyan → sky blue → deep blue** and increase progressively in size from left to right.
+
+## Default
+
+<Canvas of={LoaderStories.Default} />
+
+<Controls of={LoaderStories.Default} />
+
+## Sizes
+
+<Canvas of={LoaderStories.Sizes} />
+
+## Props
+
+<table>
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>size</code></td><td><code>'small' | 'medium' | 'large'</code></td><td><code>'medium'</code></td><td>Controls the dot sizes</td></tr>
+  </tbody>
+</table>
+
+## Accessibility
+
+- The wrapper has `role="status"` — an implicit `aria-live="polite"` live region
+- A visually-hidden `"Loading"` text node is announced by screen readers when the component mounts
+- Each decorative dot has `aria-hidden="true"` to keep the accessibility tree clean
+- Animations are suppressed for users with `prefers-reduced-motion: reduce`

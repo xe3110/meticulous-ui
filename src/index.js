@@ -2,6 +2,7 @@
 export { default as Pagination } from './components/Pagination';
 export { default as Toast } from './components/Toast';
 export { default as Spinner } from './components/Spinner';
+export { default as Loader } from './components/Loader';
 export { default as OtpInput } from './components/OtpInput';
 export { default as Dropdown } from './components/Dropdown';
 export { default as Button } from './components/Button';

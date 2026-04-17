@@ -85,6 +85,32 @@ export const MultipleColors = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Checkbox from 'meticulous-ui/components/Input/Checkbox';
+
+const COLORS = ['blue', 'green', 'red', 'yellow', 'orange', 'black', 'grey', 'violet', 'teal', 'purple', 'pink'];
+
+const ColorCheckbox = ({ color }) => {
+  const [val, setVal] = useState(false);
+  return (
+    <Checkbox color={color} value={val} label={\`\${color} color\`} onChange={setVal} />
+  );
+};
+
+const MultipleColors = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+    {COLORS.map((color) => (
+      <ColorCheckbox key={color} color={color} />
+    ))}
+  </div>
+);
+        `,
+      },
+    },
   },
   render: () => {
     return (
@@ -114,6 +140,21 @@ export const Disabled = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import Checkbox from 'meticulous-ui/components/Input/Checkbox';
+
+const Disabled = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+    <Checkbox value={false} disabled label='Disabled Checkbox without value' onChange={() => {}} />
+    <Checkbox value={true} disabled label='Disabled Checkbox with value' onChange={() => {}} />
+  </div>
+);
+        `,
+      },
+    },
   },
   render: () => {
     const [val, setVal] = useState(false);

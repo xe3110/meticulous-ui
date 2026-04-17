@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 
 import * as TextareaStories from '../Textarea.stories';
 
@@ -6,10 +6,63 @@ import * as TextareaStories from '../Textarea.stories';
 
 # Textarea
 
-A Textarea is used display Textarea boxes to enter otp, can be imported as `meticulous-ui/components/Textarea`
+A multi-line text input with a floating label, optional helper text, dynamic height, and resize control. Can be imported as `meticulous-ui/components/Input/Textarea`.
 
-<Canvas>
-  <Story name='Textarea'>
-    <TextareaStories />
-  </Story>
-</Canvas>
+## Default
+
+<Canvas of={TextareaStories.Default} />
+
+<Controls of={TextareaStories.Default} />
+
+## Different Colors
+
+<Canvas of={TextareaStories.DifferentColor} />
+
+## Disabled
+
+<Canvas of={TextareaStories.Disabled} />
+
+## With Dynamic Height
+
+<Canvas of={TextareaStories.DynamicHeight} />
+
+## With Helper Text
+
+<Canvas of={TextareaStories.HelperText} />
+
+## Error State
+
+<Canvas of={TextareaStories.ErrorState} />
+
+## Props
+
+<table>
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>label</code></td><td><code>string</code></td><td>—</td><td>Floating label text</td></tr>
+    <tr><td><code>value</code></td><td><code>string</code></td><td>—</td><td>Controlled textarea value</td></tr>
+    <tr><td><code>onChange</code></td><td><code>(e: ChangeEvent) =&gt; void</code></td><td>—</td><td>Change handler</td></tr>
+    <tr><td><code>name</code></td><td><code>string</code></td><td>—</td><td>HTML <code>name</code> attribute for the textarea</td></tr>
+    <tr><td><code>color</code></td><td><code>string</code></td><td><code>'blue'</code></td><td>Accent color for the focused border and label</td></tr>
+    <tr><td><code>rows</code></td><td><code>string | number</code></td><td><code>'2'</code></td><td>Number of visible text rows</td></tr>
+    <tr><td><code>cols</code></td><td><code>string | number</code></td><td><code>'20'</code></td><td>Number of visible character columns</td></tr>
+    <tr><td><code>placeholder</code></td><td><code>string</code></td><td>—</td><td>Placeholder shown when no label and no value</td></tr>
+    <tr><td><code>helperText</code></td><td><code>string</code></td><td>—</td><td>Text shown below the textarea; doubles as an error message</td></tr>
+    <tr><td><code>hasError</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Renders helper text and border in error styling</td></tr>
+    <tr><td><code>background</code></td><td><code>string</code></td><td><code>'transparent'</code></td><td>Background color of the textarea box</td></tr>
+    <tr><td><code>outerBackground</code></td><td><code>string</code></td><td><code>'white'</code></td><td>Background behind the floating label cutout</td></tr>
+    <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Disables the textarea</td></tr>
+    <tr><td><code>autoFocus</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Focuses the textarea on mount</td></tr>
+    <tr><td><code>isDynamic</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Grows height automatically as content increases; disables scroll and manual resize</td></tr>
+    <tr><td><code>isResizeNone</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Prevents the user from manually resizing the textarea</td></tr>
+  </tbody>
+</table>
+
+## Accessibility
+
+- Renders a native `<textarea>` element; the `label` prop is wired via `htmlFor` / `id` so screen readers announce the field name
+- `helperText` is associated via `aria-describedby` so assistive technology reads it after the field name
+- When `hasError` is true, `aria-invalid="true"` is set on the textarea
+- `disabled` maps to the native `disabled` attribute, removing the field from the tab order

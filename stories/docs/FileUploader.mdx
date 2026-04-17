@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 
 import * as FileUploaderStories from '../FileUploader.stories';
 
@@ -6,10 +6,67 @@ import * as FileUploaderStories from '../FileUploader.stories';
 
 # FileUploader
 
-A FileUploader is used to display a button type input where user can upload file(s), can be imported as `meticulous-ui/components/Input/FileUploader`
+A styled file-input button that triggers the browser's file picker. Supports theming, sizing, icons, multiple file selection, and accepted file type filtering. Can be imported as `meticulous-ui/components/Input/FileUploader`.
 
-<Canvas>
-  <Story name='FileUploader'>
-    <Story of={FileUploaderStories.Default} />
-  </Story>
-</Canvas>
+## Default
+
+<Canvas of={FileUploaderStories.Default} />
+
+<Controls of={FileUploaderStories.Default} />
+
+## Themes
+
+<Canvas of={FileUploaderStories.Themes} />
+
+## Sizes
+
+<Canvas of={FileUploaderStories.Sizes} />
+
+## Disabled
+
+<Canvas of={FileUploaderStories.Disabled} />
+
+## Custom Width
+
+<Canvas of={FileUploaderStories.Width} />
+
+## Multiple Files
+
+<Canvas of={FileUploaderStories.MultipleFiles} />
+
+## Accept Types
+
+<Canvas of={FileUploaderStories.AcceptTypes} />
+
+## Icons
+
+<Canvas of={FileUploaderStories.Icons} />
+
+## Props
+
+<table>
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>label</code></td><td><code>string</code></td><td><code>'Upload'</code></td><td>Button label text</td></tr>
+    <tr><td><code>labelColor</code></td><td><code>string</code></td><td>—</td><td>Overrides the label text color</td></tr>
+    <tr><td><code>theme</code></td><td><code>string</code></td><td><code>'blue'</code></td><td>Color theme of the button</td></tr>
+    <tr><td><code>size</code></td><td><code>'small' | 'medium' | 'large' | 'ex-large'</code></td><td><code>'medium'</code></td><td>Controls button size</td></tr>
+    <tr><td><code>width</code></td><td><code>number</code></td><td>—</td><td>Button width in rem</td></tr>
+    <tr><td><code>type</code></td><td><code>string</code></td><td><code>'file'</code></td><td>HTML input <code>type</code> attribute</td></tr>
+    <tr><td><code>accept</code></td><td><code>string</code></td><td><code>''</code></td><td>Accepted file types (e.g. <code>'image/*'</code>, <code>'.pdf,.csv'</code>)</td></tr>
+    <tr><td><code>isMultiple</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Allows selecting multiple files at once</td></tr>
+    <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Disables the button</td></tr>
+    <tr><td><code>prefixIcon</code></td><td><code>ComponentType | null</code></td><td>—</td><td>Icon component rendered before the label</td></tr>
+    <tr><td><code>suffixIcon</code></td><td><code>ComponentType | null</code></td><td>—</td><td>Icon component rendered after the label</td></tr>
+    <tr><td><code>onChange</code></td><td><code>(e: ChangeEvent) =&gt; void</code></td><td>—</td><td>Called when the user selects file(s)</td></tr>
+  </tbody>
+</table>
+
+## Accessibility
+
+- The visible styled button is a `<label>` wrapping a visually-hidden `<input type="file">`, so activating the button via keyboard (`Enter` / `Space`) opens the file picker
+- `disabled` sets the native `disabled` attribute on the underlying input and applies visual muting to the label
+- The `label` text is part of the clickable label element, so screen readers announce it when the input is focused
+- When `isMultiple` is true the input receives `multiple`, and the label should reflect this (e.g. "Upload Files") so the intent is clear to screen reader users

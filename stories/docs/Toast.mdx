@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 
 import * as ToastStories from '../Toast.stories';
 
@@ -6,10 +6,45 @@ import * as ToastStories from '../Toast.stories';
 
 # Toast
 
-A Toast is used display colored alerts or notifications on screen for immediate visibility, can be imported as `meticulous-ui/components/Toast`
+Displays brief, non-blocking notifications at the edge of the screen. Four types are supported: `success`, `info`, `warning`, and `error`. Can be imported as `meticulous-ui/components/Toast`.
 
-<Canvas>
-  <Story name='Toast'>
-    <Story of={ToastStories.Default} />
-  </Story>
-</Canvas>
+Click the buttons in the preview below to trigger each toast type.
+
+## Default
+
+<Canvas of={ToastStories.Default} />
+
+## Props
+
+### `ToastContainer`
+
+<table>
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>toasts</code></td><td><code>{"{ id: string; type: 'success' | 'info' | 'warning' | 'error'; title: string; subtitle?: string }[]"}</code></td><td><code>[]</code></td><td>Array of active toasts to render</td></tr>
+    <tr><td><code>setToasts</code></td><td><code>(toasts: Toast[]) =&gt; void</code></td><td>—</td><td>State updater called when a toast is dismissed</td></tr>
+  </tbody>
+</table>
+
+### Toast object shape
+
+<table>
+  <thead>
+    <tr><th>Field</th><th>Type</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>id</code></td><td><code>string</code></td><td>Unique identifier for the toast</td></tr>
+    <tr><td><code>type</code></td><td><code>'success' | 'info' | 'warning' | 'error'</code></td><td>Controls the icon and color scheme</td></tr>
+    <tr><td><code>title</code></td><td><code>string</code></td><td>Main toast heading</td></tr>
+    <tr><td><code>subtitle</code></td><td><code>string</code></td><td>Optional secondary line of text</td></tr>
+  </tbody>
+</table>
+
+## Accessibility
+
+- The container renders with `role="region"` and `aria-live="polite"` so new toasts are announced by screen readers without interrupting the user
+- Each toast has `role="alert"` for urgent `error` / `warning` types (assertive) and `role="status"` for `success` / `info` (polite)
+- Dismiss buttons have a descriptive `aria-label` so screen readers can identify them
+- Toasts auto-dismiss after a timeout; keyboard users can also dismiss manually via the close button

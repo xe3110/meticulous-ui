@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 
 import * as PaginationStories from '../Pagination.stories';
 
@@ -6,10 +6,49 @@ import * as PaginationStories from '../Pagination.stories';
 
 # Pagination
 
-A Pagination is used to define and navigate through pages, can be imported as `meticulous-ui/components/Pagination`
+A page-navigation control for moving between numbered pages. Can be imported as `meticulous-ui/components/Pagination`.
 
-<Canvas>
-  <Story name='Pagination'>
-    <PaginationStories />
-  </Story>
-</Canvas>
+## Default
+
+<Canvas of={PaginationStories.Default} />
+
+<Controls of={PaginationStories.Default} />
+
+## Many Pages
+
+<Canvas of={PaginationStories.ManyPages} />
+
+## Different Colors
+
+<Canvas of={PaginationStories.DifferentColors} />
+
+## Sizes
+
+<Canvas of={PaginationStories.SmallSize} />
+
+## Disabled
+
+<Canvas of={PaginationStories.Disabled} />
+
+## Props
+
+<table>
+  <thead>
+    <tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>totalPages</code></td><td><code>number</code></td><td>—</td><td>Total number of pages</td></tr>
+    <tr><td><code>pageNumber</code></td><td><code>number</code></td><td><code>1</code></td><td>Currently active page (1-based)</td></tr>
+    <tr><td><code>setPageNumber</code></td><td><code>(page: number) =&gt; void</code></td><td>—</td><td>Called when the user navigates to a new page</td></tr>
+    <tr><td><code>theme</code></td><td><code>string</code></td><td><code>'blue'</code></td><td>Color theme for the active page button</td></tr>
+    <tr><td><code>size</code></td><td><code>'small' | 'medium' | 'large'</code></td><td><code>'medium'</code></td><td>Controls button sizes</td></tr>
+    <tr><td><code>isDisabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Disables all navigation</td></tr>
+  </tbody>
+</table>
+
+## Accessibility
+
+- The pagination component renders inside a `<nav>` element with `aria-label="Pagination"` so screen readers identify it as a navigation landmark
+- Each page button is a native `<button>` element; the active page button has `aria-current="page"`
+- Previous / next arrow buttons have descriptive `aria-label` attributes
+- When `isDisabled` is true, all buttons receive the native `disabled` attribute

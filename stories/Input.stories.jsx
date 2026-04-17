@@ -117,6 +117,35 @@ export const DifferentColor = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Input from 'meticulous-ui/components/Input/Input';
+
+const COLORS = ['blue', 'yellow', 'red', 'green', 'orange', 'black', 'grey', 'violet', 'teal', 'purple', 'pink'];
+
+const DifferentColor = () => {
+  const [vals, setVals] = useState(Object.fromEntries(COLORS.map((c) => [c, ''])));
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      {COLORS.map((color) => (
+        <Input
+          key={color}
+          label={color.charAt(0).toUpperCase() + color.slice(1)}
+          value={vals[color]}
+          color={color}
+          size='30'
+          onChange={(e) => setVals((v) => ({ ...v, [color]: e.target.value }))}
+        />
+      ))}
+    </div>
+  );
+};
+        `,
+      },
+    },
   },
   render: () => {
     const [val1, setVal1] = useState('');
@@ -166,6 +195,29 @@ export const NoAutoComplete = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Input from 'meticulous-ui/components/Input/Input';
+
+const NoAutoComplete = () => {
+  const [val, setVal] = useState('');
+  return (
+    <Input
+      label='Without AutoComplete'
+      value={val}
+      color='blue'
+      size='30'
+      onChange={(e) => setVal(e.target.value)}
+      disableAutoComplete
+    />
+  );
+};
+        `,
+      },
+    },
   },
   render: () => {
     const [val, setVal] = useState('');
@@ -190,6 +242,21 @@ export const Disabled = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import Input from 'meticulous-ui/components/Input/Input';
+
+const Disabled = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+    <Input label='Disabled without value' value='' color='blue' size='30' onChange={() => {}} disabled />
+    <Input label='Disabled with value' value='Default value' color='blue' size='30' onChange={() => {}} disabled />
+  </div>
+);
+        `,
+      },
+    },
   },
   render: () => {
     const [val1, setVal1] = useState('');
@@ -226,6 +293,34 @@ export const HelperText = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Input from 'meticulous-ui/components/Input/Input';
+
+const MAX_CHARS_LIMIT = 30;
+
+const HelperText = () => {
+  const [val, setVal] = useState('');
+  const onChange = (e) => {
+    if (e.target.value.length <= MAX_CHARS_LIMIT) setVal(e.target.value);
+  };
+  return (
+    <Input
+      label='With helper text'
+      value={val}
+      color='blue'
+      size='30'
+      onChange={onChange}
+      helperText={\`\${MAX_CHARS_LIMIT - val.length}/\${MAX_CHARS_LIMIT} characters allowed\`}
+    />
+  );
+};
+        `,
+      },
+    },
   },
   render: () => {
     const MAX_CHARS_LIMIT = 30;
@@ -255,6 +350,32 @@ export const ErrorState = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Input from 'meticulous-ui/components/Input/Input';
+
+const MAX_CHARS_LIMIT = 10;
+
+const ErrorState = () => {
+  const [val, setVal] = useState('This value exceeds limit.');
+  return (
+    <Input
+      label='Error State'
+      value={val}
+      color='blue'
+      size='30'
+      onChange={(e) => setVal(e.target.value.slice(0, MAX_CHARS_LIMIT))}
+      helperText={\`Max. \${MAX_CHARS_LIMIT} characters allowed\`}
+      hasError={val.length > MAX_CHARS_LIMIT}
+    />
+  );
+};
+        `,
+      },
+    },
   },
   render: () => {
     const MAX_CHARS_LIMIT = 10;
@@ -285,6 +406,29 @@ export const AutoFocus = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Input from 'meticulous-ui/components/Input/Input';
+
+const AutoFocus = () => {
+  const [val, setVal] = useState('');
+  return (
+    <Input
+      label='Auto Focus'
+      value={val}
+      color='blue'
+      size='30'
+      onChange={(e) => setVal(e.target.value)}
+      autoFocus
+    />
+  );
+};
+        `,
+      },
+    },
   },
   render: () => {
     const MAX_CHARS_LIMIT = 10;
@@ -314,6 +458,28 @@ export const WithoutLabel = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Input from 'meticulous-ui/components/Input/Input';
+
+const WithoutLabel = () => {
+  const [val, setVal] = useState('');
+  return (
+    <Input
+      placeholder='With helper text'
+      value={val}
+      color='blue'
+      size='30'
+      onChange={(e) => setVal(e.target.value)}
+    />
+  );
+};
+        `,
+      },
+    },
   },
   render: () => {
     const [val1, setVal1] = useState('');
@@ -341,6 +507,29 @@ export const WithLeftIcon = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Input from 'meticulous-ui/components/Input/Input';
+
+const WithLeftIcon = () => {
+  const [val, setVal] = useState('');
+  return (
+    <Input
+      label='With Left Icon'
+      value={val}
+      color='blue'
+      size='30'
+      onChange={(e) => setVal(e.target.value)}
+      leftIcon='Search'
+    />
+  );
+};
+        `,
+      },
+    },
   },
   render: () => {
     const [val1, setVal1] = useState('');
@@ -369,6 +558,29 @@ export const WithRightIcon = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Input from 'meticulous-ui/components/Input/Input';
+
+const WithRightIcon = () => {
+  const [val, setVal] = useState('');
+  return (
+    <Input
+      label='With Right Icon'
+      value={val}
+      color='blue'
+      size='30'
+      onChange={(e) => setVal(e.target.value)}
+      rightIcon='StarOutline'
+    />
+  );
+};
+        `,
+      },
+    },
   },
   render: () => {
     const [val1, setVal1] = useState('');
