@@ -61,7 +61,7 @@ export const Default = (args) => <Loader {...args} />;
 
 Default.args = {
   size: 'medium',
-  isBounce: 'false',
+  isBounce: false,
   theme: 'blue',
 };
 
@@ -103,6 +103,46 @@ const Sizes = () => (
         <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
           <H6 style={{ width: '5rem' }}>{`${label}:`}</H6>
           <Loader size={size} />
+        </div>
+      ))}
+    </div>
+  ),
+};
+
+export const Themes = {
+  name: 'Different Themes',
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import Loader from 'meticulous-ui/components/Loader';
+import { H6 } from 'meticulous-ui/components/Typography/Headings';
+
+const THEMES = ['blue', 'green', 'red', 'yellow', 'orange', 'black', 'grey', 'violet', 'teal', 'purple', 'pink'];
+
+const Themes = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
+    {THEMES.map((theme) => (
+      <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+        <H6 style={{ width: '5rem', textTransform: 'capitalize' }}>{theme}:</H6>
+        <Loader theme={theme} />
+      </div>
+    ))}
+  </div>
+);
+        `,
+      },
+    },
+  },
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
+      {THEMES.map((theme) => (
+        <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+          <H6 style={{ width: '5rem', textTransform: 'capitalize' }}>{theme}:</H6>
+          <Loader theme={theme} />
         </div>
       ))}
     </div>
@@ -153,8 +193,8 @@ const BounceAnimation = () => (
   ),
 };
 
-export const Themes = {
-  name: 'Different Themes',
+export const BounceThemes = {
+  name: 'Bounce — Different Themes',
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
@@ -167,12 +207,12 @@ import { H6 } from 'meticulous-ui/components/Typography/Headings';
 
 const THEMES = ['blue', 'green', 'red', 'yellow', 'orange', 'black', 'grey', 'violet', 'teal', 'purple', 'pink'];
 
-const Themes = () => (
+const BounceThemes = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
     {THEMES.map((theme) => (
       <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
         <H6 style={{ width: '5rem', textTransform: 'capitalize' }}>{theme}:</H6>
-        <Loader theme={theme} />
+        <Loader theme={theme} isBounce />
       </div>
     ))}
   </div>
@@ -186,7 +226,7 @@ const Themes = () => (
       {THEMES.map((theme) => (
         <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
           <H6 style={{ width: '5rem', textTransform: 'capitalize' }}>{theme}:</H6>
-          <Loader theme={theme} />
+          <Loader theme={theme} isBounce />
         </div>
       ))}
     </div>

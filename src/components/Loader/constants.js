@@ -8,12 +8,6 @@ export const SIZE = {
   [LARGE]: { dot: '1rem', gap: '0.7rem' },
 };
 
-export const SIZE_BOUNCE = {
-  [SMALL]: { dot: '0.5rem', gap: '0.15rem' },
-  [MEDIUM]: { dot: '0.75rem', gap: '0.25rem' },
-  [LARGE]: { dot: '1rem', gap: '0.35rem' },
-};
-
 export const BLUE = 'blue';
 export const GREEN = 'green';
 export const PURPLE = 'purple';

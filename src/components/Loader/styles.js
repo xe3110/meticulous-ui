@@ -10,16 +10,13 @@ const pulse = keyframes`
 `;
 
 const bounce = keyframes`
-  0% {
+  0%, 100% {
     transform: translateY(0) scale(1);
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    animation-timing-function: ease-in;
   }
-  25% {
-    transform: translateY(-100%) scale(1.5);
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  }
-  50%, 100% {
-    transform: translateY(0) scale(1);
+  50% {
+    transform: translateY(-160%) scale(1.4);
+    animation-timing-function: ease-out;
   }
 `;
 
