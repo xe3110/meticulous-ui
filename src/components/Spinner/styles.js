@@ -1,19 +1,31 @@
 import styled, { keyframes } from 'styled-components';
 
-const spin = keyframes`
-  0% {
-    transform: rotate(0deg);
-  }
+const rotate = keyframes`
   100% {
     transform: rotate(360deg);
   }
 `;
 
-export const SpinnerWrapper = styled.div`
-  border: ${({ $border }) => $border} solid #f3f3f3;
-  border-top: ${({ $border, $color }) => `${$border} solid ${$color}`};
-  border-radius: 50%;
-  width: ${({ $length }) => $length};
-  height: ${({ $length }) => $length};
-  animation: ${spin} 1s linear infinite;
+const dash = keyframes`
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 100, 200;
+    stroke-dashoffset: -15;
+  }
+  100% {
+    stroke-dasharray: 100, 200;
+    stroke-dashoffset: -125;
+  }
+`;
+
+export const SpinnerSVG = styled.svg`
+  animation: ${rotate} 1.4s linear infinite;
+  transform-origin: center;
+`;
+
+export const SpinnerCircle = styled.circle`
+  animation: ${dash} 1.4s ease-in-out infinite;
 `;

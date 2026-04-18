@@ -1,34 +1,37 @@
 import _get from 'lodash-es/get';
-import { SpinnerWrapper } from './styles';
+import { SpinnerSVG, SpinnerCircle } from './styles';
 import colors from '../../colors';
 import green from '../../colors/green';
 
 const SIZE_PARAMS = {
-  small: {
-    $border: '0.25rem',
-    $length: '1rem',
-  },
-  medium: {
-    $border: '0.5rem',
-    $length: '2rem',
-  },
-  large: {
-    $border: '0.75rem',
-    $length: '3rem',
-  },
+  small: { strokeWidth: 6, $length: '1rem' },
+  medium: { strokeWidth: 5, $length: '2rem' },
+  large: { strokeWidth: 5, $length: '3rem' },
 };
 
 const Spinner = ({ color = 'green', size = 'medium' }) => {
-  const { $border, $length } = SIZE_PARAMS[size];
+  const { strokeWidth, $length } = SIZE_PARAMS[size];
+  const colorValue = _get(colors, color, green)?.m500;
 
   return (
-    <SpinnerWrapper
+    <SpinnerSVG
+      viewBox='0 0 50 50'
+      width={$length}
+      height={$length}
       role='status'
       aria-label='Loading'
       aria-live='polite'
-      $color={_get(colors, color, green)?.m500}
-      {...{ $border, $length }}
-    />
+    >
+      <SpinnerCircle
+        cx='25'
+        cy='25'
+        r='20'
+        fill='none'
+        stroke={colorValue}
+        strokeWidth={strokeWidth}
+        strokeLinecap='round'
+      />
+    </SpinnerSVG>
   );
 };
 
