@@ -252,6 +252,13 @@ const Dropdown = ({
     setIsFocused(focus);
   };
 
+  const handleBlur = (e) => {
+    setIsFocused(false);
+    if (!containerRef.current?.contains(e.relatedTarget)) {
+      setOpen(false);
+    }
+  };
+
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
   };
@@ -275,7 +282,7 @@ const Dropdown = ({
       aria-disabled={isDisabled || undefined}
       aria-activedescendant={activeIndex !== -1 ? getOptionId(activeIndex) : undefined}
       onFocus={changeFocus(true)}
-      onBlur={changeFocus(false)}
+      onBlur={handleBlur}
     >
       <Box
         $width={width}
@@ -307,7 +314,7 @@ const Dropdown = ({
             />
           </SearchContainer>
         )}
-        <OptionsList ref={menuRef} role='listbox' id={listboxId}>
+        <OptionsList ref={menuRef} role='listbox' id={listboxId} tabIndex={-1}>
           {filteredOptions.map(renderOption)}
           {onLoadMore && (
             <LoadMoreSentinel ref={sentinelRef}>
