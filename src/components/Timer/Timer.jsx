@@ -36,7 +36,7 @@ const getHandRotations = (timeZone) => () => {
   return {
     second: s * 6,
     minute: m * 6 + s * 0.1,
-    hour: h * 30 + m * 0.5,
+    hour: (h % 12) * 30 + m * 0.5,
   };
 };
 
@@ -58,6 +58,7 @@ const Timer = ({
   const [isPaused, setPaused] = useState(false);
   const [handRotations, setHandRotations] = useState(getHandRotations(timeZone));
   const [bulletAngle, setBulletAngle] = useState(0);
+  const [isDismissing, setIsDismissing] = useState(false);
   const isPausedRef = useRef(isPaused);
 
   useEffect(() => {
@@ -72,9 +73,14 @@ const Timer = ({
   };
 
   const removeTimer = () => {
+    setIsDismissing(true);
+    onTimerRemove();
+  };
+
+  const handleDismissEnd = () => {
     setTimerSec(0);
     setBulletAngle(0);
-    onTimerRemove();
+    setIsDismissing(false);
   };
 
   const pauseTimer = () => {
@@ -97,7 +103,7 @@ const Timer = ({
         const [h, m, s] = timePart.split(':').map(Number);
         const rawSecond = s * 6;
         const rawMinute = m * 6 + s * 0.1;
-        const rawHour = h * 30 + m * 0.5;
+        const rawHour = (h % 12) * 30 + m * 0.5;
         // Adjust for wrap: if raw value wrapped back below prev, add a full 360
         const adjust = (prevVal, raw) => {
           const prevMod = prevVal % 360;
@@ -113,6 +119,7 @@ const Timer = ({
         setTimerSec((timerSec) => {
           if (timerSec - 1 === 0) {
             onTimerComplete();
+            setIsDismissing(true);
           }
           return timerSec - 1;
         });
@@ -159,12 +166,12 @@ const Timer = ({
           <Dots key={i} style={{ rotate: `${i * 6}deg` }} />
         ))}
       </AllDots>
-      {!hasNoTimer && (
+      {(!hasNoTimer || isDismissing) && (
         <>
-          <AlarmRing aria-hidden='true'>
+          <AlarmRing $dismissing={isDismissing} onAnimationEnd={handleDismissEnd} aria-hidden='true'>
             <TimerRing progress={timerSec >= 60 ? 1 : (timerSec % 60) / 60} />
           </AlarmRing>
-          <BulletRing $angle={bulletAngle} aria-hidden='true'>
+          <BulletRing $angle={bulletAngle} $dismissing={isDismissing} aria-hidden='true'>
             <Bullet />
           </BulletRing>
           <span

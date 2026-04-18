@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 import Add from '../../components/Icons/Add';
 import MediaStopFilled from '../../components/Icons/MediaStopFilled';
@@ -106,10 +106,20 @@ export const SecondHand = styled.div`
   background: ${red.m800};
 `;
 
+const dismissAnimation = keyframes`
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(0.85); }
+`;
+
 export const AlarmRing = styled.div`
   position: absolute;
   left: 16%;
   top: 14%;
+  ${({ $dismissing }) =>
+    $dismissing &&
+    css`
+      animation: ${dismissAnimation} 0.4s ease-out forwards;
+    `}
 `;
 
 export const LeftActions = styled.div`
@@ -191,4 +201,9 @@ export const BulletRing = styled.div`
   width: 157.5px;
   transform-origin: center;
   transition: rotate 0.3s ease;
+  ${({ $dismissing }) =>
+    $dismissing &&
+    css`
+      animation: ${dismissAnimation} 0.4s ease-out forwards;
+    `}
 `;
