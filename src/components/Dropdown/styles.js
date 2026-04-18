@@ -117,8 +117,8 @@ export const OptionsList = styled.div`
 
 export const SpinnerWrapper = styled.div`
   position: absolute;
-  top: 0.7rem;
-  right: 1rem;
+  top: 0.8rem;
+  right: 1.2rem;
 `;
 
 export const SearchContainer = styled.div`
