@@ -20,11 +20,40 @@ Click the buttons in the preview below to trigger each toast type.
 
 <table>
   <thead>
-    <tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
   </thead>
   <tbody>
-    <tr><td><code>toasts</code></td><td><code>{"{ id: string; type: 'success' | 'info' | 'warning' | 'error'; title: string; subtitle?: string }[]"}</code></td><td><code>[]</code></td><td>Array of active toasts to render</td></tr>
-    <tr><td><code>setToasts</code></td><td><code>(toasts: Toast[]) =&gt; void</code></td><td>—</td><td>State updater called when a toast is dismissed</td></tr>
+    <tr>
+      <td>
+        <code>toasts</code>
+      </td>
+      <td>
+        <code>
+          {
+            "{ id: string; type: 'success' | 'info' | 'warning' | 'error'; title: string; subtitle?: string }[]"
+          }
+        </code>
+      </td>
+      <td>
+        <code>[]</code>
+      </td>
+      <td>Array of active toasts to render</td>
+    </tr>
+    <tr>
+      <td>
+        <code>setToasts</code>
+      </td>
+      <td>
+        <code>(toasts: Toast[]) =&gt; void</code>
+      </td>
+      <td>—</td>
+      <td>State updater called when a toast is dismissed</td>
+    </tr>
   </tbody>
 </table>
 
@@ -32,13 +61,49 @@ Click the buttons in the preview below to trigger each toast type.
 
 <table>
   <thead>
-    <tr><th>Field</th><th>Type</th><th>Description</th></tr>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
   </thead>
   <tbody>
-    <tr><td><code>id</code></td><td><code>string</code></td><td>Unique identifier for the toast</td></tr>
-    <tr><td><code>type</code></td><td><code>'success' | 'info' | 'warning' | 'error'</code></td><td>Controls the icon and color scheme</td></tr>
-    <tr><td><code>title</code></td><td><code>string</code></td><td>Main toast heading</td></tr>
-    <tr><td><code>subtitle</code></td><td><code>string</code></td><td>Optional secondary line of text</td></tr>
+    <tr>
+      <td>
+        <code>id</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>Unique identifier for the toast</td>
+    </tr>
+    <tr>
+      <td>
+        <code>type</code>
+      </td>
+      <td>
+        <code>'success' | 'info' | 'warning' | 'error'</code>
+      </td>
+      <td>Controls the icon and color scheme</td>
+    </tr>
+    <tr>
+      <td>
+        <code>title</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>Main toast heading</td>
+    </tr>
+    <tr>
+      <td>
+        <code>subtitle</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>Optional secondary line of text</td>
+    </tr>
   </tbody>
 </table>
 

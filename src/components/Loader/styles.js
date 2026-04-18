@@ -5,7 +5,21 @@ const pulse = keyframes`
     transform: scale(1);
   }
   20% {
-    transform: scale(1.5);
+    transform: scale(1.6);
+  }
+`;
+
+const bounce = keyframes`
+  0% {
+    transform: translateY(0) scale(1);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  25% {
+    transform: translateY(-100%) scale(1.5);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+  50%, 100% {
+    transform: translateY(0) scale(1);
   }
 `;
 
@@ -35,8 +49,8 @@ export const Dot = styled.span`
   background-color: ${({ $color }) => $color};
   flex-shrink: 0;
 
-  ${({ $delay }) => css`
-    animation: ${pulse} 1s ease-in-out infinite;
+  ${({ $delay, $isBounce }) => css`
+    animation: ${$isBounce ? bounce : pulse} ${$isBounce ? 1.2 : 1.3}s ease-in-out infinite;
     animation-delay: ${$delay}s;
 
     @media (prefers-reduced-motion: reduce) {

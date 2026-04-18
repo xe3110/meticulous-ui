@@ -18,20 +18,136 @@ The preview below shows a digital timer (top) and an analog timer (bottom) runni
 
 <table>
   <thead>
-    <tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
   </thead>
   <tbody>
-    <tr><td><code>timerSeconds</code></td><td><code>number</code></td><td>—</td><td>Initial countdown duration in seconds</td></tr>
-    <tr><td><code>color</code></td><td><code>string</code></td><td><code>'green'</code></td><td>Accent color for the arc / digits</td></tr>
-    <tr><td><code>isDigital</code></td><td><code>boolean</code></td><td><code>true</code></td><td><code>true</code> for digital display, <code>false</code> for analog arc</td></tr>
-    <tr><td><code>showTime</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Shows the current clock time alongside the countdown</td></tr>
-    <tr><td><code>showTimeWithSec</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Includes seconds in the displayed clock time</td></tr>
-    <tr><td><code>timeZone</code></td><td><code>string</code></td><td>—</td><td>IANA time-zone string for the displayed clock (e.g. <code>'Asia/Kolkata'</code>)</td></tr>
-    <tr><td><code>onTimerComplete</code></td><td><code>() =&gt; void</code></td><td>—</td><td>Called when the countdown reaches zero</td></tr>
-    <tr><td><code>onTimerRemove</code></td><td><code>() =&gt; void</code></td><td>—</td><td>Called when the user removes the timer</td></tr>
-    <tr><td><code>onTimerPause</code></td><td><code>() =&gt; void</code></td><td>—</td><td>Called when the user pauses the timer</td></tr>
-    <tr><td><code>onTimerPlay</code></td><td><code>() =&gt; void</code></td><td>—</td><td>Called when the user resumes the timer</td></tr>
-    <tr><td><code>onTimerAdd</code></td><td><code>() =&gt; void</code></td><td>—</td><td>Called when the user adds time</td></tr>
+    <tr>
+      <td>
+        <code>timerSeconds</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>—</td>
+      <td>Initial countdown duration in seconds</td>
+    </tr>
+    <tr>
+      <td>
+        <code>color</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>'green'</code>
+      </td>
+      <td>Accent color for the arc / digits</td>
+    </tr>
+    <tr>
+      <td>
+        <code>isDigital</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>true</code>
+      </td>
+      <td>
+        <code>true</code> for digital display, <code>false</code> for analog arc
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>showTime</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Shows the current clock time alongside the countdown</td>
+    </tr>
+    <tr>
+      <td>
+        <code>showTimeWithSec</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Includes seconds in the displayed clock time</td>
+    </tr>
+    <tr>
+      <td>
+        <code>timeZone</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>
+        IANA time-zone string for the displayed clock (e.g. <code>'Asia/Kolkata'</code>)
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>onTimerComplete</code>
+      </td>
+      <td>
+        <code>() =&gt; void</code>
+      </td>
+      <td>—</td>
+      <td>Called when the countdown reaches zero</td>
+    </tr>
+    <tr>
+      <td>
+        <code>onTimerRemove</code>
+      </td>
+      <td>
+        <code>() =&gt; void</code>
+      </td>
+      <td>—</td>
+      <td>Called when the user removes the timer</td>
+    </tr>
+    <tr>
+      <td>
+        <code>onTimerPause</code>
+      </td>
+      <td>
+        <code>() =&gt; void</code>
+      </td>
+      <td>—</td>
+      <td>Called when the user pauses the timer</td>
+    </tr>
+    <tr>
+      <td>
+        <code>onTimerPlay</code>
+      </td>
+      <td>
+        <code>() =&gt; void</code>
+      </td>
+      <td>—</td>
+      <td>Called when the user resumes the timer</td>
+    </tr>
+    <tr>
+      <td>
+        <code>onTimerAdd</code>
+      </td>
+      <td>
+        <code>() =&gt; void</code>
+      </td>
+      <td>—</td>
+      <td>Called when the user adds time</td>
+    </tr>
   </tbody>
 </table>
 

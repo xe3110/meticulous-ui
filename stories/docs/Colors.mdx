@@ -11,7 +11,7 @@ The full color palette used across meticulous-ui. Each color family is available
 ```jsx
 import blue from 'meticulous-ui/colors/blue';
 
-blue.m500 // → '#2196f3'
+blue.m500; // → '#2196f3'
 ```
 
 ## All Colors
@@ -22,32 +22,150 @@ blue.m500 // → '#2196f3'
 
 <table>
   <thead>
-    <tr><th>Import</th><th>Description</th></tr>
+    <tr>
+      <th>Import</th>
+      <th>Description</th>
+    </tr>
   </thead>
   <tbody>
-    <tr><td><code>meticulous-ui/colors/amber</code></td><td>Warm amber / gold</td></tr>
-    <tr><td><code>meticulous-ui/colors/black</code></td><td>Near-black shades</td></tr>
-    <tr><td><code>meticulous-ui/colors/blue</code></td><td>Material blue</td></tr>
-    <tr><td><code>meticulous-ui/colors/blueGray</code></td><td>Cool blue-grey</td></tr>
-    <tr><td><code>meticulous-ui/colors/brown</code></td><td>Earthy brown</td></tr>
-    <tr><td><code>meticulous-ui/colors/cider</code></td><td>Warm cider / rust</td></tr>
-    <tr><td><code>meticulous-ui/colors/cyan</code></td><td>Cyan / aqua</td></tr>
-    <tr><td><code>meticulous-ui/colors/deepOrange</code></td><td>Deep orange / burnt</td></tr>
-    <tr><td><code>meticulous-ui/colors/deepPurple</code></td><td>Deep purple</td></tr>
-    <tr><td><code>meticulous-ui/colors/green</code></td><td>Material green</td></tr>
-    <tr><td><code>meticulous-ui/colors/grey</code></td><td>Neutral grey</td></tr>
-    <tr><td><code>meticulous-ui/colors/indigo</code></td><td>Indigo / navy-blue</td></tr>
-    <tr><td><code>meticulous-ui/colors/lightBlue</code></td><td>Light sky blue</td></tr>
-    <tr><td><code>meticulous-ui/colors/lightGreen</code></td><td>Light / lime green</td></tr>
-    <tr><td><code>meticulous-ui/colors/lime</code></td><td>Lime yellow-green</td></tr>
-    <tr><td><code>meticulous-ui/colors/orange</code></td><td>Material orange</td></tr>
-    <tr><td><code>meticulous-ui/colors/pink</code></td><td>Pink / rose</td></tr>
-    <tr><td><code>meticulous-ui/colors/purple</code></td><td>Material purple</td></tr>
-    <tr><td><code>meticulous-ui/colors/red</code></td><td>Material red</td></tr>
-    <tr><td><code>meticulous-ui/colors/teal</code></td><td>Teal / dark cyan</td></tr>
-    <tr><td><code>meticulous-ui/colors/violet</code></td><td>Violet / medium purple</td></tr>
-    <tr><td><code>meticulous-ui/colors/white</code></td><td>White (single value)</td></tr>
-    <tr><td><code>meticulous-ui/colors/yellow</code></td><td>Material yellow</td></tr>
+    <tr>
+      <td>
+        <code>meticulous-ui/colors/amber</code>
+      </td>
+      <td>Warm amber / gold</td>
+    </tr>
+    <tr>
+      <td>
+        <code>meticulous-ui/colors/black</code>
+      </td>
+      <td>Near-black shades</td>
+    </tr>
+    <tr>
+      <td>
+        <code>meticulous-ui/colors/blue</code>
+      </td>
+      <td>Material blue</td>
+    </tr>
+    <tr>
+      <td>
+        <code>meticulous-ui/colors/blueGray</code>
+      </td>
+      <td>Cool blue-grey</td>
+    </tr>
+    <tr>
+      <td>
+        <code>meticulous-ui/colors/brown</code>
+      </td>
+      <td>Earthy brown</td>
+    </tr>
+    <tr>
+      <td>
+        <code>meticulous-ui/colors/cider</code>
+      </td>
+      <td>Warm cider / rust</td>
+    </tr>
+    <tr>
+      <td>
+        <code>meticulous-ui/colors/cyan</code>
+      </td>
+      <td>Cyan / aqua</td>
+    </tr>
+    <tr>
+      <td>
+        <code>meticulous-ui/colors/deepOrange</code>
+      </td>
+      <td>Deep orange / burnt</td>
+    </tr>
+    <tr>
+      <td>
+        <code>meticulous-ui/colors/deepPurple</code>
+      </td>
+      <td>Deep purple</td>
+    </tr>
+    <tr>
+      <td>
+        <code>meticulous-ui/colors/green</code>
+      </td>
+      <td>Material green</td>
+    </tr>
+    <tr>
+      <td>
+        <code>meticulous-ui/colors/grey</code>
+      </td>
+      <td>Neutral grey</td>
+    </tr>
+    <tr>
+      <td>
+        <code>meticulous-ui/colors/indigo</code>
+      </td>
+      <td>Indigo / navy-blue</td>
+    </tr>
+    <tr>
+      <td>
+        <code>meticulous-ui/colors/lightBlue</code>
+      </td>
+      <td>Light sky blue</td>
+    </tr>
+    <tr>
+      <td>
+        <code>meticulous-ui/colors/lightGreen</code>
+      </td>
+      <td>Light / lime green</td>
+    </tr>
+    <tr>
+      <td>
+        <code>meticulous-ui/colors/lime</code>
+      </td>
+      <td>Lime yellow-green</td>
+    </tr>
+    <tr>
+      <td>
+        <code>meticulous-ui/colors/orange</code>
+      </td>
+      <td>Material orange</td>
+    </tr>
+    <tr>
+      <td>
+        <code>meticulous-ui/colors/pink</code>
+      </td>
+      <td>Pink / rose</td>
+    </tr>
+    <tr>
+      <td>
+        <code>meticulous-ui/colors/purple</code>
+      </td>
+      <td>Material purple</td>
+    </tr>
+    <tr>
+      <td>
+        <code>meticulous-ui/colors/red</code>
+      </td>
+      <td>Material red</td>
+    </tr>
+    <tr>
+      <td>
+        <code>meticulous-ui/colors/teal</code>
+      </td>
+      <td>Teal / dark cyan</td>
+    </tr>
+    <tr>
+      <td>
+        <code>meticulous-ui/colors/violet</code>
+      </td>
+      <td>Violet / medium purple</td>
+    </tr>
+    <tr>
+      <td>
+        <code>meticulous-ui/colors/white</code>
+      </td>
+      <td>White (single value)</td>
+    </tr>
+    <tr>
+      <td>
+        <code>meticulous-ui/colors/yellow</code>
+      </td>
+      <td>Material yellow</td>
+    </tr>
   </tbody>
 </table>
 

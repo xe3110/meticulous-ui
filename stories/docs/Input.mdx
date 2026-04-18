@@ -42,24 +42,182 @@ A text input field with a floating label, optional helper text, and icon slots. 
 
 <table>
   <thead>
-    <tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
   </thead>
   <tbody>
-    <tr><td><code>label</code></td><td><code>string</code></td><td>—</td><td>Floating label text</td></tr>
-    <tr><td><code>value</code></td><td><code>string</code></td><td>—</td><td>Controlled input value</td></tr>
-    <tr><td><code>onChange</code></td><td><code>(e: ChangeEvent) =&gt; void</code></td><td>—</td><td>Change handler</td></tr>
-    <tr><td><code>color</code></td><td><code>string</code></td><td><code>'blue'</code></td><td>Accent color for the focused border and label</td></tr>
-    <tr><td><code>size</code></td><td><code>number</code></td><td><code>20</code></td><td>Input width (character units)</td></tr>
-    <tr><td><code>placeholder</code></td><td><code>string</code></td><td>—</td><td>Placeholder shown when no label and no value</td></tr>
-    <tr><td><code>helperText</code></td><td><code>string</code></td><td>—</td><td>Text shown below the input; doubles as an error message</td></tr>
-    <tr><td><code>hasError</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Renders helper text and border in error styling</td></tr>
-    <tr><td><code>background</code></td><td><code>string</code></td><td><code>'transparent'</code></td><td>Background color of the input box</td></tr>
-    <tr><td><code>outerBackground</code></td><td><code>string</code></td><td><code>'white'</code></td><td>Background behind the floating label cutout</td></tr>
-    <tr><td><code>leftIcon</code></td><td><code>string</code></td><td>—</td><td>Icon name placed on the left inside the input</td></tr>
-    <tr><td><code>rightIcon</code></td><td><code>string</code></td><td>—</td><td>Icon name placed on the right inside the input</td></tr>
-    <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Disables the input</td></tr>
-    <tr><td><code>disableAutoComplete</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Sets <code>autocomplete="off"</code> on the underlying input</td></tr>
-    <tr><td><code>autoFocus</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Focuses the input on mount</td></tr>
+    <tr>
+      <td>
+        <code>label</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>Floating label text</td>
+    </tr>
+    <tr>
+      <td>
+        <code>value</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>Controlled input value</td>
+    </tr>
+    <tr>
+      <td>
+        <code>onChange</code>
+      </td>
+      <td>
+        <code>(e: ChangeEvent) =&gt; void</code>
+      </td>
+      <td>—</td>
+      <td>Change handler</td>
+    </tr>
+    <tr>
+      <td>
+        <code>color</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>'blue'</code>
+      </td>
+      <td>Accent color for the focused border and label</td>
+    </tr>
+    <tr>
+      <td>
+        <code>size</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>
+        <code>20</code>
+      </td>
+      <td>Input width (character units)</td>
+    </tr>
+    <tr>
+      <td>
+        <code>placeholder</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>Placeholder shown when no label and no value</td>
+    </tr>
+    <tr>
+      <td>
+        <code>helperText</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>Text shown below the input; doubles as an error message</td>
+    </tr>
+    <tr>
+      <td>
+        <code>hasError</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Renders helper text and border in error styling</td>
+    </tr>
+    <tr>
+      <td>
+        <code>background</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>'transparent'</code>
+      </td>
+      <td>Background color of the input box</td>
+    </tr>
+    <tr>
+      <td>
+        <code>outerBackground</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>'white'</code>
+      </td>
+      <td>Background behind the floating label cutout</td>
+    </tr>
+    <tr>
+      <td>
+        <code>leftIcon</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>Icon name placed on the left inside the input</td>
+    </tr>
+    <tr>
+      <td>
+        <code>rightIcon</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>Icon name placed on the right inside the input</td>
+    </tr>
+    <tr>
+      <td>
+        <code>disabled</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Disables the input</td>
+    </tr>
+    <tr>
+      <td>
+        <code>disableAutoComplete</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        Sets <code>autocomplete="off"</code> on the underlying input
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>autoFocus</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Focuses the input on mount</td>
+    </tr>
   </tbody>
 </table>
 

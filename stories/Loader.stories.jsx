@@ -2,8 +2,17 @@ import Loader from '../src/components/Loader/Loader';
 import { H6 } from '../src/components/Typography/Headings';
 
 const THEMES = [
-  'blue', 'green', 'red', 'yellow', 'orange',
-  'black', 'grey', 'violet', 'teal', 'purple', 'pink',
+  'blue',
+  'green',
+  'red',
+  'yellow',
+  'orange',
+  'black',
+  'grey',
+  'violet',
+  'teal',
+  'purple',
+  'pink',
 ];
 
 const SIZES = [
@@ -42,6 +51,9 @@ const Example = () => {
       control: 'select',
       options: THEMES,
     },
+    isBounce: {
+      control: 'boolean',
+    },
   },
 };
 
@@ -49,6 +61,8 @@ export const Default = (args) => <Loader {...args} />;
 
 Default.args = {
   size: 'medium',
+  isBounce: 'false',
+  theme: 'blue',
 };
 
 export const Sizes = {
@@ -86,12 +100,53 @@ const Sizes = () => (
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
       {SIZES.map(({ size, label }) => (
-        <div
-          key={size}
-          style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}
-        >
+        <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
           <H6 style={{ width: '5rem' }}>{`${label}:`}</H6>
           <Loader size={size} />
+        </div>
+      ))}
+    </div>
+  ),
+};
+
+export const BounceAnimation = {
+  name: 'Bounce Animation',
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import Loader from 'meticulous-ui/components/Loader';
+import { H6 } from 'meticulous-ui/components/Typography/Headings';
+
+const SIZES = [
+  { size: 'small', label: 'Small' },
+  { size: 'medium', label: 'Medium' },
+  { size: 'large', label: 'Large' },
+];
+
+const BounceAnimation = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
+    {SIZES.map(({ size, label }) => (
+      <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+        <H6 style={{ width: '5rem' }}>{label}:</H6>
+        <Loader size={size} isBounce />
+      </div>
+    ))}
+  </div>
+);
+        `,
+      },
+    },
+  },
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
+      {SIZES.map(({ size, label }) => (
+        <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+          <H6 style={{ width: '5rem' }}>{`${label}:`}</H6>
+          <Loader size={size} isBounce />
         </div>
       ))}
     </div>
@@ -129,10 +184,7 @@ const Themes = () => (
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
       {THEMES.map((theme) => (
-        <div
-          key={theme}
-          style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}
-        >
+        <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
           <H6 style={{ width: '5rem', textTransform: 'capitalize' }}>{theme}:</H6>
           <Loader theme={theme} />
         </div>
