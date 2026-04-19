@@ -6,7 +6,7 @@ import * as LoaderStories from '../Loader.stories';
 
 # Loader
 
-A Loader displays five dots in a sequential animation to communicate a loading state. Can be imported as `meticulous-ui/components/Loader`.
+A Loader displays five dots (or three in mini mode) in a sequential animation to communicate a loading state. Can be imported as `meticulous-ui/components/Loader`.
 
 Supports two animation styles — **pulse** (default) and **bounce** — along with multiple sizes and color themes.
 
@@ -35,6 +35,24 @@ Dots bounce vertically and scale up at the peak. Enable via the `isBounce` prop.
 ## Bounce — Different Themes
 
 <Canvas of={LoaderStories.BounceThemes} />
+
+## Mini (3 dots)
+
+Renders only 3 dots with evenly spaced delays. Enable via the `isMini` prop.
+
+<Canvas of={LoaderStories.Mini} />
+
+## Mini — Different Themes
+
+<Canvas of={LoaderStories.MiniThemes} />
+
+## Mini + Bounce
+
+<Canvas of={LoaderStories.MiniBounce} />
+
+## Mini + Bounce — Different Themes
+
+<Canvas of={LoaderStories.MiniBounceThemes} />
 
 ## Props
 
@@ -83,6 +101,18 @@ Dots bounce vertically and scale up at the peak. Enable via the `isBounce` prop.
         <code>false</code>
       </td>
       <td>Switches to the bounce animation; defaults to pulse</td>
+    </tr>
+    <tr>
+      <td>
+        <code>isMini</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Renders 3 dots instead of 5</td>
     </tr>
   </tbody>
 </table>

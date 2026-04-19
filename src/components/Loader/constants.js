@@ -18,3 +18,6 @@ export const THEME_SHADE = ['m200', 'm300', 'm400', 'm600', 'm800'];
 
 // Delays evenly distributed across the 1s cycle (1s / 5 dots = 0.2s apart)
 export const ANIMATION_DELAYS = [0, 0.2, 0.4, 0.6, 0.8];
+
+// Delays for mini (3-dot) variant (1s / 3 dots ≈ 0.33s apart)
+export const MINI_ANIMATION_DELAYS = [0, 0.33, 0.67];

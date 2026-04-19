@@ -168,7 +168,11 @@ const Timer = ({
       </AllDots>
       {(!hasNoTimer || isDismissing) && (
         <>
-          <AlarmRing $dismissing={isDismissing} onAnimationEnd={handleDismissEnd} aria-hidden='true'>
+          <AlarmRing
+            $dismissing={isDismissing}
+            onAnimationEnd={handleDismissEnd}
+            aria-hidden='true'
+          >
             <TimerRing progress={timerSec >= 60 ? 1 : (timerSec % 60) / 60} />
           </AlarmRing>
           <BulletRing $angle={bulletAngle} $dismissing={isDismissing} aria-hidden='true'>
