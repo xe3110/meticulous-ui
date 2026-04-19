@@ -16,8 +16,8 @@ export const PINK = 'pink';
 
 export const THEME_SHADE = ['m200', 'm300', 'm400', 'm600', 'm800'];
 
-// Delays evenly distributed across the 1s cycle (1s / 5 dots = 0.2s apart)
-export const ANIMATION_DELAYS = [0, 0.2, 0.4, 0.6, 0.8];
+// Delays evenly distributed across the 0.85s cycle (0.85s / 5 dots = 0.17s apart)
+export const ANIMATION_DELAYS = [0, 0.17, 0.34, 0.51, 0.68];
 
-// Delays for mini (3-dot) variant (1s / 3 dots ≈ 0.33s apart)
-export const MINI_ANIMATION_DELAYS = [0, 0.33, 0.67];
+// Delays for mini (3-dot) variant (0.85s / 3 dots ≈ 0.28s apart)
+export const MINI_ANIMATION_DELAYS = [0, 0.28, 0.57];

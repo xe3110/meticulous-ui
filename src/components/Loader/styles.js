@@ -1,11 +1,16 @@
 import styled, { keyframes, css } from 'styled-components';
 
 const pulse = keyframes`
-  0%, 40%, 100% {
+  0% {
     transform: scale(1);
+    animation-timing-function: ease-out;
   }
   20% {
     transform: scale(1.6);
+    animation-timing-function: ease-in;
+  }
+  40%, 100% {
+    transform: scale(1);
   }
 `;
 
