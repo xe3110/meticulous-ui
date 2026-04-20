@@ -22,7 +22,7 @@ const SIZES = [
 ];
 
 export default {
-  title: 'Atomic Components/Loader',
+  title: 'Atoms/Loader',
   component: Loader,
   parameters: {
     docs: {

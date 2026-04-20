@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Input from '../src/components/Input/Input';
 
 export default {
-  title: 'Atomic Components/Input',
+  title: 'Atoms/Input',
   component: Input,
   parameters: {
     docs: {

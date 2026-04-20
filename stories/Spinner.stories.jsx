@@ -7,7 +7,7 @@ const SpinnerWrapper = () => {
 };
 
 export default {
-  title: 'Atomic Components/Spinner',
+  title: 'Atoms/Spinner',
   component: SpinnerWrapper,
   parameters: {
     docs: {

@@ -49,7 +49,7 @@ const labelStyle = {
 };
 
 export default {
-  title: 'Atomic Components/FileUploader',
+  title: 'Molecules/FileUploader',
   component: FileUploader,
   parameters: {
     docs: {

@@ -19,7 +19,7 @@ const TypographyWrapper = () => {
 };
 
 export default {
-  title: 'Atomic Components/Typography',
+  title: 'Atoms/Typography',
   component: TypographyWrapper,
   parameters: {
     docs: {

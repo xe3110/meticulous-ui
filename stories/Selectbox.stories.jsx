@@ -17,7 +17,7 @@ const OPTIONS = [
 ];
 
 export default {
-  title: 'Atomic Components/Selectbox',
+  title: 'Molecules/Selectbox',
   component: Selectbox,
   parameters: {
     docs: {
