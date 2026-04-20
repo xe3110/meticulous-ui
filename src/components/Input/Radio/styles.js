@@ -19,6 +19,9 @@ export const CircleBorder = styled.div`
   border: 1px solid ${({ $isSelected, $shade }) => ($isSelected ? $shade : grey.m900)};
   border-radius: 50%;
   position: relative;
+  transition:
+    border-color 0.5s ease,
+    box-shadow 0.5s ease;
 `;
 
 export const HiddenInput = styled.input`
@@ -40,8 +43,7 @@ export const Wrapper = styled.label`
   width: max-content;
 
   &:focus-within ${CircleBorder} {
-    outline: 2px solid ${({ $focusShade }) => $focusShade || grey.m900};
-    outline-offset: 2px;
+    box-shadow: 0 0 0 1px ${({ $focusShade }) => $focusShade || grey.m900};
   }
 
   ${({ $disabled }) =>
