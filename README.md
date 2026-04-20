@@ -63,6 +63,7 @@ export default App;
 | `SelectBox`    | Renders selectbox to select multiple values from options |
 | `Spinner`      | Renders a spinner to show the loading state              |
 | `Loader`       | Renders a loader with dots to show the loading state     |
+| `PageLoader`   | Renders a loader with line at the top of page            |
 | `Button`       | Renders a button to click & take an action               |
 
 ## 📦 Icon Components

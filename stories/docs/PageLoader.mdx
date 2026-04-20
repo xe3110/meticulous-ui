@@ -1,0 +1,67 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+
+import * as PageLoaderStories from '../PageLoader.stories';
+
+<Meta title='Atoms/PageLoader' of={PageLoaderStories} />
+
+# PageLoader
+
+A full-page loading indicator used to block the UI while async operations are in progress. Can be imported as `meticulous-ui/components/PageLoader`.
+
+## Default
+
+<Canvas of={PageLoaderStories.Default} />
+
+<Controls of={PageLoaderStories.Default} />
+
+## Props
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>theme</code>
+      </td>
+      <td>
+        <code>
+          'blue' | 'green' | 'red' | 'yellow' | 'orange' | 'black' | 'grey' | 'violet' | 'teal' |
+          'purple' | 'pink'
+        </code>
+      </td>
+      <td>
+        <code>'blue'</code>
+      </td>
+      <td>
+        Color theme for the loader. Picks the <code>m500</code> shade of the selected palette.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>color</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>undefined</code>
+      </td>
+      <td>
+        Custom CSS color value. Overrides <code>theme</code> when provided.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Accessibility
+
+- Should be rendered with `role="status"` and `aria-label="Loading"` so screen readers announce the loading state
+- The consuming page should ensure interactive elements are inert or hidden behind the loader while it is visible
+- The animation should respect `prefers-reduced-motion: reduce`
