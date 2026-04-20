@@ -5,6 +5,7 @@ export { default as Spinner } from './components/Spinner';
 export { default as Loader } from './components/Loader';
 export { default as OtpInput } from './components/OtpInput';
 export { default as Dropdown } from './components/Dropdown';
+export { default as Selectbox } from './components/Selectbox';
 export { default as Button } from './components/Button';
 export { default as Timer } from './components/Timer';
 export { default as VideoPlayer } from './components/VideoPlayer';

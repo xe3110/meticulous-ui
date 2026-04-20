@@ -7,12 +7,22 @@ import blue from '../../../colors/blue';
 import { Box, Wrapper, CbInput } from './styles';
 import { getColor } from './helpers';
 
-const Checkbox = ({ label, value, color = 'blue', textColor = grey.m700, disabled, onChange }) => {
+const Checkbox = ({
+  label,
+  value,
+  color = 'blue',
+  textColor = grey.m700,
+  disabled,
+  onChange,
+  tabIndex,
+  innerShade: innerShadeOverride,
+  outerShade: outerShadeOverride,
+}) => {
   const [focused, setFocused] = useState(false);
 
   const shade = getColor(color);
-  const innerShade = _get(shade, 'm500', blue.m500);
-  const outerShade = _get(shade, 'm800', blue.m800);
+  const innerShade = innerShadeOverride ?? _get(shade, 'm500', blue.m500);
+  const outerShade = outerShadeOverride ?? _get(shade, 'm600', blue.m600);
 
   const lastKeyPressRef = useRef(0);
 
@@ -48,6 +58,7 @@ const Checkbox = ({ label, value, color = 'blue', textColor = grey.m700, disable
         onFocus={focusHandler(true)}
         onBlur={focusHandler(false)}
         disabled={disabled}
+        tabIndex={tabIndex}
       />
       <Box
         $value={value}

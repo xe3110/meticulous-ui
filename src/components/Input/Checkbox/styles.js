@@ -25,13 +25,18 @@ export const Box = styled(Check)`
   border-radius: 0.2rem;
   background-color: ${({ $value, $innerShade }) => ($value ? $innerShade : 'transparent')};
   transition:
-    background-color 0.35s ease,
-    box-shadow 0.35s ease;
+    background-color 0.5s ease,
+    border-color 0.5s ease,
+    box-shadow 0.5s ease;
   flex-shrink: 0;
-  box-shadow: 0 0 0 2px ${({ $focused, $outerShade }) => ($focused ? $outerShade : 'transparent')};
+  box-shadow: 0 0 0 1px ${({ $focused, $outerShade }) => ($focused ? $outerShade : 'transparent')};
 
   path {
     stroke-width: 3;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: scale(${({ $value }) => ($value ? 1 : 0)});
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 `;
 
