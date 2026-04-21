@@ -10,11 +10,15 @@ import {
 } from './constants';
 import { getTheme } from './helpers';
 
-const Loader = ({ size = MEDIUM, theme = BLUE, isBounce, isMini }) => {
+const Loader = ({ size = MEDIUM, theme = BLUE, isBounce, isMini, isMiniDark }) => {
   const { dot, gap } = SIZE[size] || SIZE[MEDIUM];
   const colorPallette = getTheme(theme);
   const delays = isMini ? MINI_ANIMATION_DELAYS : ANIMATION_DELAYS;
-  const shades = isMini ? THEME_SHADE.slice(0, 3) : THEME_SHADE;
+  const shades = isMiniDark
+    ? THEME_SHADE.slice(2, 6)
+    : isMini
+      ? THEME_SHADE.slice(0, 3)
+      : THEME_SHADE;
   const colors = shades.map((shade) => _get(colorPallette, shade, colorPallette.m500));
   const dots = delays.map(() => dot);
 
