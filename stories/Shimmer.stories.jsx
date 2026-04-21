@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Shimmer from '../src/components/Shimmer';
 
 export default {
-  title: 'Molecules/Shimmer',
+  title: 'Atoms/Shimmer',
   component: Shimmer,
   parameters: {
     docs: {
@@ -21,10 +21,13 @@ export default {
       },
     },
     argTypes: {
-      length: {
-        control: 'number',
+      width: {
+        control: 'text',
       },
-      value: {
+      height: {
+        control: 'text',
+      },
+      label: {
         control: 'text',
       },
     },
@@ -43,13 +46,13 @@ export const Default = (args) => {
     setVal(val);
   };
 
-  return <Shimmer width={args?.width} height={args?.height} label={args?.label} {...{width:'20rem', height: '10rem'}} />;
+  return <Shimmer width={args?.width} height={args?.height} label={args?.label} />;
 };
 
 Default.storyName = 'Shimmer';
 
 Default.args = {
-  width:'',
-  height:'',
-  label:'Loading...',
+  width: '100%',
+  height: '100%',
+  label: 'Loading...',
 };

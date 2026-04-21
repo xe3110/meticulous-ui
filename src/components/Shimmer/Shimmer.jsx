@@ -5,7 +5,7 @@ const toRem = (val) => {
   return typeof val === 'number' ? `${val}rem` : val;
 };
 
-const Shimmer = ({ width = '', height = '', label = 'Loading...' }) => {
+const Shimmer = ({ width = '100%', height = '100%', label = 'Loading...' }) => {
   return (
     <div
       className='shimmer'

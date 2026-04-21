@@ -2,7 +2,7 @@ import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 
 import * as ShimmerStories from '../Shimmer.stories';
 
-<Meta title='Molecules/Shimmer' of={ShimmerStories} />
+<Meta title='Atoms/Shimmer' of={ShimmerStories} />
 
 # Shimmer
 
@@ -34,7 +34,7 @@ A skeleton loading placeholder that communicates content is on its way. Use it i
         <code>number | string</code>
       </td>
       <td>
-        <code>'20rem'</code>
+        <code>'100%'</code>
       </td>
       <td>Width of the shimmer block. Numbers are treated as rem values.</td>
     </tr>
@@ -46,7 +46,7 @@ A skeleton loading placeholder that communicates content is on its way. Use it i
         <code>number | string</code>
       </td>
       <td>
-        <code>'10rem'</code>
+        <code>'100%'</code>
       </td>
       <td>Height of the shimmer block. Numbers are treated as rem values.</td>
     </tr>
@@ -60,7 +60,10 @@ A skeleton loading placeholder that communicates content is on its way. Use it i
       <td>
         <code>'Loading...'</code>
       </td>
-      <td>Accessible label announced by screen readers. Override with context-specific text (e.g. <code>'Loading user profile'</code>).</td>
+      <td>
+        Accessible label announced by screen readers. Override with context-specific text (e.g.{' '}
+        <code>'Loading user profile'</code>).
+      </td>
     </tr>
   </tbody>
 </table>

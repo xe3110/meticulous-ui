@@ -10,13 +10,14 @@
 .shimmer::after {
   content: '';
   position: absolute;
-  top: -50%;
-  left: 0;
-  right: 0;
-  height: 200%;
-  background: linear-gradient(135deg, transparent 35%, var(--grey-100) 50%, transparent 65%);
-  transform: translateX(-100%);
-  animation: shimmer-sweep 1.4s infinite;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    rgba(245, 245, 245, 0) 30%,
+    var(--grey-100) 50%,
+    rgba(245, 245, 245, 0) 70%
+  );
+  animation: shimmer-sweep 1.8s infinite;
 }
 
 @keyframes shimmer-sweep {
