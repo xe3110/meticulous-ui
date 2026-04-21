@@ -46,13 +46,17 @@ export const Default = (args) => {
     setVal(val);
   };
 
-  return <Shimmer width={args?.width} height={args?.height} label={args?.label} />;
+  return (
+    <div style={{ width: args?.width || '20rem', height: args?.height || '10rem' }}>
+      <Shimmer label={args?.label} />
+    </div>
+  );
 };
 
 Default.storyName = 'Shimmer';
 
 Default.args = {
-  width: '100%',
-  height: '100%',
+  width: '20rem',
+  height: '10rem',
   label: 'Loading...',
 };
