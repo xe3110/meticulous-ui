@@ -1,0 +1,72 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+
+import * as ShimmerStories from '../Shimmer.stories';
+
+<Meta title='Molecules/Shimmer' of={ShimmerStories} />
+
+# Shimmer
+
+A skeleton loading placeholder that communicates content is on its way. Use it in place of text, images, or cards while data is being fetched. Can be imported as `meticulous-ui/components/Shimmer`.
+
+## Default
+
+<Canvas of={ShimmerStories.Default} />
+
+<Controls of={ShimmerStories.Default} />
+
+## Props
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>width</code>
+      </td>
+      <td>
+        <code>number | string</code>
+      </td>
+      <td>
+        <code>'20rem'</code>
+      </td>
+      <td>Width of the shimmer block. Numbers are treated as rem values.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>height</code>
+      </td>
+      <td>
+        <code>number | string</code>
+      </td>
+      <td>
+        <code>'10rem'</code>
+      </td>
+      <td>Height of the shimmer block. Numbers are treated as rem values.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>label</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>'Loading...'</code>
+      </td>
+      <td>Accessible label announced by screen readers. Override with context-specific text (e.g. <code>'Loading user profile'</code>).</td>
+    </tr>
+  </tbody>
+</table>
+
+## Accessibility
+
+- Renders with `role="status"` so screen readers announce the loading state as a polite live region
+- `aria-label` defaults to `"Loading..."` and can be overridden via the `label` prop for context-specific descriptions
+- The sweep animation is purely decorative and conveys no meaning beyond a loading state

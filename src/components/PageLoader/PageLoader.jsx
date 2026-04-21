@@ -11,8 +11,8 @@ const PageLoader = ({ theme = 'blue', color, ...props }) => {
     <PageLdr
       {...props}
       $color={clr}
-      role="progressbar"
-      aria-label="Loading"
+      role='progressbar'
+      aria-label='Loading'
       aria-valuemin={0}
       aria-valuemax={100}
     />
