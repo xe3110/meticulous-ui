@@ -1,4 +1,4 @@
-import './Shimmer.css';
+import { ShimmerWrapper } from './styles';
 
 const toRem = (val) => {
   if (val === undefined || val === null) return undefined;
@@ -7,15 +7,7 @@ const toRem = (val) => {
 
 const Shimmer = ({ width = '100%', height = '100%', label = 'Loading...' }) => {
   return (
-    <div
-      className='shimmer'
-      role='status'
-      aria-label={label}
-      style={{
-        width: toRem(width),
-        height: toRem(height),
-      }}
-    />
+    <ShimmerWrapper role='status' aria-label={label} width={toRem(width)} height={toRem(height)} />
   );
 };
 

@@ -2,47 +2,59 @@
 
 A lightweight, modern React component library, following Semantic HTML & ARIA, designed for elegance and precision ✨
 
+[![npm version](https://img.shields.io/npm/v/meticulous-ui)](https://www.npmjs.com/package/meticulous-ui)
+[![npm downloads](https://img.shields.io/npm/dm/meticulous-ui)](https://www.npmjs.com/package/meticulous-ui)
+[![license](https://img.shields.io/npm/l/meticulous-ui)](https://github.com/xe3110/meticulous-ui/blob/main/LICENSE)
+
 ---
 
 ## 🚀 Demo
 
-<a href="https://meticulous-ui.vercel.app/" target="_blank">meticulous-ui</a>
+[meticulous-ui.vercel.app](https://meticulous-ui.vercel.app/)
 
 ## 🚀 Installation
 
-```
+```bash
 npm install meticulous-ui
-```
-
 # or
-
-```
 yarn add meticulous-ui
 ```
 
-## 🧩 Usage
+**Peer dependencies** — install these if you haven't already:
+
+```bash
+npm install react react-dom styled-components
+```
+
+## 🧩 Quick Start
 
 ```jsx
-import { useState } from 'react';
-
-import Pagination from 'meticulous-ui/components/Pagination';
-import ChevronLeft from 'meticulous-ui/components/Icons/ChevronLeft';
+import { Button, Input, Shimmer, Toast } from 'meticulous-ui';
 import blue from 'meticulous-ui/colors/blue';
-import capFirstLetter from 'meticulous-ui/utils/capFirstLetter';
 
 function App() {
-  const [pageNumber, setPageNumber] = useState(1);
-
   return (
-    <div>
-      <h2>{capFirstLetter('example with pagination')}</h2> // returns: Example with pagination
-      <ChevronLeft size={10} color={blue.m400} onClick={setPrevPage} />
-      <Pagination totalPages={10} pageNumber={pageNumber} setPageNumber={setPageNumber} />
-    </div>
+    <>
+      {/* Loading skeleton */}
+      <Shimmer width={200} height={20} />
+
+      {/* Themed button */}
+      <Button theme={blue} onClick={() => console.log('clicked')}>
+        Submit
+      </Button>
+
+      {/* Controlled input */}
+      <Input label='Email' color='blue' value={email} onChange={handleChange} />
+    </>
   );
 }
+```
 
-export default App;
+Or import directly from the component path for the smallest bundle:
+
+```js
+import Button from 'meticulous-ui/components/Button';
+import blue from 'meticulous-ui/colors/blue';
 ```
 
 ## 📦 Components
@@ -65,6 +77,7 @@ export default App;
 | `Loader`       | Renders a loader with dots to show the loading state     |
 | `PageLoader`   | Renders a loader with line at the top of page            |
 | `Button`       | Renders a button to click & take an action               |
+| `Shimmer`      | Animated skeleton loading placeholder                    |
 
 ## 📦 Icon Components
 

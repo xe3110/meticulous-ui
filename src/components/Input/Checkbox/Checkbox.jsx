@@ -1,5 +1,4 @@
 import { useState, useRef } from 'react';
-import _get from 'lodash-es/get';
 import grey from '../../../colors/grey';
 import P from '../../Typography/P';
 import white from '../../../colors/white';
@@ -21,8 +20,8 @@ const Checkbox = ({
   const [focused, setFocused] = useState(false);
 
   const shade = getColor(color);
-  const innerShade = innerShadeOverride ?? _get(shade, 'm500', blue.m500);
-  const outerShade = outerShadeOverride ?? _get(shade, 'm600', blue.m600);
+  const innerShade = innerShadeOverride ?? shade?.m500 ?? blue.m500;
+  const outerShade = outerShadeOverride ?? shade?.m600 ?? blue.m600;
 
   const lastKeyPressRef = useRef(0);
 

@@ -1,4 +1,3 @@
-import _get from 'lodash-es/get';
 import blue from '../../../colors/blue';
 import green from '../../../colors/green';
 import red from '../../../colors/red';
@@ -27,7 +26,7 @@ const COLOR_SHADE_MAP = {
   pink: pink.m500,
 };
 
-export const getColor = (clr) => _get(COLOR_SHADE_MAP, clr, grey.m500);
+export const getColor = (clr) => COLOR_SHADE_MAP[clr] ?? grey.m500;
 
 export const getCssShade = ({ $hasError, $shade, $isFocused, value, $onlyPh }) => {
   if ($hasError) {
@@ -41,7 +40,7 @@ export const getCssShade = ({ $hasError, $shade, $isFocused, value, $onlyPh }) =
   return grey.m500;
 };
 
-export const getIcon = (icon) => _get(allIcons, icon, null);
+export const getIcon = (icon) => allIcons[icon] ?? null;
 
 export const getPadding = ({ $hasLeftIcon, $hasRightIcon }) => {
   if ($hasLeftIcon && $hasRightIcon) {

@@ -1,11 +1,10 @@
-import _get from 'lodash-es/get';
 import P from '../../Typography/P';
 import blue from '../../../colors/blue';
 import { Circle, CircleBorder, HiddenInput, Wrapper } from './styles';
 
 const Radio = ({ label, value, name, color, textColor, isSelected, disabled, onChange }) => {
-  const innerShade = _get(color, 'm500', blue.m500);
-  const outerShade = _get(color, 'm800', blue.m800);
+  const innerShade = color?.m500 ?? blue.m500;
+  const outerShade = color?.m800 ?? blue.m800;
 
   const changeHandler = () => onChange(value);
 

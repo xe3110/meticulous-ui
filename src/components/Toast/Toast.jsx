@@ -1,7 +1,6 @@
 // Libraries
 import { useEffect, useState } from 'react';
-import _get from 'lodash-es/get';
-import _noop from 'lodash-es/noop';
+const noop = () => {};
 
 // helpers
 import { Logo } from './helpers';
@@ -20,7 +19,7 @@ export const ToastContainer = ({ toasts }) => {
     setAllToasts(toasts);
   }, [toasts]);
 
-  const renderToasts = ({ type, id, title, subtitle, onExpire = _noop }, i) => (
+  const renderToasts = ({ type, id, title, subtitle, onExpire = noop }, i) => (
     <Toast {...{ type, title, subtitle }} key={id} onExpire={onExpire} />
   );
 
@@ -35,14 +34,7 @@ const remove = (setFadeOut, setShow, onExpire) => () => {
   }, 500);
 };
 
-const Toast = ({
-  type = INFO,
-  visible = true,
-  duration = 5,
-  onExpire = _noop,
-  title,
-  subtitle,
-}) => {
+const Toast = ({ type = INFO, visible = true, duration = 5, onExpire = noop, title, subtitle }) => {
   const [show, setShow] = useState(visible);
   const [fadeOut, setFadeOut] = useState(false);
 
@@ -58,7 +50,7 @@ const Toast = ({
     };
   }, [duration, remove]);
 
-  const { main: $main, side: $side, bg } = _get(COLOR_MAP, type, INFO_COLORS);
+  const { main: $main, side: $side, bg } = COLOR_MAP[type] ?? INFO_COLORS;
 
   if (show) {
     return (

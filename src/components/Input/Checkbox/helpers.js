@@ -1,4 +1,3 @@
-import _get from 'lodash-es/get';
 import blue from '../../../colors/blue';
 import green from '../../../colors/green';
 import red from '../../../colors/red';
@@ -25,4 +24,4 @@ const COLOR_SHADE_MAP = {
   pink,
 };
 
-export const getColor = (clr) => _get(COLOR_SHADE_MAP, clr, blue.m500);
+export const getColor = (clr) => COLOR_SHADE_MAP[clr] ?? blue.m500;

@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import _get from 'lodash-es/get';
 import { UploadBtnContainer, Wrapper, PWrapper, HiddenInput } from './styles';
 import white from '../../../colors/white';
 import blue from '../../../colors/blue';
@@ -27,7 +26,7 @@ const FileUploader = ({
   onChange,
 }) => {
   const inputRef = useRef(null);
-  const { m400: $selectedColor, m500: $hoverColor, m600: $activeColor } = _get(colors, theme, blue);
+  const { m400: $selectedColor, m500: $hoverColor, m600: $activeColor } = colors[theme] ?? blue;
   const { height: $height, width: $width, font: $font } = SIZE[size] || {};
   const txtClr = labelColor || ['white', 'yellow'].includes(theme) ? grey.m600 : white;
 

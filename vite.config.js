@@ -15,14 +15,9 @@ export default defineConfig({
     },
     rollupOptions: {
       external: (id) =>
-        [
-          'react',
-          'react-dom',
-          'react/jsx-runtime',
-          'lodash-es',
-          'react-fast-compare',
-          'styled-components',
-        ].some((pkg) => id === pkg || id.startsWith(pkg + '/')),
+        ['react', 'react-dom', 'react/jsx-runtime', 'styled-components'].some(
+          (pkg) => id === pkg || id.startsWith(pkg + '/')
+        ),
       output: {
         preserveModules: true,
         preserveModulesRoot: 'src',

@@ -1,5 +1,4 @@
 import { useEffect, useId, useLayoutEffect, useRef, useState, useMemo, useCallback } from 'react';
-import _get from 'lodash-es/get';
 import grey from '../../colors/grey';
 import colors from '../../colors';
 import blue from '../../colors/blue';
@@ -199,7 +198,7 @@ const Selectbox = ({
     m100: activeColor,
     m500: border,
     m800: cbOuterShade,
-  } = _get(colors, theme, blue);
+  } = colors[theme] ?? blue;
 
   const mouseHighlight = (disabled, index) => () => !disabled && setActiveIndex(index);
 

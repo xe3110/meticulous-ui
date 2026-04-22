@@ -1,6 +1,6 @@
 {
   "name": "meticulous-ui",
-  "version": "2.5.6",
+  "version": "2.6.0",
   "license": "MIT",
   "description": "A comprehensive React UI component library with a wide range of customizable components, icons, colors, and utilities for building modern web applications.",
   "main": "dist/index.js",
@@ -23,14 +23,17 @@
   ],
   "type": "module",
   "peerDependencies": {
-    "lodash-es": "^4.17.21",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
     "styled-components": "^6.0.0"
   },
   "keywords": [
     "react",
     "ui",
+    "react-components",
+    "design-system",
+    "component-library",
+    "styled-components",
     "icons",
     "components",
     "pagination",
@@ -50,6 +53,8 @@
     "colors",
     "shades",
     "utils",
+    "accessible",
+    "aria",
     "meticulous-ui"
   ],
   "scripts": {
@@ -76,7 +81,6 @@
     "svgo": "^4.0.0",
     "vite": "^6.0.0",
     "vite-plugin-svgr": "^4.5.0",
-    "styled-components": "^6.0.0",
-    "lodash-es": "^4.17.21"
+    "styled-components": "^6.0.0"
   }
 }

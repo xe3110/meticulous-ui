@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import _get from 'lodash-es/get';
 import Spinner from '../Spinner/Spinner';
 import colors from '../../colors';
 import blue from '../../colors/blue';
@@ -39,7 +38,7 @@ const Button = (props) => {
     }
     onKeyDown?.(e);
   };
-  const { m400: selectedColor, m500: hoverColor, m600: activeColor } = _get(colors, theme, blue);
+  const { m400: selectedColor, m500: hoverColor, m600: activeColor } = colors[theme] ?? blue;
   const { height: $height, width: $width, font: $font } = SIZE[size] || {};
 
   const txtClr = ['white', 'yellow'].includes(theme) ? grey.m600 : white;

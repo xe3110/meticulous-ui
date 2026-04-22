@@ -1,4 +1,3 @@
-import _omit from 'lodash-es/omit';
 import { useState } from 'react';
 import { InputBox, Wrapper, Label, HelperText, LeftIconWrapper, RightIconWrapper } from './styles';
 import { getColor, getIcon } from './helpers';
@@ -20,6 +19,7 @@ const Input = ({
   outerBackground = white,
   leftIcon,
   rightIcon,
+  placeholder,
   ...params
 }) => {
   const [$isFocused, setIsFocused] = useState(false);
@@ -32,7 +32,6 @@ const Input = ({
     onChange(e);
   };
 
-  const { placeholder } = params;
   const iconStyles = { color: grey.m500, size: 22 };
 
   const leftIconFn = getIcon(leftIcon);
@@ -67,7 +66,7 @@ const Input = ({
         onBlur={handleBlur}
         onChange={handleChange}
         autoComplete={disableAutoComplete ? 'off' : 'on'}
-        {..._omit(params, 'placeholder')}
+        {...params}
       />
       {leftIconFn && <LeftIconWrapper aria-hidden='true'>{leftIconFn(iconStyles)}</LeftIconWrapper>}
       {rightIconFn && (

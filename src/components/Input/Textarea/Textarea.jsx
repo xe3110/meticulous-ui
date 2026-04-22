@@ -1,4 +1,3 @@
-import _omit from 'lodash-es/omit';
 import { useRef, useState } from 'react';
 import { TextareaBox, Wrapper, Label, HelperText, Parent } from './styles';
 import { getColor } from './helpers';
@@ -19,6 +18,7 @@ const Textarea = ({
   isResizeNone,
   rows = '2',
   cols = '20',
+  placeholder,
   ...params
 }) => {
   const [$isFocused, setIsFocused] = useState(false);
@@ -46,8 +46,6 @@ const Textarea = ({
 
     onChange(e);
   };
-
-  const { placeholder } = params;
 
   const $hasError = hasError;
   const $isDynamic = isDynamic;
@@ -79,7 +77,7 @@ const Textarea = ({
         onFocus={handleFocus}
         onBlur={handleBlur}
         onChange={handleChange}
-        {..._omit(params, 'placeholder')}
+        {...params}
       />
       <Parent>
         {(label || (placeholder && !value)) && (

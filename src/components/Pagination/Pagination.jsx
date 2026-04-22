@@ -1,7 +1,5 @@
 // Libraries
 import { useRef, useEffect } from 'react';
-import _get from 'lodash-es/get';
-import _range from 'lodash-es/range';
 
 // helpers
 import { renderThreeDots, renderPageNum, PrevArrow, NextArrow } from './helpers.jsx';
@@ -62,7 +60,7 @@ const Pagination = ({
     }
   };
 
-  const shades = _get(colors, theme, teal);
+  const shades = colors[theme] ?? teal;
   const individualRemSize = SIZE_REM_MAPPING[size];
   const iconSize = ICON_SIZE_MAPPING[size];
 
@@ -76,7 +74,7 @@ const Pagination = ({
       >
         <PrevArrow {...{ iconSize, shades, setPrevPage }} />
         <MiddleLayer size={`${totalPages * individualRemSize}rem`}>
-          {_range(1, totalPages + 1).map(
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map(
             renderPageNum({ size, selected: pageNumber, shades, changePage })
           )}
         </MiddleLayer>
@@ -99,7 +97,7 @@ const Pagination = ({
       >
         <PrevArrow {...{ iconSize, shades, setPrevPage }} />
         <MiddleLayer size={`${9 * individualRemSize}rem`}>
-          {_range(1, 5).map(renderPageNum({ size, selected: pageNumber, shades, changePage }))}
+          {[1, 2, 3, 4].map(renderPageNum({ size, selected: pageNumber, shades, changePage }))}
           {renderThreeDots()}
           {[totalPages - 3, totalPages - 2, totalPages - 1, totalPages].map(
             renderPageNum({ size, selected: pageNumber, shades, changePage })
@@ -119,7 +117,7 @@ const Pagination = ({
     >
       <PrevArrow {...{ iconSize, shades, setPrevPage }} />
       <MiddleLayer size={`${9 * individualRemSize}rem`}>
-        {_range(1, 3).map(renderPageNum({ size, selected: pageNumber, shades, changePage }))}
+        {[1, 2].map(renderPageNum({ size, selected: pageNumber, shades, changePage }))}
         {renderThreeDots()}
         {[pageNumber - 1, pageNumber, pageNumber + 1].map(
           renderPageNum({ size, selected: pageNumber, shades, changePage })

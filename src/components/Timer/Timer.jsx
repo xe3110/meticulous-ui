@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import _noop from 'lodash-es/noop';
 
 import Glass from '../Glass';
 import TimerRing from './components/TimerRing/TimerRing';
@@ -28,6 +27,8 @@ import {
   MediaPlayFilledWrapper,
 } from './styles';
 
+const noop = () => {};
+
 const getHandRotations = (timeZone) => () => {
   const now = new Date();
   const timeStr = now.toLocaleString('en-Us', { hour12: true, timeZone });
@@ -47,11 +48,11 @@ const Timer = ({
   timeZone = 'Asia/Kolkata',
   isDigital = true,
   timerSeconds = 0,
-  onTimerAdd = _noop,
-  onTimerComplete = _noop,
-  onTimerRemove = _noop,
-  onTimerPause = _noop,
-  onTimerPlay = _noop,
+  onTimerAdd = noop,
+  onTimerComplete = noop,
+  onTimerRemove = noop,
+  onTimerPause = noop,
+  onTimerPlay = noop,
 }) => {
   const [time, setTime] = useState(new Date());
   const [timerSec, setTimerSec] = useState(0);

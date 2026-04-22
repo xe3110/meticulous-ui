@@ -1,4 +1,3 @@
-import _get from 'lodash-es/get';
 import { LoaderWrapper, Dot, VisuallyHidden } from './styles';
 import {
   MEDIUM,
@@ -19,7 +18,7 @@ const Loader = ({ size = MEDIUM, theme = BLUE, isBounce, isMini, isMiniDark }) =
     : isMini
       ? THEME_SHADE.slice(0, 3)
       : THEME_SHADE;
-  const colors = shades.map((shade) => _get(colorPallette, shade, colorPallette.m500));
+  const colors = shades.map((shade) => colorPallette[shade] ?? colorPallette.m500);
   const dots = delays.map(() => dot);
 
   return (

@@ -1,4 +1,3 @@
-import _get from 'lodash-es/get';
 import { SpinnerSVG, SpinnerCircle } from './styles';
 import colors from '../../colors';
 import green from '../../colors/green';
@@ -13,7 +12,7 @@ const SIZE_PARAMS = {
 
 const Spinner = ({ color = 'green', size = 'medium' }) => {
   const { strokeWidth, $length } = SIZE_PARAMS[size];
-  const colorValue = [white, grey.m600].includes(color) ? color : _get(colors, color, green)?.m500;
+  const colorValue = [white, grey.m600].includes(color) ? color : (colors[color] ?? green)?.m500;
 
   return (
     <SpinnerSVG
