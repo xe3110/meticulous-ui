@@ -1,18 +1,11 @@
 import { LoaderWrapper, Dot, VisuallyHidden } from './styles';
-import {
-  MEDIUM,
-  BLUE,
-  SIZE,
-  THEME_SHADE,
-  ANIMATION_DELAYS,
-  MINI_ANIMATION_DELAYS,
-} from './constants';
+import { MEDIUM, BLUE, SIZE, THEME_SHADE, ANIMATION_DELAYS } from './constants';
 import { getTheme } from './helpers';
 
 const Loader = ({ size = MEDIUM, theme = BLUE, isBounce, isMini, isMiniDark }) => {
   const { dot, gap } = SIZE[size] || SIZE[MEDIUM];
   const colorPallette = getTheme(theme);
-  const delays = isMini ? MINI_ANIMATION_DELAYS : ANIMATION_DELAYS;
+  const delays = ANIMATION_DELAYS;
   const shades = isMiniDark
     ? THEME_SHADE.slice(2, 6)
     : isMini
