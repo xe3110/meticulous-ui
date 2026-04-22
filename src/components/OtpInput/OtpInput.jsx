@@ -56,6 +56,9 @@ const OtpInput = ({ length = 6, value = '', onChange, onComplete }) => {
   };
 
   const handleKeyDown = (e, index) => {
+    const firstEmpty = otp.findIndex((d) => d === '');
+    const lastValid = firstEmpty === -1 ? length - 1 : firstEmpty;
+
     if (e.key === 'Backspace') {
       e.preventDefault();
       if (otp[index]) {
@@ -67,13 +70,16 @@ const OtpInput = ({ length = 6, value = '', onChange, onComplete }) => {
     } else if (e.key === 'ArrowLeft' && index > 0) {
       e.preventDefault();
       focusCell(index - 1);
-    } else if (e.key === 'ArrowRight' && index < length - 1) {
+    } else if (e.key === 'ArrowRight') {
       e.preventDefault();
-      focusCell(index + 1);
+      if (index + 1 <= lastValid) focusCell(index + 1);
     } else if (e.key === 'Tab') {
       e.preventDefault();
-      const next = e.shiftKey ? index - 1 : index + 1;
-      if (next >= 0 && next < length) focusCell(next);
+      if (e.shiftKey) {
+        if (index > 0) focusCell(index - 1);
+      } else {
+        focusCell(lastValid);
+      }
     }
   };
 

@@ -57,6 +57,9 @@ const Example = () => {
     isMini: {
       control: 'boolean',
     },
+    isMiniDark: {
+      control: 'boolean',
+    },
   },
 };
 
@@ -66,6 +69,7 @@ Default.args = {
   size: 'medium',
   isBounce: false,
   isMini: false,
+  isMiniDark: false,
   theme: 'blue',
 };
 
