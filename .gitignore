@@ -12,6 +12,7 @@
 
 # icons
 /svg
+/src/scripts
 
 # misc
 package-lock.json
