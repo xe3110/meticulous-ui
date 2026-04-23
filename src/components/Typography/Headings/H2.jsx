@@ -6,7 +6,11 @@ const H2Wrapper = styled.h2`
 `;
 
 const H2 = ({ color, children, ...rest }) => {
-  return <H2Wrapper $color={color} {...rest}>{children}</H2Wrapper>;
+  return (
+    <H2Wrapper $color={color} {...rest}>
+      {children}
+    </H2Wrapper>
+  );
 };
 
 export default H2;

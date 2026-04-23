@@ -65,6 +65,7 @@ import blue from 'meticulous-ui/colors/blue';
 | `Timer`        | Renders analog / digital clock with alarm                |
 | `OtpInput`     | Gives inputs to enter and edit OTP                       |
 | `VideoPlayer`  | Renders video with keyboard shortcuts                    |
+| `Image`        | Renders image with shimmer, lower resolution             |
 | `Input`        | Renders input box to let user enter input                |
 | `Checkbox`     | Renders checkbox to let user give boolean value          |
 | `RadioGroup`   | Renders radio options in a group to let user select      |

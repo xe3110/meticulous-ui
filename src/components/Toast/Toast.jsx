@@ -34,7 +34,15 @@ const remove = (setFadeOut, setShow, onExpire) => () => {
   }, 500);
 };
 
-const Toast = ({ type = INFO, visible = true, duration = 5, onExpire = noop, title, subtitle, ...rest }) => {
+const Toast = ({
+  type = INFO,
+  visible = true,
+  duration = 5,
+  onExpire = noop,
+  title,
+  subtitle,
+  ...rest
+}) => {
   const [show, setShow] = useState(visible);
   const [fadeOut, setFadeOut] = useState(false);
 

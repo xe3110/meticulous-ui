@@ -4,7 +4,14 @@ import { useSpacebarToggle } from './useSpacebarToggle';
 import VolumeBar from './components/Volumebar/Volumebar';
 import { useVolumeOverlay } from './useVolumeOverlay';
 
-const VideoPlayer = ({ link, thumbnail, width = '600', borderRadius = 8, height = 'auto', ...rest }) => {
+const VideoPlayer = ({
+  link,
+  thumbnail,
+  width = '600',
+  borderRadius = 8,
+  height = 'auto',
+  ...rest
+}) => {
   const videoRef = useRef(null);
   const containerRef = useRef(null);
   const { volume, showVolume } = useVolumeOverlay();

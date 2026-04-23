@@ -6,7 +6,11 @@ const H3Wrapper = styled.h3`
 `;
 
 const H3 = ({ color, children, ...rest }) => {
-  return <H3Wrapper $color={color} {...rest}>{children}</H3Wrapper>;
+  return (
+    <H3Wrapper $color={color} {...rest}>
+      {children}
+    </H3Wrapper>
+  );
 };
 
 export default H3;

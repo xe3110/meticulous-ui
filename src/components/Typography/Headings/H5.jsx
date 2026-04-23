@@ -6,7 +6,11 @@ const H5Wrapper = styled.h5`
 `;
 
 const H5 = ({ color, children, ...rest }) => {
-  return <H5Wrapper $color={color} {...rest}>{children}</H5Wrapper>;
+  return (
+    <H5Wrapper $color={color} {...rest}>
+      {children}
+    </H5Wrapper>
+  );
 };
 
 export default H5;

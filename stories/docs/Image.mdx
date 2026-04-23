@@ -1,0 +1,108 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+
+import * as ImageStories from '../Image.stories.jsx';
+
+<Meta title='Atoms/Image' of={ImageStories} />
+
+# Image
+
+Renders an image with a shimmer placeholder shown while the image loads. Once loaded, the image fades in smoothly. Can be imported as `meticulous-ui/components/Image`.
+
+## Default
+
+<Canvas of={ImageStories.Default} />
+
+<Controls of={ImageStories.Default} />
+
+## Rounded
+
+Pass `borderRadius='50%'` for circular images — useful for avatars or profile photos.
+
+<Canvas of={ImageStories.Rounded} />
+
+## Broken Source
+
+When the image URL fails to load, the shimmer and image are both hidden gracefully — no broken image icon is shown.
+
+<Canvas of={ImageStories.BrokenSrc} />
+
+## Props
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>src</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>URL of the image to display.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>alt</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>''</code>
+      </td>
+      <td>Alt text for the image, used by screen readers.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>width</code>
+      </td>
+      <td>
+        <code>number | string</code>
+      </td>
+      <td>
+        <code>'100%'</code>
+      </td>
+      <td>Width of the image. Numbers are treated as rem values.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>height</code>
+      </td>
+      <td>
+        <code>number | string</code>
+      </td>
+      <td>
+        <code>'100%'</code>
+      </td>
+      <td>Height of the image. Numbers are treated as rem values.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>borderRadius</code>
+      </td>
+      <td>
+        <code>number | string</code>
+      </td>
+      <td>
+        <code>'0.4rem'</code>
+      </td>
+      <td>
+        Border radius of the image. Numbers are treated as rem values. Use <code>'50%'</code> for
+        circular images.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Accessibility
+
+- Always provide a meaningful `alt` prop — screen readers announce it when the image loads
+- The shimmer placeholder underneath uses `role="status"` and `aria-label="Loading..."` (inherited from the `Shimmer` component) to announce the loading state
