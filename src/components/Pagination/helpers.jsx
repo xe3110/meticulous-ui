@@ -50,7 +50,7 @@ export const renderPageNum =
 export const renderThreeDots = () => <Ellipsis aria-hidden='true'>…</Ellipsis>;
 
 export const PrevArrow = ({ iconSize, shades, setPrevPage }) => (
-  <ArrowButton onClick={setPrevPage} aria-label='Previous page'>
+  <ArrowButton onClick={setPrevPage} aria-label='Previous page' $shades={shades}>
     <Ripple rippleColor={shades['m50']}>
       <ClickableChevronLeft size={iconSize} aria-hidden='true' />
     </Ripple>
@@ -58,7 +58,7 @@ export const PrevArrow = ({ iconSize, shades, setPrevPage }) => (
 );
 
 export const NextArrow = ({ iconSize, shades, setNextPage }) => (
-  <ArrowButton onClick={setNextPage} aria-label='Next page'>
+  <ArrowButton onClick={setNextPage} aria-label='Next page' $shades={shades}>
     <Ripple rippleColor={shades['m50']}>
       <ClickableChevronRight size={iconSize} aria-hidden='true' />
     </Ripple>

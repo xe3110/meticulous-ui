@@ -19,7 +19,7 @@ const getShade =
     }
 
     if (type === SELECTED_BG) {
-      return $shades['m500'];
+      return $shades['m600'];
     }
 
     if (type === NOT_SELECTED_BG) {
@@ -68,6 +68,7 @@ export const Page = styled.button`
           cursor: auto;
           color: ${white};
           background-color: ${getShade(SELECTED_BG)};
+          outline-color: ${getShade(SELECTED_BG)};
         `
       : css`
           cursor: pointer;
@@ -99,6 +100,7 @@ export const ArrowButton = styled.button`
   justify-content: center;
   border-radius: 50%;
   outline-offset: 2px;
+  outline-color: ${({ $shades }) => $shades?.['m600']};
 `;
 
 export const ClickableChevronLeft = styled(ChevronLeft)`
