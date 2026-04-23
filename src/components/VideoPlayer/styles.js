@@ -1,6 +1,16 @@
 import styled from 'styled-components';
 import black from '../../colors/black';
 
+export const ShimmerOverlay = styled.div`
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: ${({ $borderRadius }) => $borderRadius}px;
+  opacity: ${({ $loaded }) => ($loaded ? 0 : 1)};
+  transition: opacity 0.35s ease-out;
+  pointer-events: none;
+`;
+
 export const VideoContainer = styled.div`
   position: relative;
   display: inline-block;

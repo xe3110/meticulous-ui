@@ -75,6 +75,12 @@ A full-featured video player with custom controls, keyboard shortcuts, and fulls
 
 <Controls of={VideoPlayerStories.Default} />
 
+## With Thumbnail
+
+Pass a `thumbnail` URL to show a poster image before playback starts. Enable `hasShimmer` to show a shimmer placeholder while the video loads.
+
+<Canvas of={VideoPlayerStories.WithThumbnail} />
+
 ## Props
 
 <table>
@@ -142,6 +148,20 @@ A full-featured video player with custom controls, keyboard shortcuts, and fulls
         <code>8</code>
       </td>
       <td>Border radius of the player container in px</td>
+    </tr>
+    <tr>
+      <td>
+        <code>hasShimmer</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>true</code>
+      </td>
+      <td>
+        Show a shimmer placeholder while the video loads, fading out once the first frame is ready
+      </td>
     </tr>
   </tbody>
 </table>

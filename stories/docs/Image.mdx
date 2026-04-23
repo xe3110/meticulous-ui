@@ -20,6 +20,12 @@ Pass `borderRadius='50%'` for circular images — useful for avatars or profile 
 
 <Canvas of={ImageStories.Rounded} />
 
+## Load Low
+
+Pass `loadLow` and `lowSrc` to show a blurred low-resolution placeholder while the full image fetches — shimmer appears first, then the blurred preview, then the full image.
+
+<Canvas of={ImageStories.LoadLow} />
+
 ## Broken Source
 
 When the image URL fails to load, the shimmer and image are both hidden gracefully — no broken image icon is shown.
@@ -97,6 +103,30 @@ When the image URL fails to load, the shimmer and image are both hidden graceful
       <td>
         Border radius of the image. Numbers are treated as rem values. Use <code>'50%'</code> for
         circular images.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>loadLow</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>When true, shows a blurred low-res placeholder while the full image loads.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>lowSrc</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>
+        URL of the low-resolution placeholder image (used when <code>loadLow</code> is true).
       </td>
     </tr>
   </tbody>
