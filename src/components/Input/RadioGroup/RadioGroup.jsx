@@ -11,6 +11,7 @@ const RadioGroup = ({
   label,
   ariaLabel,
   name,
+  ...rest
 }) => {
   const shade = getColor(color);
 
@@ -36,6 +37,7 @@ const RadioGroup = ({
       role='radiogroup'
       aria-label={!label ? ariaLabel : undefined}
       $isHorizonatal={isHorizonatal}
+      {...rest}
     >
       {label && <legend>{label}</legend>}
       {options.map(renderOption)}

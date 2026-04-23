@@ -12,7 +12,7 @@ import { COLOR_MAP, INFO_COLORS, INFO } from './constants';
 // styles
 import { ToastWrapper, CloseWrapper, Title, Subtitle, Message, ToastsContainer } from './styles';
 
-export const ToastContainer = ({ toasts }) => {
+export const ToastContainer = ({ toasts, ...rest }) => {
   const [allToasts, setAllToasts] = useState(toasts);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export const ToastContainer = ({ toasts }) => {
     <Toast {...{ type, title, subtitle }} key={id} onExpire={onExpire} />
   );
 
-  return <ToastsContainer>{[...allToasts].reverse().map(renderToasts)}</ToastsContainer>;
+  return <ToastsContainer {...rest}>{[...allToasts].reverse().map(renderToasts)}</ToastsContainer>;
 };
 
 const remove = (setFadeOut, setShow, onExpire) => () => {
@@ -34,7 +34,7 @@ const remove = (setFadeOut, setShow, onExpire) => () => {
   }, 500);
 };
 
-const Toast = ({ type = INFO, visible = true, duration = 5, onExpire = noop, title, subtitle }) => {
+const Toast = ({ type = INFO, visible = true, duration = 5, onExpire = noop, title, subtitle, ...rest }) => {
   const [show, setShow] = useState(visible);
   const [fadeOut, setFadeOut] = useState(false);
 
@@ -54,7 +54,7 @@ const Toast = ({ type = INFO, visible = true, duration = 5, onExpire = noop, tit
 
   if (show) {
     return (
-      <ToastWrapper $bg={bg} className={`${fadeOut ? 'fade-out' : 'fade-in'}`}>
+      <ToastWrapper $bg={bg} className={`${fadeOut ? 'fade-out' : 'fade-in'}`} {...rest}>
         <Logo {...{ type, $main, $side }} />
         <Message>
           <Title>{title}</Title>

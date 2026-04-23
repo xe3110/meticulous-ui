@@ -24,6 +24,7 @@ const FileUploader = ({
   accept,
   isMultiple,
   onChange,
+  ...rest
 }) => {
   const inputRef = useRef(null);
   const { m400: $selectedColor, m500: $hoverColor, m600: $activeColor } = colors[theme] ?? blue;
@@ -87,7 +88,7 @@ const FileUploader = ({
   );
 
   return (
-    <UploadBtnContainer {...{ $height, $width: width || $width, disabled, $isLoading: isLoading }}>
+    <UploadBtnContainer {...{ $height, $width: width || $width, disabled, $isLoading: isLoading }} {...rest}>
       {isLoading || disabled ? btnChild : <Rippled theme={theme}>{btnChild}</Rippled>}
     </UploadBtnContainer>
   );

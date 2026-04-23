@@ -5,8 +5,8 @@ const H5Wrapper = styled.h5`
   font-size: 1.4rem;
 `;
 
-const H5 = ({ color, children }) => {
-  return <H5Wrapper $color={color}>{children}</H5Wrapper>;
+const H5 = ({ color, children, ...rest }) => {
+  return <H5Wrapper $color={color} {...rest}>{children}</H5Wrapper>;
 };
 
 export default H5;

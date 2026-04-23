@@ -19,6 +19,7 @@ const Pagination = ({
   theme = 'lime',
   size = MEDIUM,
   isDisabled = false,
+  ...rest
 }) => {
   const navRef = useRef(null);
   const focusActiveRef = useRef(false);
@@ -71,6 +72,7 @@ const Pagination = ({
         onKeyDown={handleKeyDown}
         aria-label='Pagination'
         $isDisabled={isDisabled}
+        {...rest}
       >
         <PrevArrow {...{ iconSize, shades, setPrevPage }} />
         <MiddleLayer size={`${totalPages * individualRemSize}rem`}>
@@ -94,6 +96,7 @@ const Pagination = ({
         onKeyDown={handleKeyDown}
         aria-label='Pagination'
         $isDisabled={isDisabled}
+        {...rest}
       >
         <PrevArrow {...{ iconSize, shades, setPrevPage }} />
         <MiddleLayer size={`${9 * individualRemSize}rem`}>

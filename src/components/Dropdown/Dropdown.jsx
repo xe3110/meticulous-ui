@@ -45,6 +45,7 @@ const Dropdown = ({
   hasMore = false,
   isLoadingMore = false,
   searchPh = 'Search...',
+  ...rest
 }) => {
   const [isOpen, setOpen] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
@@ -270,6 +271,7 @@ const Dropdown = ({
     <DropdownWrapper
       ref={containerRef}
       $width={width}
+      {...rest}
       tabIndex={isDisabled || isLoading ? -1 : 0}
       onKeyDown={handleKeyDown}
       $isLoading={isLoading}

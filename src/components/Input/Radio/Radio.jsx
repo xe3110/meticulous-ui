@@ -2,7 +2,7 @@ import P from '../../Typography/P';
 import blue from '../../../colors/blue';
 import { Circle, CircleBorder, HiddenInput, Wrapper } from './styles';
 
-const Radio = ({ label, value, name, color, textColor, isSelected, disabled, onChange }) => {
+const Radio = ({ label, value, name, color, textColor, isSelected, disabled, onChange, ...rest }) => {
   const innerShade = color?.m500 ?? blue.m500;
   const outerShade = color?.m800 ?? blue.m800;
 
@@ -16,7 +16,7 @@ const Radio = ({ label, value, name, color, textColor, isSelected, disabled, onC
   };
 
   return (
-    <Wrapper $disabled={disabled} $focusShade={outerShade}>
+    <Wrapper $disabled={disabled} $focusShade={outerShade} {...rest}>
       <HiddenInput
         type='radio'
         name={name}

@@ -5,8 +5,8 @@ const H4Wrapper = styled.h4`
   font-size: 1.8rem;
 `;
 
-const H4 = ({ color, children }) => {
-  return <H4Wrapper $color={color}>{children}</H4Wrapper>;
+const H4 = ({ color, children, ...rest }) => {
+  return <H4Wrapper $color={color} {...rest}>{children}</H4Wrapper>;
 };
 
 export default H4;

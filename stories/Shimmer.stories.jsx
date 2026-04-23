@@ -60,3 +60,39 @@ Default.args = {
   height: '10rem',
   label: 'Loading...',
 };
+
+export const CustomBorderRadius = (args) => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+    <Shimmer width={args?.width} height={args?.height} borderRadius='0' />
+    <Shimmer width={args?.width} height={args?.height} borderRadius='0.4rem' />
+    <Shimmer width={args?.width} height={args?.height} borderRadius='1rem' />
+    <Shimmer width={args?.width} height={args?.height} borderRadius='50%' />
+  </div>
+);
+
+CustomBorderRadius.storyName = 'Custom Border Radius';
+
+CustomBorderRadius.args = {
+  width: '20rem',
+  height: '4rem',
+};
+
+CustomBorderRadius.parameters = {
+  docs: {
+    source: {
+      language: 'jsx',
+      code: `
+        import Shimmer from 'meticulous-ui/components/Shimmer';
+
+        export const CustomBorderRadius = () => (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <Shimmer width='20rem' height='4rem' borderRadius='0' />
+            <Shimmer width='20rem' height='4rem' borderRadius='0.4rem' />
+            <Shimmer width='20rem' height='4rem' borderRadius='1rem' />
+            <Shimmer width='20rem' height='4rem' borderRadius='50%' />
+          </div>
+        );
+      `,
+    },
+  },
+};

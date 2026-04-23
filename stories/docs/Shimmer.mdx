@@ -14,6 +14,12 @@ A skeleton loading placeholder that communicates content is on its way. Use it i
 
 <Controls of={ShimmerStories.Default} />
 
+## Custom Border Radius
+
+Use the `borderRadius` prop to match the shimmer shape to your content — square for images, pill for tags, or circular for avatars. Numbers are treated as rem values.
+
+<Canvas of={ShimmerStories.CustomBorderRadius} />
+
 ## Props
 
 <table>
@@ -49,6 +55,18 @@ A skeleton loading placeholder that communicates content is on its way. Use it i
         <code>'100%'</code>
       </td>
       <td>Height of the shimmer block. Numbers are treated as rem values.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>borderRadius</code>
+      </td>
+      <td>
+        <code>number | string</code>
+      </td>
+      <td>
+        <code>'0.4rem'</code>
+      </td>
+      <td>Border radius of the shimmer block. Numbers are treated as rem values.</td>
     </tr>
     <tr>
       <td>

@@ -10,7 +10,7 @@ const SIZE_PARAMS = {
   large: { strokeWidth: 5, $length: '3rem' },
 };
 
-const Spinner = ({ color = 'green', size = 'medium' }) => {
+const Spinner = ({ color = 'green', size = 'medium', ...rest }) => {
   const { strokeWidth, $length } = SIZE_PARAMS[size];
   const colorValue = [white, grey.m600].includes(color) ? color : (colors[color] ?? green)?.m500;
 
@@ -22,6 +22,7 @@ const Spinner = ({ color = 'green', size = 'medium' }) => {
       role='status'
       aria-label='Loading'
       aria-live='polite'
+      {...rest}
     >
       <SpinnerCircle
         cx='25'

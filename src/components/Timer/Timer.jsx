@@ -53,6 +53,7 @@ const Timer = ({
   onTimerRemove = noop,
   onTimerPause = noop,
   onTimerPlay = noop,
+  ...rest
 }) => {
   const [time, setTime] = useState(new Date());
   const [timerSec, setTimerSec] = useState(0);
@@ -141,7 +142,7 @@ const Timer = ({
   const timeLabel = `${showTimeWithSec ? currentTimeWithoutAmPm : withoutSec} ${amPm}`;
 
   return (
-    <Wrapper $color={color} role='region' aria-label='Clock'>
+    <Wrapper $color={color} role='region' aria-label='Clock' {...rest}>
       <Glass borderRadius='1.2rem' aria-hidden='true' />
       {showTime && (
         <>

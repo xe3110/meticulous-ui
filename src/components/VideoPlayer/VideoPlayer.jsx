@@ -4,7 +4,7 @@ import { useSpacebarToggle } from './useSpacebarToggle';
 import VolumeBar from './components/Volumebar/Volumebar';
 import { useVolumeOverlay } from './useVolumeOverlay';
 
-const VideoPlayer = ({ link, thumbnail, width = '600', borderRadius = 8, height = 'auto' }) => {
+const VideoPlayer = ({ link, thumbnail, width = '600', borderRadius = 8, height = 'auto', ...rest }) => {
   const videoRef = useRef(null);
   const containerRef = useRef(null);
   const { volume, showVolume } = useVolumeOverlay();
@@ -12,7 +12,7 @@ const VideoPlayer = ({ link, thumbnail, width = '600', borderRadius = 8, height 
   useSpacebarToggle(videoRef, containerRef, showVolume);
 
   return (
-    <VideoContainer ref={containerRef} $width={width} $height={height}>
+    <VideoContainer ref={containerRef} $width={width} $height={height} {...rest}>
       <Video $borderRadius={borderRadius} ref={videoRef} src={link} poster={thumbnail} controls>
         Your browser does not support the video tag.
       </Video>

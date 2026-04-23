@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
     $disabled &&
     css`
       pointer-events: none;
-      opacity: 0.7;
+      opacity: 0.4;
     `}
 `;
 

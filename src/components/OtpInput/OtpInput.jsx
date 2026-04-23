@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { OTPWrapper } from './styles';
 import { renderNums } from './helpers';
 
-const OtpInput = ({ length = 6, value = '', onChange, onComplete }) => {
+const OtpInput = ({ length = 6, value = '', onChange, onComplete, ...rest }) => {
   const [otp, setOtp] = useState(Array(length).fill(''));
   const inputsRef = useRef([]);
   const otpRef = useRef(otp);
@@ -113,6 +113,7 @@ const OtpInput = ({ length = 6, value = '', onChange, onComplete }) => {
     <OTPWrapper
       style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}
       onPaste={handlePaste}
+      {...rest}
     >
       {otp.map(renderNums({ inputsRef, handleChange, handleKeyDown, handleFocus }))}
     </OTPWrapper>

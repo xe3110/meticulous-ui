@@ -16,13 +16,13 @@ const Checkbox = ({
   tabIndex,
   innerShade: innerShadeOverride,
   outerShade: outerShadeOverride,
+  ...rest
 }) => {
   const [focused, setFocused] = useState(false);
 
   const shade = getColor(color);
   const innerShade = innerShadeOverride ?? shade?.m500 ?? blue.m500;
   const outerShade = outerShadeOverride ?? shade?.m600 ?? blue.m600;
-
   const lastKeyPressRef = useRef(0);
 
   const changeHandler = (e) => onChange(e.target.checked);
@@ -48,7 +48,7 @@ const Checkbox = ({
   const focusHandler = (val) => () => setFocused(val);
 
   return (
-    <Wrapper as='label' $disabled={disabled}>
+    <Wrapper as='label' $disabled={disabled} {...rest}>
       <CbInput
         type='checkbox'
         checked={value}

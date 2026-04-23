@@ -10,9 +10,9 @@ export const ShimmerWrapper = styled.div`
   position: relative;
   overflow: hidden;
   background-color: ${grey.m300};
-  border-radius: 0.4rem;
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
+  border-radius: ${({ $borderRadius }) => $borderRadius};
+  width: ${({ $width }) => $width};
+  height: ${({ $height }) => $height};
 
   &:after {
     content: '';

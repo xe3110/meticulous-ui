@@ -46,6 +46,7 @@ const Selectbox = ({
   hasMore = false,
   isLoadingMore = false,
   loaderColor,
+  ...rest
 }) => {
   const [isOpen, setOpen] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
@@ -256,6 +257,7 @@ const Selectbox = ({
       onKeyDown={handleKeyDown}
       onBlur={handleBlur}
       onFocus={() => setIsFocused(true)}
+      {...rest}
     >
       <Box
         id={triggerId}

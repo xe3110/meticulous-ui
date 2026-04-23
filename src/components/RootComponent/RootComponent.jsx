@@ -1,7 +1,7 @@
 import { Root } from './styles';
 
-const RootComponent = ({ children, style }) => {
-  return <Root style={style}>{children}</Root>;
+const RootComponent = ({ children, ...rest }) => {
+  return <Root {...rest}>{children}</Root>;
 };
 
 export default RootComponent;

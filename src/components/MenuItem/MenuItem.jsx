@@ -30,6 +30,7 @@ const MenuItem = ({
   onSelect,
   isDisabled,
   onMouseEnter,
+  ...rest
 }) => {
   const handleClick = () => {
     if (!isDisabled) {
@@ -51,6 +52,7 @@ const MenuItem = ({
       }}
       id={id}
       role='option'
+      {...rest}
       aria-selected={isSelected}
       aria-disabled={isDisabled || undefined}
       onClick={handleClick}
