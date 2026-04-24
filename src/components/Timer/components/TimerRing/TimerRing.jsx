@@ -2,9 +2,9 @@ import { useEffect, useRef } from 'react';
 import white from '../../../../colors/white';
 import { SVG } from './styles';
 
-const TimerRing = ({ progress }) => {
+const TimerRing = ({ progress, size }) => {
   const circleRef = useRef(null);
-  const radius = 105;
+  const radius = size * 5.25;
   const circumference = 2 * Math.PI * radius;
 
   useEffect(() => {
@@ -13,22 +13,22 @@ const TimerRing = ({ progress }) => {
   }, [progress]);
 
   return (
-    <SVG width='220' height='220'>
+    <SVG width={size * 11} height={size * 11}>
       <circle
-        cx='110'
-        cy='110'
+        cx={size * 5.5}
+        cy={size * 5.5}
         r={radius}
         stroke='rgba(255,255,255,.2)'
-        strokeWidth='4'
+        strokeWidth={size * 0.2}
         fill='none'
       />
       <circle
         ref={circleRef}
-        cx='110'
-        cy='110'
+        cx={size * 5.5}
+        cy={size * 5.5}
         r={radius}
         stroke={white}
-        strokeWidth='4'
+        strokeWidth={size * 0.2}
         fill='none'
         strokeLinecap='round'
         strokeDasharray={circumference}

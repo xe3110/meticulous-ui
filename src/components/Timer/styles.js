@@ -10,6 +10,12 @@ import black from '../../colors/black';
 import red from '../../colors/red';
 
 import { COLOR_MAPPING } from './constants';
+import { getSize } from './helpers';
+
+const WRAPPER_RATIO = 1;
+const WRAPPER_BR_RATIO = 16.67;
+const DIMMER_RATIO = 1.67;
+const TRANSFORM_ORIGIN_RATIO = 3.404;
 
 const getColor = ({ $color }) => COLOR_MAPPING[$color];
 
@@ -24,9 +30,9 @@ const HAND_CSS = css`
 
 export const Wrapper = styled.div`
   position: relative;
-  height: 20rem;
-  width: 20rem;
-  border-radius: 1.2rem;
+  height: ${getSize(WRAPPER_RATIO)}rem;
+  width: ${getSize(WRAPPER_RATIO)}rem;
+  border-radius: ${getSize(WRAPPER_BR_RATIO)}rem;
   background-color: ${getColor};
 `;
 
@@ -34,8 +40,8 @@ export const Dimmer = styled.div`
   position: absolute;
   left: 50%;
   top: 48%;
-  width: 12rem;
-  height: 12rem;
+  width: ${getSize(DIMMER_RATIO)}rem;
+  height: ${getSize(DIMMER_RATIO)}rem;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.16);
@@ -51,7 +57,7 @@ export const Time = styled.div`
 
 export const TimeTxt = styled.div`
   color: ${white};
-  font-size: 1.5rem;
+  font-size: ${getSize(13.33)}rem;
   font-weight: 600;
   text-align: center;
   opacity: 0.8;
@@ -59,21 +65,22 @@ export const TimeTxt = styled.div`
 
 export const Dots = styled.span`
   position: absolute;
-  width: 2.4px;
-  height: 2.4px;
+  width: ${getSize(120)}rem;
+  height: ${getSize(120)}rem;
   background: rgba(255, 255, 255, 0.4);
-  transform-origin: 5.875rem;
+  transform-origin: ${getSize(TRANSFORM_ORIGIN_RATIO)}rem;
   border-radius: 2px;
+  rotate: ${({ $i }) => `${$i * 6}deg`};
 
   &:nth-child(5n) {
-    width: 3px;
-    height: 3px;
+    width: ${getSize(90)}rem;
+    height: ${getSize(90)}rem;
     background: rgba(255, 255, 255, 0.7);
   }
 
   &:nth-child(15n) {
-    width: 6px;
-    height: 2px;
+    width: ${getSize(50)}rem;
+    height: ${getSize(130)}rem;
     background: rgba(255, 255, 255);
   }
 `;
@@ -93,22 +100,22 @@ export const AllDots = styled.div`
 
 export const HourHand = styled.div`
   ${HAND_CSS};
-  width: 0.4rem;
-  height: 3.75rem;
+  width: ${getSize(50)}rem;
+  height: ${getSize(5.33)}rem;
   background: ${white};
 `;
 
 export const MinuteHand = styled.div`
   ${HAND_CSS};
-  width: 0.25rem;
-  height: 5rem;
+  width: ${getSize(80)}rem;
+  height: ${getSize(4)}rem;
   background: ${black.m200};
 `;
 
 export const SecondHand = styled.div`
   ${HAND_CSS};
-  width: 0.15rem;
-  height: 5.5rem;
+  width: ${getSize(133.33)}rem;
+  height: ${getSize(3.64)}rem;
   background: ${red.m800};
 `;
 
@@ -134,7 +141,7 @@ export const LeftActions = styled.div`
   left: 8%;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: ${getSize(50)}rem;
 
   ${({ $noActions }) =>
     $noActions &&
@@ -148,17 +155,17 @@ export const RightActions = styled.div`
   position: absolute;
   bottom: 6%;
   right: 8%;
-  border-radius: 0.4rem;
+  border-radius: ${getSize(50)}rem;
 `;
 
 export const ActionBtn = styled.button`
   position: relative;
-  height: 2.4rem;
-  width: 2.4rem;
+  height: ${getSize(8.33)}rem;
+  width: ${getSize(8.33)}rem;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.4);
   border: none;
-  border-radius: 0.4rem;
+  border-radius: ${getSize(50)}rem;
   padding: 0;
 
   &:focus-visible {
@@ -205,8 +212,8 @@ export const VisuallyHidden = styled.span`
 `;
 
 export const Bullet = styled.div`
-  width: 9px;
-  height: 9px;
+  width: ${getSize(35)}rem;
+  height: ${getSize(35)}rem;
   border-radius: 50%;
   background-color: ${white};
 `;
@@ -216,8 +223,8 @@ export const BulletRing = styled.div`
   left: 26%;
   top: 24%;
   rotate: var(--bullet-rotate);
-  height: 157.5px;
-  width: 157.5px;
+  height: ${getSize(2.05)}rem;
+  width: ${getSize(2.05)}rem;
   transform-origin: center;
   transition: rotate 0.3s ease;
   ${({ $dismissing }) =>

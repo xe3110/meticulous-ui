@@ -14,6 +14,20 @@ The preview below shows a digital timer (top) and an analog timer (bottom) runni
 
 <Canvas of={TimerStories.Default} />
 
+## Colors
+
+<Canvas of={TimerStories.Colors} />
+
+## Digital vs Analog
+
+<Canvas of={TimerStories.DigitalVsAnalog} />
+
+## Sizes
+
+The `size` prop controls the overall scale of the timer. Alternates between digital and analog display modes.
+
+<Canvas of={TimerStories.Sizes} />
+
 ## Props
 
 <table>
@@ -97,6 +111,18 @@ The preview below shows a digital timer (top) and an analog timer (bottom) runni
       <td>
         IANA time-zone string for the displayed clock (e.g. <code>'Asia/Kolkata'</code>)
       </td>
+    </tr>
+    <tr>
+      <td>
+        <code>size</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>
+        <code>20</code>
+      </td>
+      <td>Scale factor for the timer; all dimensions grow proportionally</td>
     </tr>
     <tr>
       <td>

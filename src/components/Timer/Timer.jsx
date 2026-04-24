@@ -28,6 +28,7 @@ import {
   MediaStopFilledWrapper,
   MediaPlayFilledWrapper,
 } from './styles';
+import { getSize } from './helpers';
 
 const noop = () => {};
 
@@ -55,6 +56,7 @@ const Timer = ({
   onTimerRemove = noop,
   onTimerPause = noop,
   onTimerPlay = noop,
+  size = 20,
   ...rest
 }) => {
   const [time, setTime] = useState(new Date());
@@ -64,6 +66,8 @@ const Timer = ({
   const [bulletAngle, setBulletAngle] = useState(0);
   const [isDismissing, setIsDismissing] = useState(false);
   const isPausedRef = useRef(isPaused);
+  const $size = Math.round(size);
+  const ICON_SIZE = Math.round((14 * size) / 20); // Base icon size is 14px at size=20, so scale accordingly
 
   useEffect(() => {
     isPausedRef.current = isPaused;
@@ -144,37 +148,42 @@ const Timer = ({
   const timeLabel = `${showTimeWithSec ? currentTimeWithoutAmPm : withoutSec} ${amPm}`;
 
   return (
-    <Wrapper $color={color} role='region' aria-label='Clock' {...rest}>
-      <Glass borderRadius='1.2rem' aria-hidden='true' />
+    <Wrapper $color={color} role='region' aria-label='Clock' {...{ $size }} {...rest}>
+      <Glass borderRadius={`${getSize(16.67)({ $size })}rem`} aria-hidden='true' />
       {showTime && (
         <>
-          <Dimmer aria-hidden='true'>
+          <Dimmer aria-hidden='true' {...{ $size }}>
             <DotsWrapper>
               <AllDots aria-hidden='true'>
                 {[...Array(60)].map((_, i) => (
-                  <Dots key={i} style={{ rotate: `${i * 6}deg` }} />
+                  <Dots key={i} $i={i} {...{ $size }} />
                 ))}
               </AllDots>
             </DotsWrapper>
           </Dimmer>
           {isDigital ? (
             <Time as='time' dateTime={time.toISOString()} aria-label={timeLabel}>
-              <TimeTxt aria-hidden='true'>
+              <TimeTxt {...{ $size }} aria-hidden='true'>
                 {showTimeWithSec ? currentTimeWithoutAmPm : withoutSec}
               </TimeTxt>
-              <TimeTxt aria-hidden='true'>{amPm}</TimeTxt>
+              <TimeTxt {...{ $size }} aria-hidden='true'>
+                {amPm}
+              </TimeTxt>
             </Time>
           ) : (
             <Time as='time' dateTime={time.toISOString()} aria-label={timeLabel}>
               <HourHand
+                {...{ $size }}
                 style={{ '--hand-rotate': `${handRotations.hour}deg` }}
                 aria-hidden='true'
               />
               <MinuteHand
+                {...{ $size }}
                 style={{ '--hand-rotate': `${handRotations.minute}deg` }}
                 aria-hidden='true'
               />
               <SecondHand
+                {...{ $size }}
                 style={{ '--hand-rotate': `${handRotations.second}deg` }}
                 aria-hidden='true'
               />
@@ -189,14 +198,15 @@ const Timer = ({
             onAnimationEnd={handleDismissEnd}
             aria-hidden='true'
           >
-            <TimerRing progress={timerSec >= 60 ? 1 : (timerSec % 60) / 60} />
+            <TimerRing {...{ size }} progress={timerSec >= 60 ? 1 : (timerSec % 60) / 60} />
           </AlarmRing>
           <BulletRing
+            {...{ $size }}
             style={{ '--bullet-rotate': `${45 + bulletAngle}deg` }}
             $dismissing={isDismissing}
             aria-hidden='true'
           >
-            <Bullet />
+            <Bullet {...{ $size }} />
           </BulletRing>
           <VisuallyHidden
             role='timer'
@@ -206,39 +216,47 @@ const Timer = ({
         </>
       )}
       {timerSeconds > 0 && (
-        <LeftActions $noActions={hasNoTimer} role='group' aria-label='Timer controls'>
+        <LeftActions
+          {...{ $size }}
+          $noActions={hasNoTimer}
+          role='group'
+          aria-label='Timer controls'
+        >
           <ActionBtn
             type='button'
             onClick={removeTimer}
+            {...{ $size }}
             aria-label='Stop timer'
             aria-disabled={hasNoTimer}
           >
-            <MediaStopFilledWrapper color={white} size={14} aria-hidden='true' />
+            <MediaStopFilledWrapper color={white} size={ICON_SIZE} aria-hidden='true' />
           </ActionBtn>
           {hasNoTimer || !isPaused ? (
             <ActionBtn
               type='button'
               onClick={pauseTimer}
+              {...{ $size }}
               aria-label='Pause timer'
               aria-disabled={hasNoTimer}
             >
-              <MediaPauseFilledWrapper color={white} size={14} aria-hidden='true' />
+              <MediaPauseFilledWrapper color={white} size={ICON_SIZE} aria-hidden='true' />
             </ActionBtn>
           ) : (
-            <ActionBtn type='button' onClick={playTimer} aria-label='Resume timer'>
-              <MediaPlayFilledWrapper color={white} size={14} aria-hidden='true' />
+            <ActionBtn type='button' onClick={playTimer} aria-label='Resume timer' {...{ $size }}>
+              <MediaPlayFilledWrapper color={white} size={ICON_SIZE} aria-hidden='true' />
             </ActionBtn>
           )}
         </LeftActions>
       )}
       {timerSeconds > 0 && (
-        <RightActions role='group' aria-label='Start timer'>
+        <RightActions role='group' {...{ $size }} aria-label='Start timer'>
           <ActionBtn
             type='button'
             onClick={setTimer}
+            {...{ $size }}
             aria-label={`Start ${timerSeconds} second timer`}
           >
-            <AddWrapper color={white} size={20} aria-hidden='true' />
+            <AddWrapper color={white} size={$size} aria-hidden='true' />
           </ActionBtn>
         </RightActions>
       )}

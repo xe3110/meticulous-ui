@@ -1,21 +1,5 @@
 import Timer from '../src/components/Timer/Timer';
 
-const TimerWrapper = () => {
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-      <Timer
-        timerSeconds={61}
-        onTimerComplete={() => alert('complete')}
-        onTimerRemove={() => alert('remove')}
-        onTimerPause={() => alert('pause')}
-        onTimerPlay={() => alert('play')}
-        onTimerAdd={() => alert('timer added')}
-      />
-      <Timer isDigital={false} color='blue' timerSeconds={32} />
-    </div>
-  );
-};
-
 export default {
   title: 'Organisms/Timer',
   component: Timer,
@@ -29,37 +13,125 @@ export default {
         code: `
           import Timer from 'meticulous-ui/components/Timer';
 
-          const TimerWrapper = () => {
-            return (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                <Timer
-                  color='green'
-                  showTime
-                  showTimeWithSec
-                  timeZone='Asia/Kolkata'
-                  isDigital
-                  timerSeconds={61}
-                  onTimerComplete={() => alert('complete')}
-                  onTimerRemove={() => alert('remove')}
-                  onTimerPause={() => alert('pause')}
-                  onTimerPlay={() => alert('play')}
-                  onTimerAdd={() => alert('timer added')}
-                />
-                <Timer isDigital={false} color='blue' timerSec={32} />
-              </div>
-            );
-          };
+          <Timer
+            color='green'
+            showTime
+            showTimeWithSec
+            timeZone='Asia/Kolkata'
+            isDigital
+            timerSeconds={61}
+            size={20}
+          />
         `,
       },
     },
-    controls: { disable: true },
-    actions: { disable: true },
+  },
+  argTypes: {
+    color: {
+      control: 'select',
+      options: [
+        'green',
+        'red',
+        'blue',
+        'brown',
+        'grey',
+        'indigo',
+        'orange',
+        'teal',
+        'violet',
+        'yellow',
+      ],
+    },
+    size: { control: 'number' },
+    timerSeconds: { control: 'number' },
+    isDigital: { control: 'boolean' },
+    showTime: { control: 'boolean' },
+    showTimeWithSec: { control: 'boolean' },
+    timeZone: { control: 'text' },
   },
 };
 
-// Default story
-export const Default = () => {
-  return <TimerWrapper />;
-};
+export const Default = (args) => <Timer {...args} />;
 
 Default.storyName = 'Timer';
+Default.args = {
+  color: 'green',
+  size: 20,
+  timerSeconds: 61,
+  isDigital: true,
+  showTime: true,
+  showTimeWithSec: true,
+  timeZone: 'Asia/Kolkata',
+};
+
+const colors = [
+  'green',
+  'red',
+  'blue',
+  'brown',
+  'grey',
+  'indigo',
+  'orange',
+  'teal',
+  'violet',
+  'yellow',
+];
+
+export const Colors = {
+  name: 'Colors',
+  parameters: { controls: { disable: true }, actions: { disable: true } },
+  render: () => (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem' }}>
+      {colors.map((color) => (
+        <div
+          key={color}
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}
+        >
+          <Timer color={color} timerSeconds={45} />
+          <span style={{ color: '#fff', fontSize: '12px' }}>{color}</span>
+        </div>
+      ))}
+    </div>
+  ),
+};
+
+export const DigitalVsAnalog = {
+  name: 'Digital vs Analog',
+  parameters: { controls: { disable: true }, actions: { disable: true } },
+  render: () => (
+    <div style={{ display: 'flex', gap: '2rem' }}>
+      <div
+        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}
+      >
+        <Timer isDigital timerSeconds={45} />
+        <span style={{ color: '#fff', fontSize: '12px' }}>Digital</span>
+      </div>
+      <div
+        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}
+      >
+        <Timer isDigital={false} timerSeconds={45} />
+        <span style={{ color: '#fff', fontSize: '12px' }}>Analog</span>
+      </div>
+    </div>
+  ),
+};
+
+const sizes = [10, 15, 20, 25, 30];
+
+export const Sizes = {
+  name: 'Sizes',
+  parameters: { controls: { disable: true }, actions: { disable: true } },
+  render: () => (
+    <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-end', gap: '2rem' }}>
+      {sizes.map((size, i) => (
+        <div
+          key={size}
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}
+        >
+          <Timer size={size} timerSeconds={45} isDigital={i % 2 === 0} />
+          <span style={{ color: '#fff', fontSize: '12px' }}>size={size}</span>
+        </div>
+      ))}
+    </div>
+  ),
+};
