@@ -8,6 +8,7 @@ import white from '../../colors/white';
 import {
   Wrapper,
   Dimmer,
+  DotsWrapper,
   Time,
   TimeTxt,
   Dots,
@@ -17,6 +18,7 @@ import {
   SecondHand,
   AlarmRing,
   RightActions,
+  VisuallyHidden,
   Bullet,
   BulletRing,
   AddWrapper,
@@ -146,7 +148,15 @@ const Timer = ({
       <Glass borderRadius='1.2rem' aria-hidden='true' />
       {showTime && (
         <>
-          <Dimmer aria-hidden='true' />
+          <Dimmer aria-hidden='true'>
+            <DotsWrapper>
+              <AllDots aria-hidden='true'>
+                {[...Array(60)].map((_, i) => (
+                  <Dots key={i} style={{ rotate: `${i * 6}deg` }} />
+                ))}
+              </AllDots>
+            </DotsWrapper>
+          </Dimmer>
           {isDigital ? (
             <Time as='time' dateTime={time.toISOString()} aria-label={timeLabel}>
               <TimeTxt aria-hidden='true'>
@@ -163,11 +173,6 @@ const Timer = ({
           )}
         </>
       )}
-      <AllDots aria-hidden='true'>
-        {[...Array(60)].map((_, i) => (
-          <Dots key={i} style={{ rotate: `${i * 6}deg` }} />
-        ))}
-      </AllDots>
       {(!hasNoTimer || isDismissing) && (
         <>
           <AlarmRing
@@ -180,37 +185,43 @@ const Timer = ({
           <BulletRing $angle={bulletAngle} $dismissing={isDismissing} aria-hidden='true'>
             <Bullet />
           </BulletRing>
-          <span
+          <VisuallyHidden
             role='timer'
             aria-live='polite'
             aria-label={`${timerSec} seconds remaining`}
-            style={{
-              position: 'absolute',
-              width: 1,
-              height: 1,
-              overflow: 'hidden',
-              clip: 'rect(0 0 0 0)',
-              whiteSpace: 'nowrap',
-            }}
           />
         </>
       )}
-      <LeftActions $noActions={hasNoTimer}>
-        <ActionBtn onClick={removeTimer} aria-label='Stop timer'>
+      <LeftActions $noActions={hasNoTimer} role='group' aria-label='Timer controls'>
+        <ActionBtn
+          type='button'
+          onClick={removeTimer}
+          aria-label='Stop timer'
+          aria-disabled={hasNoTimer}
+        >
           <MediaStopFilledWrapper color={white} size={14} aria-hidden='true' />
         </ActionBtn>
         {hasNoTimer || !isPaused ? (
-          <ActionBtn onClick={pauseTimer} aria-label='Pause timer'>
+          <ActionBtn
+            type='button'
+            onClick={pauseTimer}
+            aria-label='Pause timer'
+            aria-disabled={hasNoTimer}
+          >
             <MediaPauseFilledWrapper color={white} size={14} aria-hidden='true' />
           </ActionBtn>
         ) : (
-          <ActionBtn onClick={playTimer} aria-label='Resume timer'>
+          <ActionBtn type='button' onClick={playTimer} aria-label='Resume timer'>
             <MediaPlayFilledWrapper color={white} size={14} aria-hidden='true' />
           </ActionBtn>
         )}
       </LeftActions>
-      <RightActions>
-        <ActionBtn onClick={setTimer} aria-label={`Start ${timerSeconds} second timer`}>
+      <RightActions role='group' aria-label='Start timer'>
+        <ActionBtn
+          type='button'
+          onClick={setTimer}
+          aria-label={`Start ${timerSeconds} second timer`}
+        >
           <AddWrapper color={white} size={20} aria-hidden='true' />
         </ActionBtn>
       </RightActions>

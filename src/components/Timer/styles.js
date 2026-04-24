@@ -62,7 +62,7 @@ export const Dots = styled.span`
   width: 2.4px;
   height: 2.4px;
   background: rgba(255, 255, 255, 0.4);
-  transform-origin: 94px;
+  transform-origin: 5.875rem;
   border-radius: 2px;
 
   &:nth-child(5n) {
@@ -78,10 +78,16 @@ export const Dots = styled.span`
   }
 `;
 
+export const DotsWrapper = styled.div`
+  position: relative;
+  height: 100%;
+  width: 100%;
+`;
+
 export const AllDots = styled.div`
   position: absolute;
-  left: 21%;
-  top: 44.3%;
+  left: 1.6%;
+  top: 44%;
   transform: translate(-50%, -50%) rotate(6.7deg);
 `;
 
@@ -147,14 +153,18 @@ export const RightActions = styled.div`
 
 export const ActionBtn = styled.button`
   position: relative;
-  width: 100%;
-  height: 100%;
   height: 2.4rem;
   width: 2.4rem;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.4);
   border: none;
+  border-radius: 0.4rem;
   padding: 0;
+
+  &:focus-visible {
+    outline: 2px solid ${white};
+    outline-offset: 2px;
+  }
 `;
 
 export const AddWrapper = styled(Add)`
@@ -183,6 +193,15 @@ export const MediaPlayFilledWrapper = styled(MediaPlayFilled)`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+`;
+
+export const VisuallyHidden = styled.span`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 `;
 
 export const Bullet = styled.div`
