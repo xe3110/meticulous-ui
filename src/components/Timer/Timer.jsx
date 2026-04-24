@@ -166,9 +166,18 @@ const Timer = ({
             </Time>
           ) : (
             <Time as='time' dateTime={time.toISOString()} aria-label={timeLabel}>
-              <HourHand $rotate={handRotations.hour} aria-hidden='true' />
-              <MinuteHand $rotate={handRotations.minute} aria-hidden='true' />
-              <SecondHand $rotate={handRotations.second} aria-hidden='true' />
+              <HourHand
+                style={{ '--hand-rotate': `${handRotations.hour}deg` }}
+                aria-hidden='true'
+              />
+              <MinuteHand
+                style={{ '--hand-rotate': `${handRotations.minute}deg` }}
+                aria-hidden='true'
+              />
+              <SecondHand
+                style={{ '--hand-rotate': `${handRotations.second}deg` }}
+                aria-hidden='true'
+              />
             </Time>
           )}
         </>
@@ -182,7 +191,11 @@ const Timer = ({
           >
             <TimerRing progress={timerSec >= 60 ? 1 : (timerSec % 60) / 60} />
           </AlarmRing>
-          <BulletRing $angle={bulletAngle} $dismissing={isDismissing} aria-hidden='true'>
+          <BulletRing
+            style={{ '--bullet-rotate': `${45 + bulletAngle}deg` }}
+            $dismissing={isDismissing}
+            aria-hidden='true'
+          >
             <Bullet />
           </BulletRing>
           <VisuallyHidden

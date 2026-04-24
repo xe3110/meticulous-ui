@@ -19,7 +19,7 @@ const HAND_CSS = css`
   transform-origin: bottom;
   border-radius: 4px;
   transition: rotate 0.3s ease-in-out;
-  rotate: ${({ $rotate }) => $rotate}deg;
+  rotate: var(--hand-rotate);
 `;
 
 export const Wrapper = styled.div`
@@ -215,7 +215,7 @@ export const BulletRing = styled.div`
   position: absolute;
   left: 26%;
   top: 24%;
-  rotate: ${({ $angle }) => 45 + $angle}deg;
+  rotate: var(--bullet-rotate);
   height: 157.5px;
   width: 157.5px;
   transform-origin: center;
