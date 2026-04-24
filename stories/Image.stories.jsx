@@ -102,13 +102,20 @@ Rounded.parameters = {
   },
 };
 
-export const LoadLow = (args) => <Image {...args} />;
+export const LoadLow = (args) => {
+  const loadLowSeed = Math.random().toString(36).slice(2);
+  return (
+    <Image
+      src={`https://picsum.photos/seed/${loadLowSeed}/4000/3000`}
+      lowSrc={`https://picsum.photos/seed/${loadLowSeed}/60/45`}
+      {...args}
+    />
+  );
+};
 
 LoadLow.storyName = 'Load Low';
 
 LoadLow.args = {
-  src: 'https://picsum.photos/seed/meticulous/4000/3000',
-  lowSrc: 'https://picsum.photos/seed/meticulous/60/45',
   loadLow: true,
   alt: 'Progressive image',
   width: '600px',
@@ -135,40 +142,6 @@ LoadLow.parameters = {
             alt='Progressive image'
             width='600px'
             height='400px'
-          />
-        );
-      `,
-    },
-  },
-};
-
-export const BrokenSrc = (args) => <Image {...args} />;
-
-BrokenSrc.storyName = 'Broken Source';
-
-BrokenSrc.args = {
-  src: 'https://this-url-does-not-exist.xyz/image.jpg',
-  alt: 'Broken image',
-  width: '400px',
-  height: '300px',
-};
-
-BrokenSrc.parameters = {
-  docs: {
-    description: {
-      story: 'When the image fails to load, the shimmer and image are hidden gracefully.',
-    },
-    source: {
-      language: 'jsx',
-      code: `
-        import Image from 'meticulous-ui/components/Image';
-
-        const BrokenSrc = () => (
-          <Image
-            src='https://this-url-does-not-exist.xyz/image.jpg'
-            alt='Broken image'
-            width='400px'
-            height='300px'
           />
         );
       `,
