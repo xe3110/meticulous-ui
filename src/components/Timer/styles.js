@@ -126,8 +126,8 @@ const dismissAnimation = keyframes`
 
 export const AlarmRing = styled.div`
   position: absolute;
-  left: 16%;
-  top: 14%;
+  inset: 0;
+  pointer-events: none;
   ${({ $dismissing }) =>
     $dismissing &&
     css`

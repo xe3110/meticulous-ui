@@ -198,7 +198,7 @@ const Timer = ({
             onAnimationEnd={handleDismissEnd}
             aria-hidden='true'
           >
-            <TimerRing {...{ size }} progress={timerSec >= 60 ? 1 : (timerSec % 60) / 60} />
+            <TimerRing progress={timerSec >= 60 ? 1 : (timerSec % 60) / 60} />
           </AlarmRing>
           <BulletRing
             {...{ $size }}
