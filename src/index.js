@@ -1,6 +1,6 @@
 // components
 export { default as Pagination } from './components/Pagination';
-export { default as Toast } from './components/Toast';
+export { default as Toast, ToastContainer } from './components/Toast';
 export { default as Spinner } from './components/Spinner';
 export { default as Loader } from './components/Loader';
 export { default as PageLoader } from './components/PageLoader';
