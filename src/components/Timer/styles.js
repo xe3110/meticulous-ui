@@ -93,22 +93,22 @@ export const AllDots = styled.div`
 
 export const HourHand = styled.div`
   ${HAND_CSS};
-  width: 6px;
-  height: 60px;
+  width: 0.4rem;
+  height: 3.75rem;
   background: ${white};
 `;
 
 export const MinuteHand = styled.div`
   ${HAND_CSS};
-  width: 4px;
-  height: 80px;
+  width: 0.25rem;
+  height: 5rem;
   background: ${black.m200};
 `;
 
 export const SecondHand = styled.div`
   ${HAND_CSS};
-  width: 2px;
-  height: 90px;
+  width: 0.15rem;
+  height: 5.5rem;
   background: ${red.m800};
 `;
 
