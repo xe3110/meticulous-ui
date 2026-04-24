@@ -1,5 +1,6 @@
 // Libraries
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 const noop = () => {};
 
 // helpers
@@ -23,7 +24,10 @@ export const ToastContainer = ({ toasts, ...rest }) => {
     <Toast {...{ type, title, subtitle }} key={id} onExpire={onExpire} />
   );
 
-  return <ToastsContainer {...rest}>{[...allToasts].reverse().map(renderToasts)}</ToastsContainer>;
+  return createPortal(
+    <ToastsContainer {...rest}>{[...allToasts].reverse().map(renderToasts)}</ToastsContainer>,
+    document.body
+  );
 };
 
 const remove = (setFadeOut, setShow, onExpire) => () => {

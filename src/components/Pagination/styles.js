@@ -68,7 +68,10 @@ export const Page = styled.button`
           cursor: auto;
           color: ${white};
           background-color: ${getShade(SELECTED_BG)};
-          outline-color: ${getShade(SELECTED_BG)};
+
+          &:focus-visible {
+            outline: 1px solid ${getShade(SELECTED_BG)};
+          }
         `
       : css`
           cursor: pointer;
@@ -81,6 +84,10 @@ export const Page = styled.button`
           &:active {
             background-color: ${getShade(ACTIVE_NOT_SELECTED_BG)};
             color: ${white};
+          }
+
+          &:focus-visible {
+            outline: 1px solid ${getShade(NOT_SELECTED_BG)};
           }
         `}
 `;
@@ -100,7 +107,10 @@ export const ArrowButton = styled.button`
   justify-content: center;
   border-radius: 50%;
   outline-offset: 2px;
-  outline-color: ${({ $shades }) => $shades?.['m600']};
+
+  &:focus-visible {
+    outline: 1px solid ${({ $shades }) => $shades?.['m600']};
+  }
 `;
 
 export const ClickableChevronLeft = styled(ChevronLeft)`
