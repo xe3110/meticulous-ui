@@ -79,7 +79,27 @@ const colors = [
 
 export const Colors = {
   name: 'Colors',
-  parameters: { controls: { disable: true }, actions: { disable: true } },
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+const colors = ['green', 'red', 'blue', 'brown', 'grey', 'indigo', 'orange', 'teal', 'violet', 'yellow'];
+
+<div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem' }}>
+  {colors.map((color) => (
+    <div key={color} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+      <Timer color={color} timerSeconds={45} />
+      <span style={{ fontSize: '12px' }}>{color}</span>
+    </div>
+  ))}
+</div>
+        `,
+      },
+    },
+  },
   render: () => (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem' }}>
       {colors.map((color) => (
@@ -97,7 +117,27 @@ export const Colors = {
 
 export const DigitalVsAnalog = {
   name: 'Digital vs Analog',
-  parameters: { controls: { disable: true }, actions: { disable: true } },
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+<div style={{ display: 'flex', gap: '2rem' }}>
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+    <Timer isDigital timerSeconds={45} />
+    <span style={{ fontSize: '12px' }}>Digital</span>
+  </div>
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+    <Timer isDigital={false} timerSeconds={45} />
+    <span style={{ fontSize: '12px' }}>Analog</span>
+  </div>
+</div>
+        `,
+      },
+    },
+  },
   render: () => (
     <div style={{ display: 'flex', gap: '2rem' }}>
       <div
@@ -120,7 +160,27 @@ const sizes = [10, 15, 20, 25, 30];
 
 export const Sizes = {
   name: 'Sizes',
-  parameters: { controls: { disable: true }, actions: { disable: true } },
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+const sizes = [10, 15, 20, 25, 30];
+
+<div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-end', gap: '2rem' }}>
+  {sizes.map((size, i) => (
+    <div key={size} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+      <Timer size={size} timerSeconds={45} isDigital={i % 2 === 0} />
+      <span style={{ fontSize: '12px' }}>size={size}</span>
+    </div>
+  ))}
+</div>
+        `,
+      },
+    },
+  },
   render: () => (
     <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-end', gap: '2rem' }}>
       {sizes.map((size, i) => (
