@@ -15,8 +15,8 @@ const TimerRing = ({ progress, size }) => {
   return (
     <SVG width={size * 11} height={size * 11}>
       <circle
-        cx={size * 5.5}
-        cy={size * 5.5}
+        cx='50%'
+        cy='50%'
         r={radius}
         stroke='rgba(255,255,255,.2)'
         strokeWidth={size * 0.2}
@@ -24,8 +24,8 @@ const TimerRing = ({ progress, size }) => {
       />
       <circle
         ref={circleRef}
-        cx={size * 5.5}
-        cy={size * 5.5}
+        cx='50%'
+        cy='50%'
         r={radius}
         stroke={white}
         strokeWidth={size * 0.2}
