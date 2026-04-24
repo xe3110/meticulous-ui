@@ -205,39 +205,43 @@ const Timer = ({
           />
         </>
       )}
-      <LeftActions $noActions={hasNoTimer} role='group' aria-label='Timer controls'>
-        <ActionBtn
-          type='button'
-          onClick={removeTimer}
-          aria-label='Stop timer'
-          aria-disabled={hasNoTimer}
-        >
-          <MediaStopFilledWrapper color={white} size={14} aria-hidden='true' />
-        </ActionBtn>
-        {hasNoTimer || !isPaused ? (
+      {timerSeconds > 0 && (
+        <LeftActions $noActions={hasNoTimer} role='group' aria-label='Timer controls'>
           <ActionBtn
             type='button'
-            onClick={pauseTimer}
-            aria-label='Pause timer'
+            onClick={removeTimer}
+            aria-label='Stop timer'
             aria-disabled={hasNoTimer}
           >
-            <MediaPauseFilledWrapper color={white} size={14} aria-hidden='true' />
+            <MediaStopFilledWrapper color={white} size={14} aria-hidden='true' />
           </ActionBtn>
-        ) : (
-          <ActionBtn type='button' onClick={playTimer} aria-label='Resume timer'>
-            <MediaPlayFilledWrapper color={white} size={14} aria-hidden='true' />
+          {hasNoTimer || !isPaused ? (
+            <ActionBtn
+              type='button'
+              onClick={pauseTimer}
+              aria-label='Pause timer'
+              aria-disabled={hasNoTimer}
+            >
+              <MediaPauseFilledWrapper color={white} size={14} aria-hidden='true' />
+            </ActionBtn>
+          ) : (
+            <ActionBtn type='button' onClick={playTimer} aria-label='Resume timer'>
+              <MediaPlayFilledWrapper color={white} size={14} aria-hidden='true' />
+            </ActionBtn>
+          )}
+        </LeftActions>
+      )}
+      {timerSeconds > 0 && (
+        <RightActions role='group' aria-label='Start timer'>
+          <ActionBtn
+            type='button'
+            onClick={setTimer}
+            aria-label={`Start ${timerSeconds} second timer`}
+          >
+            <AddWrapper color={white} size={20} aria-hidden='true' />
           </ActionBtn>
-        )}
-      </LeftActions>
-      <RightActions role='group' aria-label='Start timer'>
-        <ActionBtn
-          type='button'
-          onClick={setTimer}
-          aria-label={`Start ${timerSeconds} second timer`}
-        >
-          <AddWrapper color={white} size={20} aria-hidden='true' />
-        </ActionBtn>
-      </RightActions>
+        </RightActions>
+      )}
     </Wrapper>
   );
 };

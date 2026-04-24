@@ -87,7 +87,7 @@ export const DotsWrapper = styled.div`
 export const AllDots = styled.div`
   position: absolute;
   left: 1.6%;
-  top: 44%;
+  top: 43.8%;
   transform: translate(-50%, -50%) rotate(6.7deg);
 `;
 
