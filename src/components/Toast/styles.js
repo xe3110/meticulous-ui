@@ -1,11 +1,10 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import white from '../../colors/white';
 
 // Icons
 import Close from '../Icons/Close';
 import grey from '../../colors/grey';
-import { WARNING } from './constants';
 
 const outerRingGrow = keyframes`
   from { transform: scale(0); }
@@ -87,41 +86,13 @@ export const LogoContainer = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: ${white};
-
-  ${({ type, $main }) =>
-    type === WARNING
-      ? css`
-          top: 48%;
-          border-color: ${$main} ${$main} ${white} ${$main};
-          border-style: solid;
-          border-width: 0 1.44rem 2.24rem 1.44rem;
-          height: 0;
-          width: 0;
-        `
-      : css`
-          top: 50%;
-          width: 2.88rem;
-          height: 2.88rem;
-          border-radius: 50%;
-        `}
+  width: 2.88rem;
+  height: 2.88rem;
+  border-radius: 50%;
 
   @media screen and (max-width: 768px) {
-    ${({ type, $main }) =>
-      type === WARNING
-        ? css`
-            top: 48%;
-            border-color: ${$main} ${$main} ${white} ${$main};
-            border-style: solid;
-            border-width: 0 1.12rem 1.68rem 1.088rem;
-            height: 0;
-            width: 0;
-          `
-        : css`
-            top: 50%;
-            width: 2.16rem;
-            height: 2.16rem;
-            border-radius: 50%;
-          `}
+    width: 2.16rem;
+    height: 2.16rem;
   }
 `;
 
@@ -146,6 +117,9 @@ export const Icon = styled.div`
   transform: translate(-50%, -50%);
   width: ${({ size }) => size}rem;
   height: ${({ size }) => size}rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   @media screen and (max-width: 768px) {
     top: 42.8%;
