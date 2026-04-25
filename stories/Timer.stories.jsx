@@ -20,7 +20,7 @@ export default {
             timeZone='Asia/Kolkata'
             isDigital
             timerSeconds={61}
-            size={20}
+            size={30}
           />
         `,
       },
@@ -56,7 +56,7 @@ export const Default = (args) => <Timer {...args} />;
 Default.storyName = 'Timer';
 Default.args = {
   color: 'green',
-  size: 20,
+  size: 30,
   timerSeconds: 61,
   isDigital: true,
   showTime: true,
@@ -156,7 +156,7 @@ export const DigitalVsAnalog = {
   ),
 };
 
-const sizes = [10, 15, 20, 25, 30];
+const sizes = [16, 24, 30, 38, 45];
 
 export const Sizes = {
   name: 'Sizes',
@@ -167,7 +167,7 @@ export const Sizes = {
       source: {
         language: 'jsx',
         code: `
-const sizes = [10, 15, 20, 25, 30];
+const sizes = [16, 24, 30, 38, 45];
 
 <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-end', gap: '2rem' }}>
   {sizes.map((size, i) => (

@@ -136,7 +136,7 @@ const COLORS = ['blue', 'yellow', 'red', 'green', 'orange', 'black', 'grey', 'vi
 const DifferentColor = () => {
   const [vals, setVals] = useState(Object.fromEntries(COLORS.map((c) => [c, ''])));
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
       {COLORS.map((color) => (
         <Textarea
           key={color}
@@ -179,7 +179,7 @@ const DifferentColor = () => {
     const onChange11 = (v) => setVal11(v.target.value);
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
         <Textarea label='Blue' value={val1} color='blue' onChange={onChange1} />
         <Textarea label='Yellow' value={val2} color='yellow' onChange={onChange2} />
         <Textarea label='Red' value={val3} color='red' onChange={onChange3} />

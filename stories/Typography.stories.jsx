@@ -11,7 +11,7 @@ const TypographyWrapper = () => {
       <H4 color={red.m600}>This is Heading H4</H4>
       <H5 color={red.m600}>This is Heading H5</H5>
       <H6 color={red.m600}>This is Heading H6</H6>
-      <P color={red.m600} size={'0.8rem'}>
+      <P color={red.m600} size='1.2rem'>
         This is Paragraph P
       </P>
     </>
@@ -42,7 +42,7 @@ export default {
                 <H4 color={red.m600}>This is Heading H4</H4>
                 <H5 color={red.m600}>This is Heading H5</H5>
                 <H6 color={red.m600}>This is Heading H6</H6>
-                <P color={red.m600} size='0.8rem'>This is Paragraph P</P>
+                <P color={red.m600} size='1.2rem'>This is Paragraph P</P>
               </>
             );
           };

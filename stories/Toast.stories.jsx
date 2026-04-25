@@ -11,7 +11,7 @@ const P = styled.p`
   text-align: center;
   font-weight: 500;
   margin-bottom: 0;
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   color: ${grey.m600};
 `;
 
@@ -144,7 +144,7 @@ export default {
           };
 
           return (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.28rem' }}>
               <ToastContainer
                 toasts={toasts.map(({ id, type }) => ({
                   id,
@@ -153,16 +153,16 @@ export default {
                 }))}
                 setToasts={toastChangeHandler}
               />
-              <button style={{ width: '8rem', height: '2.4rem' }} onClick={popSuccess}>
+              <button style={{ width: '12.8rem', height: '3.84rem' }} onClick={popSuccess}>
                 <P>Success</P>
               </button>
-              <button style={{ width: '8rem', height: '2.4rem' }} onClick={popError}>
+              <button style={{ width: '12.8rem', height: '3.84rem' }} onClick={popError}>
                 <P>Error</P>
               </button>
-              <button style={{ width: '8rem', height: '2.4rem' }} onClick={popWarning}>
+              <button style={{ width: '12.8rem', height: '3.84rem' }} onClick={popWarning}>
                 <P>Warning</P>
               </button>
-              <button style={{ width: '8rem', height: '2.4rem' }} onClick={popInfo}>
+              <button style={{ width: '12.8rem', height: '3.84rem' }} onClick={popInfo}>
                 <P>Info</P>
               </button>
             </div>
@@ -215,7 +215,7 @@ export const Default = () => {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.28rem' }}>
       <ToastContainer
         toasts={toasts.map(({ id, type }) => ({
           id,
@@ -224,16 +224,16 @@ export const Default = () => {
         }))}
         setToasts={toastChangeHandler}
       />
-      <button style={{ width: '8rem', height: '2.4rem' }} onClick={popSuccess}>
+      <button style={{ width: '12.8rem', height: '3.84rem' }} onClick={popSuccess}>
         <P>Success</P>
       </button>
-      <button style={{ width: '8rem', height: '2.4rem' }} onClick={popError}>
+      <button style={{ width: '12.8rem', height: '3.84rem' }} onClick={popError}>
         <P>Error</P>
       </button>
-      <button style={{ width: '8rem', height: '2.4rem' }} onClick={popWarning}>
+      <button style={{ width: '12.8rem', height: '3.84rem' }} onClick={popWarning}>
         <P>Warning</P>
       </button>
-      <button style={{ width: '8rem', height: '2.4rem' }} onClick={popInfo}>
+      <button style={{ width: '12.8rem', height: '3.84rem' }} onClick={popInfo}>
         <P>Info</P>
       </button>
     </div>

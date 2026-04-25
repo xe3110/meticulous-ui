@@ -47,7 +47,7 @@ export const Default = (args) => {
   };
 
   return (
-    <div style={{ width: args?.width || '20rem', height: args?.height || '10rem' }}>
+    <div style={{ width: args?.width || '40rem', height: args?.height || '20rem' }}>
       <Shimmer label={args?.label} />
     </div>
   );
@@ -56,13 +56,13 @@ export const Default = (args) => {
 Default.storyName = 'Shimmer';
 
 Default.args = {
-  width: '20rem',
-  height: '10rem',
+  width: '40rem',
+  height: '20rem',
   label: 'Loading...',
 };
 
 export const CustomBorderRadius = (args) => (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
     <Shimmer width={args?.width} height={args?.height} borderRadius='0' />
     <Shimmer width={args?.width} height={args?.height} borderRadius='0.4rem' />
     <Shimmer width={args?.width} height={args?.height} borderRadius='1rem' />
@@ -73,8 +73,8 @@ export const CustomBorderRadius = (args) => (
 CustomBorderRadius.storyName = 'Custom Border Radius';
 
 CustomBorderRadius.args = {
-  width: '20rem',
-  height: '4rem',
+  width: '30rem',
+  height: '6rem',
 };
 
 CustomBorderRadius.parameters = {
@@ -85,11 +85,11 @@ CustomBorderRadius.parameters = {
         import Shimmer from 'meticulous-ui/components/Shimmer';
 
         export const CustomBorderRadius = () => (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <Shimmer width='20rem' height='4rem' borderRadius='0' />
-            <Shimmer width='20rem' height='4rem' borderRadius='0.4rem' />
-            <Shimmer width='20rem' height='4rem' borderRadius='1rem' />
-            <Shimmer width='20rem' height='4rem' borderRadius='50%' />
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            <Shimmer width='30rem' height='6rem' borderRadius='0' />
+            <Shimmer width='30rem' height='6rem' borderRadius='0.4rem' />
+            <Shimmer width='30rem' height='6rem' borderRadius='1rem' />
+            <Shimmer width='30rem' height='6rem' borderRadius='50%' />
           </div>
         );
       `,

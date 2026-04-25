@@ -34,8 +34,8 @@ const Selectbox = ({
   options,
   onChange,
   value = [],
-  width = '20rem',
-  menuHeight = '20rem',
+  width = '32rem',
+  menuHeight = '32rem',
   placeholder,
   theme = 'blue',
   isDisabled,
@@ -216,7 +216,7 @@ const Selectbox = ({
         role='option'
         aria-selected={isChecked}
         aria-disabled={disabled || undefined}
-        $width={`calc(${width} + 1rem)`}
+        $width={`calc(${width} + 1.6rem)`}
         $isHighlighted={index === activeIndex}
         $isDisabled={disabled}
         $hoverColor={hoverColor}
@@ -274,7 +274,7 @@ const Selectbox = ({
         aria-disabled={isDisabled || undefined}
         aria-activedescendant={activeIndex !== -1 ? getOptionId(activeIndex) : undefined}
       >
-        <PWrapper $width={width} color={value.length > 0 ? grey.m700 : grey.m500} size='1.2rem'>
+        <PWrapper $width={width} color={value.length > 0 ? grey.m700 : grey.m500} size='1.92rem'>
           {displayLabel}
         </PWrapper>
         <ChevronDownWrapper color={grey.m500} size={22} $isOpen={isOpen} aria-hidden />

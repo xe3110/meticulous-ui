@@ -18,14 +18,14 @@ const getLogoImage = (type, main) => {
 
 const getLogoContainerSize = (type) => {
   if (type === ERROR) {
-    return 1;
+    return 1.6;
   }
 
   if (type === SUCCESS) {
-    return 1.1;
+    return 1.76;
   }
 
-  return 1.3;
+  return 2.08;
 };
 
 export const Logo = ({ type, $main, $side }) => {

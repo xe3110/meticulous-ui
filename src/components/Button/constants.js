@@ -5,23 +5,23 @@ export const EX_LARGE = 'ex-large';
 
 export const SIZE = {
   [SMALL]: {
-    height: 2.8,
-    width: 5.25,
-    font: 1,
+    height: 4.48,
+    width: 8.4,
+    font: 1.6,
   },
   [MEDIUM]: {
-    height: 3.2,
-    width: 6,
-    font: 1.2,
+    height: 5.12,
+    width: 9.6,
+    font: 1.92,
   },
   [LARGE]: {
-    height: 3.6,
-    width: 6.75,
-    font: 1.4,
+    height: 5.76,
+    width: 10.8,
+    font: 2.24,
   },
   [EX_LARGE]: {
-    height: 4,
-    width: 7.5,
-    font: 1.6,
+    height: 6.4,
+    width: 12,
+    font: 2.56,
   },
 };

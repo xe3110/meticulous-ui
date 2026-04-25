@@ -109,7 +109,7 @@ const Sizes = () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
       {SIZES.map(({ size, label }) => (
         <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-          <H6 style={{ width: '5rem' }}>{`${label}:`}</H6>
+          <H6 style={{ width: '8rem' }}>{`${label}:`}</H6>
           <Loader size={size} />
         </div>
       ))}
@@ -134,7 +134,7 @@ const THEMES = ['blue', 'green', 'red', 'yellow', 'orange', 'black', 'grey', 'vi
 const Themes = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
     {THEMES.map((theme) => (
-      <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+      <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '5rem' }}>
         <H6 style={{ width: '5rem', textTransform: 'capitalize' }}>{theme}:</H6>
         <Loader theme={theme} />
       </div>
@@ -148,7 +148,7 @@ const Themes = () => (
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
       {THEMES.map((theme) => (
-        <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+        <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '5rem' }}>
           <H6 style={{ width: '5rem', textTransform: 'capitalize' }}>{theme}:</H6>
           <Loader theme={theme} />
         </div>
@@ -178,7 +178,7 @@ const SIZES = [
 const BounceAnimation = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
     {SIZES.map(({ size, label }) => (
-      <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+      <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '4rem' }}>
         <H6 style={{ width: '5rem' }}>{label}:</H6>
         <Loader size={size} isBounce />
       </div>
@@ -192,7 +192,7 @@ const BounceAnimation = () => (
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
       {SIZES.map(({ size, label }) => (
-        <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+        <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '4rem' }}>
           <H6 style={{ width: '5rem' }}>{`${label}:`}</H6>
           <Loader size={size} isBounce />
         </div>
@@ -218,7 +218,7 @@ const THEMES = ['blue', 'green', 'red', 'yellow', 'orange', 'black', 'grey', 'vi
 const BounceThemes = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
     {THEMES.map((theme) => (
-      <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+      <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '5rem' }}>
         <H6 style={{ width: '5rem', textTransform: 'capitalize' }}>{theme}:</H6>
         <Loader theme={theme} isBounce />
       </div>
@@ -232,7 +232,7 @@ const BounceThemes = () => (
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
       {THEMES.map((theme) => (
-        <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+        <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '5rem' }}>
           <H6 style={{ width: '5rem', textTransform: 'capitalize' }}>{theme}:</H6>
           <Loader theme={theme} isBounce />
         </div>
@@ -262,7 +262,7 @@ const SIZES = [
 const Mini = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
     {SIZES.map(({ size, label }) => (
-      <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+      <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '4rem' }}>
         <H6 style={{ width: '5rem' }}>{label}:</H6>
         <Loader size={size} isMini />
       </div>
@@ -276,7 +276,7 @@ const Mini = () => (
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
       {SIZES.map(({ size, label }) => (
-        <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+        <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '4rem' }}>
           <H6 style={{ width: '5rem' }}>{`${label}:`}</H6>
           <Loader size={size} isMini />
         </div>
@@ -302,7 +302,7 @@ const THEMES = ['blue', 'green', 'red', 'yellow', 'orange', 'black', 'grey', 'vi
 const MiniThemes = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
     {THEMES.map((theme) => (
-      <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+      <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '5rem' }}>
         <H6 style={{ width: '5rem', textTransform: 'capitalize' }}>{theme}:</H6>
         <Loader theme={theme} isMini />
       </div>
@@ -316,7 +316,7 @@ const MiniThemes = () => (
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
       {THEMES.map((theme) => (
-        <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+        <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '5rem' }}>
           <H6 style={{ width: '5rem', textTransform: 'capitalize' }}>{theme}:</H6>
           <Loader theme={theme} isMini />
         </div>
@@ -346,7 +346,7 @@ const SIZES = [
 const MiniBounce = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
     {SIZES.map(({ size, label }) => (
-      <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+      <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '4rem' }}>
         <H6 style={{ width: '5rem' }}>{label}:</H6>
         <Loader size={size} isMini isBounce />
       </div>
@@ -360,7 +360,7 @@ const MiniBounce = () => (
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
       {SIZES.map(({ size, label }) => (
-        <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+        <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '4rem' }}>
           <H6 style={{ width: '5rem' }}>{`${label}:`}</H6>
           <Loader size={size} isMini isBounce />
         </div>
@@ -386,7 +386,7 @@ const THEMES = ['blue', 'green', 'red', 'yellow', 'orange', 'black', 'grey', 'vi
 const MiniBounceThemes = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
     {THEMES.map((theme) => (
-      <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+      <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '5rem' }}>
         <H6 style={{ width: '5rem', textTransform: 'capitalize' }}>{theme}:</H6>
         <Loader theme={theme} isMini isBounce />
       </div>
@@ -400,7 +400,7 @@ const MiniBounceThemes = () => (
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
       {THEMES.map((theme) => (
-        <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+        <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '5rem' }}>
           <H6 style={{ width: '5rem', textTransform: 'capitalize' }}>{theme}:</H6>
           <Loader theme={theme} isMini isBounce />
         </div>
@@ -430,7 +430,7 @@ const SIZES = [
 const MiniDark = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
     {SIZES.map(({ size, label }) => (
-      <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+      <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '4rem' }}>
         <H6 style={{ width: '5rem' }}>{label}:</H6>
         <Loader size={size} isMiniDark />
       </div>
@@ -444,7 +444,7 @@ const MiniDark = () => (
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
       {SIZES.map(({ size, label }) => (
-        <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+        <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '4rem' }}>
           <H6 style={{ width: '5rem' }}>{`${label}:`}</H6>
           <Loader size={size} isMiniDark />
         </div>
@@ -470,7 +470,7 @@ const THEMES = ['blue', 'green', 'red', 'yellow', 'orange', 'black', 'grey', 'vi
 const MiniDarkThemes = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
     {THEMES.map((theme) => (
-      <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+      <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '5rem' }}>
         <H6 style={{ width: '5rem', textTransform: 'capitalize' }}>{theme}:</H6>
         <Loader theme={theme} isMiniDark />
       </div>
@@ -484,7 +484,7 @@ const MiniDarkThemes = () => (
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
       {THEMES.map((theme) => (
-        <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+        <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '5rem' }}>
           <H6 style={{ width: '5rem', textTransform: 'capitalize' }}>{theme}:</H6>
           <Loader theme={theme} isMiniDark />
         </div>
@@ -514,7 +514,7 @@ const SIZES = [
 const MiniDarkBounce = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
     {SIZES.map(({ size, label }) => (
-      <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+      <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '4rem' }}>
         <H6 style={{ width: '5rem' }}>{label}:</H6>
         <Loader size={size} isMiniDark isBounce />
       </div>
@@ -528,7 +528,7 @@ const MiniDarkBounce = () => (
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
       {SIZES.map(({ size, label }) => (
-        <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+        <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '4rem' }}>
           <H6 style={{ width: '5rem' }}>{`${label}:`}</H6>
           <Loader size={size} isMiniDark isBounce />
         </div>
@@ -554,7 +554,7 @@ const THEMES = ['blue', 'green', 'red', 'yellow', 'orange', 'black', 'grey', 'vi
 const MiniDarkBounceThemes = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
     {THEMES.map((theme) => (
-      <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+      <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '5rem' }}>
         <H6 style={{ width: '5rem', textTransform: 'capitalize' }}>{theme}:</H6>
         <Loader theme={theme} isMiniDark isBounce />
       </div>
@@ -568,7 +568,7 @@ const MiniDarkBounceThemes = () => (
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', margin: '1rem 2rem' }}>
       {THEMES.map((theme) => (
-        <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+        <div key={theme} style={{ display: 'flex', alignItems: 'center', gap: '5rem' }}>
           <H6 style={{ width: '5rem', textTransform: 'capitalize' }}>{theme}:</H6>
           <Loader theme={theme} isMiniDark isBounce />
         </div>

@@ -4,9 +4,9 @@ import grey from '../../colors/grey';
 export const ButtonWrapper = styled.button`
   height: ${({ $height }) => $height}rem;
   width: ${({ $width }) => $width}rem;
-  border-radius: 0.6rem;
+  border-radius: 0.96rem;
   border: none;
-  padding: 0.6rem 0.4rem;
+  padding: 0.96rem 0.64rem;
   background-color: ${({ $selectedColor, disabled }) => (disabled ? grey.m500 : $selectedColor)};
   cursor: ${({ disabled, $isLoading }) =>
     disabled ? 'not-allowed' : $isLoading ? 'auto' : 'pointer'};
@@ -47,7 +47,7 @@ export const ButtonContainer = styled.div`
   width: ${({ $width }) => $width}rem;
   display: inline-block;
   position: relative;
-  border-radius: 0.6rem;
+  border-radius: 0.96rem;
 
   ${({ disabled, $isLoading }) =>
     !(disabled || $isLoading) &&

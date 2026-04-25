@@ -33,8 +33,8 @@ const Dropdown = ({
   options,
   onChange,
   value,
-  width = '20rem',
-  menuHeight = '20rem',
+  width = '32rem',
+  menuHeight = '32rem',
   placeholder,
   theme = 'blue',
   isLoading,
@@ -292,7 +292,7 @@ const Dropdown = ({
         $border={border}
         $isFocused={isFocused && !isOpen}
       >
-        <PWrapper $width={width} color={!!value ? grey.m700 : grey.m500} size='1.2rem'>
+        <PWrapper $width={width} color={!!value ? grey.m700 : grey.m500} size='1.92rem'>
           {value ? options.find(({ value: opt }) => value === opt)?.label : placeholder}
         </PWrapper>
         <ChevronDownWrapper color={grey.m500} size={22} $isOpen={isOpen} aria-hidden />

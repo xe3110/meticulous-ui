@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const H3Wrapper = styled.h3`
   color: ${({ $color }) => $color};
-  font-size: 2.4rem;
+  font-size: 3.84rem;
 `;
 
 const H3 = ({ color, children, ...rest }) => {

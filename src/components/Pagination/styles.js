@@ -93,7 +93,8 @@ export const Page = styled.button`
 `;
 
 export const Ellipsis = styled.span`
-  color: ${grey.m500};
+  color: ${grey.m700};
+  font-size: 1.4rem;
   user-select: none;
 `;
 

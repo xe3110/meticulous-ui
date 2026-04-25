@@ -5,9 +5,9 @@ import white from '../../colors/white';
 import grey from '../../colors/grey';
 
 const SIZE_PARAMS = {
-  small: { strokeWidth: 6, $length: '1rem' },
-  medium: { strokeWidth: 5, $length: '2rem' },
-  large: { strokeWidth: 5, $length: '3rem' },
+  small: { strokeWidth: 6, $length: '2.4rem' },
+  medium: { strokeWidth: 5, $length: '3.6rem' },
+  large: { strokeWidth: 5, $length: '5rem' },
 };
 
 const Spinner = ({ color = 'green', size = 'medium', ...rest }) => {

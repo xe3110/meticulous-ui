@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 1.28rem;
   width: max-content;
   position: relative;
 
@@ -19,10 +19,10 @@ export const Wrapper = styled.div`
 `;
 
 export const Box = styled(Check)`
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.92rem;
+  height: 1.92rem;
   border: 1px solid ${({ $value, $outerShade }) => ($value ? $outerShade : grey.m800)};
-  border-radius: 0.2rem;
+  border-radius: 0.32rem;
   background-color: ${({ $value, $innerShade }) => ($value ? $innerShade : 'transparent')};
   transition:
     background-color 0.5s ease,

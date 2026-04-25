@@ -13,8 +13,8 @@ export const Wrapper = styled.div`
 
   cursor: ${({ $isSelected, $isDisabled }) =>
     $isSelected ? 'auto' : $isDisabled ? 'not-allowed' : 'pointer'};
-  padding: 0.6rem 0 0.8rem 1rem;
-  margin-top: 0.1rem;
+  padding: 0.96rem 0 1.28rem 1.6rem;
+  margin-top: 0.16rem;
   pointer-events: ${({ $isDisabled }) => ($isDisabled ? 'none' : 'auto')};
 
   &:active {
@@ -27,5 +27,5 @@ export const PWrapper = styled(P)`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  max-width: calc(${({ $width }) => $width} - 2rem);
+  max-width: calc(${({ $width }) => $width} - 3.2rem);
 `;

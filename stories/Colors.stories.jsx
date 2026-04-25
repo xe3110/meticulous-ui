@@ -9,6 +9,7 @@ const P = styled.p`
   margin-left: 1rem;
   margin-top: 1.6rem;
   font-weight: 600;
+  font-size: 1.6rem;
   margin-bottom: 0;
 `;
 
@@ -20,14 +21,15 @@ const Wrapper = styled.div`
 
 const Block = styled.div`
   position: relative;
-  width: 6rem;
-  height: 6rem;
+  width: 10rem;
+  height: 10rem;
   background-color: ${({ clr }) => clr};
 `;
 
 const ShadeName = styled.div`
   position: absolute;
   bottom: 0.4rem;
+  font-size: 1.6rem;
   left: 0;
   text-align: center;
   width: 100%;

@@ -173,7 +173,7 @@ const DifferentColor = () => {
     const onChange11 = (v) => setVal11(v.target.value);
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
         <Input label='Blue' value={val1} color='blue' size='30' onChange={onChange1} />
         <Input label='Yellow' value={val2} color='yellow' size='30' onChange={onChange2} />
         <Input label='Red' value={val3} color='red' size='30' onChange={onChange3} />
@@ -249,7 +249,7 @@ export const Disabled = {
 import Input from 'meticulous-ui/components/Input/Input';
 
 const Disabled = () => (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
     <Input label='Disabled without value' value='' color='blue' size='30' onChange={() => {}} disabled />
     <Input label='Disabled with value' value='Default value' color='blue' size='30' onChange={() => {}} disabled />
   </div>
@@ -266,7 +266,7 @@ const Disabled = () => (
     const onChange2 = (v) => setVal2(v.target.value);
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
         <Input
           label='Disabled without value'
           value={val1}

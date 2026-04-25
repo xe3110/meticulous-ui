@@ -14,6 +14,6 @@ export const Wrapper = styled.fieldset`
           justify-content: space-between;
         `
       : css`
-          gap: 1.2rem;
+          gap: 1.92rem;
         `};
 `;

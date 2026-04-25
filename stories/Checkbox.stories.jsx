@@ -102,7 +102,7 @@ const ColorCheckbox = ({ color }) => {
 };
 
 const MultipleColors = () => (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
     {COLORS.map((color) => (
       <ColorCheckbox key={color} color={color} />
     ))}
@@ -114,7 +114,7 @@ const MultipleColors = () => (
   },
   render: () => {
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
         {[
           'blue',
           'green',

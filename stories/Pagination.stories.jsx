@@ -152,10 +152,10 @@ const ThemePagination = ({ theme }) => {
 };
 
 const DifferentColors = () => (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
     {THEMES.map((theme) => (
       <div key={theme}>
-        <p style={{ width: '100%', textAlign: 'center', fontWeight: 600 }}>{theme.toUpperCase()}</p>
+        <p style={{ width: '100%', textAlign: 'center', fontWeight: 600, fontSize: '1.6rem' }}>{theme.toUpperCase()}</p>
         <ThemePagination theme={theme} />
       </div>
     ))}
@@ -175,7 +175,7 @@ const DifferentColors = () => (
     const totalPages = 50;
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
         <div>
           <P>RED</P>
           <Pagination
@@ -387,8 +387,9 @@ const Disabled = () => {
 const P = styled.p`
   width: 100%;
   text-align: center;
-  margin-top: 1.6rem;
+  margin-top: 2.4rem;
   font-weight: 600;
+  font-size: 1.6rem;
 `;
 
 Default.args = {

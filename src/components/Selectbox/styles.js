@@ -38,13 +38,13 @@ export const SelectBoxWrapper = styled.div`
 `;
 
 export const Box = styled.div`
-  height: 2rem;
+  height: 3.2rem;
   width: ${({ $width }) => $width};
-  border-radius: 0.6rem;
+  border-radius: 0.96rem;
   outline: none;
   border: ${({ $isOpen, $isFocused, $border }) =>
     $isOpen || $isFocused ? `2px solid ${$border}` : `1px solid ${DEFAULT_BORDER}`};
-  padding: 0.4rem 0.6rem 0.4rem;
+  padding: 0.64rem 0.96rem 0.64rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -55,7 +55,7 @@ export const PWrapper = styled(P)`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  max-width: calc(${({ $width }) => $width} - 2rem);
+  max-width: calc(${({ $width }) => $width} - 3.2rem);
   pointer-events: none;
 `;
 
@@ -66,13 +66,13 @@ export const ChevronDownWrapper = styled(ChevronDown)`
 
 export const OptionWrapper = styled.div`
   border: 1px solid ${grey.m700};
-  width: calc(${({ $width }) => $width} + 1rem);
+  width: calc(${({ $width }) => $width} + 1.6rem);
   display: flex;
   flex-direction: column;
   position: absolute;
   z-index: 1000;
   background-color: ${white};
-  left: 0.15rem;
+  left: 0.24rem;
   max-height: 0;
   transition: max-height 0.15s ease-out;
   opacity: 0;
@@ -90,15 +90,15 @@ export const OptionWrapper = styled.div`
       ? css`
           bottom: 100%;
           flex-direction: column-reverse;
-          border-top-right-radius: 0.6rem;
-          border-top-left-radius: 0.6rem;
-          margin-bottom: 0.1rem;
+          border-top-right-radius: 0.96rem;
+          border-top-left-radius: 0.96rem;
+          margin-bottom: 0.16rem;
         `
       : css`
           top: 100%;
-          border-bottom-right-radius: 0.6rem;
-          border-bottom-left-radius: 0.6rem;
-          margin-top: 0.1rem;
+          border-bottom-right-radius: 0.96rem;
+          border-bottom-left-radius: 0.96rem;
+          margin-top: 0.16rem;
         `}
 `;
 
@@ -113,11 +113,11 @@ export const CheckboxItem = styled.div`
   background-color: ${({ $isHighlighted, $hoverColor }) =>
     $isHighlighted ? $hoverColor : 'transparent'};
   cursor: ${({ $isDisabled }) => ($isDisabled ? 'not-allowed' : 'pointer')};
-  padding: 0.6rem 1rem 0.8rem;
-  margin-top: 0.1rem;
+  padding: 0.96rem 1.6rem 1.28rem;
+  margin-top: 0.16rem;
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.96rem;
   pointer-events: ${({ $isDisabled }) => ($isDisabled ? 'none' : 'auto')};
 
   &:active {
@@ -141,8 +141,8 @@ export const SearchInput = styled.input`
   width: 100%;
   box-sizing: border-box;
   border: none;
-  padding: 0.5rem 0.75rem 0.5rem 0;
-  font-size: 1.2rem;
+  padding: 0.8rem 1.2rem 0.8rem 0;
+  font-size: 1.92rem;
   color: ${grey.m700};
   background: transparent;
   outline: none;
@@ -153,20 +153,20 @@ export const SearchInput = styled.input`
 `;
 
 export const SearchIcon = styled(Search)`
-  margin: 0 0.8rem;
+  margin: 0 1.28rem;
 `;
 
 export const SpinnerWrapper = styled.div`
   position: absolute;
-  top: 0.8rem;
-  right: 1.2rem;
+  top: 1.28rem;
+  right: 1.92rem;
 `;
 
 export const LoadMoreSentinel = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem 0;
-  min-height: 1rem;
+  padding: 1.6rem 0;
+  min-height: 1.6rem;
   width: 100%;
 `;

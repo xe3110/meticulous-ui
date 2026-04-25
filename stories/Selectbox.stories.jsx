@@ -91,8 +91,8 @@ export const Default = (args) => {
 
 Default.args = {
   theme: 'blue',
-  width: '20rem',
-  menuHeight: '20rem',
+  width: '30rem',
+  menuHeight: '30rem',
   isDisabled: false,
   placeholder: 'Select cities',
   searchable: false,

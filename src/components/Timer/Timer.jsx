@@ -56,7 +56,7 @@ const Timer = ({
   onTimerRemove = noop,
   onTimerPause = noop,
   onTimerPlay = noop,
-  size = 20,
+  size = 30,
   ...rest
 }) => {
   const [time, setTime] = useState(new Date());

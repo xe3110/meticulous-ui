@@ -516,8 +516,8 @@ const Themes = () => (
 
 Default.args = {
   theme: 'blue',
-  width: '20rem',
-  menuHeight: '20rem',
+  width: '32rem',
+  menuHeight: '32rem',
   loaderColor: 'green',
   isLoading: false,
   isDisabled: false,

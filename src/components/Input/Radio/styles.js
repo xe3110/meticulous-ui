@@ -3,8 +3,8 @@ import grey from '../../../colors/grey';
 
 export const Circle = styled.div`
   position: absolute;
-  width: 0.7rem;
-  height: 0.7rem;
+  width: 1.12rem;
+  height: 1.12rem;
   border-radius: 50%;
   left: 50%;
   top: 50%;
@@ -14,8 +14,8 @@ export const Circle = styled.div`
 `;
 
 export const CircleBorder = styled.div`
-  width: 1.1rem;
-  height: 1.1rem;
+  width: 1.76rem;
+  height: 1.76rem;
   border: 1px solid ${({ $isSelected, $shade }) => ($isSelected ? $shade : grey.m900)};
   border-radius: 50%;
   position: relative;
@@ -39,7 +39,7 @@ export const HiddenInput = styled.input`
 export const Wrapper = styled.label`
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 1.28rem;
   width: max-content;
 
   &:focus-within ${CircleBorder} {

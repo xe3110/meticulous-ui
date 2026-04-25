@@ -44,16 +44,16 @@ export const getIcon = (icon) => allIcons[icon] ?? null;
 
 export const getPadding = ({ $hasLeftIcon, $hasRightIcon }) => {
   if ($hasLeftIcon && $hasRightIcon) {
-    return '0 2.4rem';
+    return '0 3.84rem';
   }
 
   if ($hasLeftIcon) {
-    return '0 0.6rem 0 2.4rem';
+    return '0 0.96rem 0 3.84rem';
   }
 
   if ($hasRightIcon) {
-    return '0 2.4rem 0 0.6rem';
+    return '0 3.84rem 0 0.96rem';
   }
 
-  return '0 0.6rem';
+  return '0 0.96rem';
 };

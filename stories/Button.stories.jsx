@@ -177,7 +177,7 @@ const DifferentSizes = () => (
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            width: '15rem',
+            width: '25rem',
           }}
         >
           <H6>{`${label}:`}</H6>
@@ -277,6 +277,6 @@ const DifferentThemes = () => (
 Default.args = {
   theme: 'blue',
   size: 'medium',
-  width: 6,
+  width: 9,
   textColor: '',
 };

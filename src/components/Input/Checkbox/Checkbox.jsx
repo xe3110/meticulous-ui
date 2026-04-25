@@ -68,7 +68,7 @@ const Checkbox = ({
         $outerShade={outerShade}
         aria-hidden='true'
       />
-      <P color={textColor} size='1.2rem'>
+      <P color={textColor} size='1.92rem'>
         {label}
       </P>
     </Wrapper>

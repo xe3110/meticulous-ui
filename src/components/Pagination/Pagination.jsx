@@ -121,11 +121,11 @@ const Pagination = ({
       <PrevArrow {...{ iconSize, shades, setPrevPage }} />
       <MiddleLayer size={`${9 * individualRemSize}rem`}>
         {[1, 2].map(renderPageNum({ size, selected: pageNumber, shades, changePage }))}
-        {renderThreeDots()}
+        {pageNumber > 4 && renderThreeDots()}
         {[pageNumber - 1, pageNumber, pageNumber + 1].map(
           renderPageNum({ size, selected: pageNumber, shades, changePage })
         )}
-        {renderThreeDots()}
+        {pageNumber < totalPages - 3 && renderThreeDots()}
         {[totalPages - 1, totalPages].map(
           renderPageNum({ size, selected: pageNumber, shades, changePage })
         )}

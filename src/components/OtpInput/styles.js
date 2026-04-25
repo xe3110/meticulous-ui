@@ -4,19 +4,19 @@ import grey from '../../colors/grey';
 export const OTPWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.64rem;
 
   @media screen and (max-width: 768px) {\
-    gap: 0.2rem;
+    gap: 0.32rem;
   }
 `;
 
 export const Input = styled.input`
-  height: 2rem;
-  width: 2rem;
-  font-size: 1.2rem;
+  height: 3.2rem;
+  width: 3.2rem;
+  font-size: 1.92rem;
   text-align: center;
   color: ${grey.m600};
   border: 1px solid ${grey.m800};
-  border-radius: 0.2rem;
+  border-radius: 0.32rem;
 `;

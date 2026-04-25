@@ -5,9 +5,9 @@ import red from '../../../colors/red';
 import { getCssShade, getPadding } from './helpers';
 
 export const InputBox = styled.input`
-  height: 3rem;
-  border-radius: 0.4rem;
-  font-size: 1.4rem;
+  height: 4.8rem;
+  border-radius: 0.64rem;
+  font-size: 2.24rem;
   border: 2px solid ${({ $hasError }) => ($hasError ? red.m400 : black.m200)};
   padding: ${getPadding};
   font-weight: 400;
@@ -27,7 +27,7 @@ export const InputBox = styled.input`
   &::placeholder {
     color: ${grey.m500};
     font-weight: 300;
-    font-size: 1.4rem;
+    font-size: 2.24rem;
     background-color: ${({ $background }) => $background};
     pointer-events: none;
   }
@@ -40,9 +40,9 @@ export const InputBox = styled.input`
 `;
 
 export const HelperText = styled.p`
-  margin-top: 0.4rem;
-  margin-left: 0.4rem;
-  font-size: 0.8rem;
+  margin-top: 0.64rem;
+  margin-left: 0.64rem;
+  font-size: 1.28rem;
   color: ${getCssShade};
 `;
 
@@ -53,14 +53,14 @@ export const Wrapper = styled.div`
 
 export const LeftIconWrapper = styled.div`
   position: absolute;
-  top: 0.8rem;
-  left: 0.6rem;
+  top: 1.28rem;
+  left: 0.96rem;
 `;
 
 export const RightIconWrapper = styled.div`
   position: absolute;
-  top: 0.8rem;
-  right: 0.6rem;
+  top: 1.28rem;
+  right: 0.96rem;
 `;
 
 export const RightIconParent = styled.div`
@@ -70,12 +70,12 @@ export const RightIconParent = styled.div`
 
 export const Label = styled.div`
   position: absolute;
-  top: -0.4rem;
-  left: 0.5rem;
-  font-size: 0.8rem;
+  top: -0.64rem;
+  left: 0.8rem;
+  font-size: 1.28rem;
   background-color: ${({ $outerBackground }) => $outerBackground};
-  border-radius: 0.4rem;
-  margin: 0 0.4rem;
+  border-radius: 0.64rem;
+  margin: 0 0.64rem;
   transition: 0.25s;
   font-weight: 400;
   pointer-events: none;
@@ -84,14 +84,14 @@ export const Label = styled.div`
   ${({ $isFocused, value, $onlyPh }) =>
     !$onlyPh && ($isFocused || value)
       ? css`
-          top: -0.4rem;
-          left: ${({ $hasLeftIcon }) => ($hasLeftIcon ? 2.2 : 0.5)}rem;
-          padding: 0 0.4rem;
+          top: -0.64rem;
+          left: ${({ $hasLeftIcon }) => ($hasLeftIcon ? 3.52 : 0.8)}rem;
+          padding: 0 0.64rem;
           margin: 0;
         `
       : css`
-          top: 0.8rem;
-          left: ${({ $hasLeftIcon }) => ($hasLeftIcon ? 2.2 : 0.5)}rem;
-          font-size: 1.4rem;
+          top: 1.28rem;
+          left: ${({ $hasLeftIcon }) => ($hasLeftIcon ? 3.52 : 0.8)}rem;
+          font-size: 2.24rem;
         `}
 `;

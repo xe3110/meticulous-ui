@@ -3,9 +3,9 @@ export const MEDIUM = 'medium';
 export const LARGE = 'large';
 
 export const SIZE = {
-  [SMALL]: { dot: '0.5rem', gap: '0.3rem' },
-  [MEDIUM]: { dot: '0.75rem', gap: '0.5rem' },
-  [LARGE]: { dot: '1rem', gap: '0.7rem' },
+  [SMALL]: { dot: '0.8rem', gap: '0.48rem' },
+  [MEDIUM]: { dot: '1.2rem', gap: '0.8rem' },
+  [LARGE]: { dot: '1.6rem', gap: '1.12rem' },
 };
 
 export const BLUE = 'blue';

@@ -108,7 +108,7 @@ const OPTIONS = [
 const Horizontal = () => {
   const [val, setVal] = useState('');
   return (
-    <div style={{ width: '40rem' }}>
+    <div style={{ width: '80rem' }}>
       <RadioGroup value={val} options={OPTIONS} onChange={setVal} isHorizonatal />
     </div>
   );
@@ -125,7 +125,7 @@ const Horizontal = () => {
     };
 
     return (
-      <div style={{ width: '40rem' }}>
+      <div style={{ width: '80rem' }}>
         <RadioGroup value={val} options={OPTIONS} onChange={onChange} isHorizonatal />
       </div>
     );

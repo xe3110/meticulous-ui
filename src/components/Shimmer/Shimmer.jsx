@@ -8,7 +8,7 @@ const toRem = (val) => {
 const Shimmer = ({
   width = '100%',
   height = '100%',
-  borderRadius = '0.4rem',
+  borderRadius = '0.64rem',
   label = 'Loading...',
   ...rest
 }) => {

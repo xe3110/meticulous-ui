@@ -59,7 +59,7 @@ const Button = (props) => {
     >
       {isLoading ? (
         <SpinnerWrapper>
-          <Spinner size='medium' color={textColor || txtClr} />
+          <Spinner size='small' color={textColor || txtClr} />
         </SpinnerWrapper>
       ) : (
         <Content

@@ -10,7 +10,7 @@ const P = styled.p`
   text-align: center;
   font-weight: 500;
   margin-bottom: 0;
-  font-size: 1.2rem;
+  font-size: 2rem;
   color: ${grey.m600};
 `;
 
@@ -18,14 +18,14 @@ const IconsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 3rem;
+  gap: 5rem;
 `;
 
 const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 14rem;
+  width: 22rem;
 `;
 
 const renderIcon = (name) => {

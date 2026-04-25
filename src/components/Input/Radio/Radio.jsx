@@ -39,7 +39,7 @@ const Radio = ({
       <CircleBorder aria-hidden='true' $isSelected={isSelected} $shade={outerShade}>
         <Circle $isSelected={isSelected} $shade={innerShade} />
       </CircleBorder>
-      <P color={textColor} size='1.2rem'>
+      <P color={textColor} size='1.92rem'>
         {label}
       </P>
     </Wrapper>
