@@ -39,7 +39,7 @@ const SIZES = [
 const rowStyle = {
   display: 'flex',
   alignItems: 'center',
-  gap: '1rem',
+  gap: '4rem',
   marginBottom: '0.75rem',
 };
 
@@ -304,9 +304,9 @@ import { Link } from 'meticulous-ui/components/Icons';
 const Width = () => (
   <>
     {[
-      { width: 6, label: 'Upload' },
-      { width: 10, label: 'Upload now' },
-      { width: 14, label: 'Upload all files' },
+      { width: 10, label: 'Upload' },
+      { width: 14, label: 'Upload now' },
+      { width: 16, label: 'Upload all files' },
       { width: 20, label: 'Upload all files here' },
     ].map(({ width, label }) => (
       <div key={width} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
@@ -323,9 +323,9 @@ const Width = () => (
   render: () => (
     <>
       {[
-        { width: 6, label: 'Upload' },
-        { width: 10, label: 'Upload now' },
-        { width: 14, label: 'Upload all files' },
+        { width: 10, label: 'Upload' },
+        { width: 14, label: 'Upload now' },
+        { width: 16, label: 'Upload all files' },
         { width: 20, label: 'Upload all files here' },
       ].map(({ width, label }) => (
         <div key={width} style={rowStyle}>
@@ -352,7 +352,7 @@ import { H6 } from 'meticulous-ui/components/Typography/Headings';
 import { Link } from 'meticulous-ui/components/Icons';
 
 const MultipleFiles = () => (
-  <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+  <div style={{ display: 'flex', gap: '5rem', alignItems: 'center' }}>
     <div>
       <H6 style={{ marginBottom: '0.5rem' }}>Single file</H6>
       <FileUploader label='Upload' prefixIcon={Link} isMultiple={false} />
@@ -368,7 +368,7 @@ const MultipleFiles = () => (
     },
   },
   render: () => (
-    <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+    <div style={{ display: 'flex', gap: '5rem', alignItems: 'center' }}>
       <div>
         <H6 style={{ marginBottom: '0.5rem' }}>Single file</H6>
         <FileUploader label='Upload' prefixIcon={icons.Link} isMultiple={false} />
@@ -479,7 +479,7 @@ const Icons = () => (
     <>
       <div style={rowStyle}>
         <H6 style={labelStyle}>No icons:</H6>
-        <FileUploader label='Upload' prefixIcon={null} width={5.5} />
+        <FileUploader label='Upload' prefixIcon={null} width={6.5} />
       </div>
       <div style={rowStyle}>
         <H6 style={labelStyle}>Prefix only:</H6>
@@ -491,7 +491,7 @@ const Icons = () => (
       </div>
       <div style={rowStyle}>
         <H6 style={labelStyle}>Both:</H6>
-        <FileUploader label='Upload' prefixIcon={icons.Link} suffixIcon={icons.Upload} width={10} />
+        <FileUploader label='Upload' prefixIcon={icons.Link} suffixIcon={icons.Upload} width={12} />
       </div>
       <div style={rowStyle}>
         <H6 style={labelStyle}>Custom prefix:</H6>

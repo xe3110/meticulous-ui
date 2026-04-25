@@ -8,7 +8,7 @@ export const UploadBtnContainer = styled.div`
   max-width: ${({ $width }) => $width}rem;
   display: inline-block;
   position: relative;
-  border-radius: 0.8rem;
+  border-radius: 0.96rem;
 
   ${({ disabled, $isLoading }) =>
     !(disabled || $isLoading) &&
@@ -28,9 +28,8 @@ export const UploadBtnContainer = styled.div`
 
 export const Wrapper = styled.label`
   height: ${({ $height }) => `${$height}rem`};
-  width: fit-content;
-  max-width: ${({ $width }) => `${$width}rem`};
-  border-radius: 0.6rem;
+  width: ${({ $width }) => `${$width}rem`};
+  border-radius: 0.96rem;
   border: none;
   padding: 0 0.8rem;
   display: flex;
