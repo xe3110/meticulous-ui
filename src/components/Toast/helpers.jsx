@@ -32,7 +32,7 @@ export const Logo = ({ type, $main, $side }) => {
   const logoImg = getLogoImage(type, $main);
 
   return (
-    <Outer {...{ $side }}>
+    <Outer aria-hidden='true' {...{ $side }}>
       <OuterChild {...{ $main }} />
       <LogoContainer {...{ $main, type }} />
       <Icon size={getLogoContainerSize(type)}>{logoImg}</Icon>

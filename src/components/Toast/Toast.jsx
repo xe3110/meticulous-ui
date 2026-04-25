@@ -8,7 +8,7 @@ import { Logo } from './helpers';
 
 // constants
 import grey from '../../colors/grey';
-import { COLOR_MAP, INFO_COLORS, INFO } from './constants';
+import { COLOR_MAP, INFO_COLORS, INFO, ERROR } from './constants';
 
 // styles
 import {
@@ -95,6 +95,9 @@ const Toast = ({
     return (
       <ToastWrapper
         $bg={bg}
+        role={type === ERROR ? 'alert' : 'status'}
+        aria-live={type === ERROR ? 'assertive' : 'polite'}
+        aria-atomic='true'
         className={`${fadeOut ? 'fade-out' : 'fade-in'}`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -106,11 +109,18 @@ const Toast = ({
           {subtitle && <Subtitle>{subtitle}</Subtitle>}
         </Message>
         <CloseButtonContainer>
-          <ProgressRing viewBox='0 0 28 28' $duration={duration} $color={$main} $paused={paused}>
+          <ProgressRing
+            aria-hidden='true'
+            viewBox='0 0 28 28'
+            $duration={duration}
+            $color={$main}
+            $paused={paused}
+          >
             <circle cx='14' cy='14' r='12' />
             <circle cx='14' cy='14' r='12' />
           </ProgressRing>
           <CloseWrapper
+            aria-label='Close notification'
             size={13}
             color={grey.m600}
             onClick={remove(setFadeOut, setShow, onExpire)}

@@ -7,6 +7,16 @@ import Close from '../Icons/Close';
 import grey from '../../colors/grey';
 import { WARNING } from './constants';
 
+const outerRingGrow = keyframes`
+  from { transform: scale(0); }
+  to   { transform: scale(1); }
+`;
+
+const innerRingGrow = keyframes`
+  from { transform: translate(-50%, -50%) scale(0); }
+  to   { transform: translate(-50%, -50%) scale(1); }
+`;
+
 const slideIn = keyframes`
   from {
     opacity: 0;
@@ -121,6 +131,7 @@ export const Outer = styled.div`
   height: 6.4rem;
   border-radius: 50%;
   background-color: ${({ $side }) => $side};
+  animation: ${outerRingGrow} 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
 
   @media screen and (max-width: 768px) {
     width: 4.8rem;
@@ -153,6 +164,7 @@ export const OuterChild = styled.div`
   height: 4.8rem;
   border-radius: 50%;
   background-color: ${({ $main }) => $main};
+  animation: ${innerRingGrow} 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both;
 
   @media screen and (max-width: 768px) {
     width: 3.6rem;
