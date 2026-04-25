@@ -160,6 +160,49 @@ export const OuterChild = styled.div`
   }
 `;
 
+const RING_CIRCUMFERENCE = 75.4; // 2 * π * 12
+
+const timerProgress = keyframes`
+  from { stroke-dashoffset: ${RING_CIRCUMFERENCE}; }
+  to   { stroke-dashoffset: 0; }
+`;
+
+export const CloseButtonContainer = styled.div`
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.8rem;
+  height: 2.8rem;
+`;
+
+export const ProgressRing = styled.svg`
+  position: absolute;
+  inset: 0;
+  transform: rotate(-90deg);
+  pointer-events: none;
+
+  circle {
+    fill: none;
+    stroke: ${({ $color }) => $color};
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: ${RING_CIRCUMFERENCE};
+  }
+
+  circle:first-child {
+    opacity: 0.15;
+    stroke-dashoffset: 0;
+  }
+
+  circle:last-child {
+    stroke-dashoffset: ${RING_CIRCUMFERENCE};
+    animation: ${timerProgress} ${({ $duration }) => $duration - 0.5}s linear forwards;
+    animation-play-state: ${({ $paused }) => ($paused ? 'paused' : 'running')};
+  }
+`;
+
 export const CloseWrapper = styled(Close)`
   cursor: pointer;
 `;

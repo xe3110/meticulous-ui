@@ -1,5 +1,5 @@
 // Libraries
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 const noop = () => {};
 
@@ -11,7 +11,16 @@ import grey from '../../colors/grey';
 import { COLOR_MAP, INFO_COLORS, INFO } from './constants';
 
 // styles
-import { ToastWrapper, CloseWrapper, Title, Subtitle, Message, ToastsContainer } from './styles';
+import {
+  ToastWrapper,
+  CloseWrapper,
+  CloseButtonContainer,
+  ProgressRing,
+  Title,
+  Subtitle,
+  Message,
+  ToastsContainer,
+} from './styles';
 
 export const ToastContainer = ({ toasts, ...rest }) => {
   const [allToasts, setAllToasts] = useState(toasts);
@@ -49,30 +58,64 @@ const Toast = ({
 }) => {
   const [show, setShow] = useState(visible);
   const [fadeOut, setFadeOut] = useState(false);
+  const [paused, setPaused] = useState(false);
+
+  const timerRef = useRef(null);
+  const remainingRef = useRef((duration - 0.5) * 1000);
+  const startTimeRef = useRef(null);
+
+  const startTimer = (ms) => {
+    startTimeRef.current = Date.now();
+    timerRef.current = setTimeout(remove(setFadeOut, setShow, onExpire), ms);
+  };
 
   useEffect(() => {
     setShow(visible);
   }, [visible]);
 
   useEffect(() => {
-    const removeTimer = setTimeout(remove(setFadeOut, setShow, onExpire), duration * 1000 - 500);
+    startTimer(remainingRef.current);
+    return () => clearTimeout(timerRef.current);
+  }, []);
 
-    return () => {
-      clearTimeout(removeTimer);
-    };
-  }, [duration, remove]);
+  const handleMouseEnter = () => {
+    clearTimeout(timerRef.current);
+    remainingRef.current -= Date.now() - startTimeRef.current;
+    setPaused(true);
+  };
+
+  const handleMouseLeave = () => {
+    setPaused(false);
+    startTimer(remainingRef.current);
+  };
 
   const { main: $main, side: $side, bg } = COLOR_MAP[type] ?? INFO_COLORS;
 
   if (show) {
     return (
-      <ToastWrapper $bg={bg} className={`${fadeOut ? 'fade-out' : 'fade-in'}`} {...rest}>
+      <ToastWrapper
+        $bg={bg}
+        className={`${fadeOut ? 'fade-out' : 'fade-in'}`}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        {...rest}
+      >
         <Logo {...{ type, $main, $side }} />
         <Message>
           <Title>{title}</Title>
           {subtitle && <Subtitle>{subtitle}</Subtitle>}
         </Message>
-        <CloseWrapper size={20} color={grey.m600} onClick={remove(setFadeOut, setShow, onExpire)} />
+        <CloseButtonContainer>
+          <ProgressRing viewBox='0 0 28 28' $duration={duration} $color={$main} $paused={paused}>
+            <circle cx='14' cy='14' r='12' />
+            <circle cx='14' cy='14' r='12' />
+          </ProgressRing>
+          <CloseWrapper
+            size={13}
+            color={grey.m600}
+            onClick={remove(setFadeOut, setShow, onExpire)}
+          />
+        </CloseButtonContainer>
       </ToastWrapper>
     );
   }
