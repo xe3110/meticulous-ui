@@ -50,7 +50,7 @@ const Example = () => (
       description: 'Number of slides visible at once.',
     },
     overlayArrows: {
-      control: 'boolean',
+      control: { type: 'boolean' },
       description:
         'Render chevrons inside the slide area. They fade out after 2 s and reappear on interaction.',
     },
@@ -60,11 +60,11 @@ const Example = () => (
         'Vertical position of the overlay chevrons. Accepts any CSS value (`"50%"`, `"80px"`) or a number (treated as px). Defaults to `"50%"`.',
     },
     areDotsHidden: {
-      control: 'boolean',
+      control: { type: 'boolean' },
       description: 'Hide the dot indicators.',
     },
     autoSlide: {
-      control: 'boolean',
+      control: { type: 'boolean' },
       description:
         'Auto-advance slides on an interval. Shows a pause/play button. Pauses on hover and keyboard focus.',
     },
@@ -73,27 +73,27 @@ const Example = () => (
       description: 'Interval in seconds between auto-advances. Only used when `autoSlide` is true.',
     },
     loop: {
-      control: 'boolean',
+      control: { type: 'boolean' },
       description:
         'Wrap navigation at both ends — prev on the first slide goes to the last, next on the last goes to the first. Chevrons are never disabled.',
     },
     dragToSlide: {
-      control: 'boolean',
+      control: { type: 'boolean' },
       description:
         'Enable mouse-drag navigation on the slide area. Uses the same threshold as touch swipe.',
     },
     liveDrag: {
-      control: 'boolean',
+      control: { type: 'boolean' },
       description:
         'Make the slide track follow the mouse pointer in real-time during drag. Pair with `dragToSlide`. Adds rubber-band resistance at the ends when `loop` is off.',
     },
     liveDragMobile: {
-      control: 'boolean',
+      control: { type: 'boolean' },
       description:
         'Make the slide track follow the touch pointer in real-time on mobile and tablet (≤ 1024px). Independent of `dragToSlide`. Defaults to `true`.',
     },
     showProgress: {
-      control: 'boolean',
+      control: { type: 'boolean' },
       description:
         'Show a thin progress bar that fills over `autoSlideSec` seconds. Only visible when `autoSlide` is true.',
     },
@@ -123,7 +123,7 @@ const slideStyle = {
   display: 'block',
 };
 
-export const ImageCarousel = () => (
+export const ImageCarousel = (args) => (
   <div style={{ width: 560, margin: '0 auto' }}>
     <Carousel
       data={images}
@@ -133,6 +133,7 @@ export const ImageCarousel = () => (
           <img src={item.src} alt={item.alt} style={slideStyle} />
         </div>
       )}
+      {...args}
     />
   </div>
 );
@@ -170,6 +171,30 @@ const ImageCarousel = () => (
 );
       `,
     },
+  },
+};
+
+ImageCarousel.args = {
+  data: images,
+  visibleSlides: 1,
+  renderCarousel: (item) => (
+    <div key={item.id} style={{ padding: '0 8px' }}>
+      <img src={item.src} alt={item.alt} style={slideStyle} />
+    </div>
+  ),
+  overlayArrows: false,
+  arrowTop: '50%',
+  areDotsHidden: false,
+  autoSlide: false,
+  autoSlideSec: 3,
+  loop: false,
+  dragToSlide: false,
+  liveDrag: false,
+  liveDragMobile: true,
+  showProgress: false,
+  defaultIndex: 0,
+  onSlideChange: (index) => {
+    console.log('Current slide index:', index);
   },
 };
 
