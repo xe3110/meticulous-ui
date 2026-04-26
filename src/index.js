@@ -13,6 +13,7 @@ export { default as Timer } from './components/Timer';
 export { default as Shimmer } from './components/Shimmer';
 export { default as VideoPlayer } from './components/VideoPlayer';
 export { default as Image } from './components/Image';
+export { default as Carousel } from './components/Carousel';
 export { default as Headings } from './components/Typography/Headings';
 export { default as P } from './components/Typography/P';
 

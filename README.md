@@ -78,6 +78,7 @@ import blue from 'meticulous-ui/colors/blue';
 | `PageLoader`    | Renders a loader with line at the top of page                    |
 | `Button`        | Renders a button to click & take an action                       |
 | `Shimmer`       | Animated skeleton loading placeholder                            |
+| `Carousel`      | Carousel providing slider between components displaying slides   |
 | `RootComponent` | This is the required wrapper for any app that uses meticulous-ui |
 
 ## 📦 Icon Components

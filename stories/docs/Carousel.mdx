@@ -1,0 +1,275 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+
+import * as CarouselStories from '../Carousel.stories.jsx';
+
+<Meta title='Molecules/Carousel' of={CarouselStories} />
+
+# Carousel
+
+Maps over a `data` array and renders each item using a `renderCarousel` render prop. The component owns the slide track, chevron navigation, and dot indicators — you own the slide content. Can be imported as `meticulous-ui/components/Carousel`.
+
+## Image Carousel
+
+Single slide visible at a time. Chevrons disable automatically at the first and last slide.
+
+<Canvas of={CarouselStories.ImageCarousel} />
+
+## Card Carousel (2 visible)
+
+Pass `visibleSlides={2}` to show two slides side-by-side. The active dot follows the leading slide. Use padding inside each rendered item to add gutters between cards.
+
+<Canvas of={CarouselStories.CardCarousel} />
+
+## Testimonial Carousel
+
+Single-slide quotes with dot navigation. Clicking a dot jumps directly to that slide.
+
+<Canvas of={CarouselStories.TestimonialCarousel} />
+
+## Overlay Arrows
+
+Pass `overlayArrows` to render the chevrons inside the slide area. They fade out after 2 seconds and reappear on hover, tap, or click.
+
+<Canvas of={CarouselStories.OverlayArrows} />
+
+## Arrow Position
+
+Use `arrowTop` to pin the overlay chevrons to a specific vertical position. Accepts any CSS string (`"20%"`, `"80px"`) or a number (treated as px). Defaults to `"50%"`.
+
+<Canvas of={CarouselStories.ArrowPosition} />
+
+## Auto Slide
+
+Pass `autoSlide` to advance slides automatically. A pause/play button appears in the bottom-right corner of the slide area. `showProgress` adds a thin progress bar that fills over `autoSlideSec` seconds and resets on each advance. Auto-play pauses on hover and keyboard focus.
+
+<Canvas of={CarouselStories.AutoSlide} />
+
+## Hidden Dots
+
+Pass `areDotsHidden` to remove the dot indicators — useful when slide position is conveyed another way or a minimal look is preferred.
+
+<Canvas of={CarouselStories.HiddenDots} />
+
+## Loop
+
+Pass `loop` to enable infinite navigation. Pressing next on the last slide wraps back to the first, and prev on the first wraps to the last. Both chevrons stay enabled at all times — the disabled state only applies when `loop` is off.
+
+<Canvas of={CarouselStories.Loop} />
+
+## Drag to Slide
+
+Pass `dragToSlide` to enable mouse-drag navigation on the slide area. The cursor changes to a grab hand and the same distance threshold used for touch swipe applies. Set `pointerEvents: none` on images inside `renderCarousel` to prevent the browser's native image-drag from interfering.
+
+<Canvas of={CarouselStories.DragToSlide} />
+
+## External Control
+
+Use `defaultIndex` to set the initial active slide without controlling it, and `onSlideChange` to receive the current zero-based index on every navigation event — chevrons, dots, drag, swipe, and keyboard all fire it. Combine these to sync an external caption, fire analytics, or reflect the slide in a URL param.
+
+<Canvas of={CarouselStories.ExternalControl} />
+
+## Props
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>data</code>
+      </td>
+      <td>
+        <code>array</code>
+      </td>
+      <td>—</td>
+      <td>
+        Array of items to render. Each item is passed as the argument to <code>renderCarousel</code>
+        .
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>renderCarousel</code>
+      </td>
+      <td>
+        <code>(item) =&gt; ReactNode</code>
+      </td>
+      <td>—</td>
+      <td>
+        Render prop called once per item. The returned element must have a <code>key</code> prop.
+        Each element automatically fills its slot — no explicit width needed.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>visibleSlides</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>
+        <code>1</code>
+      </td>
+      <td>
+        Number of slides visible at once. The slide track divides its width equally among visible
+        slides.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>overlayArrows</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        Render chevrons inside the slide area instead of outside it. They fade out after 2 seconds
+        and reappear on hover, tap, or click.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>arrowTop</code>
+      </td>
+      <td>
+        <code>string | number</code>
+      </td>
+      <td>
+        <code>"50%"</code>
+      </td>
+      <td>
+        Vertical position of the overlay chevrons. Accepts any CSS string (<code>"20%"</code>,{' '}
+        <code>"80px"</code>) or a number treated as px. Only applies when <code>overlayArrows</code>{' '}
+        is true.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>areDotsHidden</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Hide the dot indicators below the slide area.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>autoSlide</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        Auto-advance slides on a repeating interval. Wraps back to the first slide after the last.
+        Shows a pause/play button. Pauses on hover and keyboard focus.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>autoSlideSec</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>
+        <code>3</code>
+      </td>
+      <td>
+        Interval in seconds between auto-advances. Only used when <code>autoSlide</code> is true.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>showProgress</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        Show a thin progress bar that fills over <code>autoSlideSec</code> seconds and resets on
+        each advance. Only visible when <code>autoSlide</code> is true. Respects{' '}
+        <code>prefers-reduced-motion</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>loop</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Wrap navigation at both ends. Both chevrons remain enabled at all times.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>dragToSlide</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        Enable mouse-drag navigation on the slide area, using the same distance threshold as touch
+        swipe.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>defaultIndex</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>
+        <code>0</code>
+      </td>
+      <td>Index of the slide to show on first render. The carousel is uncontrolled after mount.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>onSlideChange</code>
+      </td>
+      <td>
+        <code>(index: number) =&gt; void</code>
+      </td>
+      <td>—</td>
+      <td>
+        Callback fired whenever the active slide changes, regardless of the navigation method.
+        Receives the new zero-based index.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Usage notes
+
+- Wrap each rendered item's content in a `div` with `padding: '0 8px'` to create gutters without breaking the flex layout.
+- The left chevron is disabled at index 0 and the right at `data.length - visibleSlides`, unless `loop` is true.
+- Dots represent each valid starting position. The active dot expands to a pill shape to indicate the current slide.
+- `arrowTop` only has an effect when `overlayArrows` is also set.
+- `autoSlideSec` and `showProgress` only have an effect when `autoSlide` is also set.
+- `prefers-reduced-motion` disables the slide transition animation and the progress bar fill animation automatically — no prop needed.
+- Set `pointerEvents: none` on images inside `renderCarousel` when using `dragToSlide` to prevent the browser's native image-drag from conflicting.
