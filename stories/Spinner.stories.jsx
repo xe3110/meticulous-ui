@@ -178,9 +178,9 @@ const Colors = () => (
         display: 'flex',
         alignItems: 'center',
         flexWrap: 'wrap',
-        gap: '5rem',
-        width: '70rem',
-        margin: '2rem 5rem',
+        gap: '8rem',
+        width: '80%',
+        margin: '5rem 6rem',
       }}
     >
       {[
