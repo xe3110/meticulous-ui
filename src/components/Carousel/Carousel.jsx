@@ -42,6 +42,8 @@ const Carousel = ({
   autoSlideSec = 3,
   loop = false,
   dragToSlide = false,
+  liveDrag = false,
+  liveDragMobile = true,
   showProgress = false,
   defaultIndex = 0,
   onSlideChange,
@@ -50,9 +52,21 @@ const Carousel = ({
   const [arrowsVisible, setArrowsVisible] = useState(true);
   const [viewportFocused, setViewportFocused] = useState(false);
   const [paused, setPaused] = useState(false);
+  const [dragOffsetPx, setDragOffsetPx] = useState(0);
+  const [dragging, setDragging] = useState(false);
+  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
   const touchStartX = useRef(null);
   const dragStartX = useRef(null);
   const hideTimer = useRef(null);
+  const viewportRef = useRef(null);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 1024px)');
+    setIsMobileOrTablet(mq.matches);
+    const handler = (e) => setIsMobileOrTablet(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   const maxIndex = data.length - visibleSlides;
 
@@ -98,12 +112,29 @@ const Carousel = ({
     return () => clearInterval(id);
   }, [autoSlide, autoSlideSec, paused, maxIndex]);
 
+  const getResistantOffset = (offsetPx) => {
+    if (loop) return offsetPx;
+    if (currentIndex === 0 && offsetPx > 0) return offsetPx * 0.3;
+    if (currentIndex === maxIndex && offsetPx < 0) return offsetPx * 0.3;
+    return offsetPx;
+  };
+
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
+    if (liveDragMobile && isMobileOrTablet) setDragging(true);
     showArrows();
   };
 
+  const handleTouchMove = (e) => {
+    if (!liveDragMobile || !isMobileOrTablet || touchStartX.current === null) return;
+    setDragOffsetPx(getResistantOffset(e.touches[0].clientX - touchStartX.current));
+  };
+
   const handleTouchEnd = (e) => {
+    if (liveDragMobile && isMobileOrTablet) {
+      setDragging(false);
+      setDragOffsetPx(0);
+    }
     if (touchStartX.current === null) return;
     const delta = touchStartX.current - e.changedTouches[0].clientX;
     if (delta > SWIPE_THRESHOLD) next();
@@ -114,10 +145,20 @@ const Carousel = ({
   const handleMouseDown = (e) => {
     if (!dragToSlide) return;
     dragStartX.current = e.clientX;
+    if (liveDrag) setDragging(true);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!dragToSlide || !liveDrag || dragStartX.current === null) return;
+    setDragOffsetPx(getResistantOffset(e.clientX - dragStartX.current));
   };
 
   const handleMouseUp = (e) => {
     if (!dragToSlide || dragStartX.current === null) return;
+    if (liveDrag) {
+      setDragging(false);
+      setDragOffsetPx(0);
+    }
     const delta = dragStartX.current - e.clientX;
     if (delta > SWIPE_THRESHOLD) next();
     else if (delta < -SWIPE_THRESHOLD) prev();
@@ -134,7 +175,9 @@ const Carousel = ({
     }
   };
 
-  const translateX = -(currentIndex * (100 / visibleSlides));
+  const containerWidth = viewportRef.current?.clientWidth ?? 0;
+  const dragOffsetPercent = containerWidth > 0 ? (dragOffsetPx / containerWidth) * 100 : 0;
+  const translateX = -(currentIndex * (100 / visibleSlides)) + dragOffsetPercent;
   const arrowTopValue =
     arrowTop !== undefined
       ? typeof arrowTop === 'number'
@@ -149,11 +192,17 @@ const Carousel = ({
       onClick={showArrows}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
       onKeyDown={handleKeyDown}
       role='region'
       aria-label='Carousel'
     >
-      <SlideArea onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+      <SlideArea
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <NavButton
           onClick={prev}
           disabled={!loop && currentIndex === 0}
@@ -167,6 +216,7 @@ const Carousel = ({
         </NavButton>
 
         <SlideViewport
+          ref={viewportRef}
           tabIndex={0}
           aria-label='Carousel slides. Use arrow keys to navigate.'
           $draggable={dragToSlide}
@@ -179,12 +229,16 @@ const Carousel = ({
             setPaused(false);
           }}
           onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={() => {
+          onMouseLeave={(e) => {
+            if (e.buttons === 1) return;
+            if (liveDrag && dragging) {
+              setDragging(false);
+              setDragOffsetPx(0);
+            }
             dragStartX.current = null;
           }}
         >
-          <SlideTrack $translateX={translateX} $visibleSlides={visibleSlides}>
+          <SlideTrack $translateX={translateX} $visibleSlides={visibleSlides} $dragging={dragging}>
             {data.map(renderCarousel)}
           </SlideTrack>
         </SlideViewport>

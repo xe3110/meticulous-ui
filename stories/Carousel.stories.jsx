@@ -82,6 +82,16 @@ const Example = () => (
       description:
         'Enable mouse-drag navigation on the slide area. Uses the same threshold as touch swipe.',
     },
+    liveDrag: {
+      control: 'boolean',
+      description:
+        'Make the slide track follow the mouse pointer in real-time during drag. Pair with `dragToSlide`. Adds rubber-band resistance at the ends when `loop` is off.',
+    },
+    liveDragMobile: {
+      control: 'boolean',
+      description:
+        'Make the slide track follow the touch pointer in real-time on mobile and tablet (≤ 1024px). Independent of `dragToSlide`. Defaults to `true`.',
+    },
     showProgress: {
       control: 'boolean',
       description:
@@ -556,6 +566,60 @@ DragToSlide.parameters = {
       code: `
 <Carousel
   dragToSlide
+  data={images}
+  visibleSlides={1}
+  renderCarousel={(item) => (
+    <div key={item.id} style={{ padding: '0 8px' }}>
+      <img
+        src={item.src}
+        alt={item.alt}
+        style={{ width: '100%', height: 300, objectFit: 'cover', borderRadius: 12, pointerEvents: 'none' }}
+      />
+    </div>
+  )}
+/>
+      `,
+    },
+  },
+};
+
+export const LiveDrag = () => (
+  <div style={{ width: 560, margin: '0 auto' }}>
+    <p style={{ textAlign: 'center', fontSize: 13, color: '#888', marginBottom: 12 }}>
+      Drag or swipe — the slide follows your pointer in real-time
+    </p>
+    <Carousel
+      dragToSlide
+      liveDrag
+      data={images}
+      visibleSlides={1}
+      renderCarousel={(item) => (
+        <div key={item.id} style={{ padding: '0 8px' }}>
+          <img
+            src={item.src}
+            alt={item.alt}
+            style={{ ...slideStyle, userSelect: 'none', pointerEvents: 'none' }}
+          />
+        </div>
+      )}
+    />
+  </div>
+);
+
+LiveDrag.storyName = 'Live Drag';
+
+LiveDrag.parameters = {
+  docs: {
+    description: {
+      story:
+        'Pass `liveDrag` to make the slide track follow the pointer in real-time during drag. The transition is disabled while dragging so the track sticks to the pointer exactly. On release, if the drag exceeded the threshold the carousel snaps to the next/previous slide; otherwise it bounces back to the current one — both using the standard `0.35s ease` transition. At the first and last slide (when `loop` is off), the track applies 30% resistance so it feels like iOS rubber-banding rather than a hard stop. Works on both touch and mouse — pair with `dragToSlide` to enable mouse drag.',
+    },
+    source: {
+      language: 'jsx',
+      code: `
+<Carousel
+  dragToSlide
+  liveDrag
   data={images}
   visibleSlides={1}
   renderCarousel={(item) => (

@@ -30,7 +30,7 @@ export const SlideTrack = styled.div`
   display: flex;
   width: 100%;
   transform: translateX(${({ $translateX }) => $translateX}%);
-  transition: transform 0.35s ease;
+  transition: ${({ $dragging }) => ($dragging ? 'none' : 'transform 0.35s ease')};
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;

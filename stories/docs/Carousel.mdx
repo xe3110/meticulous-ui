@@ -62,6 +62,12 @@ Pass `dragToSlide` to enable mouse-drag navigation on the slide area. The cursor
 
 <Canvas of={CarouselStories.DragToSlide} />
 
+## Live Drag
+
+Pass `liveDrag` to make the slide track follow the pointer in real-time. On release it either snaps forward or bounces back using the standard transition. At the first and last slide (when `loop` is off), 30% resistance is applied for an iOS rubber-band feel. Works on both touch and mouse — pair with `dragToSlide` to also enable mouse drag.
+
+<Canvas of={CarouselStories.LiveDrag} />
+
 ## External Control
 
 Use `defaultIndex` to set the initial active slide without controlling it, and `onSlideChange` to receive the current zero-based index on every navigation event — chevrons, dots, drag, swipe, and keyboard all fire it. Combine these to sync an external caption, fire analytics, or reflect the slide in a URL param.
@@ -234,6 +240,37 @@ Use `defaultIndex` to set the initial active slide without controlling it, and `
       <td>
         Enable mouse-drag navigation on the slide area, using the same distance threshold as touch
         swipe.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>liveDrag</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        Make the slide track follow the mouse pointer in real-time during drag. Pair with{' '}
+        <code>dragToSlide</code>. Adds 30% rubber-band resistance at the ends when <code>loop</code>{' '}
+        is off.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>liveDragMobile</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>true</code>
+      </td>
+      <td>
+        Make the slide track follow the touch pointer in real-time on mobile and tablet (≤ 1024px).
+        Independent of <code>dragToSlide</code>. Pass <code>false</code> to disable.
       </td>
     </tr>
     <tr>
