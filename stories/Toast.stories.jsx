@@ -178,62 +178,55 @@ export default {
 
 // Default story
 export const Default = () => {
-  // import { ToastContainer } from '../src/components/Toast/Toast';
-
   const [toasts, setToasts] = useState([]);
+  const [duration, setDuration] = useState(5);
 
   const toastChangeHandler = (toasts) => {
     setToasts(toasts);
   };
 
-  const popSuccess = () => {
+  const pop = (type) => {
     setToasts((toasts) => [
       ...toasts,
-      { id: `${SUCCESS}-${Math.random().toString(16).slice(2)}`, type: SUCCESS },
-    ]);
-  };
-
-  const popError = () => {
-    setToasts((toasts) => [
-      ...toasts,
-      { id: `${ERROR}-${Math.random().toString(16).slice(2)}`, type: ERROR },
-    ]);
-  };
-
-  const popWarning = () => {
-    setToasts((toasts) => [
-      ...toasts,
-      { id: `${WARNING}-${Math.random().toString(16).slice(2)}`, type: WARNING },
-    ]);
-  };
-
-  const popInfo = () => {
-    setToasts((toasts) => [
-      ...toasts,
-      { id: `${INFO}-${Math.random().toString(16).slice(2)}`, type: INFO },
+      { id: `${type}-${Math.random().toString(16).slice(2)}`, type, duration },
     ]);
   };
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.28rem' }}>
       <ToastContainer
-        toasts={toasts.map(({ id, type }) => ({
+        toasts={toasts.map(({ id, type, duration }) => ({
           id,
           type,
-          ...TYPE_INFO_MAP[type], // title, subtitle
+          duration,
+          ...TYPE_INFO_MAP[type],
         }))}
         setToasts={toastChangeHandler}
       />
-      <button style={{ width: '12.8rem', height: '3.84rem' }} onClick={popSuccess}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
+        <label htmlFor='duration' style={{ fontSize: '1.4rem', fontWeight: 500 }}>
+          Duration (s):
+        </label>
+        <input
+          id='duration'
+          type='number'
+          min={1}
+          max={30}
+          value={duration}
+          onChange={(e) => setDuration(Number(e.target.value))}
+          style={{ width: '6rem', fontSize: '1.4rem', padding: '0.2rem 0.4rem' }}
+        />
+      </div>
+      <button style={{ width: '12.8rem', height: '3.84rem' }} onClick={() => pop(SUCCESS)}>
         <P>Success</P>
       </button>
-      <button style={{ width: '12.8rem', height: '3.84rem' }} onClick={popError}>
+      <button style={{ width: '12.8rem', height: '3.84rem' }} onClick={() => pop(ERROR)}>
         <P>Error</P>
       </button>
-      <button style={{ width: '12.8rem', height: '3.84rem' }} onClick={popWarning}>
+      <button style={{ width: '12.8rem', height: '3.84rem' }} onClick={() => pop(WARNING)}>
         <P>Warning</P>
       </button>
-      <button style={{ width: '12.8rem', height: '3.84rem' }} onClick={popInfo}>
+      <button style={{ width: '12.8rem', height: '3.84rem' }} onClick={() => pop(INFO)}>
         <P>Info</P>
       </button>
     </div>

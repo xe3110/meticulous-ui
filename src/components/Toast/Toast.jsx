@@ -29,8 +29,8 @@ export const ToastContainer = ({ toasts, ...rest }) => {
     setAllToasts(toasts);
   }, [toasts]);
 
-  const renderToasts = ({ type, id, title, subtitle, onExpire = noop }, i) => (
-    <Toast {...{ type, title, subtitle }} key={id} onExpire={onExpire} />
+  const renderToasts = ({ type, id, title, subtitle, duration, onExpire = noop }, i) => (
+    <Toast {...{ type, title, subtitle, duration }} key={id} onExpire={onExpire} />
   );
 
   return createPortal(
