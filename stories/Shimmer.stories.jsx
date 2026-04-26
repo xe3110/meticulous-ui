@@ -30,6 +30,9 @@ export default {
       label: {
         control: 'text',
       },
+      borderRadius: {
+        control: 'text',
+      },
     },
   },
 };
@@ -59,6 +62,7 @@ Default.args = {
   width: '40rem',
   height: '20rem',
   label: 'Loading...',
+  borderRadius: '0.64rem',
 };
 
 export const CustomBorderRadius = (args) => (
@@ -78,6 +82,8 @@ CustomBorderRadius.args = {
 };
 
 CustomBorderRadius.parameters = {
+  controls: { disable: true },
+  actions: { disable: true },
   docs: {
     source: {
       language: 'jsx',

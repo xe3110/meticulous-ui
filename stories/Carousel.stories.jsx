@@ -237,6 +237,8 @@ export const CardCarousel = () => (
 CardCarousel.storyName = 'Card Carousel (2 visible)';
 
 CardCarousel.parameters = {
+  controls: { disable: true },
+  actions: { disable: true },
   docs: {
     description: {
       story:
@@ -311,6 +313,8 @@ export const TestimonialCarousel = () => (
 TestimonialCarousel.storyName = 'Testimonial Carousel';
 
 TestimonialCarousel.parameters = {
+  controls: { disable: true },
+  actions: { disable: true },
   docs: {
     description: {
       story: 'Quotes or testimonials as a single-slide carousel with dots for navigation.',
@@ -363,6 +367,8 @@ export const OverlayArrows = () => (
 OverlayArrows.storyName = 'Overlay Arrows';
 
 OverlayArrows.parameters = {
+  controls: { disable: true },
+  actions: { disable: true },
   docs: {
     description: {
       story:
@@ -405,6 +411,8 @@ export const ArrowPosition = () => (
 ArrowPosition.storyName = 'Arrow Position';
 
 ArrowPosition.parameters = {
+  controls: { disable: true },
+  actions: { disable: true },
   docs: {
     description: {
       story:
@@ -449,6 +457,8 @@ export const AutoSlide = () => (
 AutoSlide.storyName = 'Auto Slide';
 
 AutoSlide.parameters = {
+  controls: { disable: true },
+  actions: { disable: true },
   docs: {
     description: {
       story:
@@ -492,6 +502,8 @@ export const HiddenDots = () => (
 HiddenDots.storyName = 'Hidden Dots';
 
 HiddenDots.parameters = {
+  controls: { disable: true },
+  actions: { disable: true },
   docs: {
     description: {
       story:
@@ -533,6 +545,8 @@ export const Loop = () => (
 Loop.storyName = 'Loop';
 
 Loop.parameters = {
+  controls: { disable: true },
+  actions: { disable: true },
   docs: {
     description: {
       story:
@@ -581,6 +595,8 @@ export const DragToSlide = () => (
 DragToSlide.storyName = 'Drag to Slide';
 
 DragToSlide.parameters = {
+  controls: { disable: true },
+  actions: { disable: true },
   docs: {
     description: {
       story:
@@ -634,6 +650,8 @@ export const LiveDrag = () => (
 LiveDrag.storyName = 'Live Drag';
 
 LiveDrag.parameters = {
+  controls: { disable: true },
+  actions: { disable: true },
   docs: {
     description: {
       story:
@@ -703,6 +721,8 @@ export const ExternalControl = () => {
 ExternalControl.storyName = 'External Control';
 
 ExternalControl.parameters = {
+  controls: { disable: true },
+  actions: { disable: true },
   docs: {
     description: {
       story:

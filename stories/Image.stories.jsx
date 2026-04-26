@@ -67,6 +67,8 @@ Default.args = {
   width: '600px',
   height: '400px',
   borderRadius: '0.4rem',
+  loadLow: false,
+  lowSrc: '',
 };
 
 export const Rounded = (args) => <Image {...args} />;
@@ -82,6 +84,8 @@ Rounded.args = {
 };
 
 Rounded.parameters = {
+  controls: { disable: true },
+  actions: { disable: true },
   docs: {
     source: {
       language: 'jsx',
@@ -124,6 +128,8 @@ LoadLow.args = {
 };
 
 LoadLow.parameters = {
+  controls: { disable: true },
+  actions: { disable: true },
   docs: {
     description: {
       story:

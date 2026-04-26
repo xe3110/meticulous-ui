@@ -306,6 +306,8 @@ const WithDisabledOptions = () => {
 export const WithAsyncLoadMore = {
   name: 'With Async Load More',
   parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
     docs: {
       source: {
         language: 'jsx',
