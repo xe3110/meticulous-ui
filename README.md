@@ -58,26 +58,27 @@ import blue from 'meticulous-ui/colors/blue';
 
 ## 📦 Components
 
-| Component      | Description                                              |
-| -------------- | -------------------------------------------------------- |
-| `Pagination`   | Fully responsive pagination component                    |
-| `Toast`        | Push 4 types of notifications on screen                  |
-| `Timer`        | Renders analog / digital clock with alarm                |
-| `OtpInput`     | Gives inputs to enter and edit OTP                       |
-| `VideoPlayer`  | Renders video with keyboard shortcuts                    |
-| `Image`        | Renders image with shimmer, lower resolution             |
-| `Input`        | Renders input box to let user enter input                |
-| `Checkbox`     | Renders checkbox to let user give boolean value          |
-| `RadioGroup`   | Renders radio options in a group to let user select      |
-| `FileUploader` | Renders a button type input from where user can upload   |
-| `Textarea`     | Renders textarea box to let user enter description       |
-| `Dropdown`     | Renders dropdown to select from options                  |
-| `SelectBox`    | Renders selectbox to select multiple values from options |
-| `Spinner`      | Renders a spinner to show the loading state              |
-| `Loader`       | Renders a loader with dots to show the loading state     |
-| `PageLoader`   | Renders a loader with line at the top of page            |
-| `Button`       | Renders a button to click & take an action               |
-| `Shimmer`      | Animated skeleton loading placeholder                    |
+| Component       | Description                                                      |
+| --------------- | ---------------------------------------------------------------- |
+| `Pagination`    | Fully responsive pagination component                            |
+| `Toast`         | Push 4 types of notifications on screen                          |
+| `Timer`         | Renders analog / digital clock with alarm                        |
+| `OtpInput`      | Gives inputs to enter and edit OTP                               |
+| `VideoPlayer`   | Renders video with keyboard shortcuts                            |
+| `Image`         | Renders image with shimmer, lower resolution                     |
+| `Input`         | Renders input box to let user enter input                        |
+| `Checkbox`      | Renders checkbox to let user give boolean value                  |
+| `RadioGroup`    | Renders radio options in a group to let user select              |
+| `FileUploader`  | Renders a button type input from where user can upload           |
+| `Textarea`      | Renders textarea box to let user enter description               |
+| `Dropdown`      | Renders dropdown to select from options                          |
+| `SelectBox`     | Renders selectbox to select multiple values from options         |
+| `Spinner`       | Renders a spinner to show the loading state                      |
+| `Loader`        | Renders a loader with dots to show the loading state             |
+| `PageLoader`    | Renders a loader with line at the top of page                    |
+| `Button`        | Renders a button to click & take an action                       |
+| `Shimmer`       | Animated skeleton loading placeholder                            |
+| `RootComponent` | This is the required wrapper for any app that uses meticulous-ui |
 
 ## 📦 Icon Components
 

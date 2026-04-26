@@ -45,6 +45,7 @@ const Button = (props) => {
 
   const btnChild = (
     <ButtonWrapper
+      type='button'
       {...rest}
       onKeyDown={handleKeyDown}
       {...{

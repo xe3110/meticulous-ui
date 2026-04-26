@@ -40,12 +40,15 @@ const getLogoContainerSize = (type) => {
 
 export const Logo = ({ type, $main, $side }) => {
   const logoImg = getLogoImage(type, $main);
+  const isWarning = type === WARNING;
 
   return (
     <Outer aria-hidden='true' {...{ $side }}>
       <OuterChild {...{ $main }} />
-      {type !== WARNING && <LogoContainer {...{ $main, type }} />}
-      <Icon size={getLogoContainerSize(type)}>{logoImg}</Icon>
+      {!isWarning && <LogoContainer {...{ $main, type }} />}
+      <Icon size={getLogoContainerSize(type)} $isWarning={isWarning}>
+        {logoImg}
+      </Icon>
     </Outer>
   );
 };

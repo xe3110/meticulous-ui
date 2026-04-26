@@ -49,7 +49,11 @@ export const Default = (args) => {
     setVal(val);
   };
 
-  return <OtpInput length={args?.length} value={val} onComplete={onChange} onChange={onChange} />;
+  return (
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <OtpInput length={args?.length} value={val} onComplete={onChange} onChange={onChange} />
+    </div>
+  );
 };
 
 Default.storyName = 'OTP Entry';

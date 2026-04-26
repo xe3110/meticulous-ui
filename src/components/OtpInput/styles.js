@@ -4,7 +4,7 @@ import grey from '../../colors/grey';
 export const OTPWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.64rem;
+  gap: 1rem;
 
   @media screen and (max-width: 768px) {\
     gap: 0.32rem;

@@ -1,0 +1,69 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+
+import * as RootComponentStories from '../RootComponent.stories';
+
+<Meta title='Foundation/RootComponent' of={RootComponentStories} />
+
+# RootComponent
+
+`RootComponent` is the required wrapper for any app or subtree that uses meticulous-ui. It sets `font-size: 62.5%` on its container so that `1rem = 10px`, which is the sizing baseline all meticulous-ui components are built on.
+
+Wrap your entire app — or at minimum the subtree where meticulous-ui components appear — with `RootComponent` once, at the top level.
+
+```jsx
+import RootComponent from 'meticulous-ui/components/RootComponent';
+
+const App = () => <RootComponent>{/* rest of your app */}</RootComponent>;
+```
+
+## Default
+
+<Canvas of={RootComponentStories.Default} />
+
+## With Meticulous UI Components
+
+<Canvas of={RootComponentStories.WithComponents} />
+
+## Props
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>children</code>
+      </td>
+      <td>
+        <code>ReactNode</code>
+      </td>
+      <td>—</td>
+      <td>Content to render inside the wrapper</td>
+    </tr>
+    <tr>
+      <td>
+        <code>...rest</code>
+      </td>
+      <td>
+        <code>HTMLAttributes&lt;div&gt;</code>
+      </td>
+      <td>—</td>
+      <td>
+        Any additional props (<code>className</code>, <code>style</code>, <code>id</code>, etc.) are
+        spread onto the underlying <code>&lt;div&gt;</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Notes
+
+- Place `RootComponent` **once** at the top of your component tree, not around individual components.
+- If your host app already sets `font-size: 62.5%` on `html` or `body`, you can omit `RootComponent` — but wrapping a subtree is harmless.
+- The underlying element is a plain `<div>`, so layout props like `style` or `className` can be passed through to control its box behaviour.

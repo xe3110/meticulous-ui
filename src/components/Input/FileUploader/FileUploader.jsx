@@ -57,10 +57,8 @@ const FileUploader = ({
         disabled,
         $isLoading: isLoading,
       }}
-      role='button'
       tabIndex={0}
       aria-disabled={disabled}
-      aria-busy={isLoading}
       onKeyDown={handleKeyDown}
     >
       <HiddenInput

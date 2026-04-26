@@ -110,12 +110,8 @@ const OtpInput = ({ length = 6, value = '', onChange, onComplete, ...rest }) => 
   };
 
   return (
-    <OTPWrapper
-      style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}
-      onPaste={handlePaste}
-      {...rest}
-    >
-      {otp.map(renderNums({ inputsRef, handleChange, handleKeyDown, handleFocus }))}
+    <OTPWrapper onPaste={handlePaste} {...rest}>
+      {otp.map(renderNums({ inputsRef, handleChange, handleKeyDown, handleFocus, length }))}
     </OTPWrapper>
   );
 };

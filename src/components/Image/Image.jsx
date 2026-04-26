@@ -49,6 +49,7 @@ const Image = ({
         <StyledImage
           src={src}
           alt={alt}
+          aria-hidden={alt === '' ? 'true' : undefined}
           $loaded={loaded}
           $borderRadius={toRem(borderRadius)}
           onLoad={onLoad}

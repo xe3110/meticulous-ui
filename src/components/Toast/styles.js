@@ -112,7 +112,7 @@ export const Outer = styled.div`
 
 export const Icon = styled.div`
   position: absolute;
-  top: 50%;
+  top: ${({ $isWarning }) => ($isWarning ? '49%' : '50%')};
   left: 50%;
   transform: translate(-50%, -50%);
   width: ${({ size }) => size}rem;
@@ -124,7 +124,10 @@ export const Icon = styled.div`
   @media screen and (max-width: 768px) {
     top: 42.8%;
     left: 42.8%;
-    transform: translate(-42.8%, -42.8%);
+    transform: translate(
+      ${({ $isWarning }) => ($isWarning ? '-45.8%' : '-42.8%')},
+      ${({ $isWarning }) => ($isWarning ? '-50.8%' : '-42.8%')}
+    );
     scale: 0.75;
   }
 `;
