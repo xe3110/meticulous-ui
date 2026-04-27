@@ -69,7 +69,7 @@ Default.storyName = 'VideoPlayer';
 
 Default.args = {
   link: 'https://filesamples.com/samples/video/mp4/sample_960x400_ocean_with_audio.mp4',
-  width: '600',
+  width: '100%',
   height: 'auto',
   thumbnail: '',
   borderRadius: 8,
@@ -83,7 +83,7 @@ WithThumbnail.storyName = 'With Thumbnail';
 WithThumbnail.args = {
   link: 'https://filesamples.com/samples/video/mp4/sample_960x400_ocean_with_audio.mp4',
   thumbnail: 'https://picsum.photos/seed/videoplayer/960/400',
-  width: '600',
+  width: '100%',
   height: 'auto',
   borderRadius: 8,
   hasShimmer: true,

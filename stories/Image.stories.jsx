@@ -64,22 +64,26 @@ Default.storyName = 'Image';
 Default.args = {
   src: 'https://picsum.photos/4000/3000?random=1',
   alt: 'Sample image',
-  width: '600px',
+  width: '100%',
   height: '400px',
   borderRadius: '0.4rem',
   loadLow: false,
   lowSrc: '',
 };
 
-export const Rounded = (args) => <Image {...args} />;
+export const Rounded = (args) => (
+  <div style={{ maxWidth: 400, width: '100%' }}>
+    <Image {...args} width='100%' height='100%' />
+  </div>
+);
 
 Rounded.storyName = 'Rounded';
 
 Rounded.args = {
   src: 'https://picsum.photos/4000/4000?random=2',
   alt: 'Rounded image',
-  width: '400px',
-  height: '400px',
+  width: '100%',
+  height: '100%',
   borderRadius: '50%',
 };
 
@@ -122,7 +126,7 @@ LoadLow.storyName = 'Load Low';
 LoadLow.args = {
   loadLow: true,
   alt: 'Progressive image',
-  width: '600px',
+  width: '100%',
   height: '400px',
   borderRadius: '0.4rem',
 };

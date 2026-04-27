@@ -49,6 +49,10 @@ const Example = () => (
       control: { type: 'number', min: 1 },
       description: 'Number of slides visible at once.',
     },
+    hasArrow: {
+      control: { type: 'boolean' },
+      description: 'Show or hide the previous/next navigation arrows. Defaults to `true`.',
+    },
     overlayArrows: {
       control: { type: 'boolean' },
       description:
@@ -124,7 +128,7 @@ const slideStyle = {
 };
 
 export const ImageCarousel = (args) => (
-  <div style={{ width: 560, margin: '0 auto' }}>
+  <div style={{ maxWidth: 560, width: '100%', margin: '0 auto' }}>
     <Carousel
       data={images}
       visibleSlides={1}
@@ -182,6 +186,7 @@ ImageCarousel.args = {
       <img src={item.src} alt={item.alt} style={slideStyle} />
     </div>
   ),
+  hasArrow: true,
   overlayArrows: false,
   arrowTop: '50%',
   areDotsHidden: false,
@@ -210,7 +215,7 @@ const cards = [
 ];
 
 export const CardCarousel = () => (
-  <div style={{ width: 560, margin: '0 auto' }}>
+  <div style={{ maxWidth: 560, width: '100%', margin: '0 auto' }}>
     <Carousel
       data={cards}
       visibleSlides={2}
@@ -290,7 +295,7 @@ const testimonials = [
 ];
 
 export const TestimonialCarousel = () => (
-  <div style={{ width: 480, margin: '0 auto' }}>
+  <div style={{ maxWidth: 480, width: '100%', margin: '0 auto' }}>
     <Carousel
       data={testimonials}
       visibleSlides={1}
@@ -350,7 +355,7 @@ const TestimonialCarousel = () => (
 };
 
 export const OverlayArrows = () => (
-  <div style={{ width: 560, margin: '0 auto' }}>
+  <div style={{ maxWidth: 560, width: '100%', margin: '0 auto' }}>
     <Carousel
       overlayArrows
       data={images}
@@ -393,7 +398,7 @@ OverlayArrows.parameters = {
 };
 
 export const ArrowPosition = () => (
-  <div style={{ width: 560, margin: '0 auto' }}>
+  <div style={{ maxWidth: 560, width: '100%', margin: '0 auto' }}>
     <Carousel
       overlayArrows
       arrowTop='20%'
@@ -438,7 +443,7 @@ ArrowPosition.parameters = {
 };
 
 export const AutoSlide = () => (
-  <div style={{ width: 560, margin: '0 auto' }}>
+  <div style={{ maxWidth: 560, width: '100%', margin: '0 auto' }}>
     <Carousel
       autoSlide
       autoSlideSec={2}
@@ -485,7 +490,7 @@ AutoSlide.parameters = {
 };
 
 export const HiddenDots = () => (
-  <div style={{ width: 560, margin: '0 auto' }}>
+  <div style={{ maxWidth: 560, width: '100%', margin: '0 auto' }}>
     <Carousel
       areDotsHidden
       data={images}
@@ -527,8 +532,51 @@ HiddenDots.parameters = {
   },
 };
 
+export const NoArrow = () => (
+  <div style={{ maxWidth: 560, width: '100%', margin: '0 auto' }}>
+    <Carousel
+      hasArrow={false}
+      data={images}
+      visibleSlides={1}
+      renderCarousel={(item) => (
+        <div key={item.id} style={{ padding: '0 8px' }}>
+          <img src={item.src} alt={item.alt} style={slideStyle} />
+        </div>
+      )}
+    />
+  </div>
+);
+
+NoArrow.storyName = 'No Arrow';
+
+NoArrow.parameters = {
+  controls: { disable: true },
+  actions: { disable: true },
+  docs: {
+    description: {
+      story:
+        'Pass `hasArrow={false}` to hide the previous/next navigation arrows entirely. Useful when navigation should be dots-only or swipe-only.',
+    },
+    source: {
+      language: 'jsx',
+      code: `
+<Carousel
+  hasArrow={false}
+  data={images}
+  visibleSlides={1}
+  renderCarousel={(item) => (
+    <div key={item.id} style={{ padding: '0 8px' }}>
+      <img src={item.src} alt={item.alt} style={{ width: '100%', height: 300, objectFit: 'cover', borderRadius: 12 }} />
+    </div>
+  )}
+/>
+      `,
+    },
+  },
+};
+
 export const Loop = () => (
-  <div style={{ width: 560, margin: '0 auto' }}>
+  <div style={{ maxWidth: 560, width: '100%', margin: '0 auto' }}>
     <Carousel
       loop
       data={images}
@@ -571,7 +619,7 @@ Loop.parameters = {
 };
 
 export const DragToSlide = () => (
-  <div style={{ width: 560, margin: '0 auto' }}>
+  <div style={{ maxWidth: 560, width: '100%', margin: '0 auto' }}>
     <p style={{ textAlign: 'center', fontSize: 13, color: '#888', marginBottom: 12 }}>
       Click and drag the image left or right to navigate
     </p>
@@ -625,7 +673,7 @@ DragToSlide.parameters = {
 };
 
 export const LiveDrag = () => (
-  <div style={{ width: 560, margin: '0 auto' }}>
+  <div style={{ maxWidth: 560, width: '100%', margin: '0 auto' }}>
     <p style={{ textAlign: 'center', fontSize: 13, color: '#888', marginBottom: 12 }}>
       Drag or swipe — the slide follows your pointer in real-time
     </p>
@@ -684,7 +732,7 @@ export const ExternalControl = () => {
   const [currentSlide, setCurrentSlide] = useState(1);
 
   return (
-    <div style={{ width: 560, margin: '0 auto' }}>
+    <div style={{ maxWidth: 560, width: '100%', margin: '0 auto' }}>
       <div
         style={{
           display: 'flex',

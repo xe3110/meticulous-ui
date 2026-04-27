@@ -39,8 +39,9 @@ const SIZES = [
 const rowStyle = {
   display: 'flex',
   alignItems: 'center',
-  gap: '4rem',
+  gap: '1.5rem',
   marginBottom: '0.75rem',
+  flexWrap: 'wrap',
 };
 
 const labelStyle = {
@@ -274,7 +275,7 @@ const Disabled = () => (
     },
   },
   render: () => (
-    <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+    <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
       <div>
         <H6 style={{ marginBottom: '0.5rem' }}>Enabled</H6>
         <FileUploader label='Upload' prefixIcon={icons.Link} />
@@ -368,7 +369,7 @@ const MultipleFiles = () => (
     },
   },
   render: () => (
-    <div style={{ display: 'flex', gap: '5rem', alignItems: 'center' }}>
+    <div style={{ display: 'flex', gap: '2rem', alignItems: 'center', flexWrap: 'wrap' }}>
       <div>
         <H6 style={{ marginBottom: '0.5rem' }}>Single file</H6>
         <FileUploader label='Upload' prefixIcon={icons.Link} isMultiple={false} />

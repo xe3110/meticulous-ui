@@ -177,7 +177,8 @@ const DifferentSizes = () => (
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            width: '25rem',
+            maxWidth: '25rem',
+            width: '100%',
           }}
         >
           <H6>{`${label}:`}</H6>

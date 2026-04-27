@@ -99,14 +99,13 @@ const Sizes = () => (
     },
   },
   render: () => (
-    <div>
+    <div style={{ maxWidth: '20rem', width: '100%' }}>
       <div
         style={{
-          marginLeft: '4rem',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          width: '20rem',
+          marginBottom: '1rem',
         }}
       >
         <H4>Small:</H4>
@@ -114,25 +113,16 @@ const Sizes = () => (
       </div>
       <div
         style={{
-          marginLeft: '4rem',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          width: '20rem',
+          marginBottom: '1rem',
         }}
       >
         <H4>Medium:</H4>
         <Spinner size='medium' />
       </div>
-      <div
-        style={{
-          marginLeft: '4rem',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          width: '20rem',
-        }}
-      >
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <H4>Large:</H4>
         <Spinner size='large' />
       </div>
@@ -178,9 +168,9 @@ const Colors = () => (
         display: 'flex',
         alignItems: 'center',
         flexWrap: 'wrap',
-        gap: '8rem',
-        width: '80%',
-        margin: '5rem 6rem',
+        gap: '3rem',
+        width: '100%',
+        margin: '2rem 0',
       }}
     >
       {[

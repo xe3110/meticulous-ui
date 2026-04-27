@@ -80,7 +80,7 @@ export const Default = (args) => {
   };
 
   return (
-    <div style={{ width: '40rem' }}>
+    <div style={{ maxWidth: '40rem', width: '100%' }}>
       <RadioGroup {...args} value={val} options={OPTIONS} onChange={onChange} />
     </div>
   );
@@ -108,7 +108,7 @@ const OPTIONS = [
 const Horizontal = () => {
   const [val, setVal] = useState('');
   return (
-    <div style={{ width: '80rem' }}>
+    <div style={{ maxWidth: '80rem', width: '100%' }}>
       <RadioGroup value={val} options={OPTIONS} onChange={setVal} isHorizonatal />
     </div>
   );
@@ -125,7 +125,7 @@ const Horizontal = () => {
     };
 
     return (
-      <div style={{ width: '80rem' }}>
+      <div style={{ maxWidth: '80rem', width: '100%' }}>
         <RadioGroup value={val} options={OPTIONS} onChange={onChange} isHorizonatal />
       </div>
     );
@@ -140,7 +140,7 @@ const HorizontalRadioGrp = ({ clr }) => {
   };
 
   return (
-    <div style={{ width: '40rem' }}>
+    <div style={{ maxWidth: '40rem', width: '100%' }}>
       <RadioGroup
         value={val}
         options={OPTIONS.filter((opt) => !opt.disabled)}
@@ -174,7 +174,7 @@ const COLORS = ['blue', 'green', 'red', 'yellow', 'orange', 'black', 'grey', 'vi
 const ColorGroup = ({ color }) => {
   const [val, setVal] = useState('');
   return (
-    <div style={{ width: '40rem' }}>
+    <div style={{ maxWidth: '40rem', width: '100%' }}>
       <RadioGroup value={val} options={OPTIONS} color={color} onChange={setVal} />
     </div>
   );

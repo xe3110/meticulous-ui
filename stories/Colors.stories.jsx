@@ -40,6 +40,7 @@ const AllShades = styled.div`
   display: flex;
   align-items: center;
   gap: 0.2rem;
+  flex-wrap: wrap;
 `;
 
 const getColor = (shade) => {

@@ -35,6 +35,7 @@ const Carousel = ({
   data,
   renderCarousel,
   visibleSlides = 1,
+  hasArrow = true,
   overlayArrows = false,
   arrowTop,
   areDotsHidden = false,
@@ -203,17 +204,19 @@ const Carousel = ({
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <NavButton
-          onClick={prev}
-          disabled={!loop && currentIndex === 0}
-          aria-label='Previous slide'
-          $overlay={overlayArrows}
-          $visible={arrowsVisible}
-          $arrowTop={arrowTopValue}
-          $viewportFocused={viewportFocused}
-        >
-          <ChevronLeft size={20} aria-hidden='true' />
-        </NavButton>
+        {hasArrow && (
+          <NavButton
+            onClick={prev}
+            disabled={!loop && currentIndex === 0}
+            aria-label='Previous slide'
+            $overlay={overlayArrows}
+            $visible={arrowsVisible}
+            $arrowTop={arrowTopValue}
+            $viewportFocused={viewportFocused}
+          >
+            <ChevronLeft size={20} aria-hidden='true' />
+          </NavButton>
+        )}
 
         <SlideViewport
           ref={viewportRef}
@@ -243,17 +246,19 @@ const Carousel = ({
           </SlideTrack>
         </SlideViewport>
 
-        <NavButton
-          onClick={next}
-          disabled={!loop && currentIndex === maxIndex}
-          aria-label='Next slide'
-          $overlay={overlayArrows}
-          $visible={arrowsVisible}
-          $arrowTop={arrowTopValue}
-          $viewportFocused={viewportFocused}
-        >
-          <ChevronRight size={20} aria-hidden='true' />
-        </NavButton>
+        {hasArrow && (
+          <NavButton
+            onClick={next}
+            disabled={!loop && currentIndex === maxIndex}
+            aria-label='Next slide'
+            $overlay={overlayArrows}
+            $visible={arrowsVisible}
+            $arrowTop={arrowTopValue}
+            $viewportFocused={viewportFocused}
+          >
+            <ChevronRight size={20} aria-hidden='true' />
+          </NavButton>
+        )}
 
         {autoSlide && (
           <PauseButton
