@@ -189,8 +189,9 @@ const CapFirstLetterPage = () => (
             <Signature>(str: string) → string</Signature>
           </div>
           <Description>
-            Uppercases only the very first character and leaves the rest of the string exactly as-is.
-            Unlike <Code>capitalize</Code>, it does <em>not</em> lowercase the remaining characters.
+            Uppercases only the very first character and leaves the rest of the string exactly
+            as-is. Unlike <Code>capitalize</Code>, it does <em>not</em> lowercase the remaining
+            characters.
           </Description>
         </CardHeader>
         <CardBody>
@@ -206,7 +207,11 @@ const CapFirstLetterPage = () => (
                   note: 'Rest unchanged — compare capitalize()',
                 },
                 { input: `capFirstLetter('already Capital')`, output: `'Already Capital'` },
-                { input: `capFirstLetter('')`, output: `''`, note: 'Empty string — returned as-is' },
+                {
+                  input: `capFirstLetter('')`,
+                  output: `''`,
+                  note: 'Empty string — returned as-is',
+                },
                 { input: `capFirstLetter(42)`, output: `42`, note: 'Non-string — returned as-is' },
               ]}
             />
