@@ -1,6 +1,6 @@
 import colors from '../src/colors';
 import white from '../src/colors/white';
-import capFirstLetter from '../src/utils/capFirstLetter';
+import capitalize from '../src/utils/capitalize';
 
 import styled from 'styled-components';
 
@@ -73,7 +73,7 @@ const AllColors = () => {
 
         return (
           <Wrapper key={color}>
-            <P>{capFirstLetter(color)}</P>
+            <P>{capitalize(color)}</P>
             <AllShades>{Object.keys(shades).map(renderShade(color))}</AllShades>
           </Wrapper>
         );

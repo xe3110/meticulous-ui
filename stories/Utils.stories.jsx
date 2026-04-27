@@ -1,79 +1,83 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 
 import blueGray from '../src/colors/blueGray';
-import blue from '../src/colors/blue';
-import green from '../src/colors/green';
-import white from '../src/colors/white';
+import violet from '../src/colors/violet';
+import teal from '../src/colors/teal';
 
-import capFirstLetter from '../src/utils/capFirstLetter';
 import compose from '../src/utils/compose';
-import hasEqualProps from '../src/utils/hasEqualProps';
-import isNonEmptyArray from '../src/utils/isNonEmptyArray';
-import randomInt from '../src/utils/randomInt';
-import randomValue from '../src/utils/randomValue';
 
-// ─── Shared Layout ────────────────────────────────────────────────────────────
+// ─── Page wrapper ─────────────────────────────────────────────────────────────
 
-const Page = styled.div`
+const StoryPage = styled.div`
+  min-height: 100vh;
+  padding: 6.4rem 4rem;
+  background: ${({ $bg }) => $bg};
   display: flex;
   flex-direction: column;
-  gap: 4.8rem;
-  padding: 2.4rem;
+  align-items: center;
   font-family: sans-serif;
-  max-width: 800px;
 `;
 
+const MaxWidth = styled.div`
+  width: 100%;
+  max-width: 760px;
+`;
+
+// ─── Card ─────────────────────────────────────────────────────────────────────
+
 const Card = styled.div`
-  border: 1px solid ${blueGray.m100};
-  border-radius: 8px;
+  background: #fff;
+  border-radius: 14px;
+  border-left: 6px solid ${({ $accent }) => $accent};
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.09);
   overflow: hidden;
 `;
 
 const CardHeader = styled.div`
-  background: ${blueGray.m50};
-  border-bottom: 1px solid ${blueGray.m100};
-  padding: 1.2rem 1.6rem;
+  background: ${({ $bg }) => $bg};
+  border-bottom: 2px solid ${({ $border }) => $border};
+  padding: 2.8rem 3.2rem;
 `;
 
 const FnName = styled.code`
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  color: ${blueGray.m800};
-  background: ${blueGray.m100};
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
+  color: ${({ $color }) => $color};
+  background: ${({ $bg }) => $bg};
+  padding: 0.35rem 1rem;
+  border-radius: 6px;
 `;
 
 const Signature = styled.code`
-  font-size: 1.2rem;
-  color: ${blueGray.m500};
-  margin-left: 0.8rem;
+  font-size: 1.3rem;
+  color: ${blueGray.m400};
+  margin-left: 1.2rem;
 `;
 
 const Description = styled.p`
-  margin: 0.6rem 0 0;
-  font-size: 1.3rem;
-  color: ${blueGray.m400};
+  margin: 1.4rem 0 0;
+  font-size: 1.45rem;
+  line-height: 1.8;
+  color: ${blueGray.m600};
 `;
 
 const CardBody = styled.div`
-  padding: 1.6rem;
+  padding: 3.2rem;
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 3.6rem;
 `;
 
 const SectionLabel = styled.p`
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: ${blueGray.m300};
-  margin: 0 0 0.6rem;
+  letter-spacing: 0.1em;
+  color: ${({ $color }) => $color};
+  margin: 0 0 1.2rem;
 `;
 
-// ─── Example Table ────────────────────────────────────────────────────────────
+// ─── Examples table ───────────────────────────────────────────────────────────
 
 const Table = styled.table`
   width: 100%;
@@ -83,32 +87,35 @@ const Table = styled.table`
 
 const Th = styled.th`
   text-align: left;
-  padding: 0.6rem 1rem;
+  padding: 1rem 1.4rem;
   background: ${blueGray.m50};
   color: ${blueGray.m500};
   font-weight: 600;
+  font-size: 1.2rem;
   border: 1px solid ${blueGray.m100};
 `;
 
 const Td = styled.td`
-  padding: 0.6rem 1rem;
+  padding: 1rem 1.4rem;
   border: 1px solid ${blueGray.m100};
   vertical-align: top;
 `;
 
 const Code = styled.code`
   background: ${blueGray.m50};
-  padding: 0.15rem 0.4rem;
-  border-radius: 3px;
-  font-size: 1.2rem;
-  color: ${blueGray.m900};
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  font-size: 1.25rem;
+  color: ${blueGray.m800};
 `;
 
-const Output = styled(Code)`
-  color: ${green.m600};
+const Output = styled.code`
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: ${({ $color }) => $color};
 `;
 
-const ExamplesTable = ({ rows }) => (
+const ExamplesTable = ({ rows, outputColor }) => (
   <Table>
     <thead>
       <tr>
@@ -124,7 +131,7 @@ const ExamplesTable = ({ rows }) => (
             <Code>{input}</Code>
           </Td>
           <Td>
-            <Output>{output}</Output>
+            <Output $color={outputColor}>{output}</Output>
           </Td>
           <Td style={{ color: blueGray.m400, fontSize: '1.2rem' }}>{note ?? ''}</Td>
         </tr>
@@ -133,465 +140,88 @@ const ExamplesTable = ({ rows }) => (
   </Table>
 );
 
-// ─── Source snippet ───────────────────────────────────────────────────────────
+// ─── Source block ─────────────────────────────────────────────────────────────
 
 const Pre = styled.pre`
   background: ${blueGray.m900};
-  color: ${blueGray.m100};
-  border-radius: 6px;
-  padding: 1.2rem 1.6rem;
-  font-size: 1.2rem;
+  color: #e2e8f0;
+  border-radius: 10px;
+  padding: 2rem 2.4rem;
+  font-size: 1.25rem;
+  line-height: 1.8;
   overflow-x: auto;
   margin: 0;
 `;
 
-// ─── Live Demo (for random functions) ────────────────────────────────────────
-
-const LiveRow = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-`;
-
-const RunButton = styled.button`
-  padding: 0.5rem 1.4rem;
-  background: ${blue.m400};
-  color: ${white};
-  border: none;
-  border-radius: 5px;
-  font-size: 1.3rem;
-  cursor: pointer;
-  &:hover {
-    background: ${blue.m600};
-  }
-`;
-
-const ResultBadge = styled.span`
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: ${green.m600};
-  background: ${green.m100};
-  border-radius: 5px;
-  padding: 0.3rem 0.9rem;
-`;
-
 // ═════════════════════════════════════════════════════════════════════════════
-// capFirstLetter
+// compose — teal
 // ═════════════════════════════════════════════════════════════════════════════
 
-const CapFirstLetterDemo = () => (
-  <Card>
-    <CardHeader>
-      <div>
-        <FnName>capFirstLetter</FnName>
-        <Signature>(str: string) → string</Signature>
-      </div>
-      <Description>
-        Capitalizes the first character of a string. Returns the original value unchanged if it is
-        not a non-empty string.
-      </Description>
-    </CardHeader>
-    <CardBody>
-      <div>
-        <SectionLabel>Examples</SectionLabel>
-        <ExamplesTable
-          rows={[
-            { input: `capFirstLetter('hello')`, output: `'Hello'` },
-            { input: `capFirstLetter('world')`, output: `'World'` },
-            { input: `capFirstLetter('already Capital')`, output: `'Already Capital'` },
-            { input: `capFirstLetter('')`, output: `''`, note: 'Empty string — returned as-is' },
-            { input: `capFirstLetter(42)`, output: `42`, note: 'Non-string — returned as-is' },
-            { input: `capFirstLetter(null)`, output: `null`, note: 'Null — returned as-is' },
-          ]}
-        />
-      </div>
-      <div>
-        <SectionLabel>Source</SectionLabel>
-        <Pre>{`const capFirstLetter = (str) => {
-  if (typeof str !== 'string' || str.length === 0) return str;
-  return str.charAt(0).toUpperCase() + str.slice(1);
-};`}</Pre>
-      </div>
-      <div>
-        <SectionLabel>Usage</SectionLabel>
-        <Pre>{`import capFirstLetter from 'meticulous-ui/utils/capFirstLetter';
-
-capFirstLetter('hello');  // → 'Hello'`}</Pre>
-      </div>
-    </CardBody>
-  </Card>
-);
-
-// ═════════════════════════════════════════════════════════════════════════════
-// compose
-// ═════════════════════════════════════════════════════════════════════════════
-
-const ComposeDemo = () => (
-  <Card>
-    <CardHeader>
-      <div>
-        <FnName>compose</FnName>
-        <Signature>(...funcs: Function[]) → (val: any) → any</Signature>
-      </div>
-      <Description>
-        Returns a new function that applies the provided functions from right-to-left (mathematical
-        composition). The output of each function becomes the input to the next one on the left.
-        <br />
-        <br />
-        This can also be used to return an HOC by composing component wrappers, e.g.
-        <br />
-        <Code>compose(withRouter, withTheme)(MyComponent)</Code>.
-      </Description>
-    </CardHeader>
-    <CardBody>
-      <div>
-        <SectionLabel>Examples</SectionLabel>
-        <ExamplesTable
-          rows={[
-            {
-              input: `compose(s => s + '!', s => s.toUpperCase())('hello')`,
-              output: `'HELLO!'`,
-              note: 'toUpperCase runs first, then ! is appended',
-            },
-            {
-              input: `compose(x => x * 2, x => x + 3)(4)`,
-              output: `14`,
-              note: '4 + 3 = 7, then 7 × 2 = 14',
-            },
-            {
-              input: `compose(square, double, add)(5, 3, 2)`,
-              output: `400`,
-              note: 'Single function — identity',
-            },
-          ]}
-        />
-      </div>
-      <div>
-        <SectionLabel>Source</SectionLabel>
-        <Pre>{`const compose =
-  (...funcs) =>
-  (val) =>
-    funcs.reduceRight((cv, cf) => cf(cv), val);`}</Pre>
-      </div>
-      <div>
-        <SectionLabel>Usage</SectionLabel>
-        <Pre>{`import compose from 'meticulous-ui/utils/compose';
+const ComposePage = () => (
+  <StoryPage $bg={teal.m50}>
+    <MaxWidth>
+      <Card $accent={teal.m500}>
+        <CardHeader $bg='#fff' $border={teal.m100}>
+          <div>
+            <FnName $color={teal.m900} $bg={teal.m100}>
+              compose
+            </FnName>
+            <Signature>(...funcs: Function[]) → (val: any) → any</Signature>
+          </div>
+          <Description>
+            Returns a new function that applies the provided functions from right-to-left
+            (mathematical composition). The output of each function becomes the input to the next
+            one on the left.
+            <br />
+            <br />
+            Also works for HOCs — e.g. <Code>compose(withRouter, withTheme)(MyComponent)</Code>.
+          </Description>
+        </CardHeader>
+        <CardBody>
+          <div>
+            <SectionLabel $color={teal.m700}>Examples</SectionLabel>
+            <ExamplesTable
+              outputColor={teal.m700}
+              rows={[
+                {
+                  input: `compose(s => s + '!', s => s.toUpperCase())('hello')`,
+                  output: `'HELLO!'`,
+                  note: 'toUpperCase runs first, then ! is appended',
+                },
+                {
+                  input: `compose(x => x * 2, x => x + 3)(4)`,
+                  output: `14`,
+                  note: '4 + 3 = 7, then 7 × 2 = 14',
+                },
+                {
+                  input: `compose(square, double, add)(5, 3, 2)`,
+                  output: `400`,
+                  note: 'Multi-step composition',
+                },
+              ]}
+            />
+          </div>
+          <div>
+            <SectionLabel $color={teal.m700}>Usage</SectionLabel>
+            <Pre>{`import compose from 'meticulous-ui/utils/compose';
 
 const addExclamation = (s) => s + '!';
 const toUpper        = (s) => s.toUpperCase();
 
 const shout = compose(addExclamation, toUpper);
 shout('hello');  // → 'HELLO!'`}</Pre>
-      </div>
-    </CardBody>
-  </Card>
-);
-
-// ═════════════════════════════════════════════════════════════════════════════
-// hasEqualProps
-// ═════════════════════════════════════════════════════════════════════════════
-
-const HasEqualPropsDemo = () => (
-  <Card>
-    <CardHeader>
-      <div>
-        <FnName>hasEqualProps</FnName>
-        <Signature>(oldProps: object, newProps: object) → boolean</Signature>
-      </div>
-      <Description>
-        Performs a deep equality check between two props objects,{' '}
-        <strong>ignoring function-valued keys</strong>. Designed for use as a custom comparator in{' '}
-        <Code>React.memo</Code> to prevent re-renders when only callbacks change.
-      </Description>
-    </CardHeader>
-    <CardBody>
-      <div>
-        <SectionLabel>Examples</SectionLabel>
-        <ExamplesTable
-          rows={[
-            {
-              input: `hasEqualProps({ a: 1 }, { a: 1 })`,
-              output: `true`,
-            },
-            {
-              input: `hasEqualProps({ a: 1 }, { a: 2 })`,
-              output: `false`,
-            },
-            {
-              input: `hasEqualProps({ a: 1, onClick: fn1 }, { a: 1, onClick: fn2 })`,
-              output: `true`,
-              note: 'Functions are stripped before comparison',
-            },
-            {
-              input: `hasEqualProps({ a: { b: 1 } }, { a: { b: 1 } })`,
-              output: `true`,
-              note: 'Deep object equality',
-            },
-            {
-              input: `hasEqualProps({ a: { b: 1 } }, { a: { b: 2 } })`,
-              output: `false`,
-            },
-            {
-              input: `hasEqualProps({ a: 1 }, { a: 1, b: 2 })`,
-              output: `false`,
-              note: 'Different key count',
-            },
-          ]}
-        />
-      </div>
-      <div>
-        <SectionLabel>Source</SectionLabel>
-        <Pre>{`const omitFunctions = (obj) =>
-  Object.fromEntries(Object.entries(obj).filter(([, v]) => typeof v !== 'function'));
-
-const deepEqual = (a, b) => {
-  if (a === b) return true;
-  if (typeof a !== 'object' || typeof b !== 'object' || a === null || b === null) return false;
-  const keysA = Object.keys(a);
-  const keysB = Object.keys(b);
-  if (keysA.length !== keysB.length) return false;
-  return keysA.every((k) => deepEqual(a[k], b[k]));
-};
-
-const hasEqualProps = (oldProps, newProps) =>
-  deepEqual(omitFunctions(oldProps), omitFunctions(newProps));`}</Pre>
-      </div>
-      <div>
-        <SectionLabel>Usage</SectionLabel>
-        <Pre>{`import React from 'react';
-import hasEqualProps from 'meticulous-ui/utils/hasEqualProps';
-
-const MyComponent = React.memo(({ label, onClick }) => (
-  <button onClick={onClick}>{label}</button>
-), hasEqualProps);
-// Will NOT re-render when only onClick reference changes.`}</Pre>
-      </div>
-    </CardBody>
-  </Card>
-);
-
-// ═════════════════════════════════════════════════════════════════════════════
-// isNonEmptyArray
-// ═════════════════════════════════════════════════════════════════════════════
-
-const IsNonEmptyArrayDemo = () => (
-  <Card>
-    <CardHeader>
-      <div>
-        <FnName>isNonEmptyArray</FnName>
-        <Signature>(arr: any) → boolean</Signature>
-      </div>
-      <Description>
-        Returns <Code>true</Code> only when the value is an <Code>Array</Code> with at least one
-        element. Safe to call with any type — never throws.
-      </Description>
-    </CardHeader>
-    <CardBody>
-      <div>
-        <SectionLabel>Examples</SectionLabel>
-        <ExamplesTable
-          rows={[
-            { input: `isNonEmptyArray([1, 2, 3])`, output: `true` },
-            { input: `isNonEmptyArray(['a'])`, output: `true` },
-            { input: `isNonEmptyArray([])`, output: `false`, note: 'Empty array' },
-            { input: `isNonEmptyArray(null)`, output: `false` },
-            { input: `isNonEmptyArray(undefined)`, output: `false` },
-            { input: `isNonEmptyArray('hello')`, output: `false`, note: 'String, not an array' },
-            { input: `isNonEmptyArray(42)`, output: `false` },
-            { input: `isNonEmptyArray({})`, output: `false`, note: 'Object, not an array' },
-          ]}
-        />
-      </div>
-      <div>
-        <SectionLabel>Source</SectionLabel>
-        <Pre>{`const isNonEmptyArray = (arr) => Array.isArray(arr) && arr.length > 0;`}</Pre>
-      </div>
-      <div>
-        <SectionLabel>Usage</SectionLabel>
-        <Pre>{`import isNonEmptyArray from 'meticulous-ui/utils/isNonEmptyArray';
-
-const items = fetchItems();
-
-if (isNonEmptyArray(items)) {
-  items.forEach(render);
-}`}</Pre>
-      </div>
-    </CardBody>
-  </Card>
-);
-
-// ═════════════════════════════════════════════════════════════════════════════
-// randomValue
-// ═════════════════════════════════════════════════════════════════════════════
-
-const RandomValueDemo = () => {
-  const [result, setResult] = useState(null);
-  const [min, setMin] = useState(1);
-  const [max, setMax] = useState(10);
-
-  const run = () => setResult(randomValue(Number(min), Number(max)).toFixed(4));
-
-  return (
-    <Card>
-      <CardHeader>
-        <div>
-          <FnName>randomValue</FnName>
-          <Signature>(min: number, max: number) → number</Signature>
-        </div>
-        <Description>
-          Returns a pseudo-random <strong>floating-point</strong> number in the range{' '}
-          <Code>[min, max + 1)</Code>.
-        </Description>
-      </CardHeader>
-      <CardBody>
-        <div>
-          <SectionLabel>Examples</SectionLabel>
-          <ExamplesTable
-            rows={[
-              { input: `randomValue(1, 5)`, output: `≈ 3.7142`, note: 'Range [1, 6)' },
-              { input: `randomValue(0, 1)`, output: `≈ 0.8213`, note: 'Range [0, 2)' },
-              { input: `randomValue(100, 200)`, output: `≈ 157.43`, note: 'Range [100, 201)' },
-            ]}
-          />
-        </div>
-        <div>
-          <SectionLabel>Source</SectionLabel>
-          <Pre>{`const randomValue = (min, max) => Math.random() * (max - min + 1) + min;`}</Pre>
-        </div>
-        <div>
-          <SectionLabel>Live Demo</SectionLabel>
-          <LiveRow>
-            <label style={{ fontSize: '1.3rem' }}>
-              min&nbsp;
-              <input
-                type='number'
-                value={min}
-                onChange={(e) => setMin(e.target.value)}
-                style={{ width: '5rem', fontSize: '1.3rem', padding: '0.3rem' }}
-              />
-            </label>
-            <label style={{ fontSize: '1.3rem' }}>
-              max&nbsp;
-              <input
-                type='number'
-                value={max}
-                onChange={(e) => setMax(e.target.value)}
-                style={{ width: '5rem', fontSize: '1.3rem', padding: '0.3rem' }}
-              />
-            </label>
-            <RunButton onClick={run}>Run</RunButton>
-            {result !== null && <ResultBadge>{result}</ResultBadge>}
-          </LiveRow>
-        </div>
-        <div>
-          <SectionLabel>Usage</SectionLabel>
-          <Pre>{`import randomValue from 'meticulous-ui/utils/randomValue';
-
-const opacity = randomValue(0.2, 0.8);  // random float in [0.2, 1.8)`}</Pre>
-        </div>
-      </CardBody>
-    </Card>
-  );
-};
-
-// ═════════════════════════════════════════════════════════════════════════════
-// randomInt
-// ═════════════════════════════════════════════════════════════════════════════
-
-const RandomIntDemo = () => {
-  const [result, setResult] = useState(null);
-  const [min, setMin] = useState(1);
-  const [max, setMax] = useState(10);
-
-  const run = () => setResult(randomInt(Number(min), Number(max)));
-
-  return (
-    <Card>
-      <CardHeader>
-        <div>
-          <FnName>randomInt</FnName>
-          <Signature>(min: number, max: number) → number</Signature>
-        </div>
-        <Description>
-          Returns a pseudo-random <strong>integer</strong> in the range{' '}
-          <Code>[min, floor(max + 1))</Code>. Built on top of <Code>randomValue</Code>.
-        </Description>
-      </CardHeader>
-      <CardBody>
-        <div>
-          <SectionLabel>Examples</SectionLabel>
-          <ExamplesTable
-            rows={[
-              {
-                input: `randomInt(1, 6)`,
-                output: `4`,
-                note: 'One of 1–7 (floor of randomValue range)',
-              },
-              {
-                input: `randomInt(0, 9)`,
-                output: `7`,
-                note: 'Useful for 0-indexed arrays of length 10',
-              },
-              { input: `randomInt(5, 5)`, output: `5`, note: 'min === max' },
-            ]}
-          />
-        </div>
-        <div>
-          <SectionLabel>Source</SectionLabel>
-          <Pre>{`import randomValue from './randomValue';
-
-const randomInt = (min, max) => Math.floor(randomValue(min, max));`}</Pre>
-        </div>
-        <div>
-          <SectionLabel>Live Demo</SectionLabel>
-          <LiveRow>
-            <label style={{ fontSize: '1.3rem' }}>
-              min&nbsp;
-              <input
-                type='number'
-                value={min}
-                onChange={(e) => setMin(e.target.value)}
-                style={{ width: '5rem', fontSize: '1.3rem', padding: '0.3rem' }}
-              />
-            </label>
-            <label style={{ fontSize: '1.3rem' }}>
-              max&nbsp;
-              <input
-                type='number'
-                value={max}
-                onChange={(e) => setMax(e.target.value)}
-                style={{ width: '5rem', fontSize: '1.3rem', padding: '0.3rem' }}
-              />
-            </label>
-            <RunButton onClick={run}>Run</RunButton>
-            {result !== null && <ResultBadge>{result}</ResultBadge>}
-          </LiveRow>
-        </div>
-        <div>
-          <SectionLabel>Usage</SectionLabel>
-          <Pre>{`import randomInt from 'meticulous-ui/utils/randomInt';
-
-const index = randomInt(0, items.length - 1);  // random index into array`}</Pre>
-        </div>
-      </CardBody>
-    </Card>
-  );
-};
-
-// ═════════════════════════════════════════════════════════════════════════════
-// Full page component
-// ═════════════════════════════════════════════════════════════════════════════
-
-const UtilsPage = () => (
-  <Page>
-    <CapFirstLetterDemo />
-    <ComposeDemo />
-    <HasEqualPropsDemo />
-    <IsNonEmptyArrayDemo />
-    <RandomValueDemo />
-    <RandomIntDemo />
-  </Page>
+          </div>
+          <div>
+            <SectionLabel $color={teal.m700}>Source</SectionLabel>
+            <Pre>{`const compose =
+  (...funcs) =>
+  (val) =>
+    funcs.reduceRight((cv, cf) => cf(cv), val);`}</Pre>
+          </div>
+        </CardBody>
+      </Card>
+    </MaxWidth>
+  </StoryPage>
 );
 
 // ═════════════════════════════════════════════════════════════════════════════
@@ -599,22 +229,13 @@ const UtilsPage = () => (
 // ═════════════════════════════════════════════════════════════════════════════
 
 export default {
-  title: 'Utils/Functions',
-  component: UtilsPage,
+  title: 'Utils/Function Utilities',
   parameters: {
-    docs: {
-      description: {
-        component:
-          'Pure utility functions available in the meticulous-ui toolkit. ' +
-          'Each entry shows the signature, a description, input/output examples, ' +
-          'the source, and an import snippet.',
-      },
-    },
     controls: { disable: true },
     actions: { disable: true },
+    layout: 'fullscreen',
   },
 };
 
-export const Default = () => <UtilsPage />;
-
-Default.storyName = 'All Utils';
+export const Compose = () => <ComposePage />;
+Compose.storyName = 'compose';

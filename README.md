@@ -362,14 +362,48 @@ import blue from 'meticulous-ui/colors/blue';
 
 ## 📦 Utils
 
-| Functions         | Description                                                                                                    |
-| ----------------- | -------------------------------------------------------------------------------------------------------------- |
-| `capFirstLetter`  | Takes a string and returns with first letter capitalised                                                       |
-| `compose`         | Performs right-to-left function composition using transforming function                                        |
-| `hasEqualProps`   | Takes two args: Component’s previous props & its new props; returns true if all-non functional props are equal |
-| `isNonEmptyArray` | Takes an array & returns true if is not empty                                                                  |
-| `randomInt`       | Takes min, max integer & returns random integer between them                                                   |
-| `randomValue`     | Takes min, max value & returns random value between them                                                       |
+### General
+
+| Function      | Signature                  | Description                               |
+| ------------- | -------------------------- | ----------------------------------------- |
+| `compose`     | `(...funcs) → (val) → any` | Right-to-left function composition        |
+| `randomInt`   | `(min, max) → number`      | Random integer in `[min, floor(max + 1))` |
+| `randomValue` | `(min, max) → number`      | Random float in `[min, max + 1)`          |
+
+### Data Utilities
+
+| Function          | Signature                        | Description                                                              |
+| ----------------- | -------------------------------- | ------------------------------------------------------------------------ |
+| `deepClone`       | `(obj) → any`                    | Recursively clones objects, arrays, and Dates with no shared references  |
+| `mergeDeep`       | `(target, source) → object`      | Deep-merges source into target; source wins on conflicts                 |
+| `pick`            | `(obj, keys) → object`           | Returns a new object with only the specified keys                        |
+| `omit`            | `(obj, keys) → object`           | Returns a new object without the specified keys                          |
+| `isEmpty`         | `(value) → boolean`              | `true` for `null`, `undefined`, `""`, `[]`, `{}`                         |
+| `isEqual`         | `(a, b) → boolean`               | Deep structural equality — handles objects, arrays, and Dates            |
+| `hasEqualProps`   | `(oldProps, newProps) → boolean` | Deep equality ignoring function-valued keys; ideal for `React.memo`      |
+| `isNonEmptyArray` | `(arr) → boolean`                | `true` only when the value is an array with at least one element         |
+| `flattenObject`   | `(obj, prefix?) → object`        | Collapses nested object to dot-notation keys                             |
+| `groupBy`         | `(array, key) → object`          | Groups array items into an object of arrays keyed by a field or function |
+| `keyBy`           | `(array, key) → object`          | Converts an array into a lookup object keyed by a field or function      |
+| `uniqueBy`        | `(array, key) → array`           | Removes duplicates by a field or function; first occurrence wins         |
+| `sortBy`          | `(array, key) → array`           | Ascending sort by a field or function; non-mutating                      |
+| `chunk`           | `(array, size) → array[]`        | Splits array into consecutive chunks of the given size                   |
+
+### String Utilities
+
+| Function            | Signature               | Description                                                         |
+| ------------------- | ----------------------- | ------------------------------------------------------------------- |
+| `capitalize`        | `(str) → string`        | Uppercases first character, lowercases the rest                     |
+| `titleCase`         | `(str) → string`        | Capitalizes the first letter of every word                          |
+| `camelCase`         | `(str) → string`        | Converts to `camelCase` from spaces, hyphens, or underscores        |
+| `snakeCase`         | `(str) → string`        | Converts to `snake_case` from camelCase, spaces, or hyphens         |
+| `kebabCase`         | `(str) → string`        | Converts to `kebab-case` from camelCase, spaces, or underscores     |
+| `truncate`          | `(str, limit) → string` | Trims to `limit` characters and appends `…`                         |
+| `slugify`           | `(str) → string`        | URL-safe slug — strips diacritics, removes special chars            |
+| `removeExtraSpaces` | `(str) → string`        | Trims and collapses internal whitespace runs to a single space      |
+| `maskEmail`         | `(str) → string`        | Shows only the first character of the local part, e.g. `j***@x.com` |
+| `maskPhone`         | `(str) → string`        | Masks all digits except the last four; preserves formatting chars   |
+| `generateInitials`  | `(name) → string`       | Extracts uppercased first letter of each word, e.g. `"JD"`          |
 
 ## 🌱 Features
 
