@@ -1,4 +1,4 @@
-import capFirstLetter from './capitalize';
+import capFirstLetter from './capFirstLetter';
 import capitalize from './capitalize';
 import camelCase from './camelCase';
 import chunk from './chunk';

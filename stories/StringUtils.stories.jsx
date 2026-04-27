@@ -13,6 +13,7 @@ import orange from '../src/colors/orange';
 import red from '../src/colors/red';
 import cyan from '../src/colors/cyan';
 
+import capFirstLetter from '../src/utils/capFirstLetter';
 import capitalize from '../src/utils/capitalize';
 import titleCase from '../src/utils/titleCase';
 import camelCase from '../src/utils/camelCase';
@@ -171,6 +172,63 @@ const Pre = styled.pre`
   overflow-x: auto;
   margin: 0;
 `;
+
+// ═════════════════════════════════════════════════════════════════════════════
+// capFirstLetter — blueGray
+// ═════════════════════════════════════════════════════════════════════════════
+
+const CapFirstLetterPage = () => (
+  <StoryPage $bg={blueGray.m50}>
+    <MaxWidth>
+      <Card $accent={blueGray.m500}>
+        <CardHeader $bg='#fff' $border={blueGray.m100}>
+          <div>
+            <FnName $color={blueGray.m900} $bg={blueGray.m100}>
+              capFirstLetter
+            </FnName>
+            <Signature>(str: string) → string</Signature>
+          </div>
+          <Description>
+            Uppercases only the very first character and leaves the rest of the string exactly as-is.
+            Unlike <Code>capitalize</Code>, it does <em>not</em> lowercase the remaining characters.
+          </Description>
+        </CardHeader>
+        <CardBody>
+          <div>
+            <SectionLabel $color={blueGray.m700}>Examples</SectionLabel>
+            <ExamplesTable
+              outputColor={blueGray.m700}
+              rows={[
+                { input: `capFirstLetter('hello world')`, output: `'Hello world'` },
+                {
+                  input: `capFirstLetter('hELLO')`,
+                  output: `'HELLO'`,
+                  note: 'Rest unchanged — compare capitalize()',
+                },
+                { input: `capFirstLetter('already Capital')`, output: `'Already Capital'` },
+                { input: `capFirstLetter('')`, output: `''`, note: 'Empty string — returned as-is' },
+                { input: `capFirstLetter(42)`, output: `42`, note: 'Non-string — returned as-is' },
+              ]}
+            />
+          </div>
+          <div>
+            <SectionLabel $color={blueGray.m700}>Usage</SectionLabel>
+            <Pre>{`import capFirstLetter from 'meticulous-ui/utils/capFirstLetter';
+
+capFirstLetter('hello world');  // → 'Hello world'`}</Pre>
+          </div>
+          <div>
+            <SectionLabel $color={blueGray.m700}>Source</SectionLabel>
+            <Pre>{`const capFirstLetter = (str) => {
+  if (typeof str !== 'string' || str.length === 0) return str;
+  return str.charAt(0).toUpperCase() + str.slice(1);
+};`}</Pre>
+          </div>
+        </CardBody>
+      </Card>
+    </MaxWidth>
+  </StoryPage>
+);
 
 // ═════════════════════════════════════════════════════════════════════════════
 // capitalize — purple
@@ -876,6 +934,9 @@ export default {
     layout: 'fullscreen',
   },
 };
+
+export const CapFirstLetter = () => <CapFirstLetterPage />;
+CapFirstLetter.storyName = 'capFirstLetter';
 
 export const Capitalize = () => <CapitalizePage />;
 Capitalize.storyName = 'capitalize';

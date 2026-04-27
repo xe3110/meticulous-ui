@@ -393,6 +393,7 @@ import blue from 'meticulous-ui/colors/blue';
 
 | Function            | Signature               | Description                                                         |
 | ------------------- | ----------------------- | ------------------------------------------------------------------- |
+| `capFirstLetter`    | `(str) → string`        | Takes a string and returns with first letter capitalised            |
 | `capitalize`        | `(str) → string`        | Uppercases first character, lowercases the rest                     |
 | `titleCase`         | `(str) → string`        | Capitalizes the first letter of every word                          |
 | `camelCase`         | `(str) → string`        | Converts to `camelCase` from spaces, hyphens, or underscores        |
