@@ -63,13 +63,10 @@ export const NavButton = styled.button`
     opacity 0.3s;
   padding: 0;
 
-  &:first-of-type {
-    left: ${({ $overlay }) => ($overlay ? '12px' : '-16px')};
-  }
-
-  &:last-of-type {
-    right: ${({ $overlay }) => ($overlay ? '12px' : '-16px')};
-  }
+  ${({ $direction, $overlay }) =>
+    $direction === 'prev'
+      ? `left: ${$overlay ? '12px' : '-16px'};`
+      : `right: ${$overlay ? '12px' : '-16px'};`}
 
   &:hover:not(:disabled) {
     background: #f5f5f5;

@@ -209,6 +209,7 @@ const Carousel = ({
             onClick={prev}
             disabled={!loop && currentIndex === 0}
             aria-label='Previous slide'
+            $direction='prev'
             $overlay={overlayArrows}
             $visible={arrowsVisible}
             $arrowTop={arrowTopValue}
@@ -251,6 +252,7 @@ const Carousel = ({
             onClick={next}
             disabled={!loop && currentIndex === maxIndex}
             aria-label='Next slide'
+            $direction='next'
             $overlay={overlayArrows}
             $visible={arrowsVisible}
             $arrowTop={arrowTopValue}
