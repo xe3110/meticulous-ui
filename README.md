@@ -83,250 +83,30 @@ import blue from 'meticulous-ui/colors/blue';
 
 ## 📦 Icon Components
 
-| Icons                        | Description                        |
-| ---------------------------- | ---------------------------------- |
-| `AddCircleFilled`            | Add circle filled icon             |
-| `AddCircle`                  | Add circle icon                    |
-| `Add`                        | Add icon                           |
-| `ArrowDown`                  | Arrow down icon                    |
-| `ArrowLeft`                  | Arrow left icon                    |
-| `ArrowRight`                 | Arrow right icon                   |
-| `ArrowUp`                    | Arrow up icon                      |
-| `BagFilled`                  | Bag filled icon                    |
-| `BagOutline`                 | Bag outline icon                   |
-| `BellFilled`                 | Bell filled icon                   |
-| `BellOffFilled`              | Bell off filled icon               |
-| `BellOffOutline`             | Bell off outline icon              |
-| `BellOutline`                | Bell outline icon                  |
-| `BookmarkFilled`             | Bookmark filled icon               |
-| `BookmarkOutline`            | Bookmark outline icon              |
-| `BoxCoveredFilled`           | Box covered filled icon            |
-| `BoxCoveredOutline`          | Box covered outline icon           |
-| `BoxFilled`                  | Box filled icon                    |
-| `BoxOutline`                 | Box outline icon                   |
-| `CalendarDays`               | Calendar days icon                 |
-| `CalendarLinesPen`           | Calendar lines pen icon            |
-| `CartCheckFilled`            | Cart check filled icon             |
-| `CartCheckOutline`           | Cart check outline icon            |
-| `CartCrossFilled`            | Cart cross filled icon             |
-| `CartCrossOutline`           | Cart cross outline icon            |
-| `CartFilled`                 | Cart filled icon                   |
-| `CartMinusFilled`            | Cart minus filled icon             |
-| `CartMinusOutline`           | Cart minus outline icon            |
-| `CartOutline`                | Cart outline icon                  |
-| `CartPlusFilled`             | Cart plus filled icon              |
-| `CartPlusOutline`            | Cart plus outline icon             |
-| `CheckDouble`                | Check double icon                  |
-| `Check`                      | Check icon                         |
-| `ChevronDown`                | Chevron down icon                  |
-| `ChevronLeft`                | Chevron left icon                  |
-| `ChevronRight`               | Chevron right icon                 |
-| `ChevronUp`                  | Chevron up icon                    |
-| `ClockCircleOutline`         | Clock circle outline icon          |
-| `ClockSquareOutline`         | Clock square outline icon          |
-| `CloseCircleFilled`          | Close circle filled icon           |
-| `CloseCircleOutline`         | Close circle outline icon          |
-| `Close`                      | Close icon                         |
-| `CommentBubbleFilled`        | Comment bubble filled icon         |
-| `CommentBubbleOutline`       | Comment bubble outline icon        |
-| `CommentFilled`              | Comment filled icon                |
-| `CommentLineFilled`          | Comment line filled icon           |
-| `CommentLineOutline`         | Comment line outline icon          |
-| `CommentOutline`             | Comment outline icon               |
-| `ContactDetailsFilled`       | Contact details filled icon        |
-| `ContactDetailsOutline`      | Contact details outline icon       |
-| `DeliveryTruckFastFilled`    | Delivery truck fast filled icon    |
-| `DeliveryTruckFastOutline`   | Delivery truck fast outline icon   |
-| `DeliveryTruckLeftFilled`    | Delivery truck left filled icon    |
-| `DeliveryTruckLeftOutline`   | Delivery truck left outline icon   |
-| `DeliveryTruckRightFilled`   | Delivery truck right filled icon   |
-| `DeliveryTruckRightOutline`  | Delivery truck right outline icon  |
-| `DetailsOutline`             | Details outline icon               |
-| `DiscordConversation`        | Discord conversation icon          |
-| `DiscordFilled`              | Discord filled icon                |
-| `DiscordOutline`             | Discord outline icon               |
-| `DoorClosedFilled`           | Door closed filled icon            |
-| `DoorClosedOutline`          | Door closed outline icon           |
-| `DoorOpenFilled`             | Door open filled icon              |
-| `DoorOpenOutline`            | Door open outline icon             |
-| `DotsHorizontalFilled`       | Dots horizontal filled icon        |
-| `DotsHorizontalOutline`      | Dots horizontal outline icon       |
-| `DotsVerticalFilled`         | Dots vertical filled icon          |
-| `DotsVerticalOutline`        | Dots vertical outline icon         |
-| `DownloadBoxFilled`          | Download box filled icon           |
-| `DownloadBoxOutline`         | Download box outline icon          |
-| `Download`                   | Download icon                      |
-| `EditBoxThick`               | Edit box thick icon                |
-| `EditBoxThin`                | Edit box thin icon                 |
-| `EmailFilled`                | Email filled icon                  |
-| `EmailOutline`               | Email outline icon                 |
-| `ExitArrowInOutline`         | Exit arrow in outline icon         |
-| `ExitArrowOutOutline`        | Exit arrow out outline icon        |
-| `EyeClosed`                  | Eye closed icon                    |
-| `EyeFilled`                  | Eye filled icon                    |
-| `EyeOutline`                 | Eye outline icon                   |
-| `FacebookFilled`             | Facebook filled icon               |
-| `FacebookMessengerOutline`   | Facebook messenger outline icon    |
-| `FacebookOutline`            | Facebook outline icon              |
-| `FacebookRoundFilled`        | Facebook round filled icon         |
-| `FilterList`                 | Filter list icon                   |
-| `FilterThickFilled`          | Filter thick filled icon           |
-| `FilterThickOutline`         | Filter thick outline icon          |
-| `Filter`                     | Filter icon                        |
-| `FullScreenArrowThick`       | Full screen arrow thick icon       |
-| `FullScreenArrowThin`        | Full screen arrow thin icon        |
-| `FullScreenFilled`           | Full screen filled icon            |
-| `FullScreenOutline`          | Full screen outline icon           |
-| `HamburgerMenu`              | Hamburger menu icon                |
-| `HamburgerSpaced`            | Hamburger spaced icon              |
-| `HeartFilled`                | Heart filled icon                  |
-| `HeartOutline`               | Heart outline icon                 |
-| `HelpCircleFilled`           | Help circle filled icon            |
-| `HelpCircleOutline`          | Help circle outline icon           |
-| `Help`                       | Help icon                          |
-| `HomeFilled`                 | Home filled icon                   |
-| `HomeOutline`                | Home outline icon                  |
-| `InfoCircleFilled`           | Info circle filled icon            |
-| `InfoCircleOutline`          | Info circle outline icon           |
-| `InfoSquareFilled`           | Info square filled icon            |
-| `InfoSquareOutline`          | Info square outline icon           |
-| `Info`                       | Info icon                          |
-| `InstagramOuline`            | Instagram ouline icon              |
-| `InstagramRoundFilled`       | Instagram round filled icon        |
-| `KeyFilled`                  | Key filled icon                    |
-| `KeyInSquareFilled`          | Key in square filled icon          |
-| `KeyInSquareOutline`         | Key in square outline icon         |
-| `KeyOutline`                 | Key outline icon                   |
-| `KeySideSquareFilled`        | Key side square filled icon        |
-| `KeySideSquareOutline`       | Key side square outline icon       |
-| `KeySquareFilled`            | Key square filled icon             |
-| `KeySquareOutline`           | Key square outline icon            |
-| `Link`                       | Link icon                          |
-| `LinkedinFilled`             | Linkedin filled icon               |
-| `LinkedinOutline`            | Linkedin outline icon              |
-| `LinkedinRoundFilled`        | Linkedin round filled icon         |
-| `Loading`                    | Loading icon                       |
-| `LocationArrowFilled`        | Location arrow filled icon         |
-| `LocationArrowOutline`       | Location arrow outline icon        |
-| `LocationFilled`             | Location filled icon               |
-| `LocationOutline`            | Location outline icon              |
-| `LockKeyholeOutline`         | Lock keyhole outline icon          |
-| `LockKeyholeUnlockedOutline` | Lock keyhole unlocked outline icon |
-| `LockKeyholeUnlocked`        | Lock keyhole unlocked icon         |
-| `LockKeyhole`                | Lock keyhole icon                  |
-| `MediaPauseCircleFilled`     | Media pause circle filled icon     |
-| `MediaPauseCircleOuline`     | Media pause circle ouline icon     |
-| `MediaPauseFilled`           | Media pause filled icon            |
-| `MediaPauseOutline`          | Media pause outline icon           |
-| `MediaPlayCircleFilled`      | Media play circle filled icon      |
-| `MediaPlayCircleOutline`     | Media play circle outline icon     |
-| `MediaPlayFilled`            | Media play filled icon             |
-| `MediaPlayOutline`           | Media play outline icon            |
-| `MediaStopCircleFilled`      | Media stop circle filled icon      |
-| `MediaStopCircleOutline`     | Media stop circle outline icon     |
-| `MediaStopFilled`            | Media stop filled icon             |
-| `MediaStopOutline`           | Media stop outline icon            |
-| `MinusCircleFilled`          | Minus circle filled icon           |
-| `MinusCircle`                | Minus circle icon                  |
-| `Minus`                      | Minus icon                         |
-| `MoneyBagOutline`            | Money bag outline icon             |
-| `MoneyBriefcaseFilled`       | Money briefcase filled icon        |
-| `MoneyBriefcaseOutline`      | Money briefcase outline icon       |
-| `NoEntryFilled`              | No entry filled icon               |
-| `NoEntryOutline`             | No entry outline icon              |
-| `NoEntry`                    | No entry icon                      |
-| `PaymentCardFilled`          | Payment card filled icon           |
-| `PaymentCardOutline`         | Payment card outline icon          |
-| `PhoneCallingFilled`         | Phone calling filled icon          |
-| `PhoneCallingOutline`        | Phone calling outline icon         |
-| `PhoneFilled`                | Phone filled icon                  |
-| `PhoneOutline`               | Phone outline icon                 |
-| `PinAddFilled`               | Pin add filled icon                |
-| `PinAddOutline`              | Pin add outline icon               |
-| `PinCircleFilled`            | Pin circle filled icon             |
-| `PinCircleOutline`           | Pin circle outline icon            |
-| `PinFilled`                  | Pin filled icon                    |
-| `PinOutline`                 | Pin outline icon                   |
-| `PinSubFilled`               | Pin sub filled icon                |
-| `PinSubOutline`              | Pin sub outline icon               |
-| `Pin`                        | Pin icon                           |
-| `PinterestFilled`            | Pinterest filled icon              |
-| `PinterestOutline`           | Pinterest outline icon             |
-| `ProfileFemaleOutline`       | Profile female outline icon        |
-| `ProfileGroupFilled`         | Profile group filled icon          |
-| `ProfileMaleFilled`          | Profile male filled icon           |
-| `ProfileMaleOutline`         | Profile male outline icon          |
-| `RedditFilled`               | Reddit filled icon                 |
-| `RedditOutline`              | Reddit outline icon                |
-| `RedditRoundFilled`          | Reddit round filled icon           |
-| `RedditRoundOutline`         | Reddit round outline icon          |
-| `RupeeOutlined`              | Rupee outline icon                 |
-| `RupeeSign`                  | Rupee sign icon                    |
-| `SaveFilled`                 | Save filled icon                   |
-| `SaveOutline`                | Save outline icon                  |
-| `Search`                     | Search icon                        |
-| `SettingFilled`              | Setting filled icon                |
-| `SettingOutline`             | Setting outline icon               |
-| `ShareAllFilled`             | Share all filled icon              |
-| `ShareAllOutline`            | Share all outline icon             |
-| `ShareBoxOutline`            | Share box outline icon             |
-| `ShareFilled`                | Share filled icon                  |
-| `ShareOutline`               | Share outline icon                 |
-| `ShareThickFilled`           | Share thick filled icon            |
-| `ShieldCheckFilled`          | Shield check filled icon           |
-| `ShieldCheckOutline`         | Shield check outline icon          |
-| `ShieldCrossFilled`          | Shield cross filled icon           |
-| `ShieldCrossOutline`         | Shield cross outline icon          |
-| `ShieldFilled`               | Shield filled icon                 |
-| `ShieldOutline`              | Shield outline icon                |
-| `ShieldWarningFilled`        | Shield warning filled icon         |
-| `ShieldWarningOutline`       | Shield warning outline icon        |
-| `SnapchatFilled`             | Snapchat filled icon               |
-| `SnapchatOutline`            | Snapchat outline icon              |
-| `SortBottomToTop`            | Sort bottom to top icon            |
-| `SortHorizontal`             | Sort horizontal icon               |
-| `SortTopToBottom`            | Sort top to bottom icon            |
-| `SortVertical`               | Sort vertical icon                 |
-| `StarFilled`                 | Star filled icon                   |
-| `StarOutline`                | Star outline icon                  |
-| `TelegramFilled`             | Telegram filled icon               |
-| `TelegramOutline`            | Telegram outline icon              |
-| `TelegramRoundFilled`        | Telegram round filled icon         |
-| `ThumbsDownFilled`           | Thumbs down filled icon            |
-| `ThumbsDownOutline`          | Thumbs down outline icon           |
-| `ThumbsUpFilled`             | Thumbs up filled icon              |
-| `ThumbsUpOutline`            | Thumbs up outline icon             |
-| `TiktokBox`                  | Tiktok box icon                    |
-| `TiktokThickFilled`          | Tiktok thick filled icon           |
-| `TiktokThinFilled`           | Tiktok thin filled icon            |
-| `TrashBigFilled`             | Trash big filled icon              |
-| `TrashBigOutline`            | Trash big outline icon             |
-| `TrashFilled`                | Trash filled icon                  |
-| `TrashLinesFilled`           | Trash lines filled icon            |
-| `TrashLinesOutline`          | Trash lines outline icon           |
-| `TrashOutline`               | Trash outline icon                 |
-| `UploadBoxFilled`            | Upload box filled icon             |
-| `UploadBoxOutline`           | Upload box outline icon            |
-| `Upload`                     | Upload icon                        |
-| `VolumeFilled`               | Volume filled icon                 |
-| `VolumeMuteFilled`           | Volume mute filled icon            |
-| `VolumeMuteOutline`          | Volume mute outline icon           |
-| `VolumeOffFilled`            | Volume off filled icon             |
-| `VolumeOffOutline`           | Volume off outline icon            |
-| `VolumeOutline`              | Volume outline icon                |
-| `WalletFilled`               | Wallet filled icon                 |
-| `WalletOutline`              | Wallet outline icon                |
-| `WarningCircleFilled`        | Warning circle filled icon         |
-| `WarningCircleOutline`       | Warning circle outline icon        |
-| `WarningSmall`               | Warning small icon                 |
-| `WarningTriangleFilled`      | Warning triangle filled icon       |
-| `WarningTriangleOutline`     | Warning triangle outline icon      |
-| `Warning`                    | Warning icon                       |
-| `WhatsappFilled`             | Whatsapp filled icon               |
-| `WhatsappOutline`            | Whatsapp outline icon              |
-| `YoutubeFilled`              | Youtube filled icon                |
-| `YoutubeRoundFilled`         | Youtube round filled icon          |
-| `Youtube`                    | Youtube icon                       |
+| Group | Icons |
+| --- | --- |
+| Arrows & Chevrons | `ArrowDown`, `ArrowLeft`, `ArrowRight`, `ArrowUp`, `ChevronDown`, `ChevronLeft`, `ChevronRight`, `ChevronUp` |
+| Actions | `Add`, `AddCircle`, `AddCircleFilled`, `Minus`, `MinusCircle`, `MinusCircleFilled`, `Close`, `CloseCircleFilled`, `CloseCircleOutline`, `Check`, `CheckDouble`, `Link`, `Search`, `Loading` |
+| Bells & Dots | `BellFilled`, `BellOutline`, `BellOffFilled`, `BellOffOutline`, `DotsHorizontalFilled`, `DotsHorizontalOutline`, `DotsVerticalFilled`, `DotsVerticalOutline` |
+| Bookmarks & Reactions | `BookmarkFilled`, `BookmarkOutline`, `HeartFilled`, `HeartOutline`, `StarFilled`, `StarOutline`, `ThumbsUpFilled`, `ThumbsUpOutline`, `ThumbsDownFilled`, `ThumbsDownOutline` |
+| Calendar & Clock | `CalendarDays`, `CalendarLinesPen`, `ClockCircleOutline`, `ClockSquareOutline` |
+| Commerce | `BagFilled`, `BagOutline`, `CartFilled`, `CartOutline`, `CartCheckFilled`, `CartCheckOutline`, `CartCrossFilled`, `CartCrossOutline`, `CartMinusFilled`, `CartMinusOutline`, `CartPlusFilled`, `CartPlusOutline`, `PaymentCardFilled`, `PaymentCardOutline`, `WalletFilled`, `WalletOutline`, `MoneyBagOutline`, `MoneyBriefcaseFilled`, `MoneyBriefcaseOutline`, `RupeeOutlined`, `RupeeSign` |
+| Communication | `CommentFilled`, `CommentOutline`, `CommentBubbleFilled`, `CommentBubbleOutline`, `CommentLineFilled`, `CommentLineOutline`, `EmailFilled`, `EmailOutline`, `PhoneFilled`, `PhoneOutline`, `PhoneCallingFilled`, `PhoneCallingOutline`, `ContactDetailsFilled`, `ContactDetailsOutline` |
+| Delivery & Boxes | `BoxFilled`, `BoxOutline`, `BoxCoveredFilled`, `BoxCoveredOutline`, `DeliveryTruckFastFilled`, `DeliveryTruckFastOutline`, `DeliveryTruckLeftFilled`, `DeliveryTruckLeftOutline`, `DeliveryTruckRightFilled`, `DeliveryTruckRightOutline` |
+| Doors & Exit | `DoorClosedFilled`, `DoorClosedOutline`, `DoorOpenFilled`, `DoorOpenOutline`, `ExitArrowInOutline`, `ExitArrowOutOutline` |
+| Edit & Files | `EditBoxThick`, `EditBoxThin`, `SaveFilled`, `SaveOutline`, `Download`, `DownloadBoxFilled`, `DownloadBoxOutline`, `Upload`, `UploadBoxFilled`, `UploadBoxOutline` |
+| Eye & Fullscreen | `EyeClosed`, `EyeFilled`, `EyeOutline`, `FullScreenFilled`, `FullScreenOutline`, `FullScreenArrowThick`, `FullScreenArrowThin` |
+| Filter, Sort & Menu | `Filter`, `FilterList`, `FilterThickFilled`, `FilterThickOutline`, `SortBottomToTop`, `SortTopToBottom`, `SortHorizontal`, `SortVertical`, `HamburgerMenu`, `HamburgerSpaced`, `SettingFilled`, `SettingOutline` |
+| Home & Location | `HomeFilled`, `HomeOutline`, `LocationFilled`, `LocationOutline`, `LocationArrowFilled`, `LocationArrowOutline`, `Pin`, `PinFilled`, `PinOutline`, `PinAddFilled`, `PinAddOutline`, `PinCircleFilled`, `PinCircleOutline`, `PinSubFilled`, `PinSubOutline` |
+| Info & Help | `Info`, `InfoCircleFilled`, `InfoCircleOutline`, `InfoSquareFilled`, `InfoSquareOutline`, `Help`, `HelpCircleFilled`, `HelpCircleOutline`, `DetailsOutline` |
+| Keys & Locks | `KeyFilled`, `KeyOutline`, `KeyInSquareFilled`, `KeyInSquareOutline`, `KeySideSquareFilled`, `KeySideSquareOutline`, `KeySquareFilled`, `KeySquareOutline`, `LockKeyhole`, `LockKeyholeOutline`, `LockKeyholeUnlocked`, `LockKeyholeUnlockedOutline` |
+| Media & Volume | `MediaPlayFilled`, `MediaPlayOutline`, `MediaPlayCircleFilled`, `MediaPlayCircleOutline`, `MediaPauseFilled`, `MediaPauseOutline`, `MediaPauseCircleFilled`, `MediaPauseCircleOuline`, `MediaStopFilled`, `MediaStopOutline`, `MediaStopCircleFilled`, `MediaStopCircleOutline`, `VolumeFilled`, `VolumeOutline`, `VolumeMuteFilled`, `VolumeMuteOutline`, `VolumeOffFilled`, `VolumeOffOutline` |
+| Profile | `ProfileMaleFilled`, `ProfileMaleOutline`, `ProfileFemaleOutline`, `ProfileGroupFilled` |
+| Security & Shield | `ShieldFilled`, `ShieldOutline`, `ShieldCheckFilled`, `ShieldCheckOutline`, `ShieldCrossFilled`, `ShieldCrossOutline`, `ShieldWarningFilled`, `ShieldWarningOutline`, `NoEntry`, `NoEntryFilled`, `NoEntryOutline` |
+| Share | `ShareFilled`, `ShareOutline`, `ShareAllFilled`, `ShareAllOutline`, `ShareBoxOutline`, `ShareThickFilled` |
+| Social Media | `DiscordConversation`, `DiscordFilled`, `DiscordOutline`, `FacebookFilled`, `FacebookOutline`, `FacebookMessengerOutline`, `FacebookRoundFilled`, `InstagramOuline`, `InstagramRoundFilled`, `LinkedinFilled`, `LinkedinOutline`, `LinkedinRoundFilled`, `PinterestFilled`, `PinterestOutline`, `RedditFilled`, `RedditOutline`, `RedditRoundFilled`, `RedditRoundOutline`, `SnapchatFilled`, `SnapchatOutline`, `TelegramFilled`, `TelegramOutline`, `TelegramRoundFilled`, `TiktokBox`, `TiktokThickFilled`, `TiktokThinFilled`, `WhatsappFilled`, `WhatsappOutline`, `Youtube`, `YoutubeFilled`, `YoutubeRoundFilled` |
+| Trash | `TrashFilled`, `TrashOutline`, `TrashBigFilled`, `TrashBigOutline`, `TrashLinesFilled`, `TrashLinesOutline` |
+| Warnings & Errors | `Warning`, `WarningSmall`, `WarningCircleFilled`, `WarningCircleOutline`, `WarningTriangleFilled`, `WarningTriangleOutline` |
 
 ## 📦 Tokens
 
@@ -405,6 +185,21 @@ import blue from 'meticulous-ui/colors/blue';
 | `maskEmail`         | `(str) → string`        | Shows only the first character of the local part, e.g. `j***@x.com` |
 | `maskPhone`         | `(str) → string`        | Masks all digits except the last four; preserves formatting chars   |
 | `generateInitials`  | `(name) → string`       | Extracts uppercased first letter of each word, e.g. `"JD"`          |
+
+### Validation Utilities
+
+| Function           | Signature              | Description                                                                  |
+| ------------------ | ---------------------- | ---------------------------------------------------------------------------- |
+| `isEmail`          | `(value) → boolean`    | Valid email — must have local part, `@`, and domain with dot                 |
+| `isPhone`          | `(value) → boolean`    | Plausible phone — optional `+`, 7–15 digits, allows spaces/hyphens/parens   |
+| `isURL`            | `(value) → boolean`    | Valid `http` or `https` URL via native `URL` constructor                     |
+| `isPasswordStrong` | `(value) → boolean`    | 8+ chars with uppercase, lowercase, digit, and special character             |
+| `isPAN`            | `(value) → boolean`    | Indian PAN — `AAAAA0000A` (5 letters, 4 digits, 1 letter)                   |
+| `isAadhaar`        | `(value) → boolean`    | Indian Aadhaar — 12 digits, first digit non-zero; strips spaces              |
+| `isGST`            | `(value) → boolean`    | Indian GSTIN — 2-digit state code + PAN + entity digit + `Z` + check char   |
+| `isRequired`       | `(value) → boolean`    | `false` for `null`, `undefined`, blank strings, and empty arrays             |
+| `minLength`        | `(value, n) → boolean` | `true` when `value.length >= n`                                              |
+| `maxLength`        | `(value, n) → boolean` | `true` when `value.length <= n`                                              |
 
 ## 🌱 Features
 

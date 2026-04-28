@@ -43,6 +43,16 @@ import timeAgo from './timeAgo';
 import titleCase from './titleCase';
 import truncate from './truncate';
 import uniqueBy from './uniqueBy';
+import isEmail from './isEmail';
+import isPhone from './isPhone';
+import isURL from './isURL';
+import isPasswordStrong from './isPasswordStrong';
+import isPAN from './isPAN';
+import isAadhaar from './isAadhaar';
+import isGST from './isGST';
+import isRequired from './isRequired';
+import minLength from './minLength';
+import maxLength from './maxLength';
 
 export default {
   // string
@@ -97,4 +107,16 @@ export default {
   pick,
   sortBy,
   uniqueBy,
+
+  // validation
+  isEmail,
+  isPhone,
+  isURL,
+  isPasswordStrong,
+  isPAN,
+  isAadhaar,
+  isGST,
+  isRequired,
+  minLength,
+  maxLength,
 };
