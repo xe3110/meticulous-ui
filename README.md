@@ -142,79 +142,19 @@ import blue from 'meticulous-ui/colors/blue';
 
 ## 📦 Utils
 
-### General
-
-| Function      | Signature                  | Description                               |
-| ------------- | -------------------------- | ----------------------------------------- |
-| `compose`     | `(...funcs) → (val) → any` | Right-to-left function composition        |
-| `randomInt`   | `(min, max) → number`      | Random integer in `[min, floor(max + 1))` |
-| `randomValue` | `(min, max) → number`      | Random float in `[min, max + 1)`          |
-
-### Data Utilities
-
-| Function          | Signature                        | Description                                                              |
-| ----------------- | -------------------------------- | ------------------------------------------------------------------------ |
-| `deepClone`       | `(obj) → any`                    | Recursively clones objects, arrays, and Dates with no shared references  |
-| `mergeDeep`       | `(target, source) → object`      | Deep-merges source into target; source wins on conflicts                 |
-| `pick`            | `(obj, keys) → object`           | Returns a new object with only the specified keys                        |
-| `omit`            | `(obj, keys) → object`           | Returns a new object without the specified keys                          |
-| `isEmpty`         | `(value) → boolean`              | `true` for `null`, `undefined`, `""`, `[]`, `{}`                         |
-| `isEqual`         | `(a, b) → boolean`               | Deep structural equality — handles objects, arrays, and Dates            |
-| `hasEqualProps`   | `(oldProps, newProps) → boolean` | Deep equality ignoring function-valued keys; ideal for `React.memo`      |
-| `isNonEmptyArray` | `(arr) → boolean`                | `true` only when the value is an array with at least one element         |
-| `flattenObject`   | `(obj, prefix?) → object`        | Collapses nested object to dot-notation keys                             |
-| `groupBy`         | `(array, key) → object`          | Groups array items into an object of arrays keyed by a field or function |
-| `keyBy`           | `(array, key) → object`          | Converts an array into a lookup object keyed by a field or function      |
-| `uniqueBy`        | `(array, key) → array`           | Removes duplicates by a field or function; first occurrence wins         |
-| `sortBy`          | `(array, key) → array`           | Ascending sort by a field or function; non-mutating                      |
-| `chunk`           | `(array, size) → array[]`        | Splits array into consecutive chunks of the given size                   |
-
-### String Utilities
-
-| Function            | Signature               | Description                                                         |
-| ------------------- | ----------------------- | ------------------------------------------------------------------- |
-| `capFirstLetter`    | `(str) → string`        | Takes a string and returns with first letter capitalised            |
-| `capitalize`        | `(str) → string`        | Uppercases first character, lowercases the rest                     |
-| `titleCase`         | `(str) → string`        | Capitalizes the first letter of every word                          |
-| `camelCase`         | `(str) → string`        | Converts to `camelCase` from spaces, hyphens, or underscores        |
-| `snakeCase`         | `(str) → string`        | Converts to `snake_case` from camelCase, spaces, or hyphens         |
-| `kebabCase`         | `(str) → string`        | Converts to `kebab-case` from camelCase, spaces, or underscores     |
-| `truncate`          | `(str, limit) → string` | Trims to `limit` characters and appends `…`                         |
-| `slugify`           | `(str) → string`        | URL-safe slug — strips diacritics, removes special chars            |
-| `removeExtraSpaces` | `(str) → string`        | Trims and collapses internal whitespace runs to a single space      |
-| `maskEmail`         | `(str) → string`        | Shows only the first character of the local part, e.g. `j***@x.com` |
-| `maskPhone`         | `(str) → string`        | Masks all digits except the last four; preserves formatting chars   |
-| `generateInitials`  | `(name) → string`       | Extracts uppercased first letter of each word, e.g. `"JD"`          |
-
-### Device Utilities
-
-| Function          | Signature                                                       | Description                                                                    |
-| ----------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| `isMobile`        | `() → boolean`                                                  | `true` when the UA matches any known mobile platform                           |
-| `isIOS`           | `() → boolean`                                                  | `true` on iPhone, iPad, and iPod; handles iPadOS 13+ UA quirk                  |
-| `isAndroid`       | `() → boolean`                                                  | `true` when the UA string contains `Android`                                   |
-| `isSafari`        | `() → boolean`                                                  | `true` for genuine Safari; excludes Chrome/Android which also include "Safari" |
-| `isDarkMode`      | `() → boolean`                                                  | `true` when the OS/browser prefers dark color scheme                           |
-| `isOnline`        | `() → boolean`                                                  | `true` when the browser reports network connectivity                           |
-| `copyToClipboard` | `(text: string) → Promise<void>`                                | Copies text using Clipboard API with `execCommand` fallback                    |
-| `downloadFile`    | `(url: string, filename?: string) → void`                       | Triggers a file download; filename inferred from URL if omitted                |
-| `openInNewTab`    | `(url: string) → void`                                          | Opens URL in a new tab with `noopener,noreferrer`                              |
-| `getScreenSize`   | `() → { width, height, deviceWidth, deviceHeight, pixelRatio }` | Returns viewport size, physical screen size, and device pixel ratio            |
-
-### Validation Utilities
-
-| Function           | Signature              | Description                                                               |
-| ------------------ | ---------------------- | ------------------------------------------------------------------------- |
-| `isEmail`          | `(value) → boolean`    | Valid email — must have local part, `@`, and domain with dot              |
-| `isPhone`          | `(value) → boolean`    | Plausible phone — optional `+`, 7–15 digits, allows spaces/hyphens/parens |
-| `isURL`            | `(value) → boolean`    | Valid `http` or `https` URL via native `URL` constructor                  |
-| `isPasswordStrong` | `(value) → boolean`    | 8+ chars with uppercase, lowercase, digit, and special character          |
-| `isPAN`            | `(value) → boolean`    | Indian PAN — `AAAAA0000A` (5 letters, 4 digits, 1 letter)                 |
-| `isAadhaar`        | `(value) → boolean`    | Indian Aadhaar — 12 digits, first digit non-zero; strips spaces           |
-| `isGST`            | `(value) → boolean`    | Indian GSTIN — 2-digit state code + PAN + entity digit + `Z` + check char |
-| `isRequired`       | `(value) → boolean`    | `false` for `null`, `undefined`, blank strings, and empty arrays          |
-| `minLength`        | `(value, n) → boolean` | `true` when `value.length >= n`                                           |
-| `maxLength`        | `(value, n) → boolean` | `true` when `value.length <= n`                                           |
+| Category        | Functions                                                                                                                                                           |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **String**      | `capFirstLetter` `capitalize` `titleCase` `camelCase` `snakeCase` `kebabCase` `slugify` `truncate` `removeExtraSpaces` `maskEmail` `maskPhone` `generateInitials`   |
+| **Number**      | `clamp` `formatCurrency` `formatNumber` `formatCompactNumber` `percentage` `randomInt` `randomBetween` `randomValue` `roundTo`                                      |
+| **Date-Time**   | `formatDate` `formatTime` `addDays` `differenceInDays` `isToday` `isPast` `timeAgo` `getGreetingByTime` `countdown`                                                 |
+| **Data**        | `deepClone` `mergeDeep` `pick` `omit` `isEmpty` `isEqual` `hasEqualProps` `isNonEmptyArray` `flattenObject` `groupBy` `keyBy` `uniqueBy` `sortBy` `chunk` `compose` |
+| **Validation**  | `isEmail` `isPhone` `isURL` `isPasswordStrong` `isPAN` `isAadhaar` `isGST` `isRequired` `minLength` `maxLength`                                                     |
+| **Device**      | `isMobile` `isIOS` `isAndroid` `isSafari` `isDarkMode` `isOnline` `copyToClipboard` `downloadFile` `openInNewTab` `getScreenSize`                                   |
+| **Storage**     | `setLocalStorage` `getLocalStorage` `removeLocalStorage` `setSessionStorage` `getSessionStorage` `clearStorage`                                                     |
+| **Routing**     | `getQueryParams` `setQueryParam` `removeQueryParam` `buildURL` `redirectTo` `getCurrentPath` `isActiveRoute`                                                        |
+| **UI**          | `scrollToTop` `scrollToElement` `lockBodyScroll` `unlockBodyScroll` `toggleFullscreen` `focusElement` `detectOutsideClick` `measureElement`                         |
+| **Performance** | `debounce` `throttle` `memoize` `lazyLoadComponent` `requestIdleTask` `rafThrottle`                                                                                 |
+| **Async**       | `retry` `sleep` `withTimeout` `parallel` `sequential` `safeAsync` `cancelablePromise`                                                                               |
 
 ## 🌱 Features
 

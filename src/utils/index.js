@@ -63,6 +63,40 @@ import copyToClipboard from './copyToClipboard';
 import downloadFile from './downloadFile';
 import openInNewTab from './openInNewTab';
 import getScreenSize from './getScreenSize';
+import getQueryParams from './getQueryParams';
+import setQueryParam from './setQueryParam';
+import removeQueryParam from './removeQueryParam';
+import buildURL from './buildURL';
+import redirectTo from './redirectTo';
+import getCurrentPath from './getCurrentPath';
+import isActiveRoute from './isActiveRoute';
+import setLocalStorage from './setLocalStorage';
+import getLocalStorage from './getLocalStorage';
+import removeLocalStorage from './removeLocalStorage';
+import setSessionStorage from './setSessionStorage';
+import getSessionStorage from './getSessionStorage';
+import clearStorage from './clearStorage';
+import debounce from './debounce';
+import throttle from './throttle';
+import memoize from './memoize';
+import lazyLoadComponent from './lazyLoadComponent';
+import requestIdleTask from './requestIdleTask';
+import rafThrottle from './rafThrottle';
+import scrollToTop from './scrollToTop';
+import scrollToElement from './scrollToElement';
+import lockBodyScroll from './lockBodyScroll';
+import unlockBodyScroll from './unlockBodyScroll';
+import toggleFullscreen from './toggleFullscreen';
+import focusElement from './focusElement';
+import detectOutsideClick from './detectOutsideClick';
+import measureElement from './measureElement';
+import retry from './retry';
+import sleep from './sleep';
+import withTimeout from './withTimeout';
+import parallel from './parallel';
+import sequential from './sequential';
+import safeAsync from './safeAsync';
+import cancelablePromise from './cancelablePromise';
 
 export default {
   // string
@@ -141,4 +175,48 @@ export default {
   downloadFile,
   openInNewTab,
   getScreenSize,
+
+  // routing
+  getQueryParams,
+  setQueryParam,
+  removeQueryParam,
+  buildURL,
+  redirectTo,
+  getCurrentPath,
+  isActiveRoute,
+
+  // storage
+  setLocalStorage,
+  getLocalStorage,
+  removeLocalStorage,
+  setSessionStorage,
+  getSessionStorage,
+  clearStorage,
+
+  // performance
+  debounce,
+  throttle,
+  memoize,
+  lazyLoadComponent,
+  requestIdleTask,
+  rafThrottle,
+
+  // ui / dom
+  scrollToTop,
+  scrollToElement,
+  lockBodyScroll,
+  unlockBodyScroll,
+  toggleFullscreen,
+  focusElement,
+  detectOutsideClick,
+  measureElement,
+
+  // async / api
+  retry,
+  sleep,
+  withTimeout,
+  parallel,
+  sequential,
+  safeAsync,
+  cancelablePromise,
 };
