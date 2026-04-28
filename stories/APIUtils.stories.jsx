@@ -291,17 +291,6 @@ const RetryPage = () => {
 
 const data = await retry(() => fetch('/api/data').then(r => r.json()), 3);`}</Pre>
             </div>
-            <div>
-              <SectionLabel $color={orange.m700}>Source</SectionLabel>
-              <Pre>{`const retry = async (fn, attempts = 3) => {
-  let lastError;
-  for (let i = 0; i < attempts; i++) {
-    try { return await fn(); }
-    catch (err) { lastError = err; }
-  }
-  throw lastError;
-};`}</Pre>
-            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -391,10 +380,6 @@ async function pollStatus(id) {
     await sleep(2000); // wait 2s between polls
   }
 }`}</Pre>
-            </div>
-            <div>
-              <SectionLabel $color={lightBlue.m700}>Source</SectionLabel>
-              <Pre>{`const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));`}</Pre>
             </div>
           </CardBody>
         </Card>
@@ -507,15 +492,6 @@ const data = await withTimeout(
   5000 // reject if not resolved in 5s
 );`}</Pre>
             </div>
-            <div>
-              <SectionLabel $color={red.m700}>Source</SectionLabel>
-              <Pre>{`const withTimeout = (promise, ms) => {
-  const timeout = new Promise((_, reject) =>
-    setTimeout(() => reject(new Error(\`Timed out after \${ms}ms\`)), ms)
-  );
-  return Promise.race([promise, timeout]);
-};`}</Pre>
-            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -626,10 +602,6 @@ const [user, posts, settings] = await parallel([
   fetchSettings(id),
 ]);`}</Pre>
             </div>
-            <div>
-              <SectionLabel $color={green.m700}>Source</SectionLabel>
-              <Pre>{`const parallel = (promises) => Promise.all(promises);`}</Pre>
-            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -738,16 +710,6 @@ const results = await sequential([
   () => sendConfirmationEmail(data),
 ]);`}</Pre>
             </div>
-            <div>
-              <SectionLabel $color={indigo.m700}>Source</SectionLabel>
-              <Pre>{`const sequential = async (tasks) => {
-  const results = [];
-  for (const task of tasks) {
-    results.push(await task());
-  }
-  return results;
-};`}</Pre>
-            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -855,17 +817,6 @@ if (err) {
 }
 renderProfile(user);`}</Pre>
             </div>
-            <div>
-              <SectionLabel $color={deepPurple.m700}>Source</SectionLabel>
-              <Pre>{`const safeAsync = (fn) => async (...args) => {
-  try {
-    const result = await fn(...args);
-    return [null, result];
-  } catch (err) {
-    return [err, null];
-  }
-};`}</Pre>
-            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -969,19 +920,6 @@ useEffect(() => {
 
   return cancel; // cancel on unmount
 }, [id]);`}</Pre>
-            </div>
-            <div>
-              <SectionLabel $color={cyan.m700}>Source</SectionLabel>
-              <Pre>{`const cancelablePromise = (promise) => {
-  let canceled = false;
-  const wrapper = new Promise((resolve, reject) => {
-    promise.then(
-      (value) => (canceled ? reject({ canceled: true }) : resolve(value)),
-      (err)   => (canceled ? reject({ canceled: true }) : reject(err))
-    );
-  });
-  return { promise: wrapper, cancel: () => { canceled = true; } };
-};`}</Pre>
             </div>
           </CardBody>
         </Card>

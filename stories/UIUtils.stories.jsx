@@ -236,12 +236,6 @@ scrollToTop();
 // instant jump
 scrollToTop('instant');`}</Pre>
           </div>
-          <div>
-            <SectionLabel $color={blue.m700}>Source</SectionLabel>
-            <Pre>{`const scrollToTop = (behavior = 'smooth') => {
-  window.scrollTo({ top: 0, behavior });
-};`}</Pre>
-          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -317,13 +311,6 @@ const ScrollToElementPage = () => (
 
 scrollToElement('hero-section');         // smooth (default)
 scrollToElement('pricing-section', 'instant'); // instant jump`}</Pre>
-          </div>
-          <div>
-            <SectionLabel $color={teal.m700}>Source</SectionLabel>
-            <Pre>{`const scrollToElement = (id, behavior = 'smooth') => {
-  const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior, block: 'start' });
-};`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -411,12 +398,6 @@ function Modal({ onClose }) {
   }, []);
 }`}</Pre>
             </div>
-            <div>
-              <SectionLabel $color={deepPurple.m700}>Source</SectionLabel>
-              <Pre>{`const lockBodyScroll = () => {
-  document.body.style.overflow = 'hidden';
-};`}</Pre>
-            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -496,12 +477,6 @@ function closeModal() {
   unlockBodyScroll();
   setModalOpen(false);
 }`}</Pre>
-            </div>
-            <div>
-              <SectionLabel $color={green.m700}>Source</SectionLabel>
-              <Pre>{`const unlockBodyScroll = () => {
-  document.body.style.overflow = '';
-};`}</Pre>
             </div>
           </CardBody>
         </Card>
@@ -585,16 +560,6 @@ toggleFullscreen();
 
 // toggle a specific element (e.g. a video player)
 toggleFullscreen(videoRef.current);`}</Pre>
-            </div>
-            <div>
-              <SectionLabel $color={indigo.m700}>Source</SectionLabel>
-              <Pre>{`const toggleFullscreen = (element = document.documentElement) => {
-  if (!document.fullscreenElement) {
-    element.requestFullscreen?.();
-  } else {
-    document.exitFullscreen?.();
-  }
-};`}</Pre>
             </div>
           </CardBody>
         </Card>
@@ -718,13 +683,6 @@ focusElement(inputRef); // uses ref.current
 // with raw DOM element
 focusElement(document.getElementById('search-input'));`}</Pre>
             </div>
-            <div>
-              <SectionLabel $color={orange.m700}>Source</SectionLabel>
-              <Pre>{`const focusElement = (ref) => {
-  const el = ref?.current ?? ref;
-  el?.focus();
-};`}</Pre>
-            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -831,17 +789,6 @@ useEffect(() => {
   return cleanup;
 }, []);`}</Pre>
             </div>
-            <div>
-              <SectionLabel $color={red.m700}>Source</SectionLabel>
-              <Pre>{`const detectOutsideClick = (ref, callback) => {
-  const handler = (e) => {
-    const el = ref?.current ?? ref;
-    if (el && !el.contains(e.target)) callback(e);
-  };
-  document.addEventListener('mousedown', handler);
-  return () => document.removeEventListener('mousedown', handler);
-};`}</Pre>
-            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -941,14 +888,6 @@ const { width, height, top } = measureElement(cardRef);
 // position a tooltip relative to its anchor
 const anchorRect = measureElement(anchorRef);
 setTooltipPos({ x: anchorRect.left, y: anchorRect.bottom + 8 });`}</Pre>
-            </div>
-            <div>
-              <SectionLabel $color={cyan.m700}>Source</SectionLabel>
-              <Pre>{`const measureElement = (ref) => {
-  const el = ref?.current ?? ref;
-  if (!el) return null;
-  return el.getBoundingClientRect();
-};`}</Pre>
             </div>
           </CardBody>
         </Card>

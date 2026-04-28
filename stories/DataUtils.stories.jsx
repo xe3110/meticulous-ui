@@ -232,15 +232,6 @@ const original = { user: { name: 'Alice', scores: [1, 2, 3] } };
 const copy = deepClone(original);
 copy.user.name = 'Bob';  // original.user.name is still 'Alice'`}</Pre>
           </div>
-          <div>
-            <SectionLabel $color={indigo.m700}>Source</SectionLabel>
-            <Pre>{`const deepClone = (obj) => {
-  if (obj === null || typeof obj !== 'object') return obj;
-  if (obj instanceof Date) return new Date(obj.getTime());
-  if (Array.isArray(obj)) return obj.map(deepClone);
-  return Object.fromEntries(Object.entries(obj).map(([k, v]) => [k, deepClone(v)]));
-};`}</Pre>
-          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -307,21 +298,6 @@ const overrides = { theme: { color: 'red' } };
 mergeDeep(defaults, overrides);
 // → { theme: { color: 'red', size: 14 }, debug: false }`}</Pre>
           </div>
-          <div>
-            <SectionLabel $color={cyan.m700}>Source</SectionLabel>
-            <Pre>{`const isPlainObject = (v) => v !== null && typeof v === 'object' && !Array.isArray(v);
-
-const mergeDeep = (target, source) => {
-  const result = { ...target };
-  for (const key of Object.keys(source)) {
-    result[key] =
-      isPlainObject(target[key]) && isPlainObject(source[key])
-        ? mergeDeep(target[key], source[key])
-        : source[key];
-  }
-  return result;
-};`}</Pre>
-          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -376,11 +352,6 @@ const PickPage = () => (
 const user = { id: 1, name: 'Alice', password: 'secret', role: 'admin' };
 const safeUser = pick(user, ['id', 'name', 'role']);
 // → { id: 1, name: 'Alice', role: 'admin' }`}</Pre>
-          </div>
-          <div>
-            <SectionLabel $color={lightGreen.m700}>Source</SectionLabel>
-            <Pre>{`const pick = (obj, keys) =>
-  Object.fromEntries(keys.filter((k) => k in obj).map((k) => [k, obj[k]]));`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -437,13 +408,6 @@ const user = { id: 1, name: 'Alice', password: 'secret' };
 const safeUser = omit(user, ['password']);
 // → { id: 1, name: 'Alice' }`}</Pre>
           </div>
-          <div>
-            <SectionLabel $color={deepOrange.m700}>Source</SectionLabel>
-            <Pre>{`const omit = (obj, keys) => {
-  const set = new Set(keys);
-  return Object.fromEntries(Object.entries(obj).filter(([k]) => !set.has(k)));
-};`}</Pre>
-          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -496,15 +460,6 @@ const IsEmptyPage = () => (
 function submit(fields) {
   if (isEmpty(fields.name)) throw new Error('Name is required');
 }`}</Pre>
-          </div>
-          <div>
-            <SectionLabel $color={red.m700}>Source</SectionLabel>
-            <Pre>{`const isEmpty = (value) => {
-  if (value == null) return true;
-  if (typeof value === 'string' || Array.isArray(value)) return value.length === 0;
-  if (typeof value === 'object') return Object.keys(value).length === 0;
-  return false;
-};`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -567,19 +522,6 @@ const next  = { filters: { status: 'active', page: 1 } };
 
 if (!isEqual(prev, next)) refetch();`}</Pre>
           </div>
-          <div>
-            <SectionLabel $color={deepPurple.m700}>Source</SectionLabel>
-            <Pre>{`const isEqual = (a, b) => {
-  if (a === b) return true;
-  if (a instanceof Date && b instanceof Date) return a.getTime() === b.getTime();
-  if (typeof a !== 'object' || typeof b !== 'object' || a === null || b === null) return false;
-  if (Array.isArray(a) !== Array.isArray(b)) return false;
-  const keysA = Object.keys(a);
-  const keysB = Object.keys(b);
-  if (keysA.length !== keysB.length) return false;
-  return keysA.every((k) => isEqual(a[k], b[k]));
-};`}</Pre>
-          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -630,19 +572,6 @@ const FlattenObjectPage = () => (
 const config = { db: { host: 'localhost', port: 5432 }, debug: true };
 flattenObject(config);
 // → { 'db.host': 'localhost', 'db.port': 5432, debug: true }`}</Pre>
-          </div>
-          <div>
-            <SectionLabel $color={lightBlue.m700}>Source</SectionLabel>
-            <Pre>{`const flattenObject = (obj, prefix = '') =>
-  Object.entries(obj).reduce((acc, [key, val]) => {
-    const fullKey = prefix ? \`\${prefix}.\${key}\` : key;
-    if (val !== null && typeof val === 'object' && !Array.isArray(val)) {
-      Object.assign(acc, flattenObject(val, fullKey));
-    } else {
-      acc[fullKey] = val;
-    }
-    return acc;
-  }, {});`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -702,15 +631,6 @@ const users = [
 groupBy(users, 'role');
 // → { admin: [Alice, Carol], user: [Bob] }`}</Pre>
           </div>
-          <div>
-            <SectionLabel $color={lime.m800}>Source</SectionLabel>
-            <Pre>{`const groupBy = (array, key) =>
-  array.reduce((acc, item) => {
-    const group = typeof key === 'function' ? key(item) : item[key];
-    (acc[group] ??= []).push(item);
-    return acc;
-  }, {});`}</Pre>
-          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -764,14 +684,6 @@ const users = [{ id: 1, name: 'Alice' }, { id: 2, name: 'Bob' }];
 const byId  = keyBy(users, 'id');
 
 byId[1].name;  // → 'Alice'  (O(1) lookup)`}</Pre>
-          </div>
-          <div>
-            <SectionLabel $color={brown.m700}>Source</SectionLabel>
-            <Pre>{`const keyBy = (array, key) =>
-  array.reduce((acc, item) => {
-    acc[typeof key === 'function' ? key(item) : item[key]] = item;
-    return acc;
-  }, {});`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -835,18 +747,6 @@ const events = [
 
 uniqueBy(events, 'userId');
 // → [{ userId: 1, action: 'click' }, { userId: 2, action: 'click' }]`}</Pre>
-          </div>
-          <div>
-            <SectionLabel $color={orange.m700}>Source</SectionLabel>
-            <Pre>{`const uniqueBy = (array, key) => {
-  const seen = new Set();
-  return array.filter((item) => {
-    const k = typeof key === 'function' ? key(item) : item[key];
-    if (seen.has(k)) return false;
-    seen.add(k);
-    return true;
-  });
-};`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -914,15 +814,6 @@ const products = [
 sortBy(products, 'price');
 // → [Lamp(45), Chair(120), Desk(350)]`}</Pre>
           </div>
-          <div>
-            <SectionLabel $color={cider.m700}>Source</SectionLabel>
-            <Pre>{`const sortBy = (array, key) =>
-  [...array].sort((a, b) => {
-    const av = typeof key === 'function' ? key(a) : a[key];
-    const bv = typeof key === 'function' ? key(b) : b[key];
-    return av < bv ? -1 : av > bv ? 1 : 0;
-  });`}</Pre>
-          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -980,16 +871,6 @@ const pages = chunk(items, 3);
 // → [[1,2,3],[4,5,6],[7]]
 
 pages.forEach((page, i) => renderPage(i, page));`}</Pre>
-          </div>
-          <div>
-            <SectionLabel $color={grey.m700}>Source</SectionLabel>
-            <Pre>{`const chunk = (array, size) => {
-  const result = [];
-  for (let i = 0; i < array.length; i += size) {
-    result.push(array.slice(i, i + size));
-  }
-  return result;
-};`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -1055,23 +936,6 @@ const MyComponent = React.memo(({ label, onClick }) => (
 ), hasEqualProps);
 // Will NOT re-render when only onClick reference changes.`}</Pre>
           </div>
-          <div>
-            <SectionLabel $color={amber.m800}>Source</SectionLabel>
-            <Pre>{`const omitFunctions = (obj) =>
-  Object.fromEntries(Object.entries(obj).filter(([, v]) => typeof v !== 'function'));
-
-const deepEqual = (a, b) => {
-  if (a === b) return true;
-  if (typeof a !== 'object' || typeof b !== 'object' || a === null || b === null) return false;
-  const keysA = Object.keys(a);
-  const keysB = Object.keys(b);
-  if (keysA.length !== keysB.length) return false;
-  return keysA.every((k) => deepEqual(a[k], b[k]));
-};
-
-const hasEqualProps = (oldProps, newProps) =>
-  deepEqual(omitFunctions(oldProps), omitFunctions(newProps));`}</Pre>
-          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -1128,10 +992,6 @@ const items = fetchItems();
 if (isNonEmptyArray(items)) {
   items.forEach(render);
 }`}</Pre>
-          </div>
-          <div>
-            <SectionLabel $color={green.m700}>Source</SectionLabel>
-            <Pre>{`const isNonEmptyArray = (arr) => Array.isArray(arr) && arr.length > 0;`}</Pre>
           </div>
         </CardBody>
       </Card>

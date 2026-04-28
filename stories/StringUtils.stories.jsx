@@ -222,13 +222,6 @@ const CapFirstLetterPage = () => (
 
 capFirstLetter('hello world');  // → 'Hello world'`}</Pre>
           </div>
-          <div>
-            <SectionLabel $color={blueGray.m700}>Source</SectionLabel>
-            <Pre>{`const capFirstLetter = (str) => {
-  if (typeof str !== 'string' || str.length === 0) return str;
-  return str.charAt(0).toUpperCase() + str.slice(1);
-};`}</Pre>
-          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -280,13 +273,6 @@ const CapitalizePage = () => (
 
 capitalize('hello world');  // → 'Hello world'`}</Pre>
           </div>
-          <div>
-            <SectionLabel $color={purple.m700}>Source</SectionLabel>
-            <Pre>{`const capitalize = (str) => {
-  if (typeof str !== 'string' || str.length === 0) return str;
-  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-};`}</Pre>
-          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -335,17 +321,6 @@ const TitleCasePage = () => (
             <Pre>{`import titleCase from 'meticulous-ui/utils/titleCase';
 
 titleCase('the great gatsby');  // → 'The Great Gatsby'`}</Pre>
-          </div>
-          <div>
-            <SectionLabel $color={yellow.m800}>Source</SectionLabel>
-            <Pre>{`const titleCase = (str) => {
-  if (typeof str !== 'string') return str;
-  return str
-    .toLowerCase()
-    .split(' ')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-};`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -400,16 +375,6 @@ const CamelCasePage = () => (
 
 camelCase('background-color');  // → 'backgroundColor'`}</Pre>
           </div>
-          <div>
-            <SectionLabel $color={teal.m700}>Source</SectionLabel>
-            <Pre>{`const camelCase = (str) => {
-  if (typeof str !== 'string') return str;
-  return str
-    .trim()
-    .toLowerCase()
-    .replace(/[-_\\s]+(.)?/g, (_, char) => (char ? char.toUpperCase() : ''));
-};`}</Pre>
-          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -458,17 +423,6 @@ const SnakeCasePage = () => (
             <Pre>{`import snakeCase from 'meticulous-ui/utils/snakeCase';
 
 snakeCase('myVariableName');  // → 'my_variable_name'`}</Pre>
-          </div>
-          <div>
-            <SectionLabel $color={blue.m700}>Source</SectionLabel>
-            <Pre>{`const snakeCase = (str) => {
-  if (typeof str !== 'string') return str;
-  return str
-    .trim()
-    .replace(/([a-z])([A-Z])/g, '$1_$2')
-    .replace(/[-\\s]+/g, '_')
-    .toLowerCase();
-};`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -523,17 +477,6 @@ const KebabCasePage = () => (
 
 kebabCase('backgroundColor');  // → 'background-color'`}</Pre>
           </div>
-          <div>
-            <SectionLabel $color={indigo.m700}>Source</SectionLabel>
-            <Pre>{`const kebabCase = (str) => {
-  if (typeof str !== 'string') return str;
-  return str
-    .trim()
-    .replace(/([a-z])([A-Z])/g, '$1-$2')
-    .replace(/[_\\s]+/g, '-')
-    .toLowerCase();
-};`}</Pre>
-          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -587,13 +530,6 @@ const TruncatePage = () => (
 
 const preview = truncate(article.body, 120);
 // → 'Lorem ipsum dolor sit amet, consectetur adipiscing elit…'`}</Pre>
-          </div>
-          <div>
-            <SectionLabel $color={pink.m700}>Source</SectionLabel>
-            <Pre>{`const truncate = (str, limit) => {
-  if (typeof str !== 'string') return str;
-  return str.length <= limit ? str : str.slice(0, limit) + '…';
-};`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -653,20 +589,6 @@ const SlugifyPage = () => (
 const url = \`/blog/\${slugify(post.title)}\`;
 // → '/blog/my-awesome-post'`}</Pre>
           </div>
-          <div>
-            <SectionLabel $color={violet.m700}>Source</SectionLabel>
-            <Pre>{`const slugify = (str) => {
-  if (typeof str !== 'string') return str;
-  return str
-    .trim()
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\\u0300-\\u036f]/g, '')
-    .replace(/[^a-z0-9\\s-]/g, '')
-    .replace(/\\s+/g, '-')
-    .replace(/-+/g, '-');
-};`}</Pre>
-          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -724,13 +646,6 @@ const RemoveExtraSpacesPage = () => (
 
 const clean = removeExtraSpaces(userInput);  // sanitize free-text fields`}</Pre>
           </div>
-          <div>
-            <SectionLabel $color={green.m700}>Source</SectionLabel>
-            <Pre>{`const removeExtraSpaces = (str) => {
-  if (typeof str !== 'string') return str;
-  return str.trim().replace(/\\s+/g, ' ');
-};`}</Pre>
-          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -780,15 +695,6 @@ const MaskEmailPage = () => (
 
 // Display in account settings
 maskEmail(user.email);  // → 'j***@example.com'`}</Pre>
-          </div>
-          <div>
-            <SectionLabel $color={orange.m700}>Source</SectionLabel>
-            <Pre>{`const maskEmail = (str) => {
-  if (typeof str !== 'string') return str;
-  const [local, domain] = str.split('@');
-  if (!domain) return str;
-  return local.charAt(0) + '***@' + domain;
-};`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -847,16 +753,6 @@ const MaskPhonePage = () => (
 
 maskPhone(user.phone);  // → '(***) ***-4567'`}</Pre>
           </div>
-          <div>
-            <SectionLabel $color={red.m700}>Source</SectionLabel>
-            <Pre>{`const maskPhone = (str) => {
-  if (typeof str !== 'string') return str;
-  const digits = str.replace(/\\D/g, '');
-  const maskUntil = Math.max(0, digits.length - 4);
-  let count = 0;
-  return str.replace(/\\d/g, () => (count++ < maskUntil ? '*' : digits[count - 1]));
-};`}</Pre>
-          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -908,18 +804,6 @@ const GenerateInitialsPage = () => (
 // Avatar fallback
 <Avatar>{generateInitials(user.name)}</Avatar>
 // → <Avatar>JD</Avatar>`}</Pre>
-          </div>
-          <div>
-            <SectionLabel $color={cyan.m700}>Source</SectionLabel>
-            <Pre>{`const generateInitials = (name) => {
-  if (typeof name !== 'string') return name;
-  return name
-    .trim()
-    .split(/\\s+/)
-    .filter(Boolean)
-    .map((word) => word.charAt(0).toUpperCase())
-    .join('');
-};`}</Pre>
           </div>
         </CardBody>
       </Card>
