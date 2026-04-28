@@ -150,6 +150,30 @@ const Timer = ({
   return (
     <Wrapper $color={color} role='region' aria-label='Clock' {...{ $size }} {...rest}>
       <Glass borderRadius={`${getSize(16.67)({ $size })}rem`} aria-hidden='true' />
+      {(!hasNoTimer || isDismissing) && (
+        <>
+          <AlarmRing
+            $dismissing={isDismissing}
+            onAnimationEnd={handleDismissEnd}
+            aria-hidden='true'
+          >
+            <TimerRing progress={timerSec >= 60 ? 1 : (timerSec % 60) / 60} />
+          </AlarmRing>
+          <BulletRing
+            {...{ $size }}
+            style={{ '--bullet-rotate': `${bulletAngle}deg` }}
+            $dismissing={isDismissing}
+            aria-hidden='true'
+          >
+            <Bullet {...{ $size }} />
+          </BulletRing>
+          <VisuallyHidden
+            role='timer'
+            aria-live='polite'
+            aria-label={`${timerSec} seconds remaining`}
+          />
+        </>
+      )}
       {showTime && (
         <>
           <Dimmer aria-hidden='true' {...{ $size }}>
@@ -189,30 +213,6 @@ const Timer = ({
               />
             </Time>
           )}
-        </>
-      )}
-      {(!hasNoTimer || isDismissing) && (
-        <>
-          <AlarmRing
-            $dismissing={isDismissing}
-            onAnimationEnd={handleDismissEnd}
-            aria-hidden='true'
-          >
-            <TimerRing progress={timerSec >= 60 ? 1 : (timerSec % 60) / 60} />
-          </AlarmRing>
-          <BulletRing
-            {...{ $size }}
-            style={{ '--bullet-rotate': `${45 + bulletAngle}deg` }}
-            $dismissing={isDismissing}
-            aria-hidden='true'
-          >
-            <Bullet {...{ $size }} />
-          </BulletRing>
-          <VisuallyHidden
-            role='timer'
-            aria-live='polite'
-            aria-label={`${timerSec} seconds remaining`}
-          />
         </>
       )}
       {timerSeconds > 0 && (

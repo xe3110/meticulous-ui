@@ -121,7 +121,7 @@ export const SecondHand = styled.div`
 
 const dismissAnimation = keyframes`
   from { opacity: 1; transform: scale(1); }
-  to   { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 0; transform: scale(0.9); }
 `;
 
 export const AlarmRing = styled.div`
@@ -131,7 +131,7 @@ export const AlarmRing = styled.div`
   ${({ $dismissing }) =>
     $dismissing &&
     css`
-      animation: ${dismissAnimation} 0.4s ease-out forwards;
+      animation: ${dismissAnimation} 0.6s ease-out forwards;
     `}
 `;
 
@@ -212,24 +212,27 @@ export const VisuallyHidden = styled.span`
 `;
 
 export const Bullet = styled.div`
+  position: absolute;
   width: ${getSize(35)}rem;
   height: ${getSize(35)}rem;
   border-radius: 50%;
   background-color: ${white};
+  left: calc(-${getSize(70)}rem);
+  top: calc(-${getSize(100 / 33)}rem - ${getSize(70)}rem);
 `;
 
 export const BulletRing = styled.div`
   position: absolute;
-  left: 26%;
-  top: 24%;
+  left: 50%;
+  top: 48%;
+  width: 0;
+  height: 0;
   rotate: var(--bullet-rotate);
-  height: ${getSize(2.05)}rem;
-  width: ${getSize(2.05)}rem;
-  transform-origin: center;
+  transform-origin: 0 0;
   transition: rotate 0.3s ease;
   ${({ $dismissing }) =>
     $dismissing &&
     css`
-      animation: ${dismissAnimation} 0.4s ease-out forwards;
+      animation: ${dismissAnimation} 0.6s ease-out forwards;
     `}
 `;

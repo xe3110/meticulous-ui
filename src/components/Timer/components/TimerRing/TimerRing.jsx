@@ -21,7 +21,7 @@ const TimerRing = ({ progress }) => {
           cy={48}
           r={RADIUS}
           stroke='rgba(255,255,255,.2)'
-          strokeWidth={2}
+          strokeWidth={1}
           fill='none'
         />
         <circle
@@ -30,7 +30,7 @@ const TimerRing = ({ progress }) => {
           cy={48}
           r={RADIUS}
           stroke={white}
-          strokeWidth={1}
+          strokeWidth={1.33}
           fill='none'
           strokeLinecap='round'
           strokeDasharray={CIRCUMFERENCE}
