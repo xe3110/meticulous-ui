@@ -71,19 +71,15 @@ Default.args = {
   lowSrc: '',
 };
 
-export const Rounded = (args) => (
-  <div style={{ maxWidth: 400, width: '100%' }}>
-    <Image {...args} width='100%' height='100%' />
-  </div>
-);
+export const Rounded = (args) => <Image {...args} />;
 
 Rounded.storyName = 'Rounded';
 
 Rounded.args = {
   src: 'https://picsum.photos/4000/4000?random=2',
   alt: 'Rounded image',
-  width: '100%',
-  height: '100%',
+  width: '400px',
+  height: '400px',
   borderRadius: '50%',
 };
 

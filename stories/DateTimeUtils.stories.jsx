@@ -605,8 +605,8 @@ const AddDaysPage = () => (
             <Signature>(date: Date | string, n: number) → Date</Signature>
           </div>
           <Description>
-            Returns a new <Code>Date</Code> that is <Code>n</Code> days after the given date. Passing
-            a negative <Code>n</Code> subtracts days. The original date is never mutated.
+            Returns a new <Code>Date</Code> that is <Code>n</Code> days after the given date.
+            Passing a negative <Code>n</Code> subtracts days. The original date is never mutated.
           </Description>
         </CardHeader>
         <CardBody>
@@ -838,7 +838,9 @@ const CountdownPage = () => {
               <FnName $color={purple.m900} $bg={purple.m100}>
                 countdown
               </FnName>
-              <Signature>(targetDate: Date | string) → {'{ days, hours, minutes, seconds }'}</Signature>
+              <Signature>
+                (targetDate: Date | string) → {'{ days, hours, minutes, seconds }'}
+              </Signature>
             </div>
             <Description>
               Returns the time remaining until <Code>targetDate</Code> as a plain object with{' '}
@@ -874,7 +876,14 @@ const CountdownPage = () => {
               <SectionLabel $color={purple.m700}>Live Demo</SectionLabel>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                 <LiveRow>
-                  <label style={{ fontSize: '1.35rem', display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+                  <label
+                    style={{
+                      fontSize: '1.35rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.8rem',
+                    }}
+                  >
                     Target date
                     <DateInput
                       type='date'

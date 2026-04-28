@@ -69,7 +69,7 @@ Default.storyName = 'VideoPlayer';
 
 Default.args = {
   link: 'https://filesamples.com/samples/video/mp4/sample_960x400_ocean_with_audio.mp4',
-  width: '100%',
+  width: '800',
   height: 'auto',
   thumbnail: '',
   borderRadius: 8,
