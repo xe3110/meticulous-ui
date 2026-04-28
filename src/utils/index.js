@@ -53,6 +53,16 @@ import isGST from './isGST';
 import isRequired from './isRequired';
 import minLength from './minLength';
 import maxLength from './maxLength';
+import isMobile from './isMobile';
+import isIOS from './isIOS';
+import isAndroid from './isAndroid';
+import isSafari from './isSafari';
+import isDarkMode from './isDarkMode';
+import isOnline from './isOnline';
+import copyToClipboard from './copyToClipboard';
+import downloadFile from './downloadFile';
+import openInNewTab from './openInNewTab';
+import getScreenSize from './getScreenSize';
 
 export default {
   // string
@@ -119,4 +129,16 @@ export default {
   isRequired,
   minLength,
   maxLength,
+
+  // device
+  isMobile,
+  isIOS,
+  isAndroid,
+  isSafari,
+  isDarkMode,
+  isOnline,
+  copyToClipboard,
+  downloadFile,
+  openInNewTab,
+  getScreenSize,
 };

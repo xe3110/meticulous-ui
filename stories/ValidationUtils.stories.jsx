@@ -144,9 +144,7 @@ const Pre = styled.pre`
   margin: 0;
 `;
 
-const BoolOutput = ({ value }) => (
-  <Output $isTrue={value}>{String(value)}</Output>
-);
+const BoolOutput = ({ value }) => <Output $isTrue={value}>{String(value)}</Output>;
 
 const ExamplesTable = ({ rows }) => (
   <Table>
@@ -189,8 +187,8 @@ const IsEmailPage = () => (
             <Signature>(value: string) → boolean</Signature>
           </div>
           <Description>
-            Returns <Code>true</Code> if the value looks like a valid email address — must contain
-            a local part, <Code>@</Code>, and a domain with at least one dot. No whitespace allowed.
+            Returns <Code>true</Code> if the value looks like a valid email address — must contain a
+            local part, <Code>@</Code>, and a domain with at least one dot. No whitespace allowed.
           </Description>
         </CardHeader>
         <CardBody>
@@ -199,10 +197,21 @@ const IsEmailPage = () => (
             <ExamplesTable
               rows={[
                 { input: `isEmail('user@example.com')`, output: isEmail('user@example.com') },
-                { input: `isEmail('name+tag@domain.co.in')`, output: isEmail('name+tag@domain.co.in') },
+                {
+                  input: `isEmail('name+tag@domain.co.in')`,
+                  output: isEmail('name+tag@domain.co.in'),
+                },
                 { input: `isEmail('bad@')`, output: isEmail('bad@'), note: 'Missing domain' },
-                { input: `isEmail('@nodomain.com')`, output: isEmail('@nodomain.com'), note: 'Missing local part' },
-                { input: `isEmail('no-at-sign')`, output: isEmail('no-at-sign'), note: 'No @ symbol' },
+                {
+                  input: `isEmail('@nodomain.com')`,
+                  output: isEmail('@nodomain.com'),
+                  note: 'Missing local part',
+                },
+                {
+                  input: `isEmail('no-at-sign')`,
+                  output: isEmail('no-at-sign'),
+                  note: 'No @ symbol',
+                },
                 { input: `isEmail(42)`, output: isEmail(42), note: 'Non-string → false' },
               ]}
             />
@@ -258,7 +267,11 @@ const IsPhonePage = () => (
                 { input: `isPhone('(555) 123-4567')`, output: isPhone('(555) 123-4567') },
                 { input: `isPhone('9876543210')`, output: isPhone('9876543210') },
                 { input: `isPhone('123')`, output: isPhone('123'), note: 'Too short' },
-                { input: `isPhone('abc-def-ghij')`, output: isPhone('abc-def-ghij'), note: 'No digits' },
+                {
+                  input: `isPhone('abc-def-ghij')`,
+                  output: isPhone('abc-def-ghij'),
+                  note: 'No digits',
+                },
                 { input: `isPhone(null)`, output: isPhone(null), note: 'Non-string → false' },
               ]}
             />
@@ -301,8 +314,8 @@ const IsURLPage = () => (
           </div>
           <Description>
             Returns <Code>true</Code> if the value is a valid <Code>http</Code> or{' '}
-            <Code>https</Code> URL. Uses the browser-native <Code>URL</Code> constructor, so
-            parsing is spec-compliant. Other protocols (ftp, data, etc.) return false.
+            <Code>https</Code> URL. Uses the browser-native <Code>URL</Code> constructor, so parsing
+            is spec-compliant. Other protocols (ftp, data, etc.) return false.
           </Description>
         </CardHeader>
         <CardBody>
@@ -311,9 +324,20 @@ const IsURLPage = () => (
             <ExamplesTable
               rows={[
                 { input: `isURL('https://example.com')`, output: isURL('https://example.com') },
-                { input: `isURL('http://sub.domain.io/path?q=1')`, output: isURL('http://sub.domain.io/path?q=1') },
-                { input: `isURL('ftp://files.example.com')`, output: isURL('ftp://files.example.com'), note: 'Non-http protocol' },
-                { input: `isURL('example.com')`, output: isURL('example.com'), note: 'Missing protocol' },
+                {
+                  input: `isURL('http://sub.domain.io/path?q=1')`,
+                  output: isURL('http://sub.domain.io/path?q=1'),
+                },
+                {
+                  input: `isURL('ftp://files.example.com')`,
+                  output: isURL('ftp://files.example.com'),
+                  note: 'Non-http protocol',
+                },
+                {
+                  input: `isURL('example.com')`,
+                  output: isURL('example.com'),
+                  note: 'Missing protocol',
+                },
                 { input: `isURL('not a url')`, output: isURL('not a url') },
                 { input: `isURL(undefined)`, output: isURL(undefined), note: 'Non-string → false' },
               ]}
@@ -373,10 +397,26 @@ const IsPasswordStrongPage = () => (
               rows={[
                 { input: `isPasswordStrong('Secure@123')`, output: isPasswordStrong('Secure@123') },
                 { input: `isPasswordStrong('P@ssw0rd!')`, output: isPasswordStrong('P@ssw0rd!') },
-                { input: `isPasswordStrong('password')`, output: isPasswordStrong('password'), note: 'No uppercase / special / digit' },
-                { input: `isPasswordStrong('SHORT1!')`, output: isPasswordStrong('SHORT1!'), note: 'Under 8 chars' },
-                { input: `isPasswordStrong('alllowercase1!')`, output: isPasswordStrong('alllowercase1!'), note: 'Missing uppercase' },
-                { input: `isPasswordStrong('NOLOWER1!')`, output: isPasswordStrong('NOLOWER1!'), note: 'Missing lowercase' },
+                {
+                  input: `isPasswordStrong('password')`,
+                  output: isPasswordStrong('password'),
+                  note: 'No uppercase / special / digit',
+                },
+                {
+                  input: `isPasswordStrong('SHORT1!')`,
+                  output: isPasswordStrong('SHORT1!'),
+                  note: 'Under 8 chars',
+                },
+                {
+                  input: `isPasswordStrong('alllowercase1!')`,
+                  output: isPasswordStrong('alllowercase1!'),
+                  note: 'Missing uppercase',
+                },
+                {
+                  input: `isPasswordStrong('NOLOWER1!')`,
+                  output: isPasswordStrong('NOLOWER1!'),
+                  note: 'Missing lowercase',
+                },
               ]}
             />
           </div>
@@ -428,10 +468,26 @@ const IsPANPage = () => (
             <ExamplesTable
               rows={[
                 { input: `isPAN('ABCDE1234F')`, output: isPAN('ABCDE1234F') },
-                { input: `isPAN('abcde1234f')`, output: isPAN('abcde1234f'), note: 'Lowercase accepted' },
-                { input: `isPAN('ABCDE123F')`, output: isPAN('ABCDE123F'), note: 'Only 3 digits (invalid)' },
-                { input: `isPAN('1BCDE1234F')`, output: isPAN('1BCDE1234F'), note: 'First char must be letter' },
-                { input: `isPAN('ABCDE1234')`, output: isPAN('ABCDE1234'), note: 'Missing trailing letter' },
+                {
+                  input: `isPAN('abcde1234f')`,
+                  output: isPAN('abcde1234f'),
+                  note: 'Lowercase accepted',
+                },
+                {
+                  input: `isPAN('ABCDE123F')`,
+                  output: isPAN('ABCDE123F'),
+                  note: 'Only 3 digits (invalid)',
+                },
+                {
+                  input: `isPAN('1BCDE1234F')`,
+                  output: isPAN('1BCDE1234F'),
+                  note: 'First char must be letter',
+                },
+                {
+                  input: `isPAN('ABCDE1234')`,
+                  output: isPAN('ABCDE1234'),
+                  note: 'Missing trailing letter',
+                },
                 { input: `isPAN('')`, output: isPAN(''), note: 'Empty string' },
               ]}
             />
@@ -484,11 +540,31 @@ const IsAadhaarPage = () => (
             <ExamplesTable
               rows={[
                 { input: `isAadhaar('234123412341')`, output: isAadhaar('234123412341') },
-                { input: `isAadhaar('2341 2341 2341')`, output: isAadhaar('2341 2341 2341'), note: 'Spaces ignored' },
-                { input: `isAadhaar('034123412341')`, output: isAadhaar('034123412341'), note: 'Starts with 0 (invalid)' },
-                { input: `isAadhaar('12345678901')`, output: isAadhaar('12345678901'), note: 'Only 11 digits' },
-                { input: `isAadhaar('1234567890123')`, output: isAadhaar('1234567890123'), note: '13 digits' },
-                { input: `isAadhaar('abcd12345678')`, output: isAadhaar('abcd12345678'), note: 'Contains letters' },
+                {
+                  input: `isAadhaar('2341 2341 2341')`,
+                  output: isAadhaar('2341 2341 2341'),
+                  note: 'Spaces ignored',
+                },
+                {
+                  input: `isAadhaar('034123412341')`,
+                  output: isAadhaar('034123412341'),
+                  note: 'Starts with 0 (invalid)',
+                },
+                {
+                  input: `isAadhaar('12345678901')`,
+                  output: isAadhaar('12345678901'),
+                  note: 'Only 11 digits',
+                },
+                {
+                  input: `isAadhaar('1234567890123')`,
+                  output: isAadhaar('1234567890123'),
+                  note: '13 digits',
+                },
+                {
+                  input: `isAadhaar('abcd12345678')`,
+                  output: isAadhaar('abcd12345678'),
+                  note: 'Contains letters',
+                },
               ]}
             />
           </div>
@@ -542,9 +618,21 @@ const IsGSTPage = () => (
               rows={[
                 { input: `isGST('27AAPFU0939F1ZV')`, output: isGST('27AAPFU0939F1ZV') },
                 { input: `isGST('29ABCDE1234F1Z5')`, output: isGST('29ABCDE1234F1Z5') },
-                { input: `isGST('27AAPFU0939F1Z')`, output: isGST('27AAPFU0939F1Z'), note: 'Missing last char' },
-                { input: `isGST('AAPFU0939F1ZV')`, output: isGST('AAPFU0939F1ZV'), note: 'Missing state code' },
-                { input: `isGST('27AAPFU0939F1AV')`, output: isGST('27AAPFU0939F1AV'), note: 'Z missing at pos 13' },
+                {
+                  input: `isGST('27AAPFU0939F1Z')`,
+                  output: isGST('27AAPFU0939F1Z'),
+                  note: 'Missing last char',
+                },
+                {
+                  input: `isGST('AAPFU0939F1ZV')`,
+                  output: isGST('AAPFU0939F1ZV'),
+                  note: 'Missing state code',
+                },
+                {
+                  input: `isGST('27AAPFU0939F1AV')`,
+                  output: isGST('27AAPFU0939F1AV'),
+                  note: 'Z missing at pos 13',
+                },
                 { input: `isGST('')`, output: isGST(''), note: 'Empty string' },
               ]}
             />
@@ -587,9 +675,9 @@ const IsRequiredPage = () => (
             <Signature>(value: any) → boolean</Signature>
           </div>
           <Description>
-            Returns <Code>false</Code> for <Code>null</Code>, <Code>undefined</Code>, blank
-            strings, and empty arrays. All other values — including <Code>0</Code>,{' '}
-            <Code>false</Code>, and non-empty objects — are considered present.
+            Returns <Code>false</Code> for <Code>null</Code>, <Code>undefined</Code>, blank strings,
+            and empty arrays. All other values — including <Code>0</Code>, <Code>false</Code>, and
+            non-empty objects — are considered present.
           </Description>
         </CardHeader>
         <CardBody>
@@ -599,10 +687,18 @@ const IsRequiredPage = () => (
               rows={[
                 { input: `isRequired('hello')`, output: isRequired('hello') },
                 { input: `isRequired(0)`, output: isRequired(0), note: 'Zero is a valid value' },
-                { input: `isRequired(false)`, output: isRequired(false), note: 'false is a valid value' },
+                {
+                  input: `isRequired(false)`,
+                  output: isRequired(false),
+                  note: 'false is a valid value',
+                },
                 { input: `isRequired([1, 2])`, output: isRequired([1, 2]) },
                 { input: `isRequired('')`, output: isRequired(''), note: 'Blank string → false' },
-                { input: `isRequired('   ')`, output: isRequired('   '), note: 'Whitespace-only → false' },
+                {
+                  input: `isRequired('   ')`,
+                  output: isRequired('   '),
+                  note: 'Whitespace-only → false',
+                },
                 { input: `isRequired([])`, output: isRequired([]), note: 'Empty array → false' },
                 { input: `isRequired(null)`, output: isRequired(null) },
                 { input: `isRequired(undefined)`, output: isRequired(undefined) },
@@ -648,8 +744,8 @@ const MinLengthPage = () => (
             <Signature>(value: string, n: number) → boolean</Signature>
           </div>
           <Description>
-            Returns <Code>true</Code> if <Code>value.length {'≥'} n</Code>. Non-string values
-            always return <Code>false</Code>. Does not trim — whitespace counts toward length.
+            Returns <Code>true</Code> if <Code>value.length {'≥'} n</Code>. Non-string values always
+            return <Code>false</Code>. Does not trim — whitespace counts toward length.
           </Description>
         </CardHeader>
         <CardBody>
@@ -659,10 +755,18 @@ const MinLengthPage = () => (
               rows={[
                 { input: `minLength('hello', 3)`, output: minLength('hello', 3) },
                 { input: `minLength('hi', 5)`, output: minLength('hi', 5), note: 'Too short' },
-                { input: `minLength('exact', 5)`, output: minLength('exact', 5), note: 'Equal to n → true' },
+                {
+                  input: `minLength('exact', 5)`,
+                  output: minLength('exact', 5),
+                  note: 'Equal to n → true',
+                },
                 { input: `minLength('', 1)`, output: minLength('', 1), note: 'Empty string' },
                 { input: `minLength('   ', 2)`, output: minLength('   ', 2), note: 'Spaces count' },
-                { input: `minLength(123, 2)`, output: minLength(123, 2), note: 'Non-string → false' },
+                {
+                  input: `minLength(123, 2)`,
+                  output: minLength(123, 2),
+                  note: 'Non-string → false',
+                },
               ]}
             />
           </div>
@@ -703,8 +807,8 @@ const MaxLengthPage = () => (
             <Signature>(value: string, n: number) → boolean</Signature>
           </div>
           <Description>
-            Returns <Code>true</Code> if <Code>value.length {'≤'} n</Code>. Non-string values
-            always return <Code>false</Code>. Useful for enforcing character caps on text inputs.
+            Returns <Code>true</Code> if <Code>value.length {'≤'} n</Code>. Non-string values always
+            return <Code>false</Code>. Useful for enforcing character caps on text inputs.
           </Description>
         </CardHeader>
         <CardBody>
@@ -713,8 +817,16 @@ const MaxLengthPage = () => (
             <ExamplesTable
               rows={[
                 { input: `maxLength('hello', 10)`, output: maxLength('hello', 10) },
-                { input: `maxLength('toolongstring', 5)`, output: maxLength('toolongstring', 5), note: 'Exceeds limit' },
-                { input: `maxLength('exact', 5)`, output: maxLength('exact', 5), note: 'Equal to n → true' },
+                {
+                  input: `maxLength('toolongstring', 5)`,
+                  output: maxLength('toolongstring', 5),
+                  note: 'Exceeds limit',
+                },
+                {
+                  input: `maxLength('exact', 5)`,
+                  output: maxLength('exact', 5),
+                  note: 'Equal to n → true',
+                },
                 { input: `maxLength('', 0)`, output: maxLength('', 0), note: 'Empty at limit 0' },
                 { input: `maxLength('a', 0)`, output: maxLength('a', 0), note: 'Exceeds limit 0' },
                 { input: `maxLength(42, 5)`, output: maxLength(42, 5), note: 'Non-string → false' },
