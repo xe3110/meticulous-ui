@@ -884,7 +884,7 @@ const MeasureElementPage = () => {
             <Description>
               Returns <Code>getBoundingClientRect()</Code> for a React ref or raw element — giving
               you <Code>width</Code>, <Code>height</Code>, <Code>top</Code>, <Code>left</Code>,{' '}
-              <Code>right</Code>, and <Code>bottom</Code> relative to the viewport. Returns{' '}
+              <Code>right</Code> and <Code>bottom</Code> relative to the viewport. Returns{' '}
               <Code>null</Code> if the ref isn&apos;t attached.
             </Description>
           </CardHeader>
