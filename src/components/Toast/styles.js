@@ -78,6 +78,20 @@ export const ToastWrapper = styled.div`
     border-radius: 0.96rem;
     padding: 0.48rem 1.28rem;
   }
+
+  @media screen and (max-width: 480px) {
+    height: 5.2rem;
+    width: 30rem;
+    border-radius: 0.88rem;
+    padding: 0.44rem 1.12rem;
+  }
+
+  @media screen and (max-width: 380px) {
+    height: 4.8rem;
+    width: 27rem;
+    border-radius: 0.8rem;
+    padding: 0.4rem 1rem;
+  }
 `;
 
 export const LogoContainer = styled.div`
@@ -94,6 +108,16 @@ export const LogoContainer = styled.div`
     width: 2.16rem;
     height: 2.16rem;
   }
+
+  @media screen and (max-width: 480px) {
+    width: 1.92rem;
+    height: 1.92rem;
+  }
+
+  @media screen and (max-width: 380px) {
+    width: 1.76rem;
+    height: 1.76rem;
+  }
 `;
 
 export const Outer = styled.div`
@@ -107,6 +131,16 @@ export const Outer = styled.div`
   @media screen and (max-width: 768px) {
     width: 4.8rem;
     height: 4.8rem;
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 4.3rem;
+    height: 4.3rem;
+  }
+
+  @media screen and (max-width: 380px) {
+    width: 3.9rem;
+    height: 3.9rem;
   }
 `;
 
@@ -146,6 +180,16 @@ export const OuterChild = styled.div`
   @media screen and (max-width: 768px) {
     width: 3.6rem;
     height: 3.6rem;
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+
+  @media screen and (max-width: 380px) {
+    width: 2.9rem;
+    height: 2.9rem;
   }
 `;
 
@@ -200,6 +244,14 @@ export const Title = styled.div`
   font-weight: 600;
   font-size: 1.92rem;
   color: ${grey.m800};
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.72rem;
+  }
+
+  @media screen and (max-width: 380px) {
+    font-size: 1.56rem;
+  }
 `;
 
 export const Message = styled.div`
@@ -211,10 +263,27 @@ export const Message = styled.div`
   @media screen and (max-width: 768px) {
     width: 24rem;
   }
+
+  @media screen and (max-width: 480px) {
+    width: 21rem;
+  }
+
+  @media screen and (max-width: 380px) {
+    max-width: 18rem;
+    width: auto;
+  }
 `;
 
 export const Subtitle = styled.div`
   font-weight: 400;
   font-size: 1.6rem;
   color: ${grey.m700};
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.44rem;
+  }
+
+  @media screen and (max-width: 380px) {
+    font-size: 1.32rem;
+  }
 `;
