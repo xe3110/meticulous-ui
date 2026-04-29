@@ -1,2 +1,1 @@
-import BookmarkOutline from './BookmarkOutline.jsx';
-export default BookmarkOutline;
+export { default } from './BookmarkOutline';

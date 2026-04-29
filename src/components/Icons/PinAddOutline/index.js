@@ -1,2 +1,1 @@
-import PinAddOutline from './PinAddOutline.jsx';
-export default PinAddOutline;
+export { default } from './PinAddOutline';

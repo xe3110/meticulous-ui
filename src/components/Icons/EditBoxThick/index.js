@@ -1,2 +1,1 @@
-import EditBoxThick from './EditBoxThick.jsx';
-export default EditBoxThick;
+export { default } from './EditBoxThick';

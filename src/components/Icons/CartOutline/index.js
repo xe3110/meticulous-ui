@@ -1,2 +1,1 @@
-import CartOutline from './CartOutline.jsx';
-export default CartOutline;
+export { default } from './CartOutline';

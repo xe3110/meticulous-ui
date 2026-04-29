@@ -1,2 +1,1 @@
-import RedditRoundOutline from './RedditRoundOutline.jsx';
-export default RedditRoundOutline;
+export { default } from './RedditRoundOutline';

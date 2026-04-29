@@ -1,7 +1,10 @@
 import { useRef, useState } from 'react';
 import { TextareaBox, Wrapper, Label, HelperText, Parent } from './styles';
-import { getColor } from './helpers';
+import { LeftIconWrapper, RightIconWrapper } from '../Input/styles';
+import { getColor, getIcon } from './helpers';
 import white from '../../../colors/white';
+import grey from '../../../colors/grey';
+import SvgIcon from './SvgIcon';
 
 const Textarea = ({
   label,
@@ -18,6 +21,8 @@ const Textarea = ({
   isResizeNone,
   rows = '2',
   cols = '20',
+  leftIcon,
+  rightIcon,
   placeholder,
   ...params
 }) => {
@@ -32,21 +37,19 @@ const Textarea = ({
     if (isDynamic) {
       const element = textAreaRef.current;
       if (element) {
-        // 1. Reset height to a small value so scrollHeight can re-calculate
-        // based on the actual text content inside.
         element.style.height = '0px';
-
-        // 2. Get the scrollHeight (the "natural" height of the text)
         const scrollHeight = element.scrollHeight;
-
-        // 3. Set the height to match the scrollHeight
         element.style.height = `${scrollHeight}px`;
       }
     }
-
     onChange(e);
   };
 
+  const iconStyles = { color: grey.m500, size: 20 };
+  const leftIconRef = getIcon(leftIcon);
+  const rightIconRef = getIcon(rightIcon);
+  const $hasLeftIcon = !!leftIconRef;
+  const $hasRightIcon = !!rightIconRef;
   const $hasError = hasError;
   const $isDynamic = isDynamic;
   const $background = background;
@@ -67,6 +70,8 @@ const Textarea = ({
           $isDynamic,
           $background,
           cols,
+          $hasLeftIcon,
+          $hasRightIcon,
           $isResizeNone: isResizeNone,
           ...rowsObj,
         }}
@@ -79,6 +84,17 @@ const Textarea = ({
         onChange={handleChange}
         {...params}
       />
+      {leftIconRef && (
+        <LeftIconWrapper aria-hidden='true' style={{ top: '1.2rem', transform: 'none' }}>
+          <SvgIcon svgIcon={leftIconRef} iconStyles={iconStyles} />
+        </LeftIconWrapper>
+      )}
+
+      {rightIconRef && (
+        <RightIconWrapper aria-hidden='true' style={{ top: '1.2rem', transform: 'none' }}>
+          <SvgIcon svgIcon={rightIconRef} iconStyles={iconStyles} />
+        </RightIconWrapper>
+      )}
       <Parent>
         {(label || (placeholder && !value)) && (
           <Label
@@ -90,6 +106,8 @@ const Textarea = ({
               $shade,
               $value: value,
               $outerBackground: $isFocused || !!value ? outerBackground : background,
+              $hasLeftIcon,
+              $hasRightIcon,
               $onlyPh: placeholder && !label,
             }}
           >
@@ -97,7 +115,7 @@ const Textarea = ({
           </Label>
         )}
         {helperText && (
-          <HelperText id={helperId} {...{ $hasError, $isFocused, $shade }}>
+          <HelperText id={helperId} {...{ $hasError, $isFocused, $shade, $hasLeftIcon }}>
             {helperText}
           </HelperText>
         )}

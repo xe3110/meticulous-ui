@@ -1,2 +1,1 @@
-import TrashOutline from './TrashOutline.jsx';
-export default TrashOutline;
+export { default } from './TrashOutline';

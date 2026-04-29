@@ -1,2 +1,1 @@
-import HelpCircleOutline from './HelpCircleOutline.jsx';
-export default HelpCircleOutline;
+export { default } from './HelpCircleOutline';

@@ -1,2 +1,1 @@
-import LinkedinOutline from './LinkedinOutline.jsx';
-export default LinkedinOutline;
+export { default } from './LinkedinOutline';

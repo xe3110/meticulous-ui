@@ -1,2 +1,1 @@
-import ShareAllFilled from './ShareAllFilled.jsx';
-export default ShareAllFilled;
+export { default } from './ShareAllFilled';

@@ -1,2 +1,1 @@
-import ThumbsDownOutline from './ThumbsDownOutline.jsx';
-export default ThumbsDownOutline;
+export { default } from './ThumbsDownOutline';

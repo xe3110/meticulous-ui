@@ -1,2 +1,1 @@
-import InfoCircleOutline from './InfoCircleOutline.jsx';
-export default InfoCircleOutline;
+export { default } from './InfoCircleOutline';

@@ -1,2 +1,1 @@
-import CartCheckFilled from './CartCheckFilled.jsx';
-export default CartCheckFilled;
+export { default } from './CartCheckFilled';

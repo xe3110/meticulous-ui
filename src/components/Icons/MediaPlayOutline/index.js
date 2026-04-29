@@ -1,2 +1,1 @@
-import MediaPlayOutline from './MediaPlayOutline.jsx';
-export default MediaPlayOutline;
+export { default } from './MediaPlayOutline';

@@ -1,2 +1,1 @@
-import DeliveryTruckFastFilled from './DeliveryTruckFastFilled.jsx';
-export default DeliveryTruckFastFilled;
+export { default } from './DeliveryTruckFastFilled';

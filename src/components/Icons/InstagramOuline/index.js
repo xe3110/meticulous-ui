@@ -1,2 +1,1 @@
-import InstagramOuline from './InstagramOuline.jsx';
-export default InstagramOuline;
+export { default } from './InstagramOuline';

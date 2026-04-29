@@ -1,2 +1,1 @@
-import BagFilled from './BagFilled.jsx';
-export default BagFilled;
+export { default } from './BagFilled';

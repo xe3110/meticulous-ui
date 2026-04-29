@@ -1,2 +1,1 @@
-import DiscordOutline from './DiscordOutline.jsx';
-export default DiscordOutline;
+export { default } from './DiscordOutline';

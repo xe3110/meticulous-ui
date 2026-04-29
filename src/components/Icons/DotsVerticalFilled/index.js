@@ -1,2 +1,1 @@
-import DotsVerticalFilled from './DotsVerticalFilled.jsx';
-export default DotsVerticalFilled;
+export { default } from './DotsVerticalFilled';

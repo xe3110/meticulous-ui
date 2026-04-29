@@ -1,2 +1,1 @@
-import Help from './Help.jsx';
-export default Help;
+export { default } from './Help';

@@ -1,2 +1,1 @@
-import ShareThickFilled from './ShareThickFilled.jsx';
-export default ShareThickFilled;
+export { default } from './ShareThickFilled';

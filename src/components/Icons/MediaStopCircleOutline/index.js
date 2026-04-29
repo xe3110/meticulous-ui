@@ -1,2 +1,1 @@
-import MediaStopCircleOutline from './MediaStopCircleOutline.jsx';
-export default MediaStopCircleOutline;
+export { default } from './MediaStopCircleOutline';

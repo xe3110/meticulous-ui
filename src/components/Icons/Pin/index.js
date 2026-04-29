@@ -1,2 +1,1 @@
-import Pin from './Pin.jsx';
-export default Pin;
+export { default } from './Pin';

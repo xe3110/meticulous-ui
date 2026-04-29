@@ -1,2 +1,1 @@
-import CartCrossOutline from './CartCrossOutline.jsx';
-export default CartCrossOutline;
+export { default } from './CartCrossOutline';

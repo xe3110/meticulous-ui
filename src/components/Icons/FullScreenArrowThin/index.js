@@ -1,2 +1,1 @@
-import FullScreenArrowThin from './FullScreenArrowThin.jsx';
-export default FullScreenArrowThin;
+export { default } from './FullScreenArrowThin';

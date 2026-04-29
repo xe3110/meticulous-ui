@@ -1,2 +1,1 @@
-import BellOffOutline from './BellOffOutline.jsx';
-export default BellOffOutline;
+export { default } from './BellOffOutline';

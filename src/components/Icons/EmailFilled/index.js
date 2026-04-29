@@ -1,2 +1,1 @@
-import EmailFilled from './EmailFilled.jsx';
-export default EmailFilled;
+export { default } from './EmailFilled';

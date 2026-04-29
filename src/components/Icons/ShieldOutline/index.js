@@ -1,2 +1,1 @@
-import ShieldOutline from './ShieldOutline.jsx';
-export default ShieldOutline;
+export { default } from './ShieldOutline';

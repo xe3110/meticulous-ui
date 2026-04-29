@@ -1,2 +1,1 @@
-import Youtube from './Youtube.jsx';
-export default Youtube;
+export { default } from './Youtube';

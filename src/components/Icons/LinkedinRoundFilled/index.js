@@ -1,2 +1,1 @@
-import LinkedinRoundFilled from './LinkedinRoundFilled.jsx';
-export default LinkedinRoundFilled;
+export { default } from './LinkedinRoundFilled';

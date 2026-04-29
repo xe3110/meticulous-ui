@@ -1,2 +1,1 @@
-import Check from './Check.jsx';
-export default Check;
+export { default } from './Check';

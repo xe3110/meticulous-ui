@@ -1,2 +1,1 @@
-import MoneyBagOutline from './MoneyBagOutline.jsx';
-export default MoneyBagOutline;
+export { default } from './MoneyBagOutline';

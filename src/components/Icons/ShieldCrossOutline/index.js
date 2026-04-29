@@ -1,2 +1,1 @@
-import ShieldCrossOutline from './ShieldCrossOutline.jsx';
-export default ShieldCrossOutline;
+export { default } from './ShieldCrossOutline';

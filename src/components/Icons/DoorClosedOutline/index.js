@@ -1,2 +1,1 @@
-import DoorClosedOutline from './DoorClosedOutline.jsx';
-export default DoorClosedOutline;
+export { default } from './DoorClosedOutline';

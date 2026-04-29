@@ -1,2 +1,1 @@
-import EmailOutline from './EmailOutline.jsx';
-export default EmailOutline;
+export { default } from './EmailOutline';

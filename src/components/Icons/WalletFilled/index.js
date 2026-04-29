@@ -1,2 +1,1 @@
-import WalletFilled from './WalletFilled.jsx';
-export default WalletFilled;
+export { default } from './WalletFilled';

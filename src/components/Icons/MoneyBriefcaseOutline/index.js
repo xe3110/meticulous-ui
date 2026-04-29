@@ -1,2 +1,1 @@
-import MoneyBriefcaseOutline from './MoneyBriefcaseOutline.jsx';
-export default MoneyBriefcaseOutline;
+export { default } from './MoneyBriefcaseOutline';

@@ -1,2 +1,1 @@
-import SettingOutline from './SettingOutline.jsx';
-export default SettingOutline;
+export { default } from './SettingOutline';

@@ -1,2 +1,1 @@
-import ExitFullScreenThick from './ExitFullScreenThick.jsx';
-export default ExitFullScreenThick;
+export { default } from './ExitFullScreenThick';

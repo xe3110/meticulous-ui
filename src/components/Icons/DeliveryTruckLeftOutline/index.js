@@ -1,2 +1,1 @@
-import DeliveryTruckLeftOutline from './DeliveryTruckLeftOutline.jsx';
-export default DeliveryTruckLeftOutline;
+export { default } from './DeliveryTruckLeftOutline';

@@ -1,2 +1,1 @@
-import DoorOpenOutline from './DoorOpenOutline.jsx';
-export default DoorOpenOutline;
+export { default } from './DoorOpenOutline';

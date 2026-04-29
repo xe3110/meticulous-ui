@@ -1,2 +1,1 @@
-import CommentFilled from './CommentFilled.jsx';
-export default CommentFilled;
+export { default } from './CommentFilled';

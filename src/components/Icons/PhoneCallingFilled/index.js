@@ -1,2 +1,1 @@
-import PhoneCallingFilled from './PhoneCallingFilled.jsx';
-export default PhoneCallingFilled;
+export { default } from './PhoneCallingFilled';

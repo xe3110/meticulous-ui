@@ -1,2 +1,1 @@
-import MediaPauseFilled from './MediaPauseFilled.jsx';
-export default MediaPauseFilled;
+export { default } from './MediaPauseFilled';

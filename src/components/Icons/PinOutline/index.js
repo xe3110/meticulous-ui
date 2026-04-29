@@ -1,2 +1,1 @@
-import PinOutline from './PinOutline.jsx';
-export default PinOutline;
+export { default } from './PinOutline';

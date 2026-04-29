@@ -1,2 +1,1 @@
-import Minus from './Minus.jsx';
-export default Minus;
+export { default } from './Minus';

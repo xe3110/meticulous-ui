@@ -1,2 +1,1 @@
-import Download from './Download.jsx';
-export default Download;
+export { default } from './Download';

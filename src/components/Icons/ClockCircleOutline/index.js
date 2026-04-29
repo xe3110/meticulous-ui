@@ -1,2 +1,1 @@
-import ClockCircleOutline from './ClockCircleOutline.jsx';
-export default ClockCircleOutline;
+export { default } from './ClockCircleOutline';

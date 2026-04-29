@@ -1,2 +1,1 @@
-import HamburgerMenu from './HamburgerMenu.jsx';
-export default HamburgerMenu;
+export { default } from './HamburgerMenu';

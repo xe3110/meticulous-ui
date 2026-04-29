@@ -1,2 +1,1 @@
-import InstagramRoundFilled from './InstagramRoundFilled.jsx';
-export default InstagramRoundFilled;
+export { default } from './InstagramRoundFilled';

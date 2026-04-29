@@ -1,2 +1,1 @@
-import LinkedinFilled from './LinkedinFilled.jsx';
-export default LinkedinFilled;
+export { default } from './LinkedinFilled';

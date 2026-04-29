@@ -1,2 +1,1 @@
-import TrashFilled from './TrashFilled.jsx';
-export default TrashFilled;
+export { default } from './TrashFilled';

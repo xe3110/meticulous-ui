@@ -1,2 +1,1 @@
-import ShareAllOutline from './ShareAllOutline.jsx';
-export default ShareAllOutline;
+export { default } from './ShareAllOutline';

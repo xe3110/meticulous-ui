@@ -1,2 +1,1 @@
-import WarningCircleOutline from './WarningCircleOutline.jsx';
-export default WarningCircleOutline;
+export { default } from './WarningCircleOutline';

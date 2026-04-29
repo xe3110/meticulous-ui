@@ -1,2 +1,1 @@
-import PinSubOutline from './PinSubOutline.jsx';
-export default PinSubOutline;
+export { default } from './PinSubOutline';

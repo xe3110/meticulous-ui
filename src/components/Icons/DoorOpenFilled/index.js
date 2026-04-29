@@ -1,2 +1,1 @@
-import DoorOpenFilled from './DoorOpenFilled.jsx';
-export default DoorOpenFilled;
+export { default } from './DoorOpenFilled';

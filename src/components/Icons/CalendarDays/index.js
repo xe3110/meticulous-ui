@@ -1,2 +1,1 @@
-import CalendarDays from './CalendarDays.jsx';
-export default CalendarDays;
+export { default } from './CalendarDays';

@@ -1,2 +1,1 @@
-import HomeFilled from './HomeFilled.jsx';
-export default HomeFilled;
+export { default } from './HomeFilled';

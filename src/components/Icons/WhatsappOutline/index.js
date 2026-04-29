@@ -1,2 +1,1 @@
-import WhatsappOutline from './WhatsappOutline.jsx';
-export default WhatsappOutline;
+export { default } from './WhatsappOutline';

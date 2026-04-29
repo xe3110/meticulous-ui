@@ -1,2 +1,1 @@
-import ChevronDown from './ChevronDown.jsx';
-export default ChevronDown;
+export { default } from './ChevronDown';

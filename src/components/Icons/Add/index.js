@@ -1,2 +1,1 @@
-import Add from './Add.jsx';
-export default Add;
+export { default } from './Add';

@@ -1,2 +1,1 @@
-import UploadBoxFilled from './UploadBoxFilled.jsx';
-export default UploadBoxFilled;
+export { default } from './UploadBoxFilled';

@@ -1,2 +1,1 @@
-import DeliveryTruckFastOutline from './DeliveryTruckFastOutline.jsx';
-export default DeliveryTruckFastOutline;
+export { default } from './DeliveryTruckFastOutline';

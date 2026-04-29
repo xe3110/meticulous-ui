@@ -1,2 +1,1 @@
-import PinFilled from './PinFilled.jsx';
-export default PinFilled;
+export { default } from './PinFilled';

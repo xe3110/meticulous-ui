@@ -1,2 +1,1 @@
-import ProfileFemaleOutline from './ProfileFemaleOutline.jsx';
-export default ProfileFemaleOutline;
+export { default } from './ProfileFemaleOutline';

@@ -1,2 +1,1 @@
-import TelegramFilled from './TelegramFilled.jsx';
-export default TelegramFilled;
+export { default } from './TelegramFilled';

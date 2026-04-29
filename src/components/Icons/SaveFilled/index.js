@@ -1,2 +1,1 @@
-import SaveFilled from './SaveFilled.jsx';
-export default SaveFilled;
+export { default } from './SaveFilled';

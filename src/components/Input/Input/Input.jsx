@@ -3,6 +3,7 @@ import { InputBox, Wrapper, Label, HelperText, LeftIconWrapper, RightIconWrapper
 import { getColor, getIcon } from './helpers';
 import white from '../../../colors/white';
 import grey from '../../../colors/grey';
+import SvgIcon from '../Textarea/SvgIcon';
 
 const Input = ({
   label,
@@ -34,10 +35,11 @@ const Input = ({
 
   const iconStyles = { color: grey.m500, size: 22 };
 
-  const leftIconFn = getIcon(leftIcon);
-  const rightIconFn = getIcon(rightIcon);
-  const $hasLeftIcon = !!(leftIcon && leftIconFn);
-  const $hasRightIcon = !!(rightIcon && rightIconFn);
+  const leftIconRef = getIcon(leftIcon);
+  const rightIconRef = getIcon(rightIcon);
+
+  const $hasLeftIcon = !!leftIconRef;
+  const $hasRightIcon = !!rightIconRef;
 
   const $hasError = hasError;
   const $background = background;
@@ -68,9 +70,15 @@ const Input = ({
         autoComplete={disableAutoComplete ? 'off' : 'on'}
         {...params}
       />
-      {leftIconFn && <LeftIconWrapper aria-hidden='true'>{leftIconFn(iconStyles)}</LeftIconWrapper>}
-      {rightIconFn && (
-        <RightIconWrapper aria-hidden='true'>{rightIconFn(iconStyles)}</RightIconWrapper>
+      {leftIconRef && (
+        <LeftIconWrapper aria-hidden='true'>
+          <SvgIcon svgIcon={leftIconRef} iconStyles={iconStyles} />
+        </LeftIconWrapper>
+      )}
+      {rightIconRef && (
+        <RightIconWrapper aria-hidden='true'>
+          <SvgIcon svgIcon={rightIconRef} iconStyles={iconStyles} />
+        </RightIconWrapper>
       )}
       {(label || (placeholder && !value)) && (
         <Label

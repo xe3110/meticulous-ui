@@ -1,2 +1,1 @@
-import SortTopToBottom from './SortTopToBottom.jsx';
-export default SortTopToBottom;
+export { default } from './SortTopToBottom';

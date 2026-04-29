@@ -1,493 +1,267 @@
-import AddCircleFilled from './AddCircleFilled/AddCircleFilled.jsx';
-import AddCircle from './AddCircle/AddCircle.jsx';
-import Add from './Add/Add.jsx';
-import ArrowDown from './ArrowDown/ArrowDown.jsx';
-import ArrowLeft from './ArrowLeft/ArrowLeft.jsx';
-import ArrowRight from './ArrowRight/ArrowRight.jsx';
-import ArrowUp from './ArrowUp/ArrowUp.jsx';
-import BagFilled from './BagFilled/BagFilled.jsx';
-import BagOutline from './BagOutline/BagOutline.jsx';
-import BellFilled from './BellFilled/BellFilled.jsx';
-import BellOffFilled from './BellOffFilled/BellOffFilled.jsx';
-import BellOffOutline from './BellOffOutline/BellOffOutline.jsx';
-import BellOutline from './BellOutline/BellOutline.jsx';
-import BookmarkFilled from './BookmarkFilled/BookmarkFilled.jsx';
-import BookmarkOutline from './BookmarkOutline/BookmarkOutline.jsx';
-import BoxCoveredFilled from './BoxCoveredFilled/BoxCoveredFilled.jsx';
-import BoxCoveredOutline from './BoxCoveredOutline/BoxCoveredOutline.jsx';
-import BoxFilled from './BoxFilled/BoxFilled.jsx';
-import BoxOutline from './BoxOutline/BoxOutline.jsx';
-import CalendarDays from './CalendarDays/CalendarDays.jsx';
-import CalendarLinesPen from './CalendarLinesPen/CalendarLinesPen.jsx';
-import CartCheckFilled from './CartCheckFilled/CartCheckFilled.jsx';
-import CartCheckOutline from './CartCheckOutline/CartCheckOutline.jsx';
-import CartCrossFilled from './CartCrossFilled/CartCrossFilled.jsx';
-import CartCrossOutline from './CartCrossOutline/CartCrossOutline.jsx';
-import CartFilled from './CartFilled/CartFilled.jsx';
-import CartMinusFilled from './CartMinusFilled/CartMinusFilled.jsx';
-import CartMinusOutline from './CartMinusOutline/CartMinusOutline.jsx';
-import CartOutline from './CartOutline/CartOutline.jsx';
-import CartPlusFilled from './CartPlusFilled/CartPlusFilled.jsx';
-import CartPlusOutline from './CartPlusOutline/CartPlusOutline.jsx';
-import CheckDouble from './CheckDouble/CheckDouble.jsx';
-import Check from './Check/Check.jsx';
-import ChevronDown from './ChevronDown/ChevronDown.jsx';
-import ChevronLeft from './ChevronLeft/ChevronLeft.jsx';
-import ChevronRight from './ChevronRight/ChevronRight.jsx';
-import ChevronUp from './ChevronUp/ChevronUp.jsx';
-import ClockCircleOutline from './ClockCircleOutline/ClockCircleOutline.jsx';
-import ClockSquareOutline from './ClockSquareOutline/ClockSquareOutline.jsx';
-import CloseCircleFilled from './CloseCircleFilled/CloseCircleFilled.jsx';
-import CloseCircleOutline from './CloseCircleOutline/CloseCircleOutline.jsx';
-import Close from './Close/Close.jsx';
-import CommentBubbleFilled from './CommentBubbleFilled/CommentBubbleFilled.jsx';
-import CommentBubbleOutline from './CommentBubbleOutline/CommentBubbleOutline.jsx';
-import CommentFilled from './CommentFilled/CommentFilled.jsx';
-import CommentLineFilled from './CommentLineFilled/CommentLineFilled.jsx';
-import CommentLineOutline from './CommentLineOutline/CommentLineOutline.jsx';
-import CommentOutline from './CommentOutline/CommentOutline.jsx';
-import ContactDetailsFilled from './ContactDetailsFilled/ContactDetailsFilled.jsx';
-import ContactDetailsOutline from './ContactDetailsOutline/ContactDetailsOutline.jsx';
-import DeliveryTruckFastFilled from './DeliveryTruckFastFilled/DeliveryTruckFastFilled.jsx';
-import DeliveryTruckFastOutline from './DeliveryTruckFastOutline/DeliveryTruckFastOutline.jsx';
-import DeliveryTruckLeftFilled from './DeliveryTruckLeftFilled/DeliveryTruckLeftFilled.jsx';
-import DeliveryTruckLeftOutline from './DeliveryTruckLeftOutline/DeliveryTruckLeftOutline.jsx';
-import DeliveryTruckRightFilled from './DeliveryTruckRightFilled/DeliveryTruckRightFilled.jsx';
-import DeliveryTruckRightOutline from './DeliveryTruckRightOutline/DeliveryTruckRightOutline.jsx';
-import DetailsOutline from './DetailsOutline/DetailsOutline.jsx';
-import DiscordConversation from './DiscordConversation/DiscordConversation.jsx';
-import DiscordFilled from './DiscordFilled/DiscordFilled.jsx';
-import DiscordOutline from './DiscordOutline/DiscordOutline.jsx';
-import DoorClosedFilled from './DoorClosedFilled/DoorClosedFilled.jsx';
-import DoorClosedOutline from './DoorClosedOutline/DoorClosedOutline.jsx';
-import DoorOpenFilled from './DoorOpenFilled/DoorOpenFilled.jsx';
-import DoorOpenOutline from './DoorOpenOutline/DoorOpenOutline.jsx';
-import DotsHorizontalFilled from './DotsHorizontalFilled/DotsHorizontalFilled.jsx';
-import DotsHorizontalOutline from './DotsHorizontalOutline/DotsHorizontalOutline.jsx';
-import DotsVerticalFilled from './DotsVerticalFilled/DotsVerticalFilled.jsx';
-import DotsVerticalOutline from './DotsVerticalOutline/DotsVerticalOutline.jsx';
-import DownloadBoxFilled from './DownloadBoxFilled/DownloadBoxFilled.jsx';
-import DownloadBoxOutline from './DownloadBoxOutline/DownloadBoxOutline.jsx';
-import Download from './Download/Download.jsx';
-import EditBoxThick from './EditBoxThick/EditBoxThick.jsx';
-import EditBoxThin from './EditBoxThin/EditBoxThin.jsx';
-import EmailFilled from './EmailFilled/EmailFilled.jsx';
-import EmailOutline from './EmailOutline/EmailOutline.jsx';
-import ExitArrowInOutline from './ExitArrowInOutline/ExitArrowInOutline.jsx';
-import ExitArrowOutOutline from './ExitArrowOutOutline/ExitArrowOutOutline.jsx';
-import ExitFullScreenThick from './ExitFullScreenThick/ExitFullScreenThick.jsx';
-import ExitFullScreen from './ExitFullScreen/ExitFullScreen.jsx';
-import EyeClosed from './EyeClosed/EyeClosed.jsx';
-import EyeFilled from './EyeFilled/EyeFilled.jsx';
-import EyeOutline from './EyeOutline/EyeOutline.jsx';
-import FacebookFilled from './FacebookFilled/FacebookFilled.jsx';
-import FacebookMessengerOutline from './FacebookMessengerOutline/FacebookMessengerOutline.jsx';
-import FacebookOutline from './FacebookOutline/FacebookOutline.jsx';
-import FacebookRoundFilled from './FacebookRoundFilled/FacebookRoundFilled.jsx';
-import FilterList from './FilterList/FilterList.jsx';
-import FilterThickFilled from './FilterThickFilled/FilterThickFilled.jsx';
-import FilterThickOutline from './FilterThickOutline/FilterThickOutline.jsx';
-import Filter from './Filter/Filter.jsx';
-import FullScreenArrowThick from './FullScreenArrowThick/FullScreenArrowThick.jsx';
-import FullScreenArrowThin from './FullScreenArrowThin/FullScreenArrowThin.jsx';
-import FullScreenExit from './FullScreenExit/FullScreenExit.jsx';
-import FullScreenFilled from './FullScreenFilled/FullScreenFilled.jsx';
-import FullScreenOutline from './FullScreenOutline/FullScreenOutline.jsx';
-import HamburgerMenu from './HamburgerMenu/HamburgerMenu.jsx';
-import HamburgerSpaced from './HamburgerSpaced/HamburgerSpaced.jsx';
-import HeartFilled from './HeartFilled/HeartFilled.jsx';
-import HeartOutline from './HeartOutline/HeartOutline.jsx';
-import HelpCircleFilled from './HelpCircleFilled/HelpCircleFilled.jsx';
-import HelpCircleOutline from './HelpCircleOutline/HelpCircleOutline.jsx';
-import Help from './Help/Help.jsx';
-import HomeFilled from './HomeFilled/HomeFilled.jsx';
-import HomeOutline from './HomeOutline/HomeOutline.jsx';
-import InfoCircleFilled from './InfoCircleFilled/InfoCircleFilled.jsx';
-import InfoCircleOutline from './InfoCircleOutline/InfoCircleOutline.jsx';
-import InfoSquareFilled from './InfoSquareFilled/InfoSquareFilled.jsx';
-import InfoSquareOutline from './InfoSquareOutline/InfoSquareOutline.jsx';
-import Info from './Info/Info.jsx';
-import InstagramOuline from './InstagramOuline/InstagramOuline.jsx';
-import InstagramRoundFilled from './InstagramRoundFilled/InstagramRoundFilled.jsx';
-import KeyFilled from './KeyFilled/KeyFilled.jsx';
-import KeyInSquareFilled from './KeyInSquareFilled/KeyInSquareFilled.jsx';
-import KeyInSquareOutline from './KeyInSquareOutline/KeyInSquareOutline.jsx';
-import KeyOutline from './KeyOutline/KeyOutline.jsx';
-import KeySideSquareFilled from './KeySideSquareFilled/KeySideSquareFilled.jsx';
-import KeySideSquareOutline from './KeySideSquareOutline/KeySideSquareOutline.jsx';
-import KeySquareFilled from './KeySquareFilled/KeySquareFilled.jsx';
-import KeySquareOutline from './KeySquareOutline/KeySquareOutline.jsx';
-import Link from './Link/Link.jsx';
-import LinkedinFilled from './LinkedinFilled/LinkedinFilled.jsx';
-import LinkedinOutline from './LinkedinOutline/LinkedinOutline.jsx';
-import LinkedinRoundFilled from './LinkedinRoundFilled/LinkedinRoundFilled.jsx';
-import Loading from './Loading/Loading.jsx';
-import LocationArrowFilled from './LocationArrowFilled/LocationArrowFilled.jsx';
-import LocationArrowOutline from './LocationArrowOutline/LocationArrowOutline.jsx';
-import LocationFilled from './LocationFilled/LocationFilled.jsx';
-import LocationOutline from './LocationOutline/LocationOutline.jsx';
-import LockKeyholeOutline from './LockKeyholeOutline/LockKeyholeOutline.jsx';
-import LockKeyholeUnlockedOutline from './LockKeyholeUnlockedOutline/LockKeyholeUnlockedOutline.jsx';
-import LockKeyholeUnlocked from './LockKeyholeUnlocked/LockKeyholeUnlocked.jsx';
-import LockKeyhole from './LockKeyhole/LockKeyhole.jsx';
-import MediaPauseCircleFilled from './MediaPauseCircleFilled/MediaPauseCircleFilled.jsx';
-import MediaPauseCircleOuline from './MediaPauseCircleOuline/MediaPauseCircleOuline.jsx';
-import MediaPauseFilled from './MediaPauseFilled/MediaPauseFilled.jsx';
-import MediaPauseOutline from './MediaPauseOutline/MediaPauseOutline.jsx';
-import MediaPlayCircleFilled from './MediaPlayCircleFilled/MediaPlayCircleFilled.jsx';
-import MediaPlayCircleOutline from './MediaPlayCircleOutline/MediaPlayCircleOutline.jsx';
-import MediaPlayFilled from './MediaPlayFilled/MediaPlayFilled.jsx';
-import MediaPlayOutline from './MediaPlayOutline/MediaPlayOutline.jsx';
-import MediaStopCircleFilled from './MediaStopCircleFilled/MediaStopCircleFilled.jsx';
-import MediaStopCircleOutline from './MediaStopCircleOutline/MediaStopCircleOutline.jsx';
-import MediaStopFilled from './MediaStopFilled/MediaStopFilled.jsx';
-import MediaStopOutline from './MediaStopOutline/MediaStopOutline.jsx';
-import MinusCircleFilled from './MinusCircleFilled/MinusCircleFilled.jsx';
-import MinusCircle from './MinusCircle/MinusCircle.jsx';
-import Minus from './Minus/Minus.jsx';
-import MoneyBagOutline from './MoneyBagOutline/MoneyBagOutline.jsx';
-import MoneyBriefcaseFilled from './MoneyBriefcaseFilled/MoneyBriefcaseFilled.jsx';
-import MoneyBriefcaseOutline from './MoneyBriefcaseOutline/MoneyBriefcaseOutline.jsx';
-import NoEntryFilled from './NoEntryFilled/NoEntryFilled.jsx';
-import NoEntryOutline from './NoEntryOutline/NoEntryOutline.jsx';
-import NoEntry from './NoEntry/NoEntry.jsx';
-import PaymentCardFilled from './PaymentCardFilled/PaymentCardFilled.jsx';
-import PaymentCardOutline from './PaymentCardOutline/PaymentCardOutline.jsx';
-import PhoneCallingFilled from './PhoneCallingFilled/PhoneCallingFilled.jsx';
-import PhoneCallingOutline from './PhoneCallingOutline/PhoneCallingOutline.jsx';
-import PhoneFilled from './PhoneFilled/PhoneFilled.jsx';
-import PhoneOutline from './PhoneOutline/PhoneOutline.jsx';
-import PinAddFilled from './PinAddFilled/PinAddFilled.jsx';
-import PinAddOutline from './PinAddOutline/PinAddOutline.jsx';
-import PinCircleFilled from './PinCircleFilled/PinCircleFilled.jsx';
-import PinCircleOutline from './PinCircleOutline/PinCircleOutline.jsx';
-import PinFilled from './PinFilled/PinFilled.jsx';
-import PinOutline from './PinOutline/PinOutline.jsx';
-import PinSubFilled from './PinSubFilled/PinSubFilled.jsx';
-import PinSubOutline from './PinSubOutline/PinSubOutline.jsx';
-import Pin from './Pin/Pin.jsx';
-import PinterestFilled from './PinterestFilled/PinterestFilled.jsx';
-import PinterestOutline from './PinterestOutline/PinterestOutline.jsx';
-import ProfileFemaleOutline from './ProfileFemaleOutline/ProfileFemaleOutline.jsx';
-import ProfileGroupFilled from './ProfileGroupFilled/ProfileGroupFilled.jsx';
-import ProfileMaleFilled from './ProfileMaleFilled/ProfileMaleFilled.jsx';
-import ProfileMaleOutline from './ProfileMaleOutline/ProfileMaleOutline.jsx';
-import RedditFilled from './RedditFilled/RedditFilled.jsx';
-import RedditOutline from './RedditOutline/RedditOutline.jsx';
-import RedditRoundFilled from './RedditRoundFilled/RedditRoundFilled.jsx';
-import RedditRoundOutline from './RedditRoundOutline/RedditRoundOutline.jsx';
-import RupeeOutlined from './RupeeOutlined/RupeeOutlined.jsx';
-import RupeeSign from './RupeeSign/RupeeSign.jsx';
-import SaveFilled from './SaveFilled/SaveFilled.jsx';
-import SaveOutline from './SaveOutline/SaveOutline.jsx';
-import Search from './Search/Search.jsx';
-import SettingFilled from './SettingFilled/SettingFilled.jsx';
-import SettingOutline from './SettingOutline/SettingOutline.jsx';
-import ShareAllFilled from './ShareAllFilled/ShareAllFilled.jsx';
-import ShareAllOutline from './ShareAllOutline/ShareAllOutline.jsx';
-import ShareBoxOutline from './ShareBoxOutline/ShareBoxOutline.jsx';
-import ShareFilled from './ShareFilled/ShareFilled.jsx';
-import ShareOutline from './ShareOutline/ShareOutline.jsx';
-import ShareThickFilled from './ShareThickFilled/ShareThickFilled.jsx';
-import ShieldCheckFilled from './ShieldCheckFilled/ShieldCheckFilled.jsx';
-import ShieldCheckOutline from './ShieldCheckOutline/ShieldCheckOutline.jsx';
-import ShieldCrossFilled from './ShieldCrossFilled/ShieldCrossFilled.jsx';
-import ShieldCrossOutline from './ShieldCrossOutline/ShieldCrossOutline.jsx';
-import ShieldFilled from './ShieldFilled/ShieldFilled.jsx';
-import ShieldOutline from './ShieldOutline/ShieldOutline.jsx';
-import ShieldWarningFilled from './ShieldWarningFilled/ShieldWarningFilled.jsx';
-import ShieldWarningOutline from './ShieldWarningOutline/ShieldWarningOutline.jsx';
-import SnapchatFilled from './SnapchatFilled/SnapchatFilled.jsx';
-import SnapchatOutline from './SnapchatOutline/SnapchatOutline.jsx';
-import SortBottomToTop from './SortBottomToTop/SortBottomToTop.jsx';
-import SortHorizontal from './SortHorizontal/SortHorizontal.jsx';
-import SortTopToBottom from './SortTopToBottom/SortTopToBottom.jsx';
-import SortVertical from './SortVertical/SortVertical.jsx';
-import StarFilled from './StarFilled/StarFilled.jsx';
-import StarOutline from './StarOutline/StarOutline.jsx';
-import TelegramFilled from './TelegramFilled/TelegramFilled.jsx';
-import TelegramOutline from './TelegramOutline/TelegramOutline.jsx';
-import TelegramRoundFilled from './TelegramRoundFilled/TelegramRoundFilled.jsx';
-import ThumbsDownFilled from './ThumbsDownFilled/ThumbsDownFilled.jsx';
-import ThumbsDownOutline from './ThumbsDownOutline/ThumbsDownOutline.jsx';
-import ThumbsUpFilled from './ThumbsUpFilled/ThumbsUpFilled.jsx';
-import ThumbsUpOutline from './ThumbsUpOutline/ThumbsUpOutline.jsx';
-import TiktokBox from './TiktokBox/TiktokBox.jsx';
-import TiktokThickFilled from './TiktokThickFilled/TiktokThickFilled.jsx';
-import TiktokThinFilled from './TiktokThinFilled/TiktokThinFilled.jsx';
-import TrashBigFilled from './TrashBigFilled/TrashBigFilled.jsx';
-import TrashBigOutline from './TrashBigOutline/TrashBigOutline.jsx';
-import TrashFilled from './TrashFilled/TrashFilled.jsx';
-import TrashLinesFilled from './TrashLinesFilled/TrashLinesFilled.jsx';
-import TrashLinesOutline from './TrashLinesOutline/TrashLinesOutline.jsx';
-import TrashOutline from './TrashOutline/TrashOutline.jsx';
-import UploadBoxFilled from './UploadBoxFilled/UploadBoxFilled.jsx';
-import UploadBoxOutline from './UploadBoxOutline/UploadBoxOutline.jsx';
-import Upload from './Upload/Upload.jsx';
-import VolumeFilled from './VolumeFilled/VolumeFilled.jsx';
-import VolumeMuteFilled from './VolumeMuteFilled/VolumeMuteFilled.jsx';
-import VolumeMuteOutline from './VolumeMuteOutline/VolumeMuteOutline.jsx';
-import VolumeOffFilled from './VolumeOffFilled/VolumeOffFilled.jsx';
-import VolumeOffOutline from './VolumeOffOutline/VolumeOffOutline.jsx';
-import VolumeOutline from './VolumeOutline/VolumeOutline.jsx';
-import WalletFilled from './WalletFilled/WalletFilled.jsx';
-import WalletOutline from './WalletOutline/WalletOutline.jsx';
-import WarningCircleFilled from './WarningCircleFilled/WarningCircleFilled.jsx';
-import WarningCircleOutline from './WarningCircleOutline/WarningCircleOutline.jsx';
-import WarningSmall from './WarningSmall/WarningSmall.jsx';
-import WarningTriangleFilled from './WarningTriangleFilled/WarningTriangleFilled.jsx';
-import WarningTriangleOutline from './WarningTriangleOutline/WarningTriangleOutline.jsx';
-import Warning from './Warning/Warning.jsx';
-import WhatsappFilled from './WhatsappFilled/WhatsappFilled.jsx';
-import WhatsappOutline from './WhatsappOutline/WhatsappOutline.jsx';
-import YoutubeFilled from './YoutubeFilled/YoutubeFilled.jsx';
-import YoutubeRoundFilled from './YoutubeRoundFilled/YoutubeRoundFilled.jsx';
-import Youtube from './Youtube/Youtube.jsx';
+import { lazy } from 'react';
 
-export default {
-  AddCircleFilled,
-  AddCircle,
-  Add,
-  ArrowDown,
-  ArrowLeft,
-  ArrowRight,
-  ArrowUp,
-  BagFilled,
-  BagOutline,
-  BellFilled,
-  BellOffFilled,
-  BellOffOutline,
-  BellOutline,
-  BookmarkFilled,
-  BookmarkOutline,
-  BoxCoveredFilled,
-  BoxCoveredOutline,
-  BoxFilled,
-  BoxOutline,
-  CalendarDays,
-  CalendarLinesPen,
-  CartCheckFilled,
-  CartCheckOutline,
-  CartCrossFilled,
-  CartCrossOutline,
-  CartFilled,
-  CartMinusFilled,
-  CartMinusOutline,
-  CartOutline,
-  CartPlusFilled,
-  CartPlusOutline,
-  CheckDouble,
-  Check,
-  ChevronDown,
-  ChevronLeft,
-  ChevronRight,
-  ChevronUp,
-  ClockCircleOutline,
-  ClockSquareOutline,
-  CloseCircleFilled,
-  CloseCircleOutline,
-  Close,
-  CommentBubbleFilled,
-  CommentBubbleOutline,
-  CommentFilled,
-  CommentLineFilled,
-  CommentLineOutline,
-  CommentOutline,
-  ContactDetailsFilled,
-  ContactDetailsOutline,
-  DeliveryTruckFastFilled,
-  DeliveryTruckFastOutline,
-  DeliveryTruckLeftFilled,
-  DeliveryTruckLeftOutline,
-  DeliveryTruckRightFilled,
-  DeliveryTruckRightOutline,
-  DetailsOutline,
-  DiscordConversation,
-  DiscordFilled,
-  DiscordOutline,
-  DoorClosedFilled,
-  DoorClosedOutline,
-  DoorOpenFilled,
-  DoorOpenOutline,
-  DotsHorizontalFilled,
-  DotsHorizontalOutline,
-  DotsVerticalFilled,
-  DotsVerticalOutline,
-  DownloadBoxFilled,
-  DownloadBoxOutline,
-  Download,
-  EditBoxThick,
-  EditBoxThin,
-  EmailFilled,
-  EmailOutline,
-  ExitArrowInOutline,
-  ExitArrowOutOutline,
-  ExitFullScreenThick,
-  ExitFullScreen,
-  EyeClosed,
-  EyeFilled,
-  EyeOutline,
-  FacebookFilled,
-  FacebookMessengerOutline,
-  FacebookOutline,
-  FacebookRoundFilled,
-  FilterList,
-  FilterThickFilled,
-  FilterThickOutline,
-  Filter,
-  FullScreenArrowThick,
-  FullScreenArrowThin,
-  FullScreenExit,
-  FullScreenFilled,
-  FullScreenOutline,
-  HamburgerMenu,
-  HamburgerSpaced,
-  HeartFilled,
-  HeartOutline,
-  HelpCircleFilled,
-  HelpCircleOutline,
-  Help,
-  HomeFilled,
-  HomeOutline,
-  InfoCircleFilled,
-  InfoCircleOutline,
-  InfoSquareFilled,
-  InfoSquareOutline,
-  Info,
-  InstagramOuline,
-  InstagramRoundFilled,
-  KeyFilled,
-  KeyInSquareFilled,
-  KeyInSquareOutline,
-  KeyOutline,
-  KeySideSquareFilled,
-  KeySideSquareOutline,
-  KeySquareFilled,
-  KeySquareOutline,
-  Link,
-  LinkedinFilled,
-  LinkedinOutline,
-  LinkedinRoundFilled,
-  Loading,
-  LocationArrowFilled,
-  LocationArrowOutline,
-  LocationFilled,
-  LocationOutline,
-  LockKeyholeOutline,
-  LockKeyholeUnlockedOutline,
-  LockKeyholeUnlocked,
-  LockKeyhole,
-  MediaPauseCircleFilled,
-  MediaPauseCircleOuline,
-  MediaPauseFilled,
-  MediaPauseOutline,
-  MediaPlayCircleFilled,
-  MediaPlayCircleOutline,
-  MediaPlayFilled,
-  MediaPlayOutline,
-  MediaStopCircleFilled,
-  MediaStopCircleOutline,
-  MediaStopFilled,
-  MediaStopOutline,
-  MinusCircleFilled,
-  MinusCircle,
-  Minus,
-  MoneyBagOutline,
-  MoneyBriefcaseFilled,
-  MoneyBriefcaseOutline,
-  NoEntryFilled,
-  NoEntryOutline,
-  NoEntry,
-  PaymentCardFilled,
-  PaymentCardOutline,
-  PhoneCallingFilled,
-  PhoneCallingOutline,
-  PhoneFilled,
-  PhoneOutline,
-  PinAddFilled,
-  PinAddOutline,
-  PinCircleFilled,
-  PinCircleOutline,
-  PinFilled,
-  PinOutline,
-  PinSubFilled,
-  PinSubOutline,
-  Pin,
-  PinterestFilled,
-  PinterestOutline,
-  ProfileFemaleOutline,
-  ProfileGroupFilled,
-  ProfileMaleFilled,
-  ProfileMaleOutline,
-  RedditFilled,
-  RedditOutline,
-  RedditRoundFilled,
-  RedditRoundOutline,
-  RupeeOutlined,
-  RupeeSign,
-  SaveFilled,
-  SaveOutline,
-  Search,
-  SettingFilled,
-  SettingOutline,
-  ShareAllFilled,
-  ShareAllOutline,
-  ShareBoxOutline,
-  ShareFilled,
-  ShareOutline,
-  ShareThickFilled,
-  ShieldCheckFilled,
-  ShieldCheckOutline,
-  ShieldCrossFilled,
-  ShieldCrossOutline,
-  ShieldFilled,
-  ShieldOutline,
-  ShieldWarningFilled,
-  ShieldWarningOutline,
-  SnapchatFilled,
-  SnapchatOutline,
-  SortBottomToTop,
-  SortHorizontal,
-  SortTopToBottom,
-  SortVertical,
-  StarFilled,
-  StarOutline,
-  TelegramFilled,
-  TelegramOutline,
-  TelegramRoundFilled,
-  ThumbsDownFilled,
-  ThumbsDownOutline,
-  ThumbsUpFilled,
-  ThumbsUpOutline,
-  TiktokBox,
-  TiktokThickFilled,
-  TiktokThinFilled,
-  TrashBigFilled,
-  TrashBigOutline,
-  TrashFilled,
-  TrashLinesFilled,
-  TrashLinesOutline,
-  TrashOutline,
-  UploadBoxFilled,
-  UploadBoxOutline,
-  Upload,
-  VolumeFilled,
-  VolumeMuteFilled,
-  VolumeMuteOutline,
-  VolumeOffFilled,
-  VolumeOffOutline,
-  VolumeOutline,
-  WalletFilled,
-  WalletOutline,
-  WarningCircleFilled,
-  WarningCircleOutline,
-  WarningSmall,
-  WarningTriangleFilled,
-  WarningTriangleOutline,
-  Warning,
-  WhatsappFilled,
-  WhatsappOutline,
-  YoutubeFilled,
-  YoutubeRoundFilled,
-  Youtube,
+const iconsMap = {
+  AddCircleFilled: lazy(() => import('./AddCircleFilled/AddCircleFilled.jsx')),
+  AddCircle: lazy(() => import('./AddCircle/AddCircle.jsx')),
+  Add: lazy(() => import('./Add/Add.jsx')),
+  ArrowDown: lazy(() => import('./ArrowDown/ArrowDown.jsx')),
+  ArrowLeft: lazy(() => import('./ArrowLeft/ArrowLeft.jsx')),
+  ArrowRight: lazy(() => import('./ArrowRight/ArrowRight.jsx')),
+  ArrowUp: lazy(() => import('./ArrowUp/ArrowUp.jsx')),
+  BagFilled: lazy(() => import('./BagFilled/BagFilled.jsx')),
+  BagOutline: lazy(() => import('./BagOutline/BagOutline.jsx')),
+  BellFilled: lazy(() => import('./BellFilled/BellFilled.jsx')),
+  BellOffFilled: lazy(() => import('./BellOffFilled/BellOffFilled.jsx')),
+  BellOffOutline: lazy(() => import('./BellOffOutline/BellOffOutline.jsx')),
+  BellOutline: lazy(() => import('./BellOutline/BellOutline.jsx')),
+  BookmarkFilled: lazy(() => import('./BookmarkFilled/BookmarkFilled.jsx')),
+  BookmarkOutline: lazy(() => import('./BookmarkOutline/BookmarkOutline.jsx')),
+  BoxCoveredFilled: lazy(() => import('./BoxCoveredFilled/BoxCoveredFilled.jsx')),
+  BoxCoveredOutline: lazy(() => import('./BoxCoveredOutline/BoxCoveredOutline.jsx')),
+  BoxFilled: lazy(() => import('./BoxFilled/BoxFilled.jsx')),
+  BoxOutline: lazy(() => import('./BoxOutline/BoxOutline.jsx')),
+  CalendarDays: lazy(() => import('./CalendarDays/CalendarDays.jsx')),
+  CalendarLinesPen: lazy(() => import('./CalendarLinesPen/CalendarLinesPen.jsx')),
+  CartCheckFilled: lazy(() => import('./CartCheckFilled/CartCheckFilled.jsx')),
+  CartCheckOutline: lazy(() => import('./CartCheckOutline/CartCheckOutline.jsx')),
+  CartCrossFilled: lazy(() => import('./CartCrossFilled/CartCrossFilled.jsx')),
+  CartCrossOutline: lazy(() => import('./CartCrossOutline/CartCrossOutline.jsx')),
+  CartFilled: lazy(() => import('./CartFilled/CartFilled.jsx')),
+  CartMinusFilled: lazy(() => import('./CartMinusFilled/CartMinusFilled.jsx')),
+  CartMinusOutline: lazy(() => import('./CartMinusOutline/CartMinusOutline.jsx')),
+  CartOutline: lazy(() => import('./CartOutline/CartOutline.jsx')),
+  CartPlusFilled: lazy(() => import('./CartPlusFilled/CartPlusFilled.jsx')),
+  CartPlusOutline: lazy(() => import('./CartPlusOutline/CartPlusOutline.jsx')),
+  CheckDouble: lazy(() => import('./CheckDouble/CheckDouble.jsx')),
+  Check: lazy(() => import('./Check/Check.jsx')),
+  ChevronDown: lazy(() => import('./ChevronDown/ChevronDown.jsx')),
+  ChevronLeft: lazy(() => import('./ChevronLeft/ChevronLeft.jsx')),
+  ChevronRight: lazy(() => import('./ChevronRight/ChevronRight.jsx')),
+  ChevronUp: lazy(() => import('./ChevronUp/ChevronUp.jsx')),
+  ClockCircleOutline: lazy(() => import('./ClockCircleOutline/ClockCircleOutline.jsx')),
+  ClockSquareOutline: lazy(() => import('./ClockSquareOutline/ClockSquareOutline.jsx')),
+  CloseCircleFilled: lazy(() => import('./CloseCircleFilled/CloseCircleFilled.jsx')),
+  CloseCircleOutline: lazy(() => import('./CloseCircleOutline/CloseCircleOutline.jsx')),
+  Close: lazy(() => import('./Close/Close.jsx')),
+  CommentBubbleFilled: lazy(() => import('./CommentBubbleFilled/CommentBubbleFilled.jsx')),
+  CommentBubbleOutline: lazy(() => import('./CommentBubbleOutline/CommentBubbleOutline.jsx')),
+  CommentFilled: lazy(() => import('./CommentFilled/CommentFilled.jsx')),
+  CommentLineFilled: lazy(() => import('./CommentLineFilled/CommentLineFilled.jsx')),
+  CommentLineOutline: lazy(() => import('./CommentLineOutline/CommentLineOutline.jsx')),
+  CommentOutline: lazy(() => import('./CommentOutline/CommentOutline.jsx')),
+  ContactDetailsFilled: lazy(() => import('./ContactDetailsFilled/ContactDetailsFilled.jsx')),
+  ContactDetailsOutline: lazy(() => import('./ContactDetailsOutline/ContactDetailsOutline.jsx')),
+  DeliveryTruckFastFilled: lazy(
+    () => import('./DeliveryTruckFastFilled/DeliveryTruckFastFilled.jsx')
+  ),
+  DeliveryTruckFastOutline: lazy(
+    () => import('./DeliveryTruckFastOutline/DeliveryTruckFastOutline.jsx')
+  ),
+  DeliveryTruckLeftFilled: lazy(
+    () => import('./DeliveryTruckLeftFilled/DeliveryTruckLeftFilled.jsx')
+  ),
+  DeliveryTruckLeftOutline: lazy(
+    () => import('./DeliveryTruckLeftOutline/DeliveryTruckLeftOutline.jsx')
+  ),
+  DeliveryTruckRightFilled: lazy(
+    () => import('./DeliveryTruckRightFilled/DeliveryTruckRightFilled.jsx')
+  ),
+  DeliveryTruckRightOutline: lazy(
+    () => import('./DeliveryTruckRightOutline/DeliveryTruckRightOutline.jsx')
+  ),
+  DetailsOutline: lazy(() => import('./DetailsOutline/DetailsOutline.jsx')),
+  DiscordConversation: lazy(() => import('./DiscordConversation/DiscordConversation.jsx')),
+  DiscordFilled: lazy(() => import('./DiscordFilled/DiscordFilled.jsx')),
+  DiscordOutline: lazy(() => import('./DiscordOutline/DiscordOutline.jsx')),
+  DoorClosedFilled: lazy(() => import('./DoorClosedFilled/DoorClosedFilled.jsx')),
+  DoorClosedOutline: lazy(() => import('./DoorClosedOutline/DoorClosedOutline.jsx')),
+  DoorOpenFilled: lazy(() => import('./DoorOpenFilled/DoorOpenFilled.jsx')),
+  DoorOpenOutline: lazy(() => import('./DoorOpenOutline/DoorOpenOutline.jsx')),
+  DotsHorizontalFilled: lazy(() => import('./DotsHorizontalFilled/DotsHorizontalFilled.jsx')),
+  DotsHorizontalOutline: lazy(() => import('./DotsHorizontalOutline/DotsHorizontalOutline.jsx')),
+  DotsVerticalFilled: lazy(() => import('./DotsVerticalFilled/DotsVerticalFilled.jsx')),
+  DotsVerticalOutline: lazy(() => import('./DotsVerticalOutline/DotsVerticalOutline.jsx')),
+  DownloadBoxFilled: lazy(() => import('./DownloadBoxFilled/DownloadBoxFilled.jsx')),
+  DownloadBoxOutline: lazy(() => import('./DownloadBoxOutline/DownloadBoxOutline.jsx')),
+  Download: lazy(() => import('./Download/Download.jsx')),
+  EditBoxThick: lazy(() => import('./EditBoxThick/EditBoxThick.jsx')),
+  EditBoxThin: lazy(() => import('./EditBoxThin/EditBoxThin.jsx')),
+  EmailFilled: lazy(() => import('./EmailFilled/EmailFilled.jsx')),
+  EmailOutline: lazy(() => import('./EmailOutline/EmailOutline.jsx')),
+  ExitArrowInOutline: lazy(() => import('./ExitArrowInOutline/ExitArrowInOutline.jsx')),
+  ExitArrowOutOutline: lazy(() => import('./ExitArrowOutOutline/ExitArrowOutOutline.jsx')),
+  ExitFullScreenThick: lazy(() => import('./ExitFullScreenThick/ExitFullScreenThick.jsx')),
+  ExitFullScreen: lazy(() => import('./ExitFullScreen/ExitFullScreen.jsx')),
+  EyeClosed: lazy(() => import('./EyeClosed/EyeClosed.jsx')),
+  EyeFilled: lazy(() => import('./EyeFilled/EyeFilled.jsx')),
+  EyeOutline: lazy(() => import('./EyeOutline/EyeOutline.jsx')),
+  FacebookFilled: lazy(() => import('./FacebookFilled/FacebookFilled.jsx')),
+  FacebookMessengerOutline: lazy(
+    () => import('./FacebookMessengerOutline/FacebookMessengerOutline.jsx')
+  ),
+  FacebookOutline: lazy(() => import('./FacebookOutline/FacebookOutline.jsx')),
+  FacebookRoundFilled: lazy(() => import('./FacebookRoundFilled/FacebookRoundFilled.jsx')),
+  FilterList: lazy(() => import('./FilterList/FilterList.jsx')),
+  FilterThickFilled: lazy(() => import('./FilterThickFilled/FilterThickFilled.jsx')),
+  FilterThickOutline: lazy(() => import('./FilterThickOutline/FilterThickOutline.jsx')),
+  Filter: lazy(() => import('./Filter/Filter.jsx')),
+  FullScreenArrowThick: lazy(() => import('./FullScreenArrowThick/FullScreenArrowThick.jsx')),
+  FullScreenArrowThin: lazy(() => import('./FullScreenArrowThin/FullScreenArrowThin.jsx')),
+  FullScreenExit: lazy(() => import('./FullScreenExit/FullScreenExit.jsx')),
+  FullScreenFilled: lazy(() => import('./FullScreenFilled/FullScreenFilled.jsx')),
+  FullScreenOutline: lazy(() => import('./FullScreenOutline/FullScreenOutline.jsx')),
+  HamburgerMenu: lazy(() => import('./HamburgerMenu/HamburgerMenu.jsx')),
+  HamburgerSpaced: lazy(() => import('./HamburgerSpaced/HamburgerSpaced.jsx')),
+  HeartFilled: lazy(() => import('./HeartFilled/HeartFilled.jsx')),
+  HeartOutline: lazy(() => import('./HeartOutline/HeartOutline.jsx')),
+  HelpCircleFilled: lazy(() => import('./HelpCircleFilled/HelpCircleFilled.jsx')),
+  HelpCircleOutline: lazy(() => import('./HelpCircleOutline/HelpCircleOutline.jsx')),
+  Help: lazy(() => import('./Help/Help.jsx')),
+  HomeFilled: lazy(() => import('./HomeFilled/HomeFilled.jsx')),
+  HomeOutline: lazy(() => import('./HomeOutline/HomeOutline.jsx')),
+  InfoCircleFilled: lazy(() => import('./InfoCircleFilled/InfoCircleFilled.jsx')),
+  InfoCircleOutline: lazy(() => import('./InfoCircleOutline/InfoCircleOutline.jsx')),
+  InfoSquareFilled: lazy(() => import('./InfoSquareFilled/InfoSquareFilled.jsx')),
+  InfoSquareOutline: lazy(() => import('./InfoSquareOutline/InfoSquareOutline.jsx')),
+  Info: lazy(() => import('./Info/Info.jsx')),
+  InstagramOuline: lazy(() => import('./InstagramOuline/InstagramOuline.jsx')),
+  InstagramRoundFilled: lazy(() => import('./InstagramRoundFilled/InstagramRoundFilled.jsx')),
+  KeyFilled: lazy(() => import('./KeyFilled/KeyFilled.jsx')),
+  KeyInSquareFilled: lazy(() => import('./KeyInSquareFilled/KeyInSquareFilled.jsx')),
+  KeyInSquareOutline: lazy(() => import('./KeyInSquareOutline/KeyInSquareOutline.jsx')),
+  KeyOutline: lazy(() => import('./KeyOutline/KeyOutline.jsx')),
+  KeySideSquareFilled: lazy(() => import('./KeySideSquareFilled/KeySideSquareFilled.jsx')),
+  KeySideSquareOutline: lazy(() => import('./KeySideSquareOutline/KeySideSquareOutline.jsx')),
+  KeySquareFilled: lazy(() => import('./KeySquareFilled/KeySquareFilled.jsx')),
+  KeySquareOutline: lazy(() => import('./KeySquareOutline/KeySquareOutline.jsx')),
+  Link: lazy(() => import('./Link/Link.jsx')),
+  LinkedinFilled: lazy(() => import('./LinkedinFilled/LinkedinFilled.jsx')),
+  LinkedinOutline: lazy(() => import('./LinkedinOutline/LinkedinOutline.jsx')),
+  LinkedinRoundFilled: lazy(() => import('./LinkedinRoundFilled/LinkedinRoundFilled.jsx')),
+  Loading: lazy(() => import('./Loading/Loading.jsx')),
+  LocationArrowFilled: lazy(() => import('./LocationArrowFilled/LocationArrowFilled.jsx')),
+  LocationArrowOutline: lazy(() => import('./LocationArrowOutline/LocationArrowOutline.jsx')),
+  LocationFilled: lazy(() => import('./LocationFilled/LocationFilled.jsx')),
+  LocationOutline: lazy(() => import('./LocationOutline/LocationOutline.jsx')),
+  LockKeyholeOutline: lazy(() => import('./LockKeyholeOutline/LockKeyholeOutline.jsx')),
+  LockKeyholeUnlockedOutline: lazy(
+    () => import('./LockKeyholeUnlockedOutline/LockKeyholeUnlockedOutline.jsx')
+  ),
+  LockKeyholeUnlocked: lazy(() => import('./LockKeyholeUnlocked/LockKeyholeUnlocked.jsx')),
+  LockKeyhole: lazy(() => import('./LockKeyhole/LockKeyhole.jsx')),
+  MediaPauseCircleFilled: lazy(() => import('./MediaPauseCircleFilled/MediaPauseCircleFilled.jsx')),
+  MediaPauseCircleOuline: lazy(() => import('./MediaPauseCircleOuline/MediaPauseCircleOuline.jsx')),
+  MediaPauseFilled: lazy(() => import('./MediaPauseFilled/MediaPauseFilled.jsx')),
+  MediaPauseOutline: lazy(() => import('./MediaPauseOutline/MediaPauseOutline.jsx')),
+  MediaPlayCircleFilled: lazy(() => import('./MediaPlayCircleFilled/MediaPlayCircleFilled.jsx')),
+  MediaPlayCircleOutline: lazy(() => import('./MediaPlayCircleOutline/MediaPlayCircleOutline.jsx')),
+  MediaPlayFilled: lazy(() => import('./MediaPlayFilled/MediaPlayFilled.jsx')),
+  MediaPlayOutline: lazy(() => import('./MediaPlayOutline/MediaPlayOutline.jsx')),
+  MediaStopCircleFilled: lazy(() => import('./MediaStopCircleFilled/MediaStopCircleFilled.jsx')),
+  MediaStopCircleOutline: lazy(() => import('./MediaStopCircleOutline/MediaStopCircleOutline.jsx')),
+  MediaStopFilled: lazy(() => import('./MediaStopFilled/MediaStopFilled.jsx')),
+  MediaStopOutline: lazy(() => import('./MediaStopOutline/MediaStopOutline.jsx')),
+  MinusCircleFilled: lazy(() => import('./MinusCircleFilled/MinusCircleFilled.jsx')),
+  MinusCircle: lazy(() => import('./MinusCircle/MinusCircle.jsx')),
+  Minus: lazy(() => import('./Minus/Minus.jsx')),
+  MoneyBagOutline: lazy(() => import('./MoneyBagOutline/MoneyBagOutline.jsx')),
+  MoneyBriefcaseFilled: lazy(() => import('./MoneyBriefcaseFilled/MoneyBriefcaseFilled.jsx')),
+  MoneyBriefcaseOutline: lazy(() => import('./MoneyBriefcaseOutline/MoneyBriefcaseOutline.jsx')),
+  NoEntryFilled: lazy(() => import('./NoEntryFilled/NoEntryFilled.jsx')),
+  NoEntryOutline: lazy(() => import('./NoEntryOutline/NoEntryOutline.jsx')),
+  NoEntry: lazy(() => import('./NoEntry/NoEntry.jsx')),
+  PaymentCardFilled: lazy(() => import('./PaymentCardFilled/PaymentCardFilled.jsx')),
+  PaymentCardOutline: lazy(() => import('./PaymentCardOutline/PaymentCardOutline.jsx')),
+  PhoneCallingFilled: lazy(() => import('./PhoneCallingFilled/PhoneCallingFilled.jsx')),
+  PhoneCallingOutline: lazy(() => import('./PhoneCallingOutline/PhoneCallingOutline.jsx')),
+  PhoneFilled: lazy(() => import('./PhoneFilled/PhoneFilled.jsx')),
+  PhoneOutline: lazy(() => import('./PhoneOutline/PhoneOutline.jsx')),
+  PinAddFilled: lazy(() => import('./PinAddFilled/PinAddFilled.jsx')),
+  PinAddOutline: lazy(() => import('./PinAddOutline/PinAddOutline.jsx')),
+  PinCircleFilled: lazy(() => import('./PinCircleFilled/PinCircleFilled.jsx')),
+  PinCircleOutline: lazy(() => import('./PinCircleOutline/PinCircleOutline.jsx')),
+  PinFilled: lazy(() => import('./PinFilled/PinFilled.jsx')),
+  PinOutline: lazy(() => import('./PinOutline/PinOutline.jsx')),
+  PinSubFilled: lazy(() => import('./PinSubFilled/PinSubFilled.jsx')),
+  PinSubOutline: lazy(() => import('./PinSubOutline/PinSubOutline.jsx')),
+  Pin: lazy(() => import('./Pin/Pin.jsx')),
+  PinterestFilled: lazy(() => import('./PinterestFilled/PinterestFilled.jsx')),
+  PinterestOutline: lazy(() => import('./PinterestOutline/PinterestOutline.jsx')),
+  ProfileFemaleOutline: lazy(() => import('./ProfileFemaleOutline/ProfileFemaleOutline.jsx')),
+  ProfileGroupFilled: lazy(() => import('./ProfileGroupFilled/ProfileGroupFilled.jsx')),
+  ProfileMaleFilled: lazy(() => import('./ProfileMaleFilled/ProfileMaleFilled.jsx')),
+  ProfileMaleOutline: lazy(() => import('./ProfileMaleOutline/ProfileMaleOutline.jsx')),
+  RedditFilled: lazy(() => import('./RedditFilled/RedditFilled.jsx')),
+  RedditOutline: lazy(() => import('./RedditOutline/RedditOutline.jsx')),
+  RedditRoundFilled: lazy(() => import('./RedditRoundFilled/RedditRoundFilled.jsx')),
+  RedditRoundOutline: lazy(() => import('./RedditRoundOutline/RedditRoundOutline.jsx')),
+  RupeeOutlined: lazy(() => import('./RupeeOutlined/RupeeOutlined.jsx')),
+  RupeeSign: lazy(() => import('./RupeeSign/RupeeSign.jsx')),
+  SaveFilled: lazy(() => import('./SaveFilled/SaveFilled.jsx')),
+  SaveOutline: lazy(() => import('./SaveOutline/SaveOutline.jsx')),
+  Search: lazy(() => import('./Search/Search.jsx')),
+  SettingFilled: lazy(() => import('./SettingFilled/SettingFilled.jsx')),
+  SettingOutline: lazy(() => import('./SettingOutline/SettingOutline.jsx')),
+  ShareAllFilled: lazy(() => import('./ShareAllFilled/ShareAllFilled.jsx')),
+  ShareAllOutline: lazy(() => import('./ShareAllOutline/ShareAllOutline.jsx')),
+  ShareBoxOutline: lazy(() => import('./ShareBoxOutline/ShareBoxOutline.jsx')),
+  ShareFilled: lazy(() => import('./ShareFilled/ShareFilled.jsx')),
+  ShareOutline: lazy(() => import('./ShareOutline/ShareOutline.jsx')),
+  ShareThickFilled: lazy(() => import('./ShareThickFilled/ShareThickFilled.jsx')),
+  ShieldCheckFilled: lazy(() => import('./ShieldCheckFilled/ShieldCheckFilled.jsx')),
+  ShieldCheckOutline: lazy(() => import('./ShieldCheckOutline/ShieldCheckOutline.jsx')),
+  ShieldCrossFilled: lazy(() => import('./ShieldCrossFilled/ShieldCrossFilled.jsx')),
+  ShieldCrossOutline: lazy(() => import('./ShieldCrossOutline/ShieldCrossOutline.jsx')),
+  ShieldFilled: lazy(() => import('./ShieldFilled/ShieldFilled.jsx')),
+  ShieldOutline: lazy(() => import('./ShieldOutline/ShieldOutline.jsx')),
+  ShieldWarningFilled: lazy(() => import('./ShieldWarningFilled/ShieldWarningFilled.jsx')),
+  ShieldWarningOutline: lazy(() => import('./ShieldWarningOutline/ShieldWarningOutline.jsx')),
+  SnapchatFilled: lazy(() => import('./SnapchatFilled/SnapchatFilled.jsx')),
+  SnapchatOutline: lazy(() => import('./SnapchatOutline/SnapchatOutline.jsx')),
+  SortBottomToTop: lazy(() => import('./SortBottomToTop/SortBottomToTop.jsx')),
+  SortHorizontal: lazy(() => import('./SortHorizontal/SortHorizontal.jsx')),
+  SortTopToBottom: lazy(() => import('./SortTopToBottom/SortTopToBottom.jsx')),
+  SortVertical: lazy(() => import('./SortVertical/SortVertical.jsx')),
+  StarFilled: lazy(() => import('./StarFilled/StarFilled.jsx')),
+  StarOutline: lazy(() => import('./StarOutline/StarOutline.jsx')),
+  TelegramFilled: lazy(() => import('./TelegramFilled/TelegramFilled.jsx')),
+  TelegramOutline: lazy(() => import('./TelegramOutline/TelegramOutline.jsx')),
+  TelegramRoundFilled: lazy(() => import('./TelegramRoundFilled/TelegramRoundFilled.jsx')),
+  ThumbsDownFilled: lazy(() => import('./ThumbsDownFilled/ThumbsDownFilled.jsx')),
+  ThumbsDownOutline: lazy(() => import('./ThumbsDownOutline/ThumbsDownOutline.jsx')),
+  ThumbsUpFilled: lazy(() => import('./ThumbsUpFilled/ThumbsUpFilled.jsx')),
+  ThumbsUpOutline: lazy(() => import('./ThumbsUpOutline/ThumbsUpOutline.jsx')),
+  TiktokBox: lazy(() => import('./TiktokBox/TiktokBox.jsx')),
+  TiktokThickFilled: lazy(() => import('./TiktokThickFilled/TiktokThickFilled.jsx')),
+  TiktokThinFilled: lazy(() => import('./TiktokThinFilled/TiktokThinFilled.jsx')),
+  TrashBigFilled: lazy(() => import('./TrashBigFilled/TrashBigFilled.jsx')),
+  TrashBigOutline: lazy(() => import('./TrashBigOutline/TrashBigOutline.jsx')),
+  TrashFilled: lazy(() => import('./TrashFilled/TrashFilled.jsx')),
+  TrashLinesFilled: lazy(() => import('./TrashLinesFilled/TrashLinesFilled.jsx')),
+  TrashLinesOutline: lazy(() => import('./TrashLinesOutline/TrashLinesOutline.jsx')),
+  TrashOutline: lazy(() => import('./TrashOutline/TrashOutline.jsx')),
+  UploadBoxFilled: lazy(() => import('./UploadBoxFilled/UploadBoxFilled.jsx')),
+  UploadBoxOutline: lazy(() => import('./UploadBoxOutline/UploadBoxOutline.jsx')),
+  Upload: lazy(() => import('./Upload/Upload.jsx')),
+  VolumeFilled: lazy(() => import('./VolumeFilled/VolumeFilled.jsx')),
+  VolumeMuteFilled: lazy(() => import('./VolumeMuteFilled/VolumeMuteFilled.jsx')),
+  VolumeMuteOutline: lazy(() => import('./VolumeMuteOutline/VolumeMuteOutline.jsx')),
+  VolumeOffFilled: lazy(() => import('./VolumeOffFilled/VolumeOffFilled.jsx')),
+  VolumeOffOutline: lazy(() => import('./VolumeOffOutline/VolumeOffOutline.jsx')),
+  VolumeOutline: lazy(() => import('./VolumeOutline/VolumeOutline.jsx')),
+  WalletFilled: lazy(() => import('./WalletFilled/WalletFilled.jsx')),
+  WalletOutline: lazy(() => import('./WalletOutline/WalletOutline.jsx')),
+  WarningCircleFilled: lazy(() => import('./WarningCircleFilled/WarningCircleFilled.jsx')),
+  WarningCircleOutline: lazy(() => import('./WarningCircleOutline/WarningCircleOutline.jsx')),
+  WarningSmall: lazy(() => import('./WarningSmall/WarningSmall.jsx')),
+  WarningTriangleFilled: lazy(() => import('./WarningTriangleFilled/WarningTriangleFilled.jsx')),
+  WarningTriangleOutline: lazy(() => import('./WarningTriangleOutline/WarningTriangleOutline.jsx')),
+  Warning: lazy(() => import('./Warning/Warning.jsx')),
+  WhatsappFilled: lazy(() => import('./WhatsappFilled/WhatsappFilled.jsx')),
+  WhatsappOutline: lazy(() => import('./WhatsappOutline/WhatsappOutline.jsx')),
+  YoutubeFilled: lazy(() => import('./YoutubeFilled/YoutubeFilled.jsx')),
+  YoutubeRoundFilled: lazy(() => import('./YoutubeRoundFilled/YoutubeRoundFilled.jsx')),
+  Youtube: lazy(() => import('./Youtube/Youtube.jsx')),
 };
+
+export default iconsMap;

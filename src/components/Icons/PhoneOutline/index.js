@@ -1,2 +1,1 @@
-import PhoneOutline from './PhoneOutline.jsx';
-export default PhoneOutline;
+export { default } from './PhoneOutline';

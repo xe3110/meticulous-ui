@@ -1,2 +1,1 @@
-import VolumeOffFilled from './VolumeOffFilled.jsx';
-export default VolumeOffFilled;
+export { default } from './VolumeOffFilled';

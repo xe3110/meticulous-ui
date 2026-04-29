@@ -1,2 +1,1 @@
-import CalendarLinesPen from './CalendarLinesPen.jsx';
-export default CalendarLinesPen;
+export { default } from './CalendarLinesPen';

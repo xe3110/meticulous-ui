@@ -1,2 +1,1 @@
-import HomeOutline from './HomeOutline.jsx';
-export default HomeOutline;
+export { default } from './HomeOutline';

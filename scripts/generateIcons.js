@@ -140,10 +140,7 @@ export default ${name};
 
     fs.writeFileSync(path.join(componentDir, `${name}.jsx`), componentCode);
 
-    fs.writeFileSync(
-      path.join(componentDir, 'index.js'),
-      `import ${name} from './${name}.jsx';\nexport default ${name};\n`
-    );
+    fs.writeFileSync(path.join(componentDir, 'index.js'), `export { default } from './${name}';\n`);
   });
 
   // Root index file

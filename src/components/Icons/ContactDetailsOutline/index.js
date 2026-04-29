@@ -1,2 +1,1 @@
-import ContactDetailsOutline from './ContactDetailsOutline.jsx';
-export default ContactDetailsOutline;
+export { default } from './ContactDetailsOutline';

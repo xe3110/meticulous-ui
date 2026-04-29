@@ -1,2 +1,1 @@
-import WarningSmall from './WarningSmall.jsx';
-export default WarningSmall;
+export { default } from './WarningSmall';

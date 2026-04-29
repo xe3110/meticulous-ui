@@ -1,2 +1,1 @@
-import CheckDouble from './CheckDouble.jsx';
-export default CheckDouble;
+export { default } from './CheckDouble';

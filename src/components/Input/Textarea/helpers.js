@@ -13,7 +13,6 @@ import allIcons from '../../Icons/iconsMap';
 
 const COLOR_SHADE_MAP = {
   blue: blue.m500,
-  green: green.m500,
   red: red.m500,
   green: green.m500,
   yellow: yellow.m500,
@@ -28,16 +27,14 @@ const COLOR_SHADE_MAP = {
 
 export const getColor = (clr) => COLOR_SHADE_MAP[clr] ?? grey.m500;
 
-export const getCssShade = ({ $hasError, $shade, $isFocused, value, $onlyPh, textColor }) => {
+export const getIcon = (iconName) => allIcons[iconName] ?? null;
+
+export const getCssShade = ({ $hasError, $shade, $isFocused, value, $onlyPh }) => {
   if ($hasError) {
     return typeof value === 'string' && !value && !$isFocused ? grey.m500 : red.m400;
   }
-
   if ($isFocused && !$onlyPh) {
     return $shade;
   }
-
   return grey.m500;
 };
-
-export const getIcon = (icon) => allIcons[icon] ?? null;

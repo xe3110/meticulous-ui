@@ -1,2 +1,1 @@
-import FacebookOutline from './FacebookOutline.jsx';
-export default FacebookOutline;
+export { default } from './FacebookOutline';

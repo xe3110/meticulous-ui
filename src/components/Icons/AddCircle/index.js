@@ -1,2 +1,1 @@
-import AddCircle from './AddCircle.jsx';
-export default AddCircle;
+export { default } from './AddCircle';

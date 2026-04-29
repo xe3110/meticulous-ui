@@ -1,2 +1,1 @@
-import RedditFilled from './RedditFilled.jsx';
-export default RedditFilled;
+export { default } from './RedditFilled';

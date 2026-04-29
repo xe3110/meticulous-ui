@@ -1,2 +1,1 @@
-import NoEntryFilled from './NoEntryFilled.jsx';
-export default NoEntryFilled;
+export { default } from './NoEntryFilled';

@@ -1,2 +1,1 @@
-import SnapchatFilled from './SnapchatFilled.jsx';
-export default SnapchatFilled;
+export { default } from './SnapchatFilled';

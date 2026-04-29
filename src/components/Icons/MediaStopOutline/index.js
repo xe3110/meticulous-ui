@@ -1,2 +1,1 @@
-import MediaStopOutline from './MediaStopOutline.jsx';
-export default MediaStopOutline;
+export { default } from './MediaStopOutline';

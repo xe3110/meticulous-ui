@@ -13,7 +13,6 @@ import allIcons from '../../Icons/iconsMap';
 
 const COLOR_SHADE_MAP = {
   blue: blue.m500,
-  green: green.m500,
   red: red.m500,
   green: green.m500,
   yellow: yellow.m500,
@@ -40,7 +39,7 @@ export const getCssShade = ({ $hasError, $shade, $isFocused, value, $onlyPh }) =
   return grey.m500;
 };
 
-export const getIcon = (icon) => allIcons[icon] ?? null;
+export const getIcon = (iconName) => allIcons[iconName] ?? null;
 
 export const getPadding = ({ $hasLeftIcon, $hasRightIcon }) => {
   if ($hasLeftIcon && $hasRightIcon) {

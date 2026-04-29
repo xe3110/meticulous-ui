@@ -1,2 +1,1 @@
-import WarningCircleFilled from './WarningCircleFilled.jsx';
-export default WarningCircleFilled;
+export { default } from './WarningCircleFilled';

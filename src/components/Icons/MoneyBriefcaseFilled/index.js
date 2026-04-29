@@ -1,2 +1,1 @@
-import MoneyBriefcaseFilled from './MoneyBriefcaseFilled.jsx';
-export default MoneyBriefcaseFilled;
+export { default } from './MoneyBriefcaseFilled';

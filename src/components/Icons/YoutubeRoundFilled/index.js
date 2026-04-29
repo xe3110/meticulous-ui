@@ -1,2 +1,1 @@
-import YoutubeRoundFilled from './YoutubeRoundFilled.jsx';
-export default YoutubeRoundFilled;
+export { default } from './YoutubeRoundFilled';

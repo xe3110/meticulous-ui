@@ -1,2 +1,1 @@
-import ProfileMaleFilled from './ProfileMaleFilled.jsx';
-export default ProfileMaleFilled;
+export { default } from './ProfileMaleFilled';

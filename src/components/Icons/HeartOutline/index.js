@@ -1,2 +1,1 @@
-import HeartOutline from './HeartOutline.jsx';
-export default HeartOutline;
+export { default } from './HeartOutline';

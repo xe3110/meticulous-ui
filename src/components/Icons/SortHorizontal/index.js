@@ -1,2 +1,1 @@
-import SortHorizontal from './SortHorizontal.jsx';
-export default SortHorizontal;
+export { default } from './SortHorizontal';

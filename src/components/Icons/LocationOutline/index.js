@@ -1,2 +1,1 @@
-import LocationOutline from './LocationOutline.jsx';
-export default LocationOutline;
+export { default } from './LocationOutline';

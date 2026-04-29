@@ -1,2 +1,1 @@
-import RedditOutline from './RedditOutline.jsx';
-export default RedditOutline;
+export { default } from './RedditOutline';

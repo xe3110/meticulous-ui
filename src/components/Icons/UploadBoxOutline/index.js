@@ -1,2 +1,1 @@
-import UploadBoxOutline from './UploadBoxOutline.jsx';
-export default UploadBoxOutline;
+export { default } from './UploadBoxOutline';

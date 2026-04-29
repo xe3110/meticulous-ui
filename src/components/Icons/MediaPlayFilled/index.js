@@ -1,2 +1,1 @@
-import MediaPlayFilled from './MediaPlayFilled.jsx';
-export default MediaPlayFilled;
+export { default } from './MediaPlayFilled';

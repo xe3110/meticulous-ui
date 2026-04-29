@@ -1,2 +1,1 @@
-import ThumbsUpFilled from './ThumbsUpFilled.jsx';
-export default ThumbsUpFilled;
+export { default } from './ThumbsUpFilled';

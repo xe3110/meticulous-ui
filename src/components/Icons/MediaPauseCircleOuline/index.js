@@ -1,2 +1,1 @@
-import MediaPauseCircleOuline from './MediaPauseCircleOuline.jsx';
-export default MediaPauseCircleOuline;
+export { default } from './MediaPauseCircleOuline';

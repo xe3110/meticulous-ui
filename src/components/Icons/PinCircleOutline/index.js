@@ -1,2 +1,1 @@
-import PinCircleOutline from './PinCircleOutline.jsx';
-export default PinCircleOutline;
+export { default } from './PinCircleOutline';

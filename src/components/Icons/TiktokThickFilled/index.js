@@ -1,2 +1,1 @@
-import TiktokThickFilled from './TiktokThickFilled.jsx';
-export default TiktokThickFilled;
+export { default } from './TiktokThickFilled';

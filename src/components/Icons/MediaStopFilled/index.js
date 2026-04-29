@@ -1,2 +1,1 @@
-import MediaStopFilled from './MediaStopFilled.jsx';
-export default MediaStopFilled;
+export { default } from './MediaStopFilled';

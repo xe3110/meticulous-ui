@@ -1,2 +1,1 @@
-import TiktokBox from './TiktokBox.jsx';
-export default TiktokBox;
+export { default } from './TiktokBox';

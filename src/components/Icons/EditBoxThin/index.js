@@ -1,2 +1,1 @@
-import EditBoxThin from './EditBoxThin.jsx';
-export default EditBoxThin;
+export { default } from './EditBoxThin';

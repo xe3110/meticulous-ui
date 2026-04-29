@@ -1,2 +1,1 @@
-import BoxOutline from './BoxOutline.jsx';
-export default BoxOutline;
+export { default } from './BoxOutline';

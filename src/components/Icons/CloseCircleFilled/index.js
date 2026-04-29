@@ -1,2 +1,1 @@
-import CloseCircleFilled from './CloseCircleFilled.jsx';
-export default CloseCircleFilled;
+export { default } from './CloseCircleFilled';

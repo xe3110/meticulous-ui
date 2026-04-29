@@ -1,2 +1,1 @@
-import KeyInSquareOutline from './KeyInSquareOutline.jsx';
-export default KeyInSquareOutline;
+export { default } from './KeyInSquareOutline';

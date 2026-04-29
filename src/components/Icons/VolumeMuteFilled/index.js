@@ -1,2 +1,1 @@
-import VolumeMuteFilled from './VolumeMuteFilled.jsx';
-export default VolumeMuteFilled;
+export { default } from './VolumeMuteFilled';

@@ -1,2 +1,1 @@
-import TelegramRoundFilled from './TelegramRoundFilled.jsx';
-export default TelegramRoundFilled;
+export { default } from './TelegramRoundFilled';

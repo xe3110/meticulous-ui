@@ -1,2 +1,1 @@
-import WhatsappFilled from './WhatsappFilled.jsx';
-export default WhatsappFilled;
+export { default } from './WhatsappFilled';

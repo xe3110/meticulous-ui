@@ -1,2 +1,1 @@
-import CartPlusFilled from './CartPlusFilled.jsx';
-export default CartPlusFilled;
+export { default } from './CartPlusFilled';

@@ -1,2 +1,1 @@
-import ShareOutline from './ShareOutline.jsx';
-export default ShareOutline;
+export { default } from './ShareOutline';

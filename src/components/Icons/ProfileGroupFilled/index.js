@@ -1,2 +1,1 @@
-import ProfileGroupFilled from './ProfileGroupFilled.jsx';
-export default ProfileGroupFilled;
+export { default } from './ProfileGroupFilled';

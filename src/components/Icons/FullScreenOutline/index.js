@@ -1,2 +1,1 @@
-import FullScreenOutline from './FullScreenOutline.jsx';
-export default FullScreenOutline;
+export { default } from './FullScreenOutline';

@@ -1,2 +1,1 @@
-import LockKeyholeUnlockedOutline from './LockKeyholeUnlockedOutline.jsx';
-export default LockKeyholeUnlockedOutline;
+export { default } from './LockKeyholeUnlockedOutline';

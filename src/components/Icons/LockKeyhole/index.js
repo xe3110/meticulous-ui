@@ -1,2 +1,1 @@
-import LockKeyhole from './LockKeyhole.jsx';
-export default LockKeyhole;
+export { default } from './LockKeyhole';

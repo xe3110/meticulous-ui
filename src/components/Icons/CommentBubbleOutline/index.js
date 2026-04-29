@@ -1,2 +1,1 @@
-import CommentBubbleOutline from './CommentBubbleOutline.jsx';
-export default CommentBubbleOutline;
+export { default } from './CommentBubbleOutline';

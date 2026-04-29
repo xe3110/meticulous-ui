@@ -1,2 +1,1 @@
-import DetailsOutline from './DetailsOutline.jsx';
-export default DetailsOutline;
+export { default } from './DetailsOutline';

@@ -1,2 +1,1 @@
-import PaymentCardFilled from './PaymentCardFilled.jsx';
-export default PaymentCardFilled;
+export { default } from './PaymentCardFilled';

@@ -1,2 +1,1 @@
-import Info from './Info.jsx';
-export default Info;
+export { default } from './Info';

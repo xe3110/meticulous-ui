@@ -1,2 +1,1 @@
-import MinusCircleFilled from './MinusCircleFilled.jsx';
-export default MinusCircleFilled;
+export { default } from './MinusCircleFilled';

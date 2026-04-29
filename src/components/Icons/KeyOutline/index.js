@@ -1,2 +1,1 @@
-import KeyOutline from './KeyOutline.jsx';
-export default KeyOutline;
+export { default } from './KeyOutline';

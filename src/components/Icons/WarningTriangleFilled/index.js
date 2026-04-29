@@ -1,2 +1,1 @@
-import WarningTriangleFilled from './WarningTriangleFilled.jsx';
-export default WarningTriangleFilled;
+export { default } from './WarningTriangleFilled';

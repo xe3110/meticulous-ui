@@ -1,2 +1,1 @@
-import CartMinusOutline from './CartMinusOutline.jsx';
-export default CartMinusOutline;
+export { default } from './CartMinusOutline';

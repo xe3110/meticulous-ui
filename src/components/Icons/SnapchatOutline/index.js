@@ -1,2 +1,1 @@
-import SnapchatOutline from './SnapchatOutline.jsx';
-export default SnapchatOutline;
+export { default } from './SnapchatOutline';

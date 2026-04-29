@@ -1,2 +1,1 @@
-import BellFilled from './BellFilled.jsx';
-export default BellFilled;
+export { default } from './BellFilled';

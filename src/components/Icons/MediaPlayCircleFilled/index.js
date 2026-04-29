@@ -1,2 +1,1 @@
-import MediaPlayCircleFilled from './MediaPlayCircleFilled.jsx';
-export default MediaPlayCircleFilled;
+export { default } from './MediaPlayCircleFilled';

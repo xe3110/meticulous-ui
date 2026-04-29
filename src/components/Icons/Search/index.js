@@ -1,2 +1,1 @@
-import Search from './Search.jsx';
-export default Search;
+export { default } from './Search';

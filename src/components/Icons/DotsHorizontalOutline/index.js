@@ -1,2 +1,1 @@
-import DotsHorizontalOutline from './DotsHorizontalOutline.jsx';
-export default DotsHorizontalOutline;
+export { default } from './DotsHorizontalOutline';

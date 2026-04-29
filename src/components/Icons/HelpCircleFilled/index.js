@@ -1,2 +1,1 @@
-import HelpCircleFilled from './HelpCircleFilled.jsx';
-export default HelpCircleFilled;
+export { default } from './HelpCircleFilled';

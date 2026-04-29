@@ -1,2 +1,1 @@
-import TrashBigOutline from './TrashBigOutline.jsx';
-export default TrashBigOutline;
+export { default } from './TrashBigOutline';

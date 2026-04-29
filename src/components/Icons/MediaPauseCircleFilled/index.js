@@ -1,2 +1,1 @@
-import MediaPauseCircleFilled from './MediaPauseCircleFilled.jsx';
-export default MediaPauseCircleFilled;
+export { default } from './MediaPauseCircleFilled';

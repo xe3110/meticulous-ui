@@ -1,2 +1,1 @@
-import MediaPlayCircleOutline from './MediaPlayCircleOutline.jsx';
-export default MediaPlayCircleOutline;
+export { default } from './MediaPlayCircleOutline';

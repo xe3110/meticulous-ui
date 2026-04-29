@@ -1,2 +1,1 @@
-import ChevronLeft from './ChevronLeft.jsx';
-export default ChevronLeft;
+export { default } from './ChevronLeft';

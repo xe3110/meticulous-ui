@@ -1,2 +1,1 @@
-import FacebookFilled from './FacebookFilled.jsx';
-export default FacebookFilled;
+export { default } from './FacebookFilled';

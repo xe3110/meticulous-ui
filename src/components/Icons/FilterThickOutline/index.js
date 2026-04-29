@@ -1,2 +1,1 @@
-import FilterThickOutline from './FilterThickOutline.jsx';
-export default FilterThickOutline;
+export { default } from './FilterThickOutline';

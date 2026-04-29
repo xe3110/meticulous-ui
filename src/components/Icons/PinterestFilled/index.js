@@ -1,2 +1,1 @@
-import PinterestFilled from './PinterestFilled.jsx';
-export default PinterestFilled;
+export { default } from './PinterestFilled';

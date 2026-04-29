@@ -1,2 +1,1 @@
-import ShieldWarningOutline from './ShieldWarningOutline.jsx';
-export default ShieldWarningOutline;
+export { default } from './ShieldWarningOutline';

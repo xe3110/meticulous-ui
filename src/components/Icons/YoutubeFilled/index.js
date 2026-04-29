@@ -1,2 +1,1 @@
-import YoutubeFilled from './YoutubeFilled.jsx';
-export default YoutubeFilled;
+export { default } from './YoutubeFilled';

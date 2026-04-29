@@ -1,2 +1,1 @@
-import KeyFilled from './KeyFilled.jsx';
-export default KeyFilled;
+export { default } from './KeyFilled';

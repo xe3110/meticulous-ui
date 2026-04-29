@@ -1,2 +1,1 @@
-import FullScreenFilled from './FullScreenFilled.jsx';
-export default FullScreenFilled;
+export { default } from './FullScreenFilled';

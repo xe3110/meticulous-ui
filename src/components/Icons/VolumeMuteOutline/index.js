@@ -1,2 +1,1 @@
-import VolumeMuteOutline from './VolumeMuteOutline.jsx';
-export default VolumeMuteOutline;
+export { default } from './VolumeMuteOutline';

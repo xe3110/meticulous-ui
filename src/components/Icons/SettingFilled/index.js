@@ -1,2 +1,1 @@
-import SettingFilled from './SettingFilled.jsx';
-export default SettingFilled;
+export { default } from './SettingFilled';

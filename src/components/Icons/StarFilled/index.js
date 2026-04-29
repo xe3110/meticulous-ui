@@ -1,2 +1,1 @@
-import StarFilled from './StarFilled.jsx';
-export default StarFilled;
+export { default } from './StarFilled';

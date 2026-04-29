@@ -1,2 +1,1 @@
-import MediaStopCircleFilled from './MediaStopCircleFilled.jsx';
-export default MediaStopCircleFilled;
+export { default } from './MediaStopCircleFilled';

@@ -1,2 +1,1 @@
-import EyeFilled from './EyeFilled.jsx';
-export default EyeFilled;
+export { default } from './EyeFilled';

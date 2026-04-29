@@ -1,2 +1,1 @@
-import EyeClosed from './EyeClosed.jsx';
-export default EyeClosed;
+export { default } from './EyeClosed';

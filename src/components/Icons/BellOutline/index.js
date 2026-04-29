@@ -1,2 +1,1 @@
-import BellOutline from './BellOutline.jsx';
-export default BellOutline;
+export { default } from './BellOutline';

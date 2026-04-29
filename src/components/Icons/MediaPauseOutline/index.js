@@ -1,2 +1,1 @@
-import MediaPauseOutline from './MediaPauseOutline.jsx';
-export default MediaPauseOutline;
+export { default } from './MediaPauseOutline';

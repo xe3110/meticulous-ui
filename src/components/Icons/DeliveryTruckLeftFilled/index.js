@@ -1,2 +1,1 @@
-import DeliveryTruckLeftFilled from './DeliveryTruckLeftFilled.jsx';
-export default DeliveryTruckLeftFilled;
+export { default } from './DeliveryTruckLeftFilled';

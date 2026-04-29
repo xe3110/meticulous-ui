@@ -35,6 +35,3 @@ export * from './hooks';
 
 // react utils
 export * from './reactUtils';
-
-// icons
-export * from './components/Icons';

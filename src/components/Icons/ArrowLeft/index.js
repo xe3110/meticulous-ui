@@ -1,2 +1,1 @@
-import ArrowLeft from './ArrowLeft.jsx';
-export default ArrowLeft;
+export { default } from './ArrowLeft';

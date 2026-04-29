@@ -1,2 +1,1 @@
-import ShieldCrossFilled from './ShieldCrossFilled.jsx';
-export default ShieldCrossFilled;
+export { default } from './ShieldCrossFilled';

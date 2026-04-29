@@ -1,2 +1,1 @@
-import EyeOutline from './EyeOutline.jsx';
-export default EyeOutline;
+export { default } from './EyeOutline';

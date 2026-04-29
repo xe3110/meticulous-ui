@@ -1,2 +1,1 @@
-import AddCircleFilled from './AddCircleFilled.jsx';
-export default AddCircleFilled;
+export { default } from './AddCircleFilled';

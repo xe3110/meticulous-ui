@@ -1,2 +1,1 @@
-import BookmarkFilled from './BookmarkFilled.jsx';
-export default BookmarkFilled;
+export { default } from './BookmarkFilled';

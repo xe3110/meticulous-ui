@@ -1,2 +1,1 @@
-import PinterestOutline from './PinterestOutline.jsx';
-export default PinterestOutline;
+export { default } from './PinterestOutline';

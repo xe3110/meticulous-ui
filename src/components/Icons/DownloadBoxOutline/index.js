@@ -1,2 +1,1 @@
-import DownloadBoxOutline from './DownloadBoxOutline.jsx';
-export default DownloadBoxOutline;
+export { default } from './DownloadBoxOutline';

@@ -1,2 +1,1 @@
-import RupeeSign from './RupeeSign.jsx';
-export default RupeeSign;
+export { default } from './RupeeSign';

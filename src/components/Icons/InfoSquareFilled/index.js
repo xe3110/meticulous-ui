@@ -1,2 +1,1 @@
-import InfoSquareFilled from './InfoSquareFilled.jsx';
-export default InfoSquareFilled;
+export { default } from './InfoSquareFilled';

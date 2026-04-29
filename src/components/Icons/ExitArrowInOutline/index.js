@@ -1,2 +1,1 @@
-import ExitArrowInOutline from './ExitArrowInOutline.jsx';
-export default ExitArrowInOutline;
+export { default } from './ExitArrowInOutline';

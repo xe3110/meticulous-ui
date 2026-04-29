@@ -1,2 +1,1 @@
-import ExitFullScreen from './ExitFullScreen.jsx';
-export default ExitFullScreen;
+export { default } from './ExitFullScreen';

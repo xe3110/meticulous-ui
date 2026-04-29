@@ -1,2 +1,1 @@
-import Upload from './Upload.jsx';
-export default Upload;
+export { default } from './Upload';
