@@ -16,13 +16,12 @@
   },
   "sideEffects": false,
   "exports": {
-    ".": "./dist/index.js",
-    "./components/Icons/*": "./dist/components/Icons/*.js",
-    "./components/*": "./dist/components/*.js",
-    "./utils/*": "./dist/utils/*.js",
-    "./hooks/*": "./dist/hooks/*.js",
-    "./colors/*": "./dist/colors/*.js",
-    "./colors": "./dist/colors/index.js"
+    ".": "./index.js",
+    "./components/*": "./components/*/index.js",
+    "./hooks/*": "./hooks/*.js",
+    "./utils/*": "./utils/*.js",
+    "./colors/*": "./colors/*.js",
+    "./colors": "./colors/index.js"
   },
   "files": [
     "*"
@@ -47,7 +46,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "deploy-storybook": "gh-pages -d storybook-static",
-    "prepublish": "npm run build && node -e \"const fs=require('fs'); const p=JSON.parse(fs.readFileSync('package.json','utf8')); p.main='./index.js'; p.module='./index.js'; p.exports={'.': './index.js', './components/Icons/*': './components/Icons/*.js', './components/*': './components/*.js', './hooks/*': './hooks/*.js', './utils/*': './utils/*.js', './colors/*': './colors/*.js', './colors': './colors/index.js'}; delete p.scripts; delete p.devDependencies; fs.writeFileSync('dist/package.json', JSON.stringify(p, null, 2))\" && cp README.md dist/",
+    "prepublish": "npm run build && cp -R src/components dist/components && node -e \"const fs=require('fs'); const p=JSON.parse(fs.readFileSync('package.json','utf8')); p.main='./index.js'; p.module='./index.js'; p.exports={'.':'./index.js','./components/*':'./components/*/index.js','./hooks/*':'./hooks/*.js','./utils/*':'./utils/*.js','./colors/*':'./colors/*.js','./colors':'./colors/index.js'}; delete p.scripts; delete p.devDependencies; fs.writeFileSync('dist/package.json', JSON.stringify(p,null,2))\" && cp README.md dist/",
     "publish:dist": "npm publish dist/"
   },
   "devDependencies": {

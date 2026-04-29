@@ -1,65 +1,88 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
-import path from 'path';
-import { createRequire } from 'module';
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
+import fs from 'fs';
 
-const require = createRequire(import.meta.url);
-const pkg = require('./package.json');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// Auto-create missing folder index.js files after build
+function createIndexes(dir) {
+  if (!fs.existsSync(dir)) return;
+
+  const items = fs.readdirSync(dir, { withFileTypes: true });
+
+  items.forEach((item) => {
+    const fullPath = resolve(dir, item.name);
+
+    if (item.isDirectory()) {
+      createIndexes(fullPath);
+
+      const files = fs.readdirSync(fullPath);
+      const jsFiles = files.filter((f) => f.endsWith('.js') && f !== 'index.js');
+      const hasIndex = files.includes('index.js');
+
+      if (!hasIndex && jsFiles.length === 1) {
+        fs.writeFileSync(
+          resolve(fullPath, 'index.js'),
+          `export { default } from './${jsFiles[0]}';\n`
+        );
+      }
+    }
+  });
+}
+
+// Remove _virtual folder after build
+function removeVirtualDir() {
+  const virtualPath = resolve(__dirname, 'dist/_virtual');
+
+  if (fs.existsSync(virtualPath)) {
+    fs.rmSync(virtualPath, { recursive: true, force: true });
+  }
+}
 
 export default defineConfig({
   plugins: [
     react(),
-    svgr({
-      svgrOptions: {
-        icon: true,
-        dimensions: false,
+    svgr(),
+
+    {
+      name: 'meticulous-ui-post-build',
+      closeBundle() {
+        createIndexes(resolve(__dirname, 'dist/components'));
+        removeVirtualDir();
       },
-    }),
+    },
   ],
   build: {
     outDir: 'dist',
-    minify: 'esbuild',
     emptyOutDir: true,
+    sourcemap: false,
+    target: 'esnext',
+    minify: 'esbuild',
+    commonjsOptions: {
+      transformMixedEsModules: false,
+    },
     lib: {
-      entry: path.resolve(__dirname, 'src/index.js'),
+      entry: resolve(__dirname, 'src/index.js'),
       formats: ['es'],
     },
     rollupOptions: {
-      external: [
-        ...Object.keys(pkg.dependencies || {}),
-        ...Object.keys(pkg.peerDependencies || {}),
-        'react/jsx-runtime',
-        'react/jsx-dev-runtime',
-        /^styled-components/,
-      ],
+      external: ['react', 'react-dom', 'react/jsx-runtime', 'styled-components'],
       output: {
+        format: 'es',
+        dir: 'dist',
         preserveModules: true,
         preserveModulesRoot: 'src',
-        inlineDynamicImports: false,
-        entryFileNames: (chunkInfo) => {
-          const parts = chunkInfo.name.split('/');
-          const fileName = parts.pop();
-
-          if (chunkInfo.name.includes('Icons/')) {
-            return `components/Icons/${fileName.replace(/\.(jsx|js)$/, '')}.js`;
-          }
-
-          const topLevelDirs = ['components', 'colors', 'hooks', 'utils'];
-          const currentTopDir = parts[0];
-
-          if (topLevelDirs.includes(currentTopDir)) {
-            return `${currentTopDir}/${fileName.replace(/\.(jsx|js)$/, '')}.js`;
-          }
-
-          return chunkInfo.name.replace(/\.(jsx|js)$/, '') + '.js';
-        },
+        entryFileNames: '[name].js',
+        chunkFileNames: 'chunks/[name]-[hash].js',
+        assetFileNames: 'assets/[name].[ext]',
         exports: 'named',
-      },
-      treeshake: {
-        moduleSideEffects: false,
+        interop: 'auto',
+        generatedCode: 'es2015',
       },
     },
-    sourcemap: false,
   },
 });
