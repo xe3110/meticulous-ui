@@ -1,4 +1,4 @@
-import colors from '../src/colors';
+import * as colors from '../src/colors';
 import white from '../src/colors/white';
 import capitalize from '../src/utils/capitalize';
 
