@@ -159,6 +159,32 @@ import blue from 'meticulous-ui/colors/blue';
 | **Error Handling** | `logError`, `captureException`, `safeJSONParse`, `safeJSONStringify`, `fallback`                                                                                                   |
 | **Auth**           | `isAuthenticated`, `getToken`, `setToken`, `removeToken`, `decodeJWT`, `hasPermission`                                                                                             |
 | **Feature Flags**  | `isFeatureEnabled`, `getVariant`                                                                                                                                                   |
+| **Enterprise**     | `trackEvent`, `trackPageView`, `measurePerformance`, `featureGate`, `permissionGuard`, `auditLog`, `logInfo`, `logWarn`, `captureException`                                        |
+| **Filter**         | `fuzzySearch`, `filterByKey`, `multiSort`, `paginate`                                                                                                                              |
+| **Animation**      | `fadeIn`, `fadeOut`, `smoothScroll`, `waitForTransitionEnd`                                                                                                                        |
+| **Function**       | `once`, `noop`, `identity`, `pipe`, `singleton`, `createPubSub`, `deepFreeze`                                                                                                      |
+
+## 📦 React Helper Functions
+
+| Function            | Description                                                                        |
+| ------------------- | ---------------------------------------------------------------------------------- |
+| `createContextHook` | Creates a React context + typed hook pair; throws if consumed outside its Provider |
+| `composeProviders`  | Merges N provider components into one wrapper, eliminating the provider pyramid    |
+| `lazyImport`        | Extends `React.lazy` to work with named exports, not just default exports          |
+| `withErrorBoundary` | HOC wrapping a component in an error boundary with a configurable fallback         |
+| `withSuspense`      | HOC wrapping a component in `<Suspense>` with a co-located fallback UI             |
+| `memoCompare`       | Typed wrapper around `React.memo` with a custom equality comparator                |
+| `createPortalNode`  | Creates and appends a DOM node to `document.body` for use as a portal container    |
+
+## 📦 Hooks
+
+| Category        | Hooks                                                                                                                 |
+| --------------- | --------------------------------------------------------------------------------------------------------------------- |
+| **State**       | `usePrevious`, `useDebounce`, `useThrottle`, `useToggle`                                                              |
+| **Lifecycle**   | `useIsMounted`, `useUnmount`, `useFirstRender`, `useTimeout`, `useInterval`                                           |
+| **DOM/Browser** | `useEventListener`, `useIntersectionObserver`, `useMediaQuery`, `useOutsideClick`, `useWindowSize`, `useOnlineStatus` |
+| **Storage**     | `useLocalStorage`, `useSessionStorage`                                                                                |
+| **Utility**     | `useCopyToClipboard`                                                                                                  |
 
 ## 🌱 Features
 

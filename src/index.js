@@ -30,5 +30,11 @@ export { default as colors } from './colors';
 // utils
 export { default as utils } from './utils';
 
+// hooks
+export { default as hooks } from './hooks';
+
+// react utils
+export { default as reactUtils } from './react-utils';
+
 // icons
 export { default as icons } from './components/Icons';

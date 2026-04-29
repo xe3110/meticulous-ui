@@ -16,7 +16,16 @@ const preview = {
     },
     options: {
       storySort: {
-        order: ['Atoms', 'Molecules', 'Organisms', 'Tokens', 'Utilities', 'Foundation'],
+        order: [
+          'Atoms',
+          'Molecules',
+          'Organisms',
+          'Tokens',
+          'Utilities',
+          'React Utilities',
+          'Hooks',
+          'Foundation',
+        ],
       },
     },
   },

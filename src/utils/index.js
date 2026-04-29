@@ -114,6 +114,29 @@ import parallel from './parallel';
 import sequential from './sequential';
 import safeAsync from './safeAsync';
 import cancelablePromise from './cancelablePromise';
+import fuzzySearch from './fuzzySearch';
+import filterByKey from './filterByKey';
+import multiSort from './multiSort';
+import paginate from './paginate';
+import fadeIn from './fadeIn';
+import fadeOut from './fadeOut';
+import smoothScroll from './smoothScroll';
+import waitForTransitionEnd from './waitForTransitionEnd';
+import trackEvent from './trackEvent';
+import trackPageView from './trackPageView';
+import measurePerformance from './measurePerformance';
+import featureGate from './featureGate';
+import permissionGuard from './permissionGuard';
+import auditLog from './auditLog';
+import logInfo from './logInfo';
+import logWarn from './logWarn';
+import once from './once';
+import noop from './noop';
+import identity from './identity';
+import pipe from './pipe';
+import singleton from './singleton';
+import createPubSub from './createPubSub';
+import deepFreeze from './deepFreeze';
 
 export default {
   // string
@@ -261,4 +284,35 @@ export default {
   sequential,
   safeAsync,
   cancelablePromise,
+
+  // filter
+  fuzzySearch,
+  filterByKey,
+  multiSort,
+  paginate,
+
+  // animation
+  fadeIn,
+  fadeOut,
+  smoothScroll,
+  waitForTransitionEnd,
+
+  // enterprise
+  trackEvent,
+  trackPageView,
+  measurePerformance,
+  featureGate,
+  permissionGuard,
+  auditLog,
+  logInfo,
+  logWarn,
+
+  // function
+  once,
+  noop,
+  identity,
+  pipe,
+  singleton,
+  createPubSub,
+  deepFreeze,
 };
