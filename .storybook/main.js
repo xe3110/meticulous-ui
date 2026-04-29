@@ -9,10 +9,21 @@ const config = {
   docs: {
     autodocs: true,
   },
-  // experimental_indexers: async (existingIndexers) => {
-  //   const { mdxIndexer } = await import('@storybook/mdx2-csf');
-  //   return [...existingIndexers, mdxIndexer];
-  // },
+  async viteFinal(config) {
+    if (config.build) {
+      delete config.build.lib;
+      if (config.build.rollupOptions) {
+        delete config.build.rollupOptions.output;
+      }
+    }
+
+    config.optimizeDeps = {
+      ...config.optimizeDeps,
+      include: [...(config.optimizeDeps?.include || []), 'styled-components'],
+    };
+
+    return config;
+  },
 };
 
 export default config;
