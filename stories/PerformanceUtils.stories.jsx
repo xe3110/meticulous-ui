@@ -774,19 +774,6 @@ window.addEventListener('scroll', throttledScroll);`}</Pre>
   };
 };`}</Pre>
             </div>
-            <div>
-              <SectionLabel $color={red.m700}>Source</SectionLabel>
-              <Pre>{`const rafThrottle = (fn) => {
-  let rafId = null;
-  return (...args) => {
-    if (rafId !== null) return;
-    rafId = requestAnimationFrame(() => {
-      fn(...args);
-      rafId = null;
-    });
-  };
-};`}</Pre>
-            </div>
           </CardBody>
         </Card>
       </MaxWidth>

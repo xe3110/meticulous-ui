@@ -630,10 +630,6 @@ const [user, posts, settings] = await parallel([
               <SectionLabel $color={green.m700}>Source</SectionLabel>
               <Pre>{`const parallel = (promises) => Promise.all(promises);`}</Pre>
             </div>
-            <div>
-              <SectionLabel $color={green.m700}>Source</SectionLabel>
-              <Pre>{`const parallel = (promises) => Promise.all(promises);`}</Pre>
-            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -858,17 +854,6 @@ if (err) {
   return;
 }
 renderProfile(user);`}</Pre>
-            </div>
-            <div>
-              <SectionLabel $color={deepPurple.m700}>Source</SectionLabel>
-              <Pre>{`const safeAsync = (fn) => async (...args) => {
-  try {
-    const result = await fn(...args);
-    return [null, result];
-  } catch (err) {
-    return [err, null];
-  }
-};`}</Pre>
             </div>
             <div>
               <SectionLabel $color={deepPurple.m700}>Source</SectionLabel>

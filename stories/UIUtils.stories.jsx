@@ -503,6 +503,12 @@ function closeModal() {
   setModalOpen(false);
 }`}</Pre>
             </div>
+            <div>
+              <SectionLabel $color={green.m700}>Source</SectionLabel>
+              <Pre>{`const unlockBodyScroll = () => {
+  document.body.style.overflow = '';
+};`}</Pre>
+            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -717,13 +723,6 @@ focusElement(inputRef); // uses ref.current
 
 // with raw DOM element
 focusElement(document.getElementById('search-input'));`}</Pre>
-            </div>
-            <div>
-              <SectionLabel $color={orange.m700}>Source</SectionLabel>
-              <Pre>{`const focusElement = (ref) => {
-  const el = ref?.current ?? ref;
-  el?.focus();
-};`}</Pre>
             </div>
             <div>
               <SectionLabel $color={orange.m700}>Source</SectionLabel>
