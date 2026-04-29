@@ -1,49 +1,23 @@
-import amber from './amber';
-import black from './black';
-import blue from './blue';
-import blueGray from './blueGray';
-import brown from './brown';
-import cider from './cider';
-import cyan from './cyan';
-import deepOrange from './deepOrange';
-import deepPurple from './deepPurple';
-import green from './green';
-import grey from './grey';
-import indigo from './indigo';
-import lightBlue from './lightBlue';
-import lightGreen from './lightGreen';
-import lime from './lime';
-import orange from './orange';
-import pink from './pink';
-import purple from './purple';
-import red from './red';
-import teal from './teal';
-import violet from './violet';
-import white from './white';
-import yellow from './yellow';
-
-export default {
-  amber,
-  black,
-  blue,
-  blueGray,
-  brown,
-  cider,
-  cyan,
-  deepOrange,
-  deepPurple,
-  green,
-  grey,
-  indigo,
-  lightBlue,
-  lightGreen,
-  lime,
-  orange,
-  pink,
-  purple,
-  red,
-  teal,
-  violet,
-  white,
-  yellow,
-};
+export { default as amber } from './amber';
+export { default as black } from './black';
+export { default as blue } from './blue';
+export { default as blueGray } from './blueGray';
+export { default as brown } from './brown';
+export { default as cider } from './cider';
+export { default as cyan } from './cyan';
+export { default as deepOrange } from './deepOrange';
+export { default as deepPurple } from './deepPurple';
+export { default as green } from './green';
+export { default as grey } from './grey';
+export { default as indigo } from './indigo';
+export { default as lightBlue } from './lightBlue';
+export { default as lightGreen } from './lightGreen';
+export { default as lime } from './lime';
+export { default as orange } from './orange';
+export { default as pink } from './pink';
+export { default as purple } from './purple';
+export { default as red } from './red';
+export { default as teal } from './teal';
+export { default as violet } from './violet';
+export { default as white } from './white';
+export { default as yellow } from './yellow';

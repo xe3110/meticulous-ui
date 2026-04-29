@@ -1,7 +1,7 @@
 import { useEffect, useId, useLayoutEffect, useRef, useState, useMemo, useCallback } from 'react';
 import grey from '../../colors/grey';
 import MenuItem from '../MenuItem/MenuItem';
-import colors from '../../colors';
+import colors from '../../colors/colorMap';
 import blue from '../../colors/blue';
 import Spinner from '../Spinner/Spinner';
 import {

@@ -1,17 +1,7 @@
-import createContextHook from './createContextHook';
-import composeProviders from './composeProviders.jsx';
-import lazyImport from './lazyImport';
-import withErrorBoundary from './withErrorBoundary.jsx';
-import withSuspense from './withSuspense.jsx';
-import memoCompare from './memoCompare';
-import createPortalNode from './createPortalNode';
-
-export default {
-  createContextHook,
-  composeProviders,
-  lazyImport,
-  withErrorBoundary,
-  withSuspense,
-  memoCompare,
-  createPortalNode,
-};
+export { default as createContextHook } from './createContextHook';
+export { default as composeProviders } from './composeProviders.jsx';
+export { default as lazyImport } from './lazyImport';
+export { default as withErrorBoundary } from './withErrorBoundary.jsx';
+export { default as withSuspense } from './withSuspense.jsx';
+export { default as memoCompare } from './memoCompare';
+export { default as createPortalNode } from './createPortalNode';

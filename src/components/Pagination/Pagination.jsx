@@ -5,7 +5,7 @@ import { useRef, useEffect } from 'react';
 import { renderThreeDots, renderPageNum, PrevArrow, NextArrow } from './helpers.jsx';
 
 // constants
-import colors from '../../colors';
+import colors from '../../colors/colorMap';
 import teal from '../../colors/teal';
 import { ICON_SIZE_MAPPING, MEDIUM, SIZE_REM_MAPPING } from './constants.js';
 

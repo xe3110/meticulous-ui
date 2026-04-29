@@ -9,7 +9,7 @@ import violet from '../../../colors/violet';
 import teal from '../../../colors/teal';
 import purple from '../../../colors/purple';
 import pink from '../../../colors/pink';
-import allIcons from '../../Icons';
+import allIcons from '../../Icons/iconsMap';
 
 const COLOR_SHADE_MAP = {
   blue: blue.m500,

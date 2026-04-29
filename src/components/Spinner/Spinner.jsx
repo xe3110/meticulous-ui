@@ -1,5 +1,5 @@
 import { SpinnerSVG, SpinnerCircle } from './styles';
-import colors from '../../colors';
+import colors from '../../colors/colorMap';
 import green from '../../colors/green';
 import white from '../../colors/white';
 import grey from '../../colors/grey';

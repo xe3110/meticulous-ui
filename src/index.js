@@ -25,16 +25,16 @@ export { default as RadioGroup } from './components/Input/RadioGroup';
 export { default as FileUploader } from './components/Input/FileUploader';
 
 // colors
-export { default as colors } from './colors';
+export * from './colors';
 
 // utils
-export { default as utils } from './utils';
+export * from './utils';
 
 // hooks
-export { default as hooks } from './hooks';
+export * from './hooks';
 
 // react utils
-export { default as reactUtils } from './reactUtils';
+export * from './reactUtils';
 
 // icons
-export { default as icons } from './components/Icons';
+export * from './components/Icons';

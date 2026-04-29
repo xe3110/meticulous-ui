@@ -1,6 +1,6 @@
 import { useEffect, useId, useLayoutEffect, useRef, useState, useMemo, useCallback } from 'react';
 import grey from '../../colors/grey';
-import colors from '../../colors';
+import colors from '../../colors/colorMap';
 import blue from '../../colors/blue';
 import CheckboxInput from '../Input/Checkbox/Checkbox';
 import Spinner from '../Spinner/Spinner';

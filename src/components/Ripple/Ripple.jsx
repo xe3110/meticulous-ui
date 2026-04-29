@@ -1,5 +1,13 @@
 import { useRef } from 'react';
-import './Ripple.css';
+
+const RIPPLE_CSS = `.ripple-container{position:relative;overflow:hidden;display:inline-block;cursor:pointer}.ripple-effect{position:absolute;border-radius:50%;transform:scale(0);animation:ripple-animation 600ms linear;pointer-events:none}@keyframes ripple-animation{to{transform:scale(4);opacity:0}}`;
+
+if (typeof document !== 'undefined' && !document.getElementById('meticulous-ripple-styles')) {
+  const style = document.createElement('style');
+  style.id = 'meticulous-ripple-styles';
+  style.textContent = RIPPLE_CSS;
+  document.head.appendChild(style);
+}
 
 const Ripple = ({
   children,

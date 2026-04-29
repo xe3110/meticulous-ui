@@ -4,7 +4,7 @@ import white from '../../../colors/white';
 import blue from '../../../colors/blue';
 import grey from '../../../colors/grey';
 import Link from '../../Icons/Link';
-import colors from '../../../colors';
+import colors from '../../../colors/colorMap';
 import Ripple from '../../Ripple';
 import { MEDIUM, SIZE } from './constants';
 

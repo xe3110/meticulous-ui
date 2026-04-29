@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import Spinner from '../Spinner/Spinner';
-import colors from '../../colors';
+import colors from '../../colors/colorMap';
 import blue from '../../colors/blue';
 import { ButtonWrapper, Content, ButtonContainer, SpinnerWrapper } from './styles';
 import Ripple from '../Ripple';
