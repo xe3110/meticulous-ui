@@ -1,3 +1,4 @@
+import path from 'path';
 /** @type { import('@storybook/react-vite').StorybookConfig } */
 const config = {
   stories: ['../stories/*.stories.jsx', '../stories/**/*.mdx'],
@@ -16,7 +17,13 @@ const config = {
         delete config.build.rollupOptions.output;
       }
     }
-
+    config.resolve = {
+      ...config.resolve,
+      alias: {
+        ...config.resolve?.alias,
+        'meticulous-ui': path.resolve(__dirname, '../src/index.js'),
+      },
+    };
     config.optimizeDeps = {
       ...config.optimizeDeps,
       include: [...(config.optimizeDeps?.include || []), 'styled-components'],
