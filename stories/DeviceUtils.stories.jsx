@@ -244,6 +244,11 @@ if (isMobile()) {
   showMobileNav();
 }`}</Pre>
           </div>
+          <div>
+            <SectionLabel $color={blue.m700}>Source</SectionLabel>
+            <Pre>{`const isMobile = () =>
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);`}</Pre>
+          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -284,6 +289,12 @@ if (isIOS()) {
   // use WKWebView-safe workaround
 }`}</Pre>
           </div>
+          <div>
+            <SectionLabel $color={grey.m700}>Source</SectionLabel>
+            <Pre>{`const isIOS = () =>
+  /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);`}</Pre>
+          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -322,6 +333,10 @@ const IsAndroidPage = () => (
 if (isAndroid()) {
   requestAndroidPermission('camera');
 }`}</Pre>
+          </div>
+          <div>
+            <SectionLabel $color={green.m700}>Source</SectionLabel>
+            <Pre>{`const isAndroid = () => /Android/i.test(navigator.userAgent);`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -362,6 +377,10 @@ const IsSafariPage = () => (
 if (isSafari()) {
   // apply webkit-specific audio workaround
 }`}</Pre>
+          </div>
+          <div>
+            <SectionLabel $color={lightBlue.m700}>Source</SectionLabel>
+            <Pre>{`const isSafari = () => /^((?!chrome|android).)*safari/i.test(navigator.userAgent);`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -410,6 +429,10 @@ const IsDarkModePage = () => {
               <Pre>{`import isDarkMode from 'meticulous-ui/utils/isDarkMode';
 
 const theme = isDarkMode() ? darkTheme : lightTheme;`}</Pre>
+            </div>
+            <div>
+              <SectionLabel $color={deepPurple.m700}>Source</SectionLabel>
+              <Pre>{`const isDarkMode = () => window.matchMedia('(prefers-color-scheme: dark)').matches;`}</Pre>
             </div>
           </CardBody>
         </Card>
@@ -465,6 +488,10 @@ const IsOnlinePage = () => {
 if (!isOnline()) {
   showOfflineBanner();
 }`}</Pre>
+            </div>
+            <div>
+              <SectionLabel $color={teal.m700}>Source</SectionLabel>
+              <Pre>{`const isOnline = () => navigator.onLine;`}</Pre>
             </div>
           </CardBody>
         </Card>
@@ -529,6 +556,22 @@ const CopyToClipboardPage = () => {
 
 await copyToClipboard('https://example.com/share/abc123');`}</Pre>
             </div>
+            <div>
+              <SectionLabel $color={indigo.m700}>Source</SectionLabel>
+              <Pre>{`const copyToClipboard = async (text) => {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+  const el = document.createElement('textarea');
+  el.value = text;
+  el.style.cssText = 'position:fixed;opacity:0';
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+};`}</Pre>
+            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -590,6 +633,17 @@ downloadFile('https://api.example.com/report', 'report-2024.pdf');
 // filename inferred from URL → 'invoice.pdf'
 downloadFile('https://cdn.example.com/files/invoice.pdf');`}</Pre>
             </div>
+            <div>
+              <SectionLabel $color={orange.m700}>Source</SectionLabel>
+              <Pre>{`const downloadFile = (url, filename) => {
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename || url.split('/').pop() || 'download';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+};`}</Pre>
+            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -633,6 +687,12 @@ const OpenInNewTabPage = () => (
             <Pre>{`import openInNewTab from 'meticulous-ui/utils/openInNewTab';
 
 openInNewTab('https://docs.example.com');`}</Pre>
+          </div>
+          <div>
+            <SectionLabel $color={cyan.m700}>Source</SectionLabel>
+            <Pre>{`const openInNewTab = (url) => {
+  window.open(url, '_blank', 'noopener,noreferrer');
+};`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -711,6 +771,16 @@ const { width, height, pixelRatio } = getScreenSize();
 
 if (width < 768) renderMobileLayout();`}</Pre>
             </div>
+            <div>
+              <SectionLabel $color={brown.m700}>Source</SectionLabel>
+              <Pre>{`const getScreenSize = () => ({
+  width: window.innerWidth,
+  height: window.innerHeight,
+  deviceWidth: screen.width,
+  deviceHeight: screen.height,
+  pixelRatio: window.devicePixelRatio || 1,
+});`}</Pre>
+            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -723,7 +793,7 @@ if (width < 768) renderMobileLayout();`}</Pre>
 // ═════════════════════════════════════════════════════════════════════════════
 
 export default {
-  title: 'Utils/Device Utilities',
+  title: 'Utilities/Device Utilities',
   parameters: {
     controls: { disable: true },
     actions: { disable: true },

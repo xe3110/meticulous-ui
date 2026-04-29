@@ -296,6 +296,16 @@ const params = getQueryParams();
 
 const { tab = 'home', page = '1' } = getQueryParams();`}</Pre>
             </div>
+            <div>
+              <SectionLabel $color={teal.m700}>Source</SectionLabel>
+              <Pre>{`const getQueryParams = () => {
+  const params = {};
+  new URLSearchParams(window.location.search).forEach((value, key) => {
+    params[key] = value;
+  });
+  return params;
+};`}</Pre>
+            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -370,6 +380,14 @@ setQueryParam('tab', 'analytics');
 
 setQueryParam('view', 'list');
 // URL after:  /dashboard?view=list&tab=analytics`}</Pre>
+            </div>
+            <div>
+              <SectionLabel $color={indigo.m700}>Source</SectionLabel>
+              <Pre>{`const setQueryParam = (key, value) => {
+  const url = new URL(window.location.href);
+  url.searchParams.set(key, value);
+  window.history.pushState({}, '', url);
+};`}</Pre>
             </div>
           </CardBody>
         </Card>
@@ -467,6 +485,14 @@ const RemoveQueryParamPage = () => {
 // URL before: /products?filter=active&sort=asc&page=2
 removeQueryParam('filter');
 // URL after:  /products?sort=asc&page=2`}</Pre>
+            </div>
+            <div>
+              <SectionLabel $color={deepOrange.m700}>Source</SectionLabel>
+              <Pre>{`const removeQueryParam = (key) => {
+  const url = new URL(window.location.href);
+  url.searchParams.delete(key);
+  window.history.pushState({}, '', url);
+};`}</Pre>
             </div>
           </CardBody>
         </Card>
@@ -591,6 +617,16 @@ buildURL('/products', { category: 'shoes', brand: 'nike', page: 1 });
 buildURL('/search', { q: 'hello world' });
 // 'https://example.com/search?q=hello+world'  (auto-encoded)`}</Pre>
             </div>
+            <div>
+              <SectionLabel $color={green.m700}>Source</SectionLabel>
+              <Pre>{`const buildURL = (path, params = {}) => {
+  const url = new URL(path, window.location.origin);
+  Object.entries(params).forEach(([key, value]) => {
+    url.searchParams.set(key, value);
+  });
+  return url.toString();
+};`}</Pre>
+            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -656,6 +692,12 @@ function logout() {
 
 // redirect to external URL
 redirectTo('https://docs.example.com');`}</Pre>
+            </div>
+            <div>
+              <SectionLabel $color={blue.m700}>Source</SectionLabel>
+              <Pre>{`const redirectTo = (path) => {
+  window.location.href = path;
+};`}</Pre>
             </div>
           </CardBody>
         </Card>
@@ -734,6 +776,10 @@ const path = getCurrentPath(); // '/dashboard'
 
 // log page views
 analytics.track('page_view', { path: getCurrentPath() });`}</Pre>
+            </div>
+            <div>
+              <SectionLabel $color={grey.m700}>Source</SectionLabel>
+              <Pre>{`const getCurrentPath = () => window.location.pathname;`}</Pre>
             </div>
           </CardBody>
         </Card>
@@ -846,6 +892,10 @@ if (!isActiveRoute('/onboarding')) {
   redirectTo('/onboarding');
 }`}</Pre>
             </div>
+            <div>
+              <SectionLabel $color={purple.m700}>Source</SectionLabel>
+              <Pre>{`const isActiveRoute = (path) => window.location.pathname === path;`}</Pre>
+            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -858,7 +908,7 @@ if (!isActiveRoute('/onboarding')) {
 // ═════════════════════════════════════════════════════════════════════════════
 
 export default {
-  title: 'Utils/Routing Utils',
+  title: 'Utilities/Routing Utilities',
   parameters: {
     controls: { disable: true },
     actions: { disable: true },

@@ -251,6 +251,16 @@ const debouncedSearch = debounce((query) => {
 
 input.addEventListener('input', (e) => debouncedSearch(e.target.value));`}</Pre>
             </div>
+            <div>
+              <SectionLabel $color={purple.m700}>Source</SectionLabel>
+              <Pre>{`const debounce = (fn, delay) => {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), delay);
+  };
+};`}</Pre>
+            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -322,6 +332,19 @@ const throttledScroll = throttle(() => {
 }, 200);
 
 window.addEventListener('scroll', throttledScroll);`}</Pre>
+            </div>
+            <div>
+              <SectionLabel $color={amber.m800}>Source</SectionLabel>
+              <Pre>{`const throttle = (fn, delay) => {
+  let lastCall = 0;
+  return (...args) => {
+    const now = Date.now();
+    if (now - lastCall >= delay) {
+      lastCall = now;
+      fn(...args);
+    }
+  };
+};`}</Pre>
             </div>
           </CardBody>
         </Card>
@@ -431,6 +454,19 @@ const expensiveCalc = memoize((x, y) => {
 expensiveCalc(10, 20); // computed
 expensiveCalc(10, 20); // returned from cache instantly`}</Pre>
             </div>
+            <div>
+              <SectionLabel $color={pink.m700}>Source</SectionLabel>
+              <Pre>{`const memoize = (fn) => {
+  const cache = new Map();
+  return (...args) => {
+    const key = JSON.stringify(args);
+    if (cache.has(key)) return cache.get(key);
+    const result = fn(...args);
+    cache.set(key, result);
+    return result;
+  };
+};`}</Pre>
+            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -528,6 +564,12 @@ function Dashboard() {
   );
 }`}</Pre>
             </div>
+            <div>
+              <SectionLabel $color={lightGreen.m800}>Source</SectionLabel>
+              <Pre>{`import { lazy } from 'react';
+
+const lazyLoadComponent = (importFn) => lazy(importFn);`}</Pre>
+            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -605,6 +647,16 @@ requestIdleTask(() => {
 requestIdleTask(() => {
   sendAnalyticsEvent('page_view');
 });`}</Pre>
+            </div>
+            <div>
+              <SectionLabel $color={lime.m800}>Source</SectionLabel>
+              <Pre>{`const requestIdleTask = (fn) => {
+  if (typeof requestIdleCallback !== 'undefined') {
+    requestIdleCallback(fn);
+  } else {
+    setTimeout(fn, 1);
+  }
+};`}</Pre>
             </div>
           </CardBody>
         </Card>
@@ -709,6 +761,32 @@ const throttledScroll = rafThrottle(() => {
 
 window.addEventListener('scroll', throttledScroll);`}</Pre>
             </div>
+            <div>
+              <SectionLabel $color={red.m700}>Source</SectionLabel>
+              <Pre>{`const rafThrottle = (fn) => {
+  let rafId = null;
+  return (...args) => {
+    if (rafId !== null) return;
+    rafId = requestAnimationFrame(() => {
+      fn(...args);
+      rafId = null;
+    });
+  };
+};`}</Pre>
+            </div>
+            <div>
+              <SectionLabel $color={red.m700}>Source</SectionLabel>
+              <Pre>{`const rafThrottle = (fn) => {
+  let rafId = null;
+  return (...args) => {
+    if (rafId !== null) return;
+    rafId = requestAnimationFrame(() => {
+      fn(...args);
+      rafId = null;
+    });
+  };
+};`}</Pre>
+            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -721,7 +799,7 @@ window.addEventListener('scroll', throttledScroll);`}</Pre>
 // ═════════════════════════════════════════════════════════════════════════════
 
 export default {
-  title: 'Utils/Performance Utils',
+  title: 'Utilities/Performance Utilities',
   parameters: {
     controls: { disable: true },
     actions: { disable: true },

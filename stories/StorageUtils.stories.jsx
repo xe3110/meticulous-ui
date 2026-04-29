@@ -306,6 +306,16 @@ setLocalStorage('theme', 'dark');
 setLocalStorage('cart', [{ id: 1, qty: 2 }]);
 setLocalStorage('user', { name: 'Alice', age: 30 });`}</Pre>
             </div>
+            <div>
+              <SectionLabel $color={violet.m700}>Source</SectionLabel>
+              <Pre>{`const setLocalStorage = (key, value) => {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch {
+    // storage quota exceeded or private browsing restriction
+  }
+};`}</Pre>
+            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -395,6 +405,17 @@ const GetLocalStoragePage = () => {
 const theme = getLocalStorage('theme');       // 'dark'
 const cart  = getLocalStorage('cart');        // [{ id: 1, qty: 2 }]
 const missing = getLocalStorage('unknown');   // null`}</Pre>
+            </div>
+            <div>
+              <SectionLabel $color={cider.m700}>Source</SectionLabel>
+              <Pre>{`const getLocalStorage = (key) => {
+  try {
+    const item = localStorage.getItem(key);
+    return item !== null ? JSON.parse(item) : null;
+  } catch {
+    return null;
+  }
+};`}</Pre>
             </div>
           </CardBody>
         </Card>
@@ -489,6 +510,12 @@ const RemoveLocalStoragePage = () => {
 removeLocalStorage('theme');
 removeLocalStorage('cart');
 removeLocalStorage('nonExistentKey'); // safe, no-op`}</Pre>
+            </div>
+            <div>
+              <SectionLabel $color={deepOrange.m700}>Source</SectionLabel>
+              <Pre>{`const removeLocalStorage = (key) => {
+  localStorage.removeItem(key);
+};`}</Pre>
             </div>
           </CardBody>
         </Card>
@@ -596,6 +623,16 @@ const SetSessionStoragePage = () => {
 setSessionStorage('wizardStep', 3);
 setSessionStorage('draftForm', { email: 'alice@example.com' });`}</Pre>
             </div>
+            <div>
+              <SectionLabel $color={yellow.m800}>Source</SectionLabel>
+              <Pre>{`const setSessionStorage = (key, value) => {
+  try {
+    sessionStorage.setItem(key, JSON.stringify(value));
+  } catch {
+    // storage quota exceeded or private browsing restriction
+  }
+};`}</Pre>
+            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -685,6 +722,17 @@ const GetSessionStoragePage = () => {
 const step = getSessionStorage('wizardStep');   // 3
 const draft = getSessionStorage('draftForm');   // { email: 'alice@example.com' }
 const gone  = getSessionStorage('unknown');     // null`}</Pre>
+            </div>
+            <div>
+              <SectionLabel $color={black.m600}>Source</SectionLabel>
+              <Pre>{`const getSessionStorage = (key) => {
+  try {
+    const item = sessionStorage.getItem(key);
+    return item !== null ? JSON.parse(item) : null;
+  } catch {
+    return null;
+  }
+};`}</Pre>
             </div>
           </CardBody>
         </Card>
@@ -822,6 +870,13 @@ function handleLogout() {
   redirectToLogin();
 }`}</Pre>
             </div>
+            <div>
+              <SectionLabel $color={blueGray.m700}>Source</SectionLabel>
+              <Pre>{`const clearStorage = () => {
+  localStorage.clear();
+  sessionStorage.clear();
+};`}</Pre>
+            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -834,7 +889,7 @@ function handleLogout() {
 // ═════════════════════════════════════════════════════════════════════════════
 
 export default {
-  title: 'Utils/Storage Utils',
+  title: 'Utilities/Storage Utilities',
   parameters: {
     controls: { disable: true },
     actions: { disable: true },

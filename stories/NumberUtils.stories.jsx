@@ -300,6 +300,10 @@ const RandomValuePage = () => {
 
 const opacity = randomValue(0.2, 0.8);  // random float in [0.2, 1.8)`}</Pre>
             </div>
+            <div>
+              <SectionLabel $color={blue.m700}>Source</SectionLabel>
+              <Pre>{`const randomValue = (min, max) => Math.random() * (max - min + 1) + min;`}</Pre>
+            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -393,6 +397,12 @@ const RandomIntPage = () => {
 
 const index = randomInt(0, items.length - 1);  // random index into array`}</Pre>
             </div>
+            <div>
+              <SectionLabel $color={pink.m700}>Source</SectionLabel>
+              <Pre>{`import randomValue from './randomValue';
+
+const randomInt = (min, max) => Math.floor(randomValue(min, max));`}</Pre>
+            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -449,6 +459,13 @@ const FormatNumberPage = () => (
 formatNumber(1000000);           // → '1,000,000'
 formatNumber(1000000, 'en-IN');  // → '10,00,000'`}</Pre>
           </div>
+          <div>
+            <SectionLabel $color={red.m700}>Source</SectionLabel>
+            <Pre>{`const formatNumber = (num, locale = 'en-US') => {
+  if (typeof num !== 'number') return num;
+  return new Intl.NumberFormat(locale).format(num);
+};`}</Pre>
+          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -504,6 +521,13 @@ const FormatCurrencyPage = () => (
 formatCurrency(price);          // → '$12.99'
 formatCurrency(price, 'GBP');   // → '£12.99'`}</Pre>
           </div>
+          <div>
+            <SectionLabel $color={green.m700}>Source</SectionLabel>
+            <Pre>{`const formatCurrency = (num, currency = 'USD', locale = 'en-US') => {
+  if (typeof num !== 'number') return num;
+  return new Intl.NumberFormat(locale, { style: 'currency', currency }).format(num);
+};`}</Pre>
+          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -553,6 +577,16 @@ const FormatCompactNumberPage = () => (
 
 formatCompactNumber(followerCount);  // → '12.4K'`}</Pre>
           </div>
+          <div>
+            <SectionLabel $color={teal.m700}>Source</SectionLabel>
+            <Pre>{`const formatCompactNumber = (num, locale = 'en-US') => {
+  if (typeof num !== 'number') return num;
+  return new Intl.NumberFormat(locale, {
+    notation: 'compact',
+    compactDisplay: 'short',
+  }).format(num);
+};`}</Pre>
+          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -598,6 +632,14 @@ const RoundToPage = () => (
 
 const price = roundTo(rawPrice, 2);   // → 9.99
 const score = roundTo(98.456, 1);     // → 98.5`}</Pre>
+          </div>
+          <div>
+            <SectionLabel $color={purple.m700}>Source</SectionLabel>
+            <Pre>{`const roundTo = (num, decimals = 0) => {
+  if (typeof num !== 'number') return num;
+  const factor = Math.pow(10, decimals);
+  return Math.round(num * factor) / factor;
+};`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -684,6 +726,10 @@ const RandomBetweenPage = () => {
 
 const opacity = randomBetween(0.2, 0.9);  // float in [0.2, 0.9]`}</Pre>
             </div>
+            <div>
+              <SectionLabel $color={orange.m700}>Source</SectionLabel>
+              <Pre>{`const randomBetween = (min, max) => Math.random() * (max - min) + min;`}</Pre>
+            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -731,6 +777,10 @@ const ClampPage = () => (
 
 const volume = clamp(userInput, 0, 100);   // always 0–100
 const alpha  = clamp(rawAlpha,  0, 1);     // always 0–1`}</Pre>
+          </div>
+          <div>
+            <SectionLabel $color={indigo.m700}>Source</SectionLabel>
+            <Pre>{`const clamp = (value, min, max) => Math.min(Math.max(value, min), max);`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -783,6 +833,14 @@ const PercentagePage = () => (
 const progress = percentage(completed, total);  // → 66.67
 const share    = percentage(votes, totalVotes, 1);  // → 42.3`}</Pre>
           </div>
+          <div>
+            <SectionLabel $color={yellow.m800}>Source</SectionLabel>
+            <Pre>{`const percentage = (part, total, decimals = 2) => {
+  if (typeof part !== 'number' || typeof total !== 'number' || total === 0) return 0;
+  const factor = Math.pow(10, decimals);
+  return Math.round((part / total) * 100 * factor) / factor;
+};`}</Pre>
+          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -794,7 +852,7 @@ const share    = percentage(votes, totalVotes, 1);  // → 42.3`}</Pre>
 // ═════════════════════════════════════════════════════════════════════════════
 
 export default {
-  title: 'Utils/Number Utilities',
+  title: 'Utilities/Number Utilities',
   parameters: {
     controls: { disable: true },
     actions: { disable: true },

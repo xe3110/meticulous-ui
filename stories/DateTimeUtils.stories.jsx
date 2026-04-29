@@ -289,6 +289,16 @@ const FormatDatePage = () => (
 formatDate(post.createdAt);              // → 'April 28, 2026'
 formatDate(post.createdAt, 'en-IN');     // → '28 April 2026'`}</Pre>
           </div>
+          <div>
+            <SectionLabel $color={teal.m700}>Source</SectionLabel>
+            <Pre>{`const formatDate = (date, locale = 'en-US') => {
+  const d = date instanceof Date ? date : new Date(date);
+  if (isNaN(d)) return '';
+  return new Intl.DateTimeFormat(locale, {
+    year: 'numeric', month: 'long', day: 'numeric',
+  }).format(d);
+};`}</Pre>
+          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -348,6 +358,16 @@ const FormatTimePage = () => (
             <Pre>{`import formatTime from 'meticulous-ui/utils/formatTime';
 
 formatTime(message.sentAt);   // → '3:30 PM'`}</Pre>
+          </div>
+          <div>
+            <SectionLabel $color={blue.m700}>Source</SectionLabel>
+            <Pre>{`const formatTime = (date, locale = 'en-US') => {
+  const d = date instanceof Date ? date : new Date(date);
+  if (isNaN(d)) return '';
+  return new Intl.DateTimeFormat(locale, {
+    hour: 'numeric', minute: '2-digit', hour12: true,
+  }).format(d);
+};`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -412,6 +432,26 @@ const TimeAgoPage = () => (
 
 timeAgo(comment.createdAt);   // → '5 minutes ago'`}</Pre>
           </div>
+          <div>
+            <SectionLabel $color={violet.m700}>Source</SectionLabel>
+            <Pre>{`const timeAgo = (date) => {
+  const d = date instanceof Date ? date : new Date(date);
+  const seconds = Math.floor((Date.now() - d.getTime()) / 1000);
+  const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
+
+  const abs = Math.abs(seconds);
+  if (abs < 60) return rtf.format(-Math.round(seconds), 'second');
+  const minutes = Math.round(seconds / 60);
+  if (Math.abs(minutes) < 60) return rtf.format(-minutes, 'minute');
+  const hours = Math.round(minutes / 60);
+  if (Math.abs(hours) < 24) return rtf.format(-hours, 'hour');
+  const days = Math.round(hours / 24);
+  if (Math.abs(days) < 30) return rtf.format(-days, 'day');
+  const months = Math.round(days / 30);
+  if (Math.abs(months) < 12) return rtf.format(-months, 'month');
+  return rtf.format(-Math.round(months / 12), 'year');
+};`}</Pre>
+          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -467,6 +507,18 @@ const IsTodayPage = () => (
             <Pre>{`import isToday from 'meticulous-ui/utils/isToday';
 
 if (isToday(task.dueDate)) showTodayBadge();`}</Pre>
+          </div>
+          <div>
+            <SectionLabel $color={green.m700}>Source</SectionLabel>
+            <Pre>{`const isToday = (date) => {
+  const d = date instanceof Date ? date : new Date(date);
+  const now = new Date();
+  return (
+    d.getFullYear() === now.getFullYear() &&
+    d.getMonth() === now.getMonth() &&
+    d.getDate() === now.getDate()
+  );
+};`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -524,6 +576,13 @@ const IsPastPage = () => (
 
 if (isPast(subscription.expiresAt)) showRenewalBanner();`}</Pre>
           </div>
+          <div>
+            <SectionLabel $color={orange.m700}>Source</SectionLabel>
+            <Pre>{`const isPast = (date) => {
+  const d = date instanceof Date ? date : new Date(date);
+  return d.getTime() < Date.now();
+};`}</Pre>
+          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -580,6 +639,14 @@ const AddDaysPage = () => (
 
 const expiry = addDays(new Date(), 30);   // 30 days from today
 const prev   = addDays(selectedDate, -1); // previous day`}</Pre>
+          </div>
+          <div>
+            <SectionLabel $color={indigo.m700}>Source</SectionLabel>
+            <Pre>{`const addDays = (date, n) => {
+  const d = date instanceof Date ? new Date(date) : new Date(date);
+  d.setDate(d.getDate() + n);
+  return d;
+};`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -642,6 +709,14 @@ const DifferenceInDaysPage = () => (
 
 const daysLeft = differenceInDays(new Date(), deadline);
 // → 14  (two weeks remaining)`}</Pre>
+          </div>
+          <div>
+            <SectionLabel $color={pink.m700}>Source</SectionLabel>
+            <Pre>{`const differenceInDays = (a, b) => {
+  const da = a instanceof Date ? a : new Date(a);
+  const db = b instanceof Date ? b : new Date(b);
+  return Math.round((db.getTime() - da.getTime()) / (1000 * 60 * 60 * 24));
+};`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -715,6 +790,15 @@ const GetGreetingByTimePage = () => {
 
 <h1>{getGreetingByTime()}, {user.firstName}!</h1>
 // → 'Good morning, Alex!'`}</Pre>
+            </div>
+            <div>
+              <SectionLabel $color={yellow.m800}>Source</SectionLabel>
+              <Pre>{`const getGreetingByTime = () => {
+  const hour = new Date().getHours();
+  if (hour < 12) return 'Good morning';
+  if (hour < 17) return 'Good afternoon';
+  return 'Good evening';
+};`}</Pre>
             </div>
           </CardBody>
         </Card>
@@ -832,6 +916,19 @@ const CountdownPage = () => {
 const { days, hours, minutes, seconds } = countdown(event.startsAt);
 // Re-call every second with setInterval to drive a live timer`}</Pre>
             </div>
+            <div>
+              <SectionLabel $color={purple.m700}>Source</SectionLabel>
+              <Pre>{`const countdown = (targetDate) => {
+  const target = targetDate instanceof Date ? targetDate : new Date(targetDate);
+  const diff = Math.max(0, target.getTime() - Date.now());
+  return {
+    days:    Math.floor(diff / (1000 * 60 * 60 * 24)),
+    hours:   Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+    minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
+    seconds: Math.floor((diff % (1000 * 60)) / 1000),
+  };
+};`}</Pre>
+            </div>
           </CardBody>
         </Card>
       </MaxWidth>
@@ -844,7 +941,7 @@ const { days, hours, minutes, seconds } = countdown(event.startsAt);
 // ═════════════════════════════════════════════════════════════════════════════
 
 export default {
-  title: 'Utils/Date-Time Utilities',
+  title: 'Utilities/Date-Time Utilities',
   parameters: {
     controls: { disable: true },
     actions: { disable: true },

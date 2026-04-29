@@ -224,6 +224,13 @@ if (!isEmail(formData.email)) {
   setError('email', 'Enter a valid email address');
 }`}</Pre>
           </div>
+          <div>
+            <SectionLabel $color={blue.m700}>Source</SectionLabel>
+            <Pre>{`const isEmail = (value) => {
+  if (typeof value !== 'string') return false;
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+};`}</Pre>
+          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -276,6 +283,13 @@ const IsPhonePage = () => (
 if (!isPhone(formData.phone)) {
   setError('phone', 'Enter a valid phone number');
 }`}</Pre>
+          </div>
+          <div>
+            <SectionLabel $color={teal.m700}>Source</SectionLabel>
+            <Pre>{`const isPhone = (value) => {
+  if (typeof value !== 'string') return false;
+  return /^[+]?[\d\s\-().]{7,15}$/.test(value.trim());
+};`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -336,6 +350,18 @@ const IsURLPage = () => (
 if (!isURL(formData.website)) {
   setError('website', 'Enter a valid URL starting with http(s)://');
 }`}</Pre>
+          </div>
+          <div>
+            <SectionLabel $color={violet.m700}>Source</SectionLabel>
+            <Pre>{`const isURL = (value) => {
+  if (typeof value !== 'string') return false;
+  try {
+    const url = new URL(value.trim());
+    return url.protocol === 'http:' || url.protocol === 'https:';
+  } catch {
+    return false;
+  }
+};`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -402,6 +428,14 @@ if (!isPasswordStrong(formData.password)) {
   setError('password', 'Password must be 8+ chars with upper, lower, digit & special char');
 }`}</Pre>
           </div>
+          <div>
+            <SectionLabel $color={purple.m700}>Source</SectionLabel>
+            <Pre>{`// min 8 chars, uppercase, lowercase, digit, special char
+const isPasswordStrong = (value) => {
+  if (typeof value !== 'string') return false;
+  return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$/.test(value);
+};`}</Pre>
+          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -465,6 +499,14 @@ const IsPANPage = () => (
 if (!isPAN(formData.pan)) {
   setError('pan', 'Enter a valid PAN number');
 }`}</Pre>
+          </div>
+          <div>
+            <SectionLabel $color={orange.m700}>Source</SectionLabel>
+            <Pre>{`// 5 letters + 4 digits + 1 letter (case-insensitive)
+const isPAN = (value) => {
+  if (typeof value !== 'string') return false;
+  return /^[A-Z]{5}[0-9]{4}[A-Z]$/i.test(value.trim());
+};`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -534,6 +576,15 @@ if (!isAadhaar(formData.aadhaar)) {
   setError('aadhaar', 'Enter a valid 12-digit Aadhaar number');
 }`}</Pre>
           </div>
+          <div>
+            <SectionLabel $color={cyan.m700}>Source</SectionLabel>
+            <Pre>{`// 12 digits, first digit non-zero; spaces stripped before check
+const isAadhaar = (value) => {
+  if (typeof value !== 'string') return false;
+  const digits = value.replace(/\s/g, '');
+  return /^[1-9]\d{11}$/.test(digits);
+};`}</Pre>
+          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -593,6 +644,14 @@ const IsGSTPage = () => (
 if (!isGST(formData.gstin)) {
   setError('gstin', 'Enter a valid GSTIN');
 }`}</Pre>
+          </div>
+          <div>
+            <SectionLabel $color={indigo.m700}>Source</SectionLabel>
+            <Pre>{`// 2-digit state + PAN (10) + 1 digit + Z + 1 alphanumeric
+const isGST = (value) => {
+  if (typeof value !== 'string') return false;
+  return /^\d{2}[A-Z]{5}\d{4}[A-Z]{1}\d{1}Z[A-Z\d]{1}$/i.test(value.trim());
+};`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -654,6 +713,15 @@ if (!isRequired(formData.name)) {
   setError('name', 'This field is required');
 }`}</Pre>
           </div>
+          <div>
+            <SectionLabel $color={blueGray.m700}>Source</SectionLabel>
+            <Pre>{`const isRequired = (value) => {
+  if (value === null || value === undefined) return false;
+  if (typeof value === 'string') return value.trim().length > 0;
+  if (Array.isArray(value)) return value.length > 0;
+  return true;
+};`}</Pre>
+          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -709,6 +777,13 @@ const MinLengthPage = () => (
 if (!minLength(formData.bio, 20)) {
   setError('bio', 'Bio must be at least 20 characters');
 }`}</Pre>
+          </div>
+          <div>
+            <SectionLabel $color={green.m700}>Source</SectionLabel>
+            <Pre>{`const minLength = (value, n) => {
+  if (typeof value !== 'string') return false;
+  return value.length >= n;
+};`}</Pre>
           </div>
         </CardBody>
       </Card>
@@ -766,6 +841,13 @@ if (!maxLength(formData.username, 20)) {
   setError('username', 'Username cannot exceed 20 characters');
 }`}</Pre>
           </div>
+          <div>
+            <SectionLabel $color={pink.m700}>Source</SectionLabel>
+            <Pre>{`const maxLength = (value, n) => {
+  if (typeof value !== 'string') return false;
+  return value.length <= n;
+};`}</Pre>
+          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -777,7 +859,7 @@ if (!maxLength(formData.username, 20)) {
 // ═════════════════════════════════════════════════════════════════════════════
 
 export default {
-  title: 'Utils/Validation Utilities',
+  title: 'Utilities/Validation Utilities',
   parameters: {
     controls: { disable: true },
     actions: { disable: true },

@@ -90,6 +90,23 @@ import toggleFullscreen from './toggleFullscreen';
 import focusElement from './focusElement';
 import detectOutsideClick from './detectOutsideClick';
 import measureElement from './measureElement';
+import announceToScreenReader from './announceToScreenReader';
+import trapFocus from './trapFocus';
+import generateAriaId from './generateAriaId';
+import handleKeyboardNavigation from './handleKeyboardNavigation';
+import logError from './logError';
+import captureException from './captureException';
+import safeJSONParse from './safeJSONParse';
+import safeJSONStringify from './safeJSONStringify';
+import fallback from './fallback';
+import isAuthenticated from './isAuthenticated';
+import getToken from './getToken';
+import setToken from './setToken';
+import removeToken from './removeToken';
+import decodeJWT from './decodeJWT';
+import hasPermission from './hasPermission';
+import isFeatureEnabled from './isFeatureEnabled';
+import getVariant from './getVariant';
 import retry from './retry';
 import sleep from './sleep';
 import withTimeout from './withTimeout';
@@ -210,6 +227,31 @@ export default {
   focusElement,
   detectOutsideClick,
   measureElement,
+
+  // accessibility
+  announceToScreenReader,
+  trapFocus,
+  generateAriaId,
+  handleKeyboardNavigation,
+
+  // error handling
+  logError,
+  captureException,
+  safeJSONParse,
+  safeJSONStringify,
+  fallback,
+
+  // auth
+  isAuthenticated,
+  getToken,
+  setToken,
+  removeToken,
+  decodeJWT,
+  hasPermission,
+
+  // feature flags
+  isFeatureEnabled,
+  getVariant,
 
   // async / api
   retry,

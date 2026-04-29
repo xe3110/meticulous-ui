@@ -142,19 +142,23 @@ import blue from 'meticulous-ui/colors/blue';
 
 ## 📦 Utils
 
-| Category        | Functions                                                                                                                                                                          |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **String**      | `capFirstLetter`, `capitalize`, `titleCase`, `camelCase`, `snakeCase`, `kebabCase`, `slugify`, `truncate`, `removeExtraSpaces`, `maskEmail`, `maskPhone`, `generateInitials`,      |
-| **Number**      | `clamp`, `formatCurrency`, `formatNumber`, `formatCompactNumber`, `percentage`, `randomInt`, `randomBetween`, `randomValue`, `roundTo`,                                            |
-| **Date-Time**   | `formatDate`, `formatTime`, `addDays`, `differenceInDays`, `isToday`, `isPast`, `timeAgo`, `getGreetingByTime`, `countdown`,                                                       |
-| **Data**        | `deepClone`, `mergeDeep`, `pick`, `omit`, `isEmpty`, `isEqual`, `hasEqualProps`, `isNonEmptyArray`, `flattenObject`, `groupBy`, `keyBy`, `uniqueBy`, `sortBy`, `chunk`, `compose`, |
-| **Validation**  | `isEmail`, `isPhone`, `isURL`, `isPasswordStrong`, `isPAN`, `isAadhaar`, `isGST`, `isRequired`, `minLength`, `maxLength`,                                                          |
-| **Device**      | `isMobile`, `isIOS`, `isAndroid`, `isSafari`, `isDarkMode`, `isOnline`, `copyToClipboard`, `downloadFile`, `openInNewTab`, `getScreenSize`,                                        |
-| **Storage**     | `setLocalStorage`, `getLocalStorage`, `removeLocalStorage`, `setSessionStorage`, `getSessionStorage`, `clearStorage`,                                                              |
-| **Routing**     | `getQueryParams`, `setQueryParam`, `removeQueryParam`, `buildURL`, `redirectTo`, `getCurrentPath`, `isActiveRoute`,                                                                |
-| **UI**          | `scrollToTop`, `scrollToElement`, `lockBodyScroll`, `unlockBodyScroll`, `toggleFullscreen`, `focusElement`, `detectOutsideClick`, `measureElement`,                                |
-| **Performance** | `debounce`, `throttle`, `memoize`, `lazyLoadComponent`, `requestIdleTask`, `rafThrottle`,                                                                                          |
-| **Async**       | `retry`, `sleep`, `withTimeout`, `parallel`, `sequential`, `safeAsync`, `cancelablePromise`                                                                                        |
+| Category           | Functions                                                                                                                                                                          |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **String**         | `capFirstLetter`, `capitalize`, `titleCase`, `camelCase`, `snakeCase`, `kebabCase`, `slugify`, `truncate`, `removeExtraSpaces`, `maskEmail`, `maskPhone`, `generateInitials`,      |
+| **Number**         | `clamp`, `formatCurrency`, `formatNumber`, `formatCompactNumber`, `percentage`, `randomInt`, `randomBetween`, `randomValue`, `roundTo`,                                            |
+| **Date-Time**      | `formatDate`, `formatTime`, `addDays`, `differenceInDays`, `isToday`, `isPast`, `timeAgo`, `getGreetingByTime`, `countdown`,                                                       |
+| **Data**           | `deepClone`, `mergeDeep`, `pick`, `omit`, `isEmpty`, `isEqual`, `hasEqualProps`, `isNonEmptyArray`, `flattenObject`, `groupBy`, `keyBy`, `uniqueBy`, `sortBy`, `chunk`, `compose`, |
+| **Validation**     | `isEmail`, `isPhone`, `isURL`, `isPasswordStrong`, `isPAN`, `isAadhaar`, `isGST`, `isRequired`, `minLength`, `maxLength`,                                                          |
+| **Device**         | `isMobile`, `isIOS`, `isAndroid`, `isSafari`, `isDarkMode`, `isOnline`, `copyToClipboard`, `downloadFile`, `openInNewTab`, `getScreenSize`,                                        |
+| **Storage**        | `setLocalStorage`, `getLocalStorage`, `removeLocalStorage`, `setSessionStorage`, `getSessionStorage`, `clearStorage`,                                                              |
+| **Routing**        | `getQueryParams`, `setQueryParam`, `removeQueryParam`, `buildURL`, `redirectTo`, `getCurrentPath`, `isActiveRoute`,                                                                |
+| **UI**             | `scrollToTop`, `scrollToElement`, `lockBodyScroll`, `unlockBodyScroll`, `toggleFullscreen`, `focusElement`, `detectOutsideClick`, `measureElement`,                                |
+| **Performance**    | `debounce`, `throttle`, `memoize`, `lazyLoadComponent`, `requestIdleTask`, `rafThrottle`,                                                                                          |
+| **Async**          | `retry`, `sleep`, `withTimeout`, `parallel`, `sequential`, `safeAsync`, `cancelablePromise`                                                                                        |
+| **Accessibility**  | `announceToScreenReader`, `trapFocus`, `generateAriaId`, `handleKeyboardNavigation`                                                                                                |
+| **Error Handling** | `logError`, `captureException`, `safeJSONParse`, `safeJSONStringify`, `fallback`                                                                                                   |
+| **Auth**           | `isAuthenticated`, `getToken`, `setToken`, `removeToken`, `decodeJWT`, `hasPermission`                                                                                             |
+| **Feature Flags**  | `isFeatureEnabled`, `getVariant`                                                                                                                                                   |
 
 ## 🌱 Features
 

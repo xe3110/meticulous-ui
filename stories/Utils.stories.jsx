@@ -211,6 +211,13 @@ const toUpper        = (s) => s.toUpperCase();
 const shout = compose(addExclamation, toUpper);
 shout('hello');  // → 'HELLO!'`}</Pre>
           </div>
+          <div>
+            <SectionLabel $color={teal.m700}>Source</SectionLabel>
+            <Pre>{`const compose =
+  (...funcs) =>
+  (val) =>
+    funcs.reduceRight((cv, cf) => cf(cv), val);`}</Pre>
+          </div>
         </CardBody>
       </Card>
     </MaxWidth>
@@ -222,7 +229,7 @@ shout('hello');  // → 'HELLO!'`}</Pre>
 // ═════════════════════════════════════════════════════════════════════════════
 
 export default {
-  title: 'Utils/Function Utilities',
+  title: 'Utilities/Function Utilities',
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
