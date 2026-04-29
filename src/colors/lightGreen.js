@@ -1,4 +1,4 @@
-export default {
+export const lightGreen = {
   m50: '#F1F8E9',
   m100: '#DCEDC8',
   m200: '#C5E1A5',
@@ -14,3 +14,5 @@ export default {
   a400: '#76FF03',
   a700: '#64DD17',
 };
+
+export default lightGreen;

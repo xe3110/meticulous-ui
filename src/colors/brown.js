@@ -1,4 +1,4 @@
-export default {
+export const brown = {
   m50: '#EFEBE9',
   m100: '#D7CCC8',
   m200: '#BCAAA4',
@@ -10,3 +10,5 @@ export default {
   m800: '#4E342E',
   m900: '#3E2723',
 };
+
+export default brown;

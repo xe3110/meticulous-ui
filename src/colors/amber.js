@@ -1,4 +1,4 @@
-export default {
+export const amber = {
   m50: '#FFF8E1',
   m100: '#FFECB3',
   m200: '#FFE082',
@@ -14,3 +14,5 @@ export default {
   a400: '#FFC400',
   a700: '#FFAB00',
 };
+
+export default amber;

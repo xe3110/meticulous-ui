@@ -1,4 +1,4 @@
-export default {
+export const red = {
   m50: '#FFEBEE',
   m100: '#FFCDD2',
   m200: '#EF9A9A',
@@ -14,3 +14,5 @@ export default {
   a400: '#FF1744',
   a700: '#D50000',
 };
+
+export default red;

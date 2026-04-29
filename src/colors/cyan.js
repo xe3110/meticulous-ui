@@ -1,4 +1,4 @@
-export default {
+export const cyan = {
   m50: '#E0F7FA',
   m100: '#B2EBF2',
   m200: '#80DEEA',
@@ -14,3 +14,5 @@ export default {
   a400: '#00E5FF',
   a700: '#00B8D4',
 };
+
+export default cyan;

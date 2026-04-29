@@ -1,4 +1,4 @@
-export default {
+export const orange = {
   m50: '#FFF3E0',
   m100: '#FFE0B2',
   m200: '#FFCC80',
@@ -14,3 +14,5 @@ export default {
   a400: '#FF9100',
   a700: '#FF6D00',
 };
+
+export default orange;

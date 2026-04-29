@@ -1,4 +1,4 @@
-export default {
+export const grey = {
   m50: '#FAFAFA',
   m100: '#F5F5F5',
   m200: '#EEEEEE',
@@ -10,3 +10,5 @@ export default {
   m800: '#424242',
   m900: '#212121',
 };
+
+export default grey;

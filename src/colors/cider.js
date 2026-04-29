@@ -1,4 +1,4 @@
-export default {
+export const cider = {
   m50: '#FFF1E6',
   m100: '#FFD9B8',
   m200: '#FFBF8A',
@@ -10,3 +10,5 @@ export default {
   m800: '#803300',
   m900: '#4D1A00',
 };
+
+export default cider;

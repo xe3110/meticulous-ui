@@ -1,1 +1,3 @@
-export default '#FFFFFF';
+export const white = '#FFFFFF';
+
+export default white;

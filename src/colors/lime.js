@@ -1,4 +1,4 @@
-export default {
+export const lime = {
   m50: '#F9FBE7',
   m100: '#F0F4C3',
   m200: '#E6EE9C',
@@ -14,3 +14,5 @@ export default {
   a400: '#C6FF00',
   a700: '#AEEA00',
 };
+
+export default lime;

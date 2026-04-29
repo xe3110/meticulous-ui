@@ -1,4 +1,4 @@
-export default {
+export const yellow = {
   m50: '#FFFDE7',
   m100: '#FFF9C4',
   m200: '#FFF59D',
@@ -14,3 +14,5 @@ export default {
   a400: '#FFEA00',
   a700: '#FFD600',
 };
+
+export default yellow;

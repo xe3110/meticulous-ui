@@ -1,4 +1,4 @@
-export default {
+export const violet = {
   m50: '#F3E8FF',
   m100: '#E1BFFF',
   m200: '#CE96FF',
@@ -14,3 +14,5 @@ export default {
   a400: '#9400FF',
   a700: '#7A00E6',
 };
+
+export default violet;

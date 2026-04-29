@@ -23,7 +23,27 @@ import { white } from './white';
 import { yellow } from './yellow';
 
 export {
-  amber, black, blue, blueGray, brown, cider, cyan, deepOrange,
-  deepPurple, green, grey, indigo, lightBlue, lightGreen, lime,
-  orange, pink, purple, red, teal, violet, white, yellow
+  amber,
+  black,
+  blue,
+  blueGray,
+  brown,
+  cider,
+  cyan,
+  deepOrange,
+  deepPurple,
+  green,
+  grey,
+  indigo,
+  lightBlue,
+  lightGreen,
+  lime,
+  orange,
+  pink,
+  purple,
+  red,
+  teal,
+  violet,
+  white,
+  yellow,
 };

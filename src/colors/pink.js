@@ -1,4 +1,4 @@
-export default {
+export const pink = {
   m50: '#FCE4EC',
   m100: '#F8BBD0',
   m200: '#F48FB1',
@@ -14,3 +14,5 @@ export default {
   a400: '#F50057',
   a700: '#C51162',
 };
+
+export default pink;

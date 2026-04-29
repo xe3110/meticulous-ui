@@ -1,4 +1,4 @@
-export default {
+export const indigo = {
   m50: '#E8EAF6',
   m100: '#C5CAE9',
   m200: '#9FA8DA',
@@ -14,3 +14,5 @@ export default {
   a400: '#3D5AFE',
   a700: '#304FFE',
 };
+
+export default indigo;

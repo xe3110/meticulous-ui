@@ -1,4 +1,4 @@
-export default {
+export const blue = {
   m50: '#E3F2FD',
   m100: '#BBDEFB',
   m200: '#90CAF9',
@@ -14,3 +14,5 @@ export default {
   a400: '#2979FF',
   a700: '#2962FF',
 };
+
+export default blue;

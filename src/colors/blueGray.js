@@ -1,4 +1,4 @@
-export default {
+export const blueGray = {
   m50: '#ECEFF1',
   m100: '#CFD8DC',
   m200: '#B0BEC5',
@@ -10,3 +10,5 @@ export default {
   m800: '#37474F',
   m900: '#263238',
 };
+
+export default blueGray;

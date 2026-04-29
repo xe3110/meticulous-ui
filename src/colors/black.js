@@ -1,4 +1,4 @@
-export default {
+export const black = {
   m50: '#FAFAFA', // almost white (for very light backgrounds)
   m100: '#E0E0E0', // light gray
   m200: '#BDBDBD', // medium light gray
@@ -10,3 +10,5 @@ export default {
   m800: '#121212', // dark black
   m900: '#000000', // pure black
 };
+
+export default black;

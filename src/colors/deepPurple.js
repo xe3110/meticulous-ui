@@ -1,4 +1,4 @@
-export default {
+export const deepPurple = {
   m50: '#EDE7F6',
   m100: '#D1C4E9',
   m200: '#B39DDB',
@@ -14,3 +14,5 @@ export default {
   a400: '#651FFF',
   a700: '#6200EA',
 };
+
+export default deepPurple;

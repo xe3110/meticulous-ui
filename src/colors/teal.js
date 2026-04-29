@@ -1,4 +1,4 @@
-export default {
+export const teal = {
   m50: '#E0F2F1',
   m100: '#B2DFDB',
   m200: '#80CBC4',
@@ -14,3 +14,5 @@ export default {
   a400: '#1DE9B6',
   a700: '#00BFA5',
 };
+
+export default teal;
