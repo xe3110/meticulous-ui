@@ -306,17 +306,6 @@ const handleExport = () => {
 isFeatureEnabled('dark_mode', 'remote_flags');`}</Pre>
             </div>
             <div>
-              <SectionLabel $color={teal.m700}>Source</SectionLabel>
-              <Pre>{`const getVariant = (testName, key = 'ab_variants') => {
-  try {
-    const variants = JSON.parse(localStorage.getItem(key) ?? '{}');
-    return variants[testName] ?? null;
-  } catch {
-    return null;
-  }
-};`}</Pre>
-            </div>
-            <div>
               <SectionLabel $color={indigo.m700}>Source</SectionLabel>
               <Pre>{`const isFeatureEnabled = (flag, key = 'feature_flags') => {
   try {
@@ -521,6 +510,17 @@ return <DefaultCheckout />;   // control or null
 
 // custom storage key (set by your A/B SDK)
 getVariant('hero_banner', 'optimizely_variants');`}</Pre>
+            </div>
+            <div>
+              <SectionLabel $color={teal.m700}>Source</SectionLabel>
+              <Pre>{`const getVariant = (testName, key = 'ab_variants') => {
+  try {
+    const variants = JSON.parse(localStorage.getItem(key) ?? '{}');
+    return variants[testName] ?? null;
+  } catch {
+    return null;
+  }
+};`}</Pre>
             </div>
           </CardBody>
         </Card>
