@@ -1,6 +1,6 @@
 {
   "name": "meticulous-ui",
-  "version": "3.2.8",
+  "version": "3.2.9",
   "license": "ISC",
   "description": "A comprehensive React UI component library with a wide range of customizable components, icons, colors, and utilities for building modern web applications.",
   "main": "dist/index.js",
@@ -18,6 +18,8 @@
     "colors",
     "components",
     "utils",
+    "hooks",
+    "reactUtils",
     "package.json",
     "README.md"
   ],

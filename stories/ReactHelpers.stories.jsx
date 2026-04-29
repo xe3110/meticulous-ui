@@ -11,11 +11,11 @@ import purple from '../src/colors/purple';
 import green from '../src/colors/green';
 import amber from '../src/colors/amber';
 
-import createContextHook from '../src/react-utils/createContextHook';
-import composeProviders from '../src/react-utils/composeProviders.jsx';
-import withErrorBoundary from '../src/react-utils/withErrorBoundary.jsx';
-import withSuspense from '../src/react-utils/withSuspense.jsx';
-import memoCompare from '../src/react-utils/memoCompare';
+import createContextHook from '../src/reactUtils/createContextHook';
+import composeProviders from '../src/reactUtils/composeProviders.jsx';
+import withErrorBoundary from '../src/reactUtils/withErrorBoundary.jsx';
+import withSuspense from '../src/reactUtils/withSuspense.jsx';
+import memoCompare from '../src/reactUtils/memoCompare';
 
 // ─── Layout ───────────────────────────────────────────────────────────────────
 
@@ -198,7 +198,7 @@ const CreateContextHookPage = () => (
           </div>
           <div>
             <SectionLabel $color={indigo.m700}>Usage</SectionLabel>
-            <Pre>{`import createContextHook from 'meticulous-ui/react-utils/createContextHook';
+            <Pre>{`import createContextHook from 'meticulous-ui/reactUtils/createContextHook';
 
 const [AuthProvider, useAuth] = createContextHook(undefined);
 
@@ -303,7 +303,7 @@ const ComposeProvidersPage = () => (
           </div>
           <div>
             <SectionLabel $color={teal.m700}>Usage</SectionLabel>
-            <Pre>{`import composeProviders from 'meticulous-ui/react-utils/composeProviders';
+            <Pre>{`import composeProviders from 'meticulous-ui/reactUtils/composeProviders';
 
 // Before — deeply nested
 function App() {
@@ -372,7 +372,7 @@ const LazyImportPage = () => (
         <CardBody>
           <div>
             <SectionLabel $color={deepOrange.m700}>Usage</SectionLabel>
-            <Pre>{`import lazyImport from 'meticulous-ui/react-utils/lazyImport';
+            <Pre>{`import lazyImport from 'meticulous-ui/reactUtils/lazyImport';
 
 // Named export — normally not supported by React.lazy
 const { UserProfile } = lazyImport(() => import('./pages/UserProfile'), 'UserProfile');
@@ -479,7 +479,7 @@ const WithErrorBoundaryPage = () => (
           </div>
           <div>
             <SectionLabel $color={red.m700}>Usage</SectionLabel>
-            <Pre>{`import withErrorBoundary from 'meticulous-ui/react-utils/withErrorBoundary';
+            <Pre>{`import withErrorBoundary from 'meticulous-ui/reactUtils/withErrorBoundary';
 
 const ErrorFallback = ({ error }) => (
   <div>Something went wrong: {error.message}</div>
@@ -592,7 +592,7 @@ const WithSuspensePage = () => {
             </div>
             <div>
               <SectionLabel $color={purple.m700}>Usage</SectionLabel>
-              <Pre>{`import withSuspense from 'meticulous-ui/react-utils/withSuspense';
+              <Pre>{`import withSuspense from 'meticulous-ui/reactUtils/withSuspense';
 
 const SafeChart = withSuspense(
   LazyChart,
@@ -697,7 +697,7 @@ const MemoComparePage = () => (
           </div>
           <div>
             <SectionLabel $color={green.m700}>Usage</SectionLabel>
-            <Pre>{`import memoCompare from 'meticulous-ui/react-utils/memoCompare';
+            <Pre>{`import memoCompare from 'meticulous-ui/reactUtils/memoCompare';
 
 // Only re-render when the 'id' field changes, ignore everything else
 const UserCard = memoCompare(
@@ -796,7 +796,7 @@ const CreatePortalNodePage = () => (
             <SectionLabel $color={amber.m800}>Usage</SectionLabel>
             <Pre>{`import { useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import createPortalNode from 'meticulous-ui/react-utils/createPortalNode';
+import createPortalNode from 'meticulous-ui/reactUtils/createPortalNode';
 
 function Modal({ children, onClose }) {
   const nodeRef = useRef(null);

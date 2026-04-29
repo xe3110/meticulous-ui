@@ -34,7 +34,7 @@ export { default as utils } from './utils';
 export { default as hooks } from './hooks';
 
 // react utils
-export { default as reactUtils } from './react-utils';
+export { default as reactUtils } from './reactUtils';
 
 // icons
 export { default as icons } from './components/Icons';
