@@ -6,6 +6,7 @@ import violet from '../src/colors/deepPurple';
 import teal from '../src/colors/teal';
 import green from '../src/colors/green';
 import orange from '../src/colors/orange';
+import white from '../src/colors/white';
 
 import announceToScreenReader from '../src/utils/announceToScreenReader';
 import trapFocus from '../src/utils/trapFocus';
@@ -30,7 +31,7 @@ const MaxWidth = styled.div`
 `;
 
 const Card = styled.div`
-  background: #fff;
+  background: ${white};
   border-radius: 14px;
   border-left: 6px solid ${({ $accent }) => $accent};
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.09);
@@ -91,7 +92,7 @@ const Code = styled.code`
 
 const Pre = styled.pre`
   background: ${blueGray.m900};
-  color: #e2e8f0;
+  color: ${blueGray.m100};
   border-radius: 10px;
   padding: 2rem 2.4rem;
   font-size: 1.25rem;
@@ -108,7 +109,7 @@ const DemoButton = styled.button`
   font-size: 1.4rem;
   font-weight: 600;
   background: ${({ $bg }) => $bg};
-  color: #fff;
+  color: ${white};
   transition: opacity 0.15s;
   &:hover {
     opacity: 0.85;
@@ -155,7 +156,7 @@ const AnnounceToScreenReaderPage = () => {
     <StoryPage $bg={violet.m50}>
       <MaxWidth>
         <Card $accent={violet.m500}>
-          <CardHeader $bg='#fff' $border={violet.m100}>
+          <CardHeader $bg={white} $border={violet.m100}>
             <div>
               <FnName $color={violet.m900} $bg={violet.m100}>
                 announceToScreenReader
@@ -206,7 +207,7 @@ const AnnounceToScreenReaderPage = () => {
                     <div key={ts} style={{ marginBottom: '0.4rem' }}>
                       <Badge
                         $bg={politeness === 'assertive' ? violet.m800 : violet.m200}
-                        $color={politeness === 'assertive' ? '#fff' : violet.m800}
+                        $color={politeness === 'assertive' ? white : violet.m800}
                         style={{ marginRight: '0.8rem', fontSize: '1.1rem' }}
                       >
                         {politeness}
@@ -276,7 +277,7 @@ const TrapFocusPage = () => {
     <StoryPage $bg={teal.m50}>
       <MaxWidth>
         <Card $accent={teal.m500}>
-          <CardHeader $bg='#fff' $border={teal.m100}>
+          <CardHeader $bg={white} $border={teal.m100}>
             <div>
               <FnName $color={teal.m900} $bg={teal.m100}>
                 trapFocus
@@ -314,7 +315,7 @@ const TrapFocusPage = () => {
                   style={{
                     marginTop: '1.6rem',
                     padding: '2.4rem',
-                    background: '#fff',
+                    background: white,
                     border: `2px solid ${teal.m400}`,
                     borderRadius: 12,
                     boxShadow: '0 4px 24px rgba(0,0,0,0.12)',
@@ -413,7 +414,7 @@ const GenerateAriaIdPage = () => {
     <StoryPage $bg={green.m50}>
       <MaxWidth>
         <Card $accent={green.m500}>
-          <CardHeader $bg='#fff' $border={green.m100}>
+          <CardHeader $bg={white} $border={green.m100}>
             <div>
               <FnName $color={green.m900} $bg={green.m100}>
                 generateAriaId
@@ -543,7 +544,7 @@ const HandleKeyboardNavigationPage = () => {
     <StoryPage $bg={orange.m50}>
       <MaxWidth>
         <Card $accent={orange.m500}>
-          <CardHeader $bg='#fff' $border={orange.m100}>
+          <CardHeader $bg={white} $border={orange.m100}>
             <div>
               <FnName $color={orange.m900} $bg={orange.m100}>
                 handleKeyboardNavigation
@@ -592,7 +593,7 @@ const HandleKeyboardNavigationPage = () => {
                   padding: '1.2rem',
                   border: `2px solid ${orange.m200}`,
                   borderRadius: 10,
-                  background: '#fff',
+                  background: white,
                 }}
               >
                 {fruits.map((fruit, i) => (
@@ -607,7 +608,7 @@ const HandleKeyboardNavigationPage = () => {
                       fontSize: '1.4rem',
                       cursor: 'pointer',
                       background: i === activeIndex ? orange.m500 : orange.m50,
-                      color: i === activeIndex ? '#fff' : orange.m800,
+                      color: i === activeIndex ? white : orange.m800,
                       fontWeight: i === activeIndex ? 700 : 400,
                       transition: 'background 0.15s, color 0.15s',
                       border:

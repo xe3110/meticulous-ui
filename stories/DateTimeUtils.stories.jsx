@@ -11,6 +11,7 @@ import indigo from '../src/colors/indigo';
 import pink from '../src/colors/pink';
 import yellow from '../src/colors/yellow';
 import purple from '../src/colors/purple';
+import white from '../src/colors/white';
 
 import formatDate from '../src/utils/formatDate';
 import formatTime from '../src/utils/formatTime';
@@ -42,7 +43,7 @@ const MaxWidth = styled.div`
 // ─── Card ─────────────────────────────────────────────────────────────────────
 
 const Card = styled.div`
-  background: #fff;
+  background: ${white};
   border-radius: 14px;
   border-left: 6px solid ${({ $accent }) => $accent};
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.09);
@@ -160,7 +161,7 @@ const ExamplesTable = ({ rows, outputColor }) => (
 
 const Pre = styled.pre`
   background: ${blueGray.m900};
-  color: #e2e8f0;
+  color: ${blueGray.m100};
   border-radius: 10px;
   padding: 2rem 2.4rem;
   font-size: 1.25rem;
@@ -241,7 +242,7 @@ const FormatDatePage = () => (
   <StoryPage $bg={teal.m50}>
     <MaxWidth>
       <Card $accent={teal.m500}>
-        <CardHeader $bg='#fff' $border={teal.m100}>
+        <CardHeader $bg={white} $border={teal.m100}>
           <div>
             <FnName $color={teal.m900} $bg={teal.m100}>
               formatDate
@@ -313,7 +314,7 @@ const FormatTimePage = () => (
   <StoryPage $bg={blue.m50}>
     <MaxWidth>
       <Card $accent={blue.m500}>
-        <CardHeader $bg='#fff' $border={blue.m100}>
+        <CardHeader $bg={white} $border={blue.m100}>
           <div>
             <FnName $color={blue.m900} $bg={blue.m100}>
               formatTime
@@ -383,7 +384,7 @@ const TimeAgoPage = () => (
   <StoryPage $bg={violet.m50}>
     <MaxWidth>
       <Card $accent={violet.m500}>
-        <CardHeader $bg='#fff' $border={violet.m100}>
+        <CardHeader $bg={white} $border={violet.m100}>
           <div>
             <FnName $color={violet.m900} $bg={violet.m100}>
               timeAgo
@@ -466,7 +467,7 @@ const IsTodayPage = () => (
   <StoryPage $bg={green.m50}>
     <MaxWidth>
       <Card $accent={green.m500}>
-        <CardHeader $bg='#fff' $border={green.m100}>
+        <CardHeader $bg={white} $border={green.m100}>
           <div>
             <FnName $color={green.m900} $bg={green.m100}>
               isToday
@@ -534,7 +535,7 @@ const IsPastPage = () => (
   <StoryPage $bg={orange.m50}>
     <MaxWidth>
       <Card $accent={orange.m600}>
-        <CardHeader $bg='#fff' $border={orange.m100}>
+        <CardHeader $bg={white} $border={orange.m100}>
           <div>
             <FnName $color={orange.m900} $bg={orange.m100}>
               isPast
@@ -597,7 +598,7 @@ const AddDaysPage = () => (
   <StoryPage $bg={indigo.m50}>
     <MaxWidth>
       <Card $accent={indigo.m500}>
-        <CardHeader $bg='#fff' $border={indigo.m100}>
+        <CardHeader $bg={white} $border={indigo.m100}>
           <div>
             <FnName $color={indigo.m900} $bg={indigo.m100}>
               addDays
@@ -662,7 +663,7 @@ const DifferenceInDaysPage = () => (
   <StoryPage $bg={pink.m50}>
     <MaxWidth>
       <Card $accent={pink.m500}>
-        <CardHeader $bg='#fff' $border={pink.m100}>
+        <CardHeader $bg={white} $border={pink.m100}>
           <div>
             <FnName $color={pink.m900} $bg={pink.m100}>
               differenceInDays
@@ -736,7 +737,7 @@ const GetGreetingByTimePage = () => {
     <StoryPage $bg={yellow.m50}>
       <MaxWidth>
         <Card $accent={yellow.m800}>
-          <CardHeader $bg='#fff' $border={yellow.m200}>
+          <CardHeader $bg={white} $border={yellow.m200}>
             <div>
               <FnName $color={yellow.m900} $bg={yellow.m200}>
                 getGreetingByTime
@@ -833,7 +834,7 @@ const CountdownPage = () => {
     <StoryPage $bg={purple.m50}>
       <MaxWidth>
         <Card $accent={purple.m500}>
-          <CardHeader $bg='#fff' $border={purple.m100}>
+          <CardHeader $bg={white} $border={purple.m100}>
             <div>
               <FnName $color={purple.m900} $bg={purple.m100}>
                 countdown

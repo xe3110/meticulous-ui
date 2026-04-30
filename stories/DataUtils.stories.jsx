@@ -15,6 +15,7 @@ import brown from '../src/colors/brown';
 import orange from '../src/colors/orange';
 import cider from '../src/colors/cider';
 import grey from '../src/colors/grey';
+import white from '../src/colors/white';
 
 import hasEqualProps from '../src/utils/hasEqualProps';
 import isNonEmptyArray from '../src/utils/isNonEmptyArray';
@@ -51,7 +52,7 @@ const MaxWidth = styled.div`
 // ─── Card ─────────────────────────────────────────────────────────────────────
 
 const Card = styled.div`
-  background: #fff;
+  background: ${white};
   border-radius: 14px;
   border-left: 6px solid ${({ $accent }) => $accent};
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.09);
@@ -169,7 +170,7 @@ const ExamplesTable = ({ rows, outputColor }) => (
 
 const Pre = styled.pre`
   background: ${blueGray.m900};
-  color: #e2e8f0;
+  color: ${blueGray.m100};
   border-radius: 10px;
   padding: 2rem 2.4rem;
   font-size: 1.25rem;
@@ -186,7 +187,7 @@ const DeepClonePage = () => (
   <StoryPage $bg={indigo.m50}>
     <MaxWidth>
       <Card $accent={indigo.m500}>
-        <CardHeader $bg='#fff' $border={indigo.m100}>
+        <CardHeader $bg={white} $border={indigo.m100}>
           <div>
             <FnName $color={indigo.m900} $bg={indigo.m100}>
               deepClone
@@ -255,7 +256,7 @@ const MergeDeepPage = () => (
   <StoryPage $bg={cyan.m50}>
     <MaxWidth>
       <Card $accent={cyan.m500}>
-        <CardHeader $bg='#fff' $border={cyan.m100}>
+        <CardHeader $bg={white} $border={cyan.m100}>
           <div>
             <FnName $color={cyan.m900} $bg={cyan.m100}>
               mergeDeep
@@ -336,7 +337,7 @@ const PickPage = () => (
   <StoryPage $bg={lightGreen.m50}>
     <MaxWidth>
       <Card $accent={lightGreen.m600}>
-        <CardHeader $bg='#fff' $border={lightGreen.m100}>
+        <CardHeader $bg={white} $border={lightGreen.m100}>
           <div>
             <FnName $color={lightGreen.m900} $bg={lightGreen.m100}>
               pick
@@ -396,7 +397,7 @@ const OmitPage = () => (
   <StoryPage $bg={deepOrange.m50}>
     <MaxWidth>
       <Card $accent={deepOrange.m500}>
-        <CardHeader $bg='#fff' $border={deepOrange.m100}>
+        <CardHeader $bg={white} $border={deepOrange.m100}>
           <div>
             <FnName $color={deepOrange.m900} $bg={deepOrange.m100}>
               omit
@@ -458,7 +459,7 @@ const IsEmptyPage = () => (
   <StoryPage $bg={red.m50}>
     <MaxWidth>
       <Card $accent={red.m500}>
-        <CardHeader $bg='#fff' $border={red.m100}>
+        <CardHeader $bg={white} $border={red.m100}>
           <div>
             <FnName $color={red.m900} $bg={red.m100}>
               isEmpty
@@ -520,7 +521,7 @@ const IsEqualPage = () => (
   <StoryPage $bg={deepPurple.m50}>
     <MaxWidth>
       <Card $accent={deepPurple.m500}>
-        <CardHeader $bg='#fff' $border={deepPurple.m100}>
+        <CardHeader $bg={white} $border={deepPurple.m100}>
           <div>
             <FnName $color={deepPurple.m900} $bg={deepPurple.m100}>
               isEqual
@@ -594,7 +595,7 @@ const FlattenObjectPage = () => (
   <StoryPage $bg={lightBlue.m50}>
     <MaxWidth>
       <Card $accent={lightBlue.m500}>
-        <CardHeader $bg='#fff' $border={lightBlue.m100}>
+        <CardHeader $bg={white} $border={lightBlue.m100}>
           <div>
             <FnName $color={lightBlue.m900} $bg={lightBlue.m100}>
               flattenObject
@@ -658,7 +659,7 @@ const GroupByPage = () => (
   <StoryPage $bg={lime.m50}>
     <MaxWidth>
       <Card $accent={lime.m700}>
-        <CardHeader $bg='#fff' $border={lime.m200}>
+        <CardHeader $bg={white} $border={lime.m200}>
           <div>
             <FnName $color={lime.m900} $bg={lime.m200}>
               groupBy
@@ -725,7 +726,7 @@ const KeyByPage = () => (
   <StoryPage $bg={brown.m50}>
     <MaxWidth>
       <Card $accent={brown.m500}>
-        <CardHeader $bg='#fff' $border={brown.m100}>
+        <CardHeader $bg={white} $border={brown.m100}>
           <div>
             <FnName $color={brown.m900} $bg={brown.m100}>
               keyBy
@@ -787,7 +788,7 @@ const UniqueByPage = () => (
   <StoryPage $bg={orange.m50}>
     <MaxWidth>
       <Card $accent={orange.m600}>
-        <CardHeader $bg='#fff' $border={orange.m100}>
+        <CardHeader $bg={white} $border={orange.m100}>
           <div>
             <FnName $color={orange.m900} $bg={orange.m100}>
               uniqueBy
@@ -862,7 +863,7 @@ const SortByPage = () => (
   <StoryPage $bg={cider.m50}>
     <MaxWidth>
       <Card $accent={cider.m500}>
-        <CardHeader $bg='#fff' $border={cider.m100}>
+        <CardHeader $bg={white} $border={cider.m100}>
           <div>
             <FnName $color={cider.m900} $bg={cider.m100}>
               sortBy
@@ -937,7 +938,7 @@ const ChunkPage = () => (
   <StoryPage $bg={grey.m200}>
     <MaxWidth>
       <Card $accent={grey.m600}>
-        <CardHeader $bg='#fff' $border={grey.m200}>
+        <CardHeader $bg={white} $border={grey.m200}>
           <div>
             <FnName $color={grey.m900} $bg={grey.m200}>
               chunk
@@ -1005,7 +1006,7 @@ const HasEqualPropsPage = () => (
   <StoryPage $bg={amber.m50}>
     <MaxWidth>
       <Card $accent={amber.m700}>
-        <CardHeader $bg='#fff' $border={amber.m200}>
+        <CardHeader $bg={white} $border={amber.m200}>
           <div>
             <FnName $color={amber.m900} $bg={amber.m200}>
               hasEqualProps
@@ -1086,7 +1087,7 @@ const IsNonEmptyArrayPage = () => (
   <StoryPage $bg={green.m50}>
     <MaxWidth>
       <Card $accent={green.m500}>
-        <CardHeader $bg='#fff' $border={green.m100}>
+        <CardHeader $bg={white} $border={green.m100}>
           <div>
             <FnName $color={green.m900} $bg={green.m100}>
               isNonEmptyArray

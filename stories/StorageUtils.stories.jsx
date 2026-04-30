@@ -7,6 +7,7 @@ import cider from '../src/colors/cider';
 import deepOrange from '../src/colors/deepOrange';
 import yellow from '../src/colors/yellow';
 import black from '../src/colors/black';
+import white from '../src/colors/white';
 
 import setLocalStorage from '../src/utils/setLocalStorage';
 import getLocalStorage from '../src/utils/getLocalStorage';
@@ -33,7 +34,7 @@ const MaxWidth = styled.div`
 `;
 
 const Card = styled.div`
-  background: #fff;
+  background: ${white};
   border-radius: 14px;
   border-left: 6px solid ${({ $accent }) => $accent};
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.09);
@@ -94,7 +95,7 @@ const Code = styled.code`
 
 const Pre = styled.pre`
   background: ${blueGray.m900};
-  color: #e2e8f0;
+  color: ${blueGray.m100};
   border-radius: 10px;
   padding: 2rem 2.4rem;
   font-size: 1.25rem;
@@ -111,7 +112,7 @@ const DemoButton = styled.button`
   font-size: 1.4rem;
   font-weight: 600;
   background: ${({ $bg }) => $bg};
-  color: #fff;
+  color: ${white};
   transition: opacity 0.15s;
   &:hover {
     opacity: 0.85;
@@ -233,7 +234,7 @@ const SetLocalStoragePage = () => {
     <StoryPage $bg={violet.m50}>
       <MaxWidth>
         <Card $accent={violet.m500}>
-          <CardHeader $bg='#fff' $border={violet.m100}>
+          <CardHeader $bg={white} $border={violet.m100}>
             <div>
               <FnName $color={violet.m900} $bg={violet.m100}>
                 setLocalStorage
@@ -349,7 +350,7 @@ const GetLocalStoragePage = () => {
     <StoryPage $bg={cider.m50}>
       <MaxWidth>
         <Card $accent={cider.m500}>
-          <CardHeader $bg='#fff' $border={cider.m100}>
+          <CardHeader $bg={white} $border={cider.m100}>
             <div>
               <FnName $color={cider.m900} $bg={cider.m100}>
                 getLocalStorage
@@ -444,7 +445,7 @@ const RemoveLocalStoragePage = () => {
     <StoryPage $bg={deepOrange.m50}>
       <MaxWidth>
         <Card $accent={deepOrange.m500}>
-          <CardHeader $bg='#fff' $border={deepOrange.m100}>
+          <CardHeader $bg={white} $border={deepOrange.m100}>
             <div>
               <FnName $color={deepOrange.m900} $bg={deepOrange.m100}>
                 removeLocalStorage
@@ -551,7 +552,7 @@ const SetSessionStoragePage = () => {
     <StoryPage $bg={yellow.m50}>
       <MaxWidth>
         <Card $accent={yellow.m700}>
-          <CardHeader $bg='#fff' $border={yellow.m100}>
+          <CardHeader $bg={white} $border={yellow.m100}>
             <div>
               <FnName $color={yellow.m900} $bg={yellow.m100}>
                 setSessionStorage
@@ -666,7 +667,7 @@ const GetSessionStoragePage = () => {
     <StoryPage $bg={black.m50}>
       <MaxWidth>
         <Card $accent={black.m600}>
-          <CardHeader $bg='#fff' $border={black.m100}>
+          <CardHeader $bg={white} $border={black.m100}>
             <div>
               <FnName $color={black.m800} $bg={black.m100}>
                 getSessionStorage
@@ -773,7 +774,7 @@ const ClearStoragePage = () => {
     <StoryPage $bg={blueGray.m50}>
       <MaxWidth>
         <Card $accent={blueGray.m500}>
-          <CardHeader $bg='#fff' $border={blueGray.m100}>
+          <CardHeader $bg={white} $border={blueGray.m100}>
             <div>
               <FnName $color={blueGray.m900} $bg={blueGray.m100}>
                 clearStorage

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Checkbox from '../src/components/Input/Checkbox';
+import grey from '../src/colors/grey';
 
 export default {
   title: 'Atoms/Checkbox',
@@ -194,5 +195,5 @@ Default.args = {
   value: false,
   label: 'Click me',
   color: 'blue',
-  textColor: '#616161',
+  textColor: grey.m700,
 };

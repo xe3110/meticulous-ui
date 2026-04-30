@@ -10,6 +10,7 @@ import red from '../src/colors/red';
 import purple from '../src/colors/purple';
 import green from '../src/colors/green';
 import amber from '../src/colors/amber';
+import white from '../src/colors/white';
 
 import createContextHook from '../src/reactUtils/createContextHook';
 import composeProviders from '../src/reactUtils/composeProviders.jsx';
@@ -35,7 +36,7 @@ const MaxWidth = styled.div`
 `;
 
 const Card = styled.div`
-  background: #fff;
+  background: ${white};
   border-radius: 14px;
   border-left: 6px solid ${({ $accent }) => $accent};
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.09);
@@ -96,7 +97,7 @@ const Code = styled.code`
 
 const Pre = styled.pre`
   background: ${blueGray.m900};
-  color: #e2e8f0;
+  color: ${blueGray.m100};
   border-radius: 10px;
   padding: 2rem 2.4rem;
   font-size: 1.25rem;
@@ -123,7 +124,7 @@ const Btn = styled.button`
   font-size: 1.3rem;
   font-weight: 600;
   background: ${({ $bg }) => $bg};
-  color: #fff;
+  color: ${white};
 `;
 
 const Tag = styled.span`
@@ -145,7 +146,7 @@ const [ThemeProvider, useTheme] = createContextHook(undefined);
 const ThemedBox = () => {
   const { color, label } = useTheme();
   return (
-    <Tag $bg={color} $color='#fff' style={{ fontSize: '1.35rem', padding: '0.6rem 1.4rem' }}>
+    <Tag $bg={color} $color={white} style={{ fontSize: '1.35rem', padding: '0.6rem 1.4rem' }}>
       Theme: {label}
     </Tag>
   );
@@ -178,7 +179,7 @@ const CreateContextHookPage = () => (
   <StoryPage $bg={indigo.m50}>
     <MaxWidth>
       <Card $accent={indigo.m500}>
-        <CardHeader $bg='#fff' $border={indigo.m100}>
+        <CardHeader $bg={white} $border={indigo.m100}>
           <div>
             <FnName $color={indigo.m900} $bg={indigo.m100}>
               createContextHook
@@ -283,7 +284,7 @@ const ComposeProvidersPage = () => (
   <StoryPage $bg={teal.m50}>
     <MaxWidth>
       <Card $accent={teal.m500}>
-        <CardHeader $bg='#fff' $border={teal.m100}>
+        <CardHeader $bg={white} $border={teal.m100}>
           <div>
             <FnName $color={teal.m900} $bg={teal.m100}>
               composeProviders
@@ -353,7 +354,7 @@ const LazyImportPage = () => (
   <StoryPage $bg={deepOrange.m50}>
     <MaxWidth>
       <Card $accent={deepOrange.m500}>
-        <CardHeader $bg='#fff' $border={deepOrange.m100}>
+        <CardHeader $bg={white} $border={deepOrange.m100}>
           <div>
             <FnName $color={deepOrange.m900} $bg={deepOrange.m100}>
               lazyImport
@@ -459,7 +460,7 @@ const WithErrorBoundaryPage = () => (
   <StoryPage $bg={red.m50}>
     <MaxWidth>
       <Card $accent={red.m500}>
-        <CardHeader $bg='#fff' $border={red.m100}>
+        <CardHeader $bg={white} $border={red.m100}>
           <div>
             <FnName $color={red.m900} $bg={red.m100}>
               withErrorBoundary
@@ -563,7 +564,7 @@ const WithSuspensePage = () => {
     <StoryPage $bg={purple.m50}>
       <MaxWidth>
         <Card $accent={purple.m500}>
-          <CardHeader $bg='#fff' $border={purple.m100}>
+          <CardHeader $bg={white} $border={purple.m100}>
             <div>
               <FnName $color={purple.m900} $bg={purple.m100}>
                 withSuspense
@@ -676,7 +677,7 @@ const MemoComparePage = () => (
   <StoryPage $bg={green.m50}>
     <MaxWidth>
       <Card $accent={green.m500}>
-        <CardHeader $bg='#fff' $border={green.m100}>
+        <CardHeader $bg={white} $border={green.m100}>
           <div>
             <FnName $color={green.m900} $bg={green.m100}>
               memoCompare
@@ -751,7 +752,7 @@ const CreatePortalNodeDemo = () => {
               bottom: '2rem',
               right: '2rem',
               background: amber.m700,
-              color: '#fff',
+              color: white,
               padding: '1rem 2rem',
               borderRadius: '8px',
               fontFamily: 'sans-serif',
@@ -773,7 +774,7 @@ const CreatePortalNodePage = () => (
   <StoryPage $bg={amber.m50}>
     <MaxWidth>
       <Card $accent={amber.m700}>
-        <CardHeader $bg='#fff' $border={amber.m200}>
+        <CardHeader $bg={white} $border={amber.m200}>
           <div>
             <FnName $color={amber.m900} $bg={amber.m200}>
               createPortalNode

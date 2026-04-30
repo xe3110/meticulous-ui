@@ -12,6 +12,7 @@ import green from '../src/colors/green';
 import orange from '../src/colors/orange';
 import red from '../src/colors/red';
 import cyan from '../src/colors/cyan';
+import white from '../src/colors/white';
 
 import capFirstLetter from '../src/utils/capFirstLetter';
 import capitalize from '../src/utils/capitalize';
@@ -46,7 +47,7 @@ const MaxWidth = styled.div`
 // ─── Card ─────────────────────────────────────────────────────────────────────
 
 const Card = styled.div`
-  background: #fff;
+  background: ${white};
   border-radius: 14px;
   border-left: 6px solid ${({ $accent }) => $accent};
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.09);
@@ -164,7 +165,7 @@ const ExamplesTable = ({ rows, outputColor }) => (
 
 const Pre = styled.pre`
   background: ${blueGray.m900};
-  color: #e2e8f0;
+  color: ${blueGray.m100};
   border-radius: 10px;
   padding: 2rem 2.4rem;
   font-size: 1.25rem;
@@ -181,7 +182,7 @@ const CapFirstLetterPage = () => (
   <StoryPage $bg={blueGray.m50}>
     <MaxWidth>
       <Card $accent={blueGray.m500}>
-        <CardHeader $bg='#fff' $border={blueGray.m100}>
+        <CardHeader $bg={white} $border={blueGray.m100}>
           <div>
             <FnName $color={blueGray.m900} $bg={blueGray.m100}>
               capFirstLetter
@@ -243,7 +244,7 @@ const CapitalizePage = () => (
   <StoryPage $bg={purple.m50}>
     <MaxWidth>
       <Card $accent={purple.m500}>
-        <CardHeader $bg='#fff' $border={purple.m100}>
+        <CardHeader $bg={white} $border={purple.m100}>
           <div>
             <FnName $color={purple.m900} $bg={purple.m100}>
               capitalize
@@ -301,7 +302,7 @@ const TitleCasePage = () => (
   <StoryPage $bg={yellow.m50}>
     <MaxWidth>
       <Card $accent={yellow.m800}>
-        <CardHeader $bg='#fff' $border={yellow.m200}>
+        <CardHeader $bg={white} $border={yellow.m200}>
           <div>
             <FnName $color={yellow.m900} $bg={yellow.m200}>
               titleCase
@@ -361,7 +362,7 @@ const CamelCasePage = () => (
   <StoryPage $bg={teal.m50}>
     <MaxWidth>
       <Card $accent={teal.m500}>
-        <CardHeader $bg='#fff' $border={teal.m100}>
+        <CardHeader $bg={white} $border={teal.m100}>
           <div>
             <FnName $color={teal.m900} $bg={teal.m100}>
               camelCase
@@ -424,7 +425,7 @@ const SnakeCasePage = () => (
   <StoryPage $bg={blue.m50}>
     <MaxWidth>
       <Card $accent={blue.m500}>
-        <CardHeader $bg='#fff' $border={blue.m100}>
+        <CardHeader $bg={white} $border={blue.m100}>
           <div>
             <FnName $color={blue.m900} $bg={blue.m100}>
               snakeCase
@@ -484,7 +485,7 @@ const KebabCasePage = () => (
   <StoryPage $bg={indigo.m50}>
     <MaxWidth>
       <Card $accent={indigo.m500}>
-        <CardHeader $bg='#fff' $border={indigo.m100}>
+        <CardHeader $bg={white} $border={indigo.m100}>
           <div>
             <FnName $color={indigo.m900} $bg={indigo.m100}>
               kebabCase
@@ -548,7 +549,7 @@ const TruncatePage = () => (
   <StoryPage $bg={pink.m50}>
     <MaxWidth>
       <Card $accent={pink.m500}>
-        <CardHeader $bg='#fff' $border={pink.m100}>
+        <CardHeader $bg={white} $border={pink.m100}>
           <div>
             <FnName $color={pink.m900} $bg={pink.m100}>
               truncate
@@ -609,7 +610,7 @@ const SlugifyPage = () => (
   <StoryPage $bg={violet.m50}>
     <MaxWidth>
       <Card $accent={violet.m500}>
-        <CardHeader $bg='#fff' $border={violet.m100}>
+        <CardHeader $bg={white} $border={violet.m100}>
           <div>
             <FnName $color={violet.m900} $bg={violet.m100}>
               slugify
@@ -681,7 +682,7 @@ const RemoveExtraSpacesPage = () => (
   <StoryPage $bg={green.m50}>
     <MaxWidth>
       <Card $accent={green.m500}>
-        <CardHeader $bg='#fff' $border={green.m100}>
+        <CardHeader $bg={white} $border={green.m100}>
           <div>
             <FnName $color={green.m900} $bg={green.m100}>
               removeExtraSpaces
@@ -745,7 +746,7 @@ const MaskEmailPage = () => (
   <StoryPage $bg={orange.m50}>
     <MaxWidth>
       <Card $accent={orange.m600}>
-        <CardHeader $bg='#fff' $border={orange.m100}>
+        <CardHeader $bg={white} $border={orange.m100}>
           <div>
             <FnName $color={orange.m900} $bg={orange.m100}>
               maskEmail
@@ -804,7 +805,7 @@ const MaskPhonePage = () => (
   <StoryPage $bg={red.m50}>
     <MaxWidth>
       <Card $accent={red.m500}>
-        <CardHeader $bg='#fff' $border={red.m100}>
+        <CardHeader $bg={white} $border={red.m100}>
           <div>
             <FnName $color={red.m900} $bg={red.m100}>
               maskPhone
@@ -871,7 +872,7 @@ const GenerateInitialsPage = () => (
   <StoryPage $bg={cyan.m50}>
     <MaxWidth>
       <Card $accent={cyan.m500}>
-        <CardHeader $bg='#fff' $border={cyan.m100}>
+        <CardHeader $bg={white} $border={cyan.m100}>
           <div>
             <FnName $color={cyan.m900} $bg={cyan.m100}>
               generateInitials

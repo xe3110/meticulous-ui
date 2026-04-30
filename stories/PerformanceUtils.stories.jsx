@@ -8,6 +8,7 @@ import pink from '../src/colors/pink';
 import lightGreen from '../src/colors/lightGreen';
 import lime from '../src/colors/lime';
 import red from '../src/colors/red';
+import white from '../src/colors/white';
 
 import debounce from '../src/utils/debounce';
 import throttle from '../src/utils/throttle';
@@ -34,7 +35,7 @@ const MaxWidth = styled.div`
 `;
 
 const Card = styled.div`
-  background: #fff;
+  background: ${white};
   border-radius: 14px;
   border-left: 6px solid ${({ $accent }) => $accent};
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.09);
@@ -95,7 +96,7 @@ const Code = styled.code`
 
 const Pre = styled.pre`
   background: ${blueGray.m900};
-  color: #e2e8f0;
+  color: ${blueGray.m100};
   border-radius: 10px;
   padding: 2rem 2.4rem;
   font-size: 1.25rem;
@@ -112,7 +113,7 @@ const DemoButton = styled.button`
   font-size: 1.4rem;
   font-weight: 600;
   background: ${({ $bg }) => $bg};
-  color: #fff;
+  color: ${white};
   transition: opacity 0.15s;
   &:hover {
     opacity: 0.85;
@@ -203,7 +204,7 @@ const DebouncePage = () => {
     <StoryPage $bg={purple.m50}>
       <MaxWidth>
         <Card $accent={purple.m500}>
-          <CardHeader $bg='#fff' $border={purple.m100}>
+          <CardHeader $bg={white} $border={purple.m100}>
             <div>
               <FnName $color={purple.m900} $bg={purple.m100}>
                 debounce
@@ -291,7 +292,7 @@ const ThrottlePage = () => {
     <StoryPage $bg={amber.m50}>
       <MaxWidth>
         <Card $accent={amber.m600}>
-          <CardHeader $bg='#fff' $border={amber.m100}>
+          <CardHeader $bg={white} $border={amber.m100}>
             <div>
               <FnName $color={amber.m900} $bg={amber.m100}>
                 throttle
@@ -384,7 +385,7 @@ const MemoizePage = () => {
     <StoryPage $bg={pink.m50}>
       <MaxWidth>
         <Card $accent={pink.m500}>
-          <CardHeader $bg='#fff' $border={pink.m100}>
+          <CardHeader $bg={white} $border={pink.m100}>
             <div>
               <FnName $color={pink.m900} $bg={pink.m100}>
                 memoize
@@ -516,7 +517,7 @@ const LazyLoadComponentPage = () => {
     <StoryPage $bg={lightGreen.m50}>
       <MaxWidth>
         <Card $accent={lightGreen.m600}>
-          <CardHeader $bg='#fff' $border={lightGreen.m100}>
+          <CardHeader $bg={white} $border={lightGreen.m100}>
             <div>
               <FnName $color={lightGreen.m900} $bg={lightGreen.m100}>
                 lazyLoadComponent
@@ -598,7 +599,7 @@ const RequestIdleTaskPage = () => {
     <StoryPage $bg={lime.m50}>
       <MaxWidth>
         <Card $accent={lime.m700}>
-          <CardHeader $bg='#fff' $border={lime.m100}>
+          <CardHeader $bg={white} $border={lime.m100}>
             <div>
               <FnName $color={lime.m900} $bg={lime.m100}>
                 requestIdleTask
@@ -702,7 +703,7 @@ const RafThrottlePage = () => {
     <StoryPage $bg={red.m50}>
       <MaxWidth>
         <Card $accent={red.m500}>
-          <CardHeader $bg='#fff' $border={red.m100}>
+          <CardHeader $bg={white} $border={red.m100}>
             <div>
               <FnName $color={red.m900} $bg={red.m100}>
                 rafThrottle

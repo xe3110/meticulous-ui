@@ -119,13 +119,16 @@ export declare const ToastContainer: React.FC<ToastContainerProps>;
 export interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  title?: string;
+  /** String or any React element (e.g. heading + badge). Strings are wrapped in the default ModalTitle style; elements are rendered as-is. */
+  title?: React.ReactNode;
   children?: React.ReactNode;
   footer?: React.ReactNode;
   footerAlign?: 'left' | 'center' | 'right';
   width?: string | number;
   closeOnOverlayClick?: boolean;
   showCloseButton?: boolean;
+  /** On viewports ≤ 640 px the modal fills the screen width and slides up from the bottom. On desktop it behaves as a normal centered modal. */
+  isFullOnMobile?: boolean;
 }
 
 export declare const Modal: React.FC<ModalProps>;

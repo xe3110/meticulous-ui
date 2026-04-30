@@ -8,6 +8,7 @@ import green from '../src/colors/green';
 import red from '../src/colors/red';
 import indigo from '../src/colors/indigo';
 import orange from '../src/colors/orange';
+import white from '../src/colors/white';
 
 import isAuthenticated from '../src/utils/isAuthenticated';
 import getToken from '../src/utils/getToken';
@@ -43,7 +44,7 @@ const MaxWidth = styled.div`
 `;
 
 const Card = styled.div`
-  background: #fff;
+  background: ${white};
   border-radius: 14px;
   border-left: 6px solid ${({ $accent }) => $accent};
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.09);
@@ -104,7 +105,7 @@ const Code = styled.code`
 
 const Pre = styled.pre`
   background: ${blueGray.m900};
-  color: #e2e8f0;
+  color: ${blueGray.m100};
   border-radius: 10px;
   padding: 2rem 2.4rem;
   font-size: 1.25rem;
@@ -121,7 +122,7 @@ const DemoButton = styled.button`
   font-size: 1.4rem;
   font-weight: 600;
   background: ${({ $bg }) => $bg};
-  color: #fff;
+  color: ${white};
   transition: opacity 0.15s;
   &:hover {
     opacity: 0.85;
@@ -196,7 +197,7 @@ const IsAuthenticatedPage = () => {
     <StoryPage $bg={blue.m50}>
       <MaxWidth>
         <Card $accent={blue.m500}>
-          <CardHeader $bg='#fff' $border={blue.m100}>
+          <CardHeader $bg={white} $border={blue.m100}>
             <div>
               <FnName $color={blue.m900} $bg={blue.m100}>
                 isAuthenticated
@@ -299,7 +300,7 @@ const TokenManagementPage = () => {
     <StoryPage $bg={teal.m50}>
       <MaxWidth>
         <Card $accent={teal.m500}>
-          <CardHeader $bg='#fff' $border={teal.m100}>
+          <CardHeader $bg={white} $border={teal.m100}>
             <div
               style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', alignItems: 'baseline' }}
             >
@@ -450,7 +451,7 @@ const DecodeJWTPage = () => {
     <StoryPage $bg={indigo.m50}>
       <MaxWidth>
         <Card $accent={indigo.m500}>
-          <CardHeader $bg='#fff' $border={indigo.m100}>
+          <CardHeader $bg={white} $border={indigo.m100}>
             <div>
               <FnName $color={indigo.m900} $bg={indigo.m100}>
                 decodeJWT
@@ -587,7 +588,7 @@ const HasPermissionPage = () => {
     <StoryPage $bg={orange.m50}>
       <MaxWidth>
         <Card $accent={orange.m500}>
-          <CardHeader $bg='#fff' $border={orange.m100}>
+          <CardHeader $bg={white} $border={orange.m100}>
             <div>
               <FnName $color={orange.m900} $bg={orange.m100}>
                 hasPermission

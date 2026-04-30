@@ -1,6 +1,9 @@
 import { useState } from 'react';
 
 import Carousel from '../src/components/Carousel';
+import Image from '../src/components/Image';
+import grey from '../src/colors/grey';
+import white from '../src/colors/white';
 
 export default {
   title: 'Molecules/Carousel',
@@ -119,13 +122,7 @@ const images = [
   { id: 4, src: 'https://picsum.photos/seed/delta/800/500', alt: 'City skyline' },
 ];
 
-const slideStyle = {
-  width: '100%',
-  height: 300,
-  objectFit: 'cover',
-  borderRadius: 12,
-  display: 'block',
-};
+const slideImageProps = { width: '100%', height: '300px', borderRadius: '12px' };
 
 export const ImageCarousel = (args) => (
   <div style={{ maxWidth: 560, width: '100%', margin: '0 auto' }}>
@@ -134,7 +131,7 @@ export const ImageCarousel = (args) => (
       visibleSlides={1}
       renderCarousel={(item) => (
         <div key={item.id} style={{ padding: '0 8px' }}>
-          <img src={item.src} alt={item.alt} style={slideStyle} />
+          <Image src={item.src} alt={item.alt} {...slideImageProps} />
         </div>
       )}
       {...args}
@@ -183,7 +180,7 @@ ImageCarousel.args = {
   visibleSlides: 1,
   renderCarousel: (item) => (
     <div key={item.id} style={{ padding: '0 8px' }}>
-      <img src={item.src} alt={item.alt} style={slideStyle} />
+      <Image src={item.src} alt={item.alt} {...slideImageProps} />
     </div>
   ),
   hasArrow: true,
@@ -225,13 +222,13 @@ export const CardCarousel = () => (
             style={{
               padding: '20px 24px',
               borderRadius: 12,
-              background: '#fff',
+              background: white,
               boxShadow: '0 2px 12px rgba(0,0,0,0.10)',
               height: 120,
             }}
           >
             <p style={{ margin: 0, fontWeight: 600, fontSize: 15 }}>{card.title}</p>
-            <p style={{ margin: '8px 0 0', fontSize: 13, color: '#555' }}>{card.description}</p>
+            <p style={{ margin: '8px 0 0', fontSize: 13, color: grey.m700 }}>{card.description}</p>
           </div>
         </div>
       )}
@@ -267,9 +264,9 @@ const CardCarousel = () => (
     visibleSlides={2}
     renderCarousel={(card) => (
       <div key={card.id} style={{ padding: '0 8px' }}>
-        <div style={{ padding: '20px 24px', borderRadius: 12, background: '#fff', boxShadow: '0 2px 12px rgba(0,0,0,0.10)' }}>
+        <div style={{ padding: '20px 24px', borderRadius: 12, background: white, boxShadow: '0 2px 12px rgba(0,0,0,0.10)' }}>
           <p style={{ fontWeight: 600 }}>{card.title}</p>
-          <p style={{ color: '#555' }}>{card.description}</p>
+          <p style={{ color: grey.m700 }}>{card.description}</p>
         </div>
       </div>
     )}
@@ -301,11 +298,11 @@ export const TestimonialCarousel = () => (
       visibleSlides={1}
       renderCarousel={(item) => (
         <div key={item.id} style={{ padding: '0 8px' }}>
-          <div style={{ padding: '24px 28px', borderRadius: 16, background: '#f5f5f5' }}>
-            <p style={{ margin: 0, fontStyle: 'italic', fontSize: 15, color: '#333' }}>
+          <div style={{ padding: '24px 28px', borderRadius: 16, background: grey.m100 }}>
+            <p style={{ margin: 0, fontStyle: 'italic', fontSize: 15, color: grey.m800 }}>
               "{item.quote}"
             </p>
-            <p style={{ margin: '12px 0 0', fontSize: 12, fontWeight: 600, color: '#888' }}>
+            <p style={{ margin: '12px 0 0', fontSize: 12, fontWeight: 600, color: grey.m500 }}>
               — {item.author}
             </p>
           </div>
@@ -341,9 +338,9 @@ const TestimonialCarousel = () => (
     visibleSlides={1}
     renderCarousel={(item) => (
       <div key={item.id} style={{ padding: '0 8px' }}>
-        <div style={{ padding: '24px 28px', borderRadius: 16, background: '#f5f5f5' }}>
+        <div style={{ padding: '24px 28px', borderRadius: 16, background: grey.m100 }}>
           <p style={{ fontStyle: 'italic' }}>"{item.quote}"</p>
-          <p style={{ fontWeight: 600, color: '#888' }}>— {item.author}</p>
+          <p style={{ fontWeight: 600, color: grey.m500 }}>— {item.author}</p>
         </div>
       </div>
     )}
@@ -362,7 +359,7 @@ export const OverlayArrows = () => (
       visibleSlides={1}
       renderCarousel={(item) => (
         <div key={item.id}>
-          <img src={item.src} alt={item.alt} style={slideStyle} />
+          <Image src={item.src} alt={item.alt} {...slideImageProps} />
         </div>
       )}
     />
@@ -406,7 +403,7 @@ export const ArrowPosition = () => (
       visibleSlides={1}
       renderCarousel={(item) => (
         <div key={item.id}>
-          <img src={item.src} alt={item.alt} style={slideStyle} />
+          <Image src={item.src} alt={item.alt} {...slideImageProps} />
         </div>
       )}
     />
@@ -452,7 +449,7 @@ export const AutoSlide = () => (
       visibleSlides={1}
       renderCarousel={(item) => (
         <div key={item.id} style={{ padding: '0 8px' }}>
-          <img src={item.src} alt={item.alt} style={slideStyle} />
+          <Image src={item.src} alt={item.alt} {...slideImageProps} />
         </div>
       )}
     />
@@ -497,7 +494,7 @@ export const HiddenDots = () => (
       visibleSlides={1}
       renderCarousel={(item) => (
         <div key={item.id} style={{ padding: '0 8px' }}>
-          <img src={item.src} alt={item.alt} style={slideStyle} />
+          <Image src={item.src} alt={item.alt} {...slideImageProps} />
         </div>
       )}
     />
@@ -540,7 +537,7 @@ export const NoArrow = () => (
       visibleSlides={1}
       renderCarousel={(item) => (
         <div key={item.id} style={{ padding: '0 8px' }}>
-          <img src={item.src} alt={item.alt} style={slideStyle} />
+          <Image src={item.src} alt={item.alt} {...slideImageProps} />
         </div>
       )}
     />
@@ -583,7 +580,7 @@ export const Loop = () => (
       visibleSlides={1}
       renderCarousel={(item) => (
         <div key={item.id} style={{ padding: '0 8px' }}>
-          <img src={item.src} alt={item.alt} style={slideStyle} />
+          <Image src={item.src} alt={item.alt} {...slideImageProps} />
         </div>
       )}
     />
@@ -620,7 +617,7 @@ Loop.parameters = {
 
 export const DragToSlide = () => (
   <div style={{ maxWidth: 560, width: '100%', margin: '0 auto' }}>
-    <p style={{ textAlign: 'center', fontSize: 13, color: '#888', marginBottom: 12 }}>
+    <p style={{ textAlign: 'center', fontSize: 13, color: grey.m500, marginBottom: 12 }}>
       Click and drag the image left or right to navigate
     </p>
     <Carousel
@@ -629,10 +626,11 @@ export const DragToSlide = () => (
       visibleSlides={1}
       renderCarousel={(item) => (
         <div key={item.id} style={{ padding: '0 8px' }}>
-          <img
+          <Image
             src={item.src}
             alt={item.alt}
-            style={{ ...slideStyle, userSelect: 'none', pointerEvents: 'none' }}
+            {...slideImageProps}
+            style={{ userSelect: 'none', pointerEvents: 'none' }}
           />
         </div>
       )}
@@ -674,7 +672,7 @@ DragToSlide.parameters = {
 
 export const LiveDrag = () => (
   <div style={{ maxWidth: 560, width: '100%', margin: '0 auto' }}>
-    <p style={{ textAlign: 'center', fontSize: 13, color: '#888', marginBottom: 12 }}>
+    <p style={{ textAlign: 'center', fontSize: 13, color: grey.m500, marginBottom: 12 }}>
       Drag or swipe — the slide follows your pointer in real-time
     </p>
     <Carousel
@@ -684,10 +682,11 @@ export const LiveDrag = () => (
       visibleSlides={1}
       renderCarousel={(item) => (
         <div key={item.id} style={{ padding: '0 8px' }}>
-          <img
+          <Image
             src={item.src}
             alt={item.alt}
-            style={{ ...slideStyle, userSelect: 'none', pointerEvents: 'none' }}
+            {...slideImageProps}
+            style={{ userSelect: 'none', pointerEvents: 'none' }}
           />
         </div>
       )}
@@ -741,15 +740,15 @@ export const ExternalControl = () => {
           marginBottom: 12,
           padding: '8px 12px',
           borderRadius: 8,
-          background: '#f5f5f5',
+          background: grey.m100,
           fontSize: 13,
-          color: '#555',
+          color: grey.m700,
         }}
       >
         <span>
           Slide <strong>{currentSlide + 1}</strong> of {images.length}
         </span>
-        <span style={{ color: '#aaa' }}>onSlideChange is firing</span>
+        <span style={{ color: grey.m400 }}>onSlideChange is firing</span>
       </div>
       <Carousel
         defaultIndex={1}
@@ -758,7 +757,7 @@ export const ExternalControl = () => {
         onSlideChange={setCurrentSlide}
         renderCarousel={(item) => (
           <div key={item.id} style={{ padding: '0 8px' }}>
-            <img src={item.src} alt={item.alt} style={slideStyle} />
+            <Image src={item.src} alt={item.alt} {...slideImageProps} />
           </div>
         )}
       />

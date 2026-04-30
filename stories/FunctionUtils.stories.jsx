@@ -9,6 +9,7 @@ import deepOrange from '../src/colors/deepOrange';
 import cyan from '../src/colors/cyan';
 import indigo from '../src/colors/indigo';
 import amber from '../src/colors/amber';
+import white from '../src/colors/white';
 
 // ─── Page wrapper ─────────────────────────────────────────────────────────────
 
@@ -30,7 +31,7 @@ const MaxWidth = styled.div`
 // ─── Card ─────────────────────────────────────────────────────────────────────
 
 const Card = styled.div`
-  background: #fff;
+  background: ${white};
   border-radius: 14px;
   border-left: 6px solid ${({ $accent }) => $accent};
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.09);
@@ -148,7 +149,7 @@ const ExamplesTable = ({ rows, outputColor }) => (
 
 const Pre = styled.pre`
   background: ${blueGray.m900};
-  color: #e2e8f0;
+  color: ${blueGray.m100};
   border-radius: 10px;
   padding: 2rem 2.4rem;
   font-size: 1.25rem;
@@ -177,7 +178,7 @@ const DemoBtn = styled.button`
   font-size: 1.3rem;
   font-weight: 600;
   background: ${({ $bg }) => $bg};
-  color: #fff;
+  color: ${white};
 `;
 
 const DemoOutput = styled.code`
@@ -237,7 +238,7 @@ const OncePage = () => (
   <StoryPage $bg={purple.m50}>
     <MaxWidth>
       <Card $accent={purple.m500}>
-        <CardHeader $bg='#fff' $border={purple.m100}>
+        <CardHeader $bg={white} $border={purple.m100}>
           <div>
             <FnName $color={purple.m900} $bg={purple.m100}>
               once
@@ -320,7 +321,7 @@ const NoopPage = () => (
   <StoryPage $bg={grey.m100}>
     <MaxWidth>
       <Card $accent={grey.m600}>
-        <CardHeader $bg='#fff' $border={grey.m200}>
+        <CardHeader $bg={white} $border={grey.m200}>
           <div>
             <FnName $color={grey.m900} $bg={grey.m200}>
               noop
@@ -383,7 +384,7 @@ const IdentityPage = () => (
   <StoryPage $bg={teal.m50}>
     <MaxWidth>
       <Card $accent={teal.m500}>
-        <CardHeader $bg='#fff' $border={teal.m100}>
+        <CardHeader $bg={white} $border={teal.m100}>
           <div>
             <FnName $color={teal.m900} $bg={teal.m100}>
               identity
@@ -445,7 +446,7 @@ const PipePage = () => (
   <StoryPage $bg={deepOrange.m50}>
     <MaxWidth>
       <Card $accent={deepOrange.m500}>
-        <CardHeader $bg='#fff' $border={deepOrange.m100}>
+        <CardHeader $bg={white} $border={deepOrange.m100}>
           <div>
             <FnName $color={deepOrange.m900} $bg={deepOrange.m100}>
               pipe
@@ -562,7 +563,7 @@ const SingletonPage = () => (
   <StoryPage $bg={cyan.m50}>
     <MaxWidth>
       <Card $accent={cyan.m500}>
-        <CardHeader $bg='#fff' $border={cyan.m100}>
+        <CardHeader $bg={white} $border={cyan.m100}>
           <div>
             <FnName $color={cyan.m900} $bg={cyan.m100}>
               singleton
@@ -682,7 +683,7 @@ const CreatePubSubPage = () => (
   <StoryPage $bg={indigo.m50}>
     <MaxWidth>
       <Card $accent={indigo.m500}>
-        <CardHeader $bg='#fff' $border={indigo.m100}>
+        <CardHeader $bg={white} $border={indigo.m100}>
           <div>
             <FnName $color={indigo.m900} $bg={indigo.m100}>
               createPubSub
@@ -773,7 +774,7 @@ const DeepFreezePage = () => (
   <StoryPage $bg={amber.m50}>
     <MaxWidth>
       <Card $accent={amber.m700}>
-        <CardHeader $bg='#fff' $border={amber.m200}>
+        <CardHeader $bg={white} $border={amber.m200}>
           <div>
             <FnName $color={amber.m900} $bg={amber.m200}>
               deepFreeze

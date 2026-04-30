@@ -8,7 +8,7 @@ import * as ModalStories from '../Modal.stories';
 
 A Modal renders in a portal over the page. It can be imported as `meticulous-ui/components/Modal`.
 
-Supports an optional title, body content, footer, keyboard dismissal (`Esc`), and overlay click to close.
+Supports an optional title (string or React element), body content, footer, keyboard dismissal (`Esc`), overlay click to close, animated open/close transitions, and a mobile bottom-sheet mode.
 
 ## Default
 
@@ -21,6 +21,12 @@ Supports an optional title, body content, footer, keyboard dismissal (`Esc`), an
 ## No Footer
 
 <Canvas of={ModalStories.NoFooter} />
+
+## Custom Title Component
+
+The `title` prop accepts any React element. Strings are wrapped in the default heading style; elements are rendered as-is inside an `aria-labelledby` target, so screen readers still announce the dialog title correctly.
+
+<Canvas of={ModalStories.CustomTitleComponent} />
 
 ## Footer Alignment
 
@@ -39,6 +45,18 @@ Supports an optional title, body content, footer, keyboard dismissal (`Esc`), an
 A common pattern — destructive action confirmation with `closeOnOverlayClick={false}` to prevent accidental dismissal.
 
 <Canvas of={ModalStories.ConfirmDelete} />
+
+## Scrollable Content
+
+When body content exceeds the modal's max height (`90vh`), the body scrolls independently while the header and footer remain pinned.
+
+<Canvas of={ModalStories.ScrollableContent} />
+
+## Full On Mobile
+
+When `isFullOnMobile` is set, the modal fills the screen width on viewports ≤ 640 px and slides up from the bottom with a spring animation. Closing reverses the animation before unmounting. On desktop it behaves as a normal centered modal.
+
+<Canvas of={ModalStories.FullOnMobile} />
 
 ## Props
 
@@ -77,10 +95,14 @@ A common pattern — destructive action confirmation with `closeOnOverlayClick={
         <code>title</code>
       </td>
       <td>
-        <code>string</code>
+        <code>string | ReactNode</code>
       </td>
       <td>—</td>
-      <td>Optional header title; omit to render no header</td>
+      <td>
+        Optional header title. Strings are wrapped in the default heading style; React elements are
+        rendered as-is. Either way the element receives the <code>aria-labelledby</code> id so
+        screen readers announce the dialog name correctly.
+      </td>
     </tr>
     <tr>
       <td>
@@ -121,7 +143,9 @@ A common pattern — destructive action confirmation with `closeOnOverlayClick={
       <td>
         <code>string</code>
       </td>
-      <td>—</td>
+      <td>
+        <code>'32rem'</code>
+      </td>
       <td>
         Any valid CSS width value for the modal panel (e.g. <code>'56rem'</code>)
       </td>
@@ -152,13 +176,31 @@ A common pattern — destructive action confirmation with `closeOnOverlayClick={
       </td>
       <td>Whether the ✕ close button is shown in the header</td>
     </tr>
+    <tr>
+      <td>
+        <code>isFullOnMobile</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        On viewports ≤ 640 px the modal fills the screen width and slides up from the bottom with a
+        spring animation. Closing slides it back down before unmounting. Desktop behaviour is
+        unchanged.
+      </td>
+    </tr>
   </tbody>
 </table>
 
 ## Accessibility
 
-- Renders with `role="dialog"` and `aria-modal="true"` so screen readers announce it as a dialog
-- The overlay receives `aria-label` from the `title` prop when provided
+- `role="dialog"` and `aria-modal="true"` are on the modal container (not the backdrop), so screen readers correctly announce it as a dialog and hide background content
+- When a `title` is provided the dialog is labelled via `aria-labelledby`, which works for both string and React element titles
+- Focus moves to the first focusable element inside the modal on open, and is trapped there — Tab and Shift+Tab cycle only within the modal
+- On close, focus is restored to the element that originally triggered the modal
 - `Esc` always calls `onClose` while the modal is open
-- Body scroll is locked (`overflow: hidden`) while the modal is open and restored on close
-- The close button has `aria-label="Close modal"` for screen reader support
+- Body scroll is locked (`overflow: hidden`) while open and restored on close
+- The ✕ button has `aria-label="Close modal"` and the SVG icon carries `aria-hidden="true"`

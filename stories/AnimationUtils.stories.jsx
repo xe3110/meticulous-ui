@@ -6,6 +6,7 @@ import green from '../src/colors/green';
 import red from '../src/colors/red';
 import indigo from '../src/colors/indigo';
 import amber from '../src/colors/amber';
+import white from '../src/colors/white';
 
 // ─── Page wrapper ─────────────────────────────────────────────────────────────
 
@@ -27,7 +28,7 @@ const MaxWidth = styled.div`
 // ─── Card ─────────────────────────────────────────────────────────────────────
 
 const Card = styled.div`
-  background: #fff;
+  background: ${white};
   border-radius: 14px;
   border-left: 6px solid ${({ $accent }) => $accent};
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.09);
@@ -139,7 +140,7 @@ const ParamsTable = ({ rows }) => (
 
 const Pre = styled.pre`
   background: ${blueGray.m900};
-  color: #e2e8f0;
+  color: ${blueGray.m100};
   border-radius: 10px;
   padding: 2rem 2.4rem;
   font-size: 1.25rem;
@@ -170,7 +171,7 @@ const DemoTarget = styled.div`
   justify-content: center;
   font-size: 1.2rem;
   font-weight: 700;
-  color: #fff;
+  color: ${white};
 `;
 
 const DemoBtn = styled.button`
@@ -181,7 +182,7 @@ const DemoBtn = styled.button`
   font-size: 1.3rem;
   font-weight: 600;
   background: ${({ $bg }) => $bg};
-  color: #fff;
+  color: ${white};
 `;
 
 // ═════════════════════════════════════════════════════════════════════════════
@@ -219,7 +220,7 @@ const FadeInPage = () => (
   <StoryPage $bg={green.m50}>
     <MaxWidth>
       <Card $accent={green.m500}>
-        <CardHeader $bg='#fff' $border={green.m100}>
+        <CardHeader $bg={white} $border={green.m100}>
           <div>
             <FnName $color={green.m900} $bg={green.m100}>
               fadeIn
@@ -319,7 +320,7 @@ const FadeOutPage = () => (
   <StoryPage $bg={red.m50}>
     <MaxWidth>
       <Card $accent={red.m500}>
-        <CardHeader $bg='#fff' $border={red.m100}>
+        <CardHeader $bg={white} $border={red.m100}>
           <div>
             <FnName $color={red.m900} $bg={red.m100}>
               fadeOut
@@ -387,7 +388,7 @@ const SmoothScrollPage = () => (
   <StoryPage $bg={indigo.m50}>
     <MaxWidth>
       <Card $accent={indigo.m500}>
-        <CardHeader $bg='#fff' $border={indigo.m100}>
+        <CardHeader $bg={white} $border={indigo.m100}>
           <div>
             <FnName $color={indigo.m900} $bg={indigo.m100}>
               smoothScroll
@@ -510,7 +511,7 @@ const WaitForTransitionEndPage = () => (
   <StoryPage $bg={amber.m50}>
     <MaxWidth>
       <Card $accent={amber.m700}>
-        <CardHeader $bg='#fff' $border={amber.m200}>
+        <CardHeader $bg={white} $border={amber.m200}>
           <div>
             <FnName $color={amber.m900} $bg={amber.m200}>
               waitForTransitionEnd

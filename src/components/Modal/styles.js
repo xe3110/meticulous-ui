@@ -7,9 +7,24 @@ const fadeIn = keyframes`
   to { opacity: 1; }
 `;
 
-const slideUp = keyframes`
-  from { opacity: 0; transform: translateY(1.5rem); }
-  to { opacity: 1; transform: translateY(0); }
+const scaleIn = keyframes`
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+`;
+
+const scaleOut = keyframes`
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.95); }
+`;
+
+const growFromBottom = keyframes`
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+`;
+
+const shrinkToBottom = keyframes`
+  from { transform: translateY(0); }
+  to { transform: translateY(100%); }
 `;
 
 export const Overlay = styled.div`
@@ -22,6 +37,15 @@ export const Overlay = styled.div`
   z-index: 1000;
   animation: ${fadeIn} 0.2s ease;
   padding: 1rem;
+
+  ${({ $fullOnMobile }) =>
+    $fullOnMobile &&
+    css`
+      @media (max-width: 640px) {
+        align-items: flex-end;
+        padding: 0;
+      }
+    `}
 `;
 
 export const ModalContainer = styled.div`
@@ -33,7 +57,21 @@ export const ModalContainer = styled.div`
   max-height: 90vh;
   width: ${({ $width }) => $width || '32rem'};
   max-width: 100%;
-  animation: ${slideUp} 0.25s ease;
+  animation: ${({ $isClosing }) => ($isClosing ? scaleOut : scaleIn)} 0.3s ease forwards;
+
+  ${({ $fullOnMobile, $isClosing }) =>
+    $fullOnMobile &&
+    css`
+      @media (max-width: 640px) {
+        width: 100%;
+        max-width: 100%;
+        max-height: 95dvh;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        animation: ${$isClosing ? shrinkToBottom : growFromBottom} 0.22s
+          cubic-bezier(0.32, 0.72, 0, 1) ${$isClosing ? 'forwards' : ''};
+      }
+    `}
 `;
 
 export const ModalHeader = styled.div`

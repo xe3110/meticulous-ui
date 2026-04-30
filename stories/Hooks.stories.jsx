@@ -19,6 +19,7 @@ import lightGreen from '../src/colors/lightGreen';
 import brown from '../src/colors/brown';
 import deepPurple from '../src/colors/deepPurple';
 import violet from '../src/colors/violet';
+import white from '../src/colors/white';
 
 import usePrevious from '../src/hooks/usePrevious';
 import useDebounce from '../src/hooks/useDebounce';
@@ -57,7 +58,7 @@ const MaxWidth = styled.div`
 `;
 
 const Card = styled.div`
-  background: #fff;
+  background: ${white};
   border-radius: 14px;
   border-left: 6px solid ${({ $accent }) => $accent};
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.09);
@@ -118,7 +119,7 @@ const Code = styled.code`
 
 const Pre = styled.pre`
   background: ${blueGray.m900};
-  color: #e2e8f0;
+  color: ${blueGray.m100};
   border-radius: 10px;
   padding: 2rem 2.4rem;
   font-size: 1.25rem;
@@ -145,7 +146,7 @@ const Btn = styled.button`
   font-size: 1.3rem;
   font-weight: 600;
   background: ${({ $bg }) => $bg};
-  color: #fff;
+  color: ${white};
 `;
 
 const Tag = styled.span`
@@ -207,7 +208,7 @@ const UsePreviousPage = () => (
   <StoryPage $bg={purple.m50}>
     <MaxWidth>
       <Card $accent={purple.m500}>
-        <CardHeader $bg='#fff' $border={purple.m100}>
+        <CardHeader $bg={white} $border={purple.m100}>
           <div>
             <HookName $color={purple.m900} $bg={purple.m100}>
               usePrevious
@@ -276,7 +277,7 @@ const UseDebouncePage = () => (
   <StoryPage $bg={indigo.m50}>
     <MaxWidth>
       <Card $accent={indigo.m500}>
-        <CardHeader $bg='#fff' $border={indigo.m100}>
+        <CardHeader $bg={white} $border={indigo.m100}>
           <div>
             <HookName $color={indigo.m900} $bg={indigo.m100}>
               useDebounce
@@ -354,7 +355,7 @@ const UseThrottlePage = () => (
   <StoryPage $bg={teal.m50}>
     <MaxWidth>
       <Card $accent={teal.m500}>
-        <CardHeader $bg='#fff' $border={teal.m100}>
+        <CardHeader $bg={white} $border={teal.m100}>
           <div>
             <HookName $color={teal.m900} $bg={teal.m100}>
               useThrottle
@@ -454,7 +455,7 @@ const UseIsMountedPage = () => (
   <StoryPage $bg={green.m50}>
     <MaxWidth>
       <Card $accent={green.m500}>
-        <CardHeader $bg='#fff' $border={green.m100}>
+        <CardHeader $bg={white} $border={green.m100}>
           <div>
             <HookName $color={green.m900} $bg={green.m100}>
               useIsMounted
@@ -524,7 +525,7 @@ const UseEventListenerPage = () => (
   <StoryPage $bg={blue.m50}>
     <MaxWidth>
       <Card $accent={blue.m500}>
-        <CardHeader $bg='#fff' $border={blue.m100}>
+        <CardHeader $bg={white} $border={blue.m100}>
           <div>
             <HookName $color={blue.m900} $bg={blue.m100}>
               useEventListener
@@ -626,7 +627,7 @@ const UseIntersectionObserverPage = () => (
   <StoryPage $bg={amber.m50}>
     <MaxWidth>
       <Card $accent={amber.m700}>
-        <CardHeader $bg='#fff' $border={amber.m200}>
+        <CardHeader $bg={white} $border={amber.m200}>
           <div>
             <HookName $color={amber.m900} $bg={amber.m200}>
               useIntersectionObserver
@@ -720,7 +721,7 @@ const UseMediaQueryPage = () => (
   <StoryPage $bg={deepOrange.m50}>
     <MaxWidth>
       <Card $accent={deepOrange.m500}>
-        <CardHeader $bg='#fff' $border={deepOrange.m100}>
+        <CardHeader $bg={white} $border={deepOrange.m100}>
           <div>
             <HookName $color={deepOrange.m900} $bg={deepOrange.m100}>
               useMediaQuery
@@ -796,7 +797,7 @@ const UseLocalStoragePage = () => (
   <StoryPage $bg={cyan.m50}>
     <MaxWidth>
       <Card $accent={cyan.m500}>
-        <CardHeader $bg='#fff' $border={cyan.m100}>
+        <CardHeader $bg={white} $border={cyan.m100}>
           <div>
             <HookName $color={cyan.m900} $bg={cyan.m100}>
               useLocalStorage
@@ -891,7 +892,7 @@ const UseSessionStoragePage = () => (
   <StoryPage $bg={lightBlue.m50}>
     <MaxWidth>
       <Card $accent={lightBlue.m500}>
-        <CardHeader $bg='#fff' $border={lightBlue.m100}>
+        <CardHeader $bg={white} $border={lightBlue.m100}>
           <div>
             <HookName $color={lightBlue.m900} $bg={lightBlue.m100}>
               useSessionStorage
@@ -954,7 +955,7 @@ const UseOutsideClickDemo = () => {
         <div
           ref={ref}
           style={{
-            background: '#fff',
+            background: white,
             border: `2px solid ${red.m200}`,
             borderRadius: 8,
             padding: '1.2rem 2rem',
@@ -974,7 +975,7 @@ const UseOutsideClickPage = () => (
   <StoryPage $bg={red.m50}>
     <MaxWidth>
       <Card $accent={red.m500}>
-        <CardHeader $bg='#fff' $border={red.m100}>
+        <CardHeader $bg={white} $border={red.m100}>
           <div>
             <HookName $color={red.m900} $bg={red.m100}>
               useOutsideClick
@@ -1045,7 +1046,7 @@ const UseWindowSizePage = () => (
   <StoryPage $bg={pink.m50}>
     <MaxWidth>
       <Card $accent={pink.m500}>
-        <CardHeader $bg='#fff' $border={pink.m100}>
+        <CardHeader $bg={white} $border={pink.m100}>
           <div>
             <HookName $color={pink.m900} $bg={pink.m100}>
               useWindowSize
@@ -1119,7 +1120,7 @@ const UseOnlineStatusPage = () => (
   <StoryPage $bg={lime.m50}>
     <MaxWidth>
       <Card $accent={lime.m700}>
-        <CardHeader $bg='#fff' $border={lime.m200}>
+        <CardHeader $bg={white} $border={lime.m200}>
           <div>
             <HookName $color={lime.m900} $bg={lime.m200}>
               useOnlineStatus
@@ -1191,7 +1192,7 @@ const UseCopyToClipboardPage = () => (
   <StoryPage $bg={orange.m50}>
     <MaxWidth>
       <Card $accent={orange.m600}>
-        <CardHeader $bg='#fff' $border={orange.m100}>
+        <CardHeader $bg={white} $border={orange.m100}>
           <div>
             <HookName $color={orange.m900} $bg={orange.m100}>
               useCopyToClipboard
@@ -1272,7 +1273,7 @@ const UseTogglePage = () => (
   <StoryPage $bg={lightGreen.m50}>
     <MaxWidth>
       <Card $accent={lightGreen.m600}>
-        <CardHeader $bg='#fff' $border={lightGreen.m100}>
+        <CardHeader $bg={white} $border={lightGreen.m100}>
           <div>
             <HookName $color={lightGreen.m900} $bg={lightGreen.m100}>
               useToggle
@@ -1353,7 +1354,7 @@ const UseTimeoutPage = () => (
   <StoryPage $bg={brown.m50}>
     <MaxWidth>
       <Card $accent={brown.m500}>
-        <CardHeader $bg='#fff' $border={brown.m100}>
+        <CardHeader $bg={white} $border={brown.m100}>
           <div>
             <HookName $color={brown.m900} $bg={brown.m100}>
               useTimeout
@@ -1429,7 +1430,7 @@ const UseIntervalPage = () => (
   <StoryPage $bg={deepPurple.m50}>
     <MaxWidth>
       <Card $accent={deepPurple.m500}>
-        <CardHeader $bg='#fff' $border={deepPurple.m100}>
+        <CardHeader $bg={white} $border={deepPurple.m100}>
           <div>
             <HookName $color={deepPurple.m900} $bg={deepPurple.m100}>
               useInterval
@@ -1514,7 +1515,7 @@ const UseUnmountPage = () => (
   <StoryPage $bg={violet.m50}>
     <MaxWidth>
       <Card $accent={violet.m500}>
-        <CardHeader $bg='#fff' $border={violet.m100}>
+        <CardHeader $bg={white} $border={violet.m100}>
           <div>
             <HookName $color={violet.m900} $bg={violet.m100}>
               useUnmount
@@ -1588,7 +1589,7 @@ const UseFirstRenderPage = () => (
   <StoryPage $bg={blueGray.m50}>
     <MaxWidth>
       <Card $accent={blueGray.m500}>
-        <CardHeader $bg='#fff' $border={blueGray.m100}>
+        <CardHeader $bg={white} $border={blueGray.m100}>
           <div>
             <HookName $color={blueGray.m900} $bg={blueGray.m100}>
               useFirstRender

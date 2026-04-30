@@ -10,6 +10,7 @@ import indigo from '../src/colors/indigo';
 import orange from '../src/colors/orange';
 import red from '../src/colors/red';
 import cyan from '../src/colors/cyan';
+import white from '../src/colors/white';
 
 import scrollToTop from '../src/utils/scrollToTop';
 import scrollToElement from '../src/utils/scrollToElement';
@@ -38,7 +39,7 @@ const MaxWidth = styled.div`
 `;
 
 const Card = styled.div`
-  background: #fff;
+  background: ${white};
   border-radius: 14px;
   border-left: 6px solid ${({ $accent }) => $accent};
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.09);
@@ -99,7 +100,7 @@ const Code = styled.code`
 
 const Pre = styled.pre`
   background: ${blueGray.m900};
-  color: #e2e8f0;
+  color: ${blueGray.m100};
   border-radius: 10px;
   padding: 2rem 2.4rem;
   font-size: 1.25rem;
@@ -116,7 +117,7 @@ const DemoButton = styled.button`
   font-size: 1.4rem;
   font-weight: 600;
   background: ${({ $bg }) => $bg};
-  color: #fff;
+  color: ${white};
   transition: opacity 0.15s;
   &:hover {
     opacity: 0.85;
@@ -181,7 +182,7 @@ const ScrollToTopPage = () => (
   <StoryPage $bg={blue.m50}>
     <MaxWidth>
       <Card $accent={blue.m500}>
-        <CardHeader $bg='#fff' $border={blue.m100}>
+        <CardHeader $bg={white} $border={blue.m100}>
           <div>
             <FnName $color={blue.m900} $bg={blue.m100}>
               scrollToTop
@@ -264,7 +265,7 @@ const ScrollToElementPage = () => (
   <StoryPage $bg={teal.m50}>
     <MaxWidth>
       <Card $accent={teal.m500}>
-        <CardHeader $bg='#fff' $border={teal.m100}>
+        <CardHeader $bg={white} $border={teal.m100}>
           <div>
             <FnName $color={teal.m900} $bg={teal.m100}>
               scrollToElement
@@ -352,7 +353,7 @@ const LockBodyScrollPage = () => {
     <StoryPage $bg={deepPurple.m50}>
       <MaxWidth>
         <Card $accent={deepPurple.m500}>
-          <CardHeader $bg='#fff' $border={deepPurple.m100}>
+          <CardHeader $bg={white} $border={deepPurple.m100}>
             <div>
               <FnName $color={deepPurple.m900} $bg={deepPurple.m100}>
                 lockBodyScroll
@@ -451,7 +452,7 @@ const UnlockBodyScrollPage = () => {
     <StoryPage $bg={green.m50}>
       <MaxWidth>
         <Card $accent={green.m500}>
-          <CardHeader $bg='#fff' $border={green.m100}>
+          <CardHeader $bg={white} $border={green.m100}>
             <div>
               <FnName $color={green.m900} $bg={green.m100}>
                 unlockBodyScroll
@@ -534,7 +535,7 @@ const ToggleFullscreenPage = () => {
     <StoryPage $bg={indigo.m50}>
       <MaxWidth>
         <Card $accent={indigo.m500}>
-          <CardHeader $bg='#fff' $border={indigo.m100}>
+          <CardHeader $bg={white} $border={indigo.m100}>
             <div>
               <FnName $color={indigo.m900} $bg={indigo.m100}>
                 toggleFullscreen
@@ -567,7 +568,7 @@ const ToggleFullscreenPage = () => {
               >
                 <Badge
                   $bg={isFullscreen ? indigo.m500 : blueGray.m100}
-                  $color={isFullscreen ? '#fff' : blueGray.m500}
+                  $color={isFullscreen ? white : blueGray.m500}
                   style={{ fontSize: '1.4rem' }}
                 >
                   {isFullscreen ? 'FULLSCREEN' : 'windowed'}
@@ -628,7 +629,7 @@ const FocusElementPage = () => {
     <StoryPage $bg={orange.m50}>
       <MaxWidth>
         <Card $accent={orange.m500}>
-          <CardHeader $bg='#fff' $border={orange.m100}>
+          <CardHeader $bg={white} $border={orange.m100}>
             <div>
               <FnName $color={orange.m900} $bg={orange.m100}>
                 focusElement
@@ -687,7 +688,7 @@ const FocusElementPage = () => {
                     fontSize: '1.4rem',
                     border: `2px solid ${orange.m200}`,
                     borderRadius: 8,
-                    background: '#fff',
+                    background: white,
                     cursor: 'pointer',
                     textAlign: 'left',
                   }}
@@ -767,7 +768,7 @@ const DetectOutsideClickPage = () => {
     <StoryPage $bg={red.m50}>
       <MaxWidth>
         <Card $accent={red.m500}>
-          <CardHeader $bg='#fff' $border={red.m100}>
+          <CardHeader $bg={white} $border={red.m100}>
             <div>
               <FnName $color={red.m900} $bg={red.m100}>
                 detectOutsideClick
@@ -808,7 +809,7 @@ const DetectOutsideClickPage = () => {
                   color: active ? red.m700 : blueGray.m400,
                   fontSize: '1.4rem',
                   transition: 'border-color 0.2s, color 0.2s',
-                  background: active ? red.m50 : '#fff',
+                  background: active ? red.m50 : white,
                 }}
               >
                 {active ? 'Click outside this box →' : 'Press "Start detecting" first'}
@@ -880,7 +881,7 @@ const MeasureElementPage = () => {
     <StoryPage $bg={cyan.m50}>
       <MaxWidth>
         <Card $accent={cyan.m500}>
-          <CardHeader $bg='#fff' $border={cyan.m100}>
+          <CardHeader $bg={white} $border={cyan.m100}>
             <div>
               <FnName $color={cyan.m900} $bg={cyan.m100}>
                 measureElement

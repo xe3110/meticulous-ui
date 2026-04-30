@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Dropdown from '../src/components/Dropdown/Dropdown';
 import { H6 } from '../src/components/Typography/Headings';
+import blue from '../src/colors/blue';
 
 const OPTIONS = [
   { label: 'New York', value: 'New York' },
@@ -390,7 +391,7 @@ const WithAsyncLoadMore = () => {
         onLoadMore={handleLoadMore}
         hasMore={hasMore}
         isLoadingMore={isLoadingMore}
-        loaderColor='#007bff' // Match your theme
+        loaderColor={blue.m500} // Match your theme
       />
     );
   },

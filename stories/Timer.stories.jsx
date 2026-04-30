@@ -1,4 +1,5 @@
 import Timer from '../src/components/Timer/Timer';
+import white from '../src/colors/white';
 
 export default {
   title: 'Organisms/Timer',
@@ -108,7 +109,7 @@ const colors = ['green', 'red', 'blue', 'brown', 'grey', 'indigo', 'orange', 'te
           style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}
         >
           <Timer color={color} timerSeconds={45} />
-          <span style={{ color: '#fff', fontSize: '12px' }}>{color}</span>
+          <span style={{ color: white, fontSize: '12px' }}>{color}</span>
         </div>
       ))}
     </div>
@@ -144,13 +145,13 @@ export const DigitalVsAnalog = {
         style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}
       >
         <Timer isDigital timerSeconds={45} />
-        <span style={{ color: '#fff', fontSize: '12px' }}>Digital</span>
+        <span style={{ color: white, fontSize: '12px' }}>Digital</span>
       </div>
       <div
         style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}
       >
         <Timer isDigital={false} timerSeconds={45} />
-        <span style={{ color: '#fff', fontSize: '12px' }}>Analog</span>
+        <span style={{ color: white, fontSize: '12px' }}>Analog</span>
       </div>
     </div>
   ),
@@ -189,7 +190,7 @@ const sizes = [16, 24, 30, 38, 45];
           style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}
         >
           <Timer size={size} timerSeconds={45} isDigital={i % 2 === 0} />
-          <span style={{ color: '#fff', fontSize: '12px' }}>size={size}</span>
+          <span style={{ color: white, fontSize: '12px' }}>size={size}</span>
         </div>
       ))}
     </div>

@@ -9,6 +9,7 @@ import green from '../src/colors/green';
 import indigo from '../src/colors/indigo';
 import deepPurple from '../src/colors/deepPurple';
 import cyan from '../src/colors/cyan';
+import white from '../src/colors/white';
 
 import retry from '../src/utils/retry';
 import sleep from '../src/utils/sleep';
@@ -36,7 +37,7 @@ const MaxWidth = styled.div`
 `;
 
 const Card = styled.div`
-  background: #fff;
+  background: ${white};
   border-radius: 14px;
   border-left: 6px solid ${({ $accent }) => $accent};
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.09);
@@ -97,7 +98,7 @@ const Code = styled.code`
 
 const Pre = styled.pre`
   background: ${blueGray.m900};
-  color: #e2e8f0;
+  color: ${blueGray.m100};
   border-radius: 10px;
   padding: 2rem 2.4rem;
   font-size: 1.25rem;
@@ -114,7 +115,7 @@ const DemoButton = styled.button`
   font-size: 1.4rem;
   font-weight: 600;
   background: ${({ $bg }) => $bg};
-  color: #fff;
+  color: ${white};
   transition: opacity 0.15s;
   &:hover {
     opacity: 0.85;
@@ -229,7 +230,7 @@ const RetryPage = () => {
     <StoryPage $bg={orange.m50}>
       <MaxWidth>
         <Card $accent={orange.m500}>
-          <CardHeader $bg='#fff' $border={orange.m100}>
+          <CardHeader $bg={white} $border={orange.m100}>
             <div>
               <FnName $color={orange.m900} $bg={orange.m100}>
                 retry
@@ -334,7 +335,7 @@ const SleepPage = () => {
     <StoryPage $bg={lightBlue.m50}>
       <MaxWidth>
         <Card $accent={lightBlue.m500}>
-          <CardHeader $bg='#fff' $border={lightBlue.m100}>
+          <CardHeader $bg={white} $border={lightBlue.m100}>
             <div>
               <FnName $color={lightBlue.m900} $bg={lightBlue.m100}>
                 sleep
@@ -436,7 +437,7 @@ const WithTimeoutPage = () => {
     <StoryPage $bg={red.m50}>
       <MaxWidth>
         <Card $accent={red.m500}>
-          <CardHeader $bg='#fff' $border={red.m100}>
+          <CardHeader $bg={white} $border={red.m100}>
             <div>
               <FnName $color={red.m900} $bg={red.m100}>
                 withTimeout
@@ -568,7 +569,7 @@ const ParallelPage = () => {
     <StoryPage $bg={green.m50}>
       <MaxWidth>
         <Card $accent={green.m500}>
-          <CardHeader $bg='#fff' $border={green.m100}>
+          <CardHeader $bg={white} $border={green.m100}>
             <div>
               <FnName $color={green.m900} $bg={green.m100}>
                 parallel
@@ -681,7 +682,7 @@ const SequentialPage = () => {
     <StoryPage $bg={indigo.m50}>
       <MaxWidth>
         <Card $accent={indigo.m500}>
-          <CardHeader $bg='#fff' $border={indigo.m100}>
+          <CardHeader $bg={white} $border={indigo.m100}>
             <div>
               <FnName $color={indigo.m900} $bg={indigo.m100}>
                 sequential
@@ -782,7 +783,7 @@ const SafeAsyncPage = () => {
     <StoryPage $bg={deepPurple.m50}>
       <MaxWidth>
         <Card $accent={deepPurple.m500}>
-          <CardHeader $bg='#fff' $border={deepPurple.m100}>
+          <CardHeader $bg={white} $border={deepPurple.m100}>
             <div>
               <FnName $color={deepPurple.m900} $bg={deepPurple.m100}>
                 safeAsync
@@ -924,7 +925,7 @@ const CancelablePromisePage = () => {
     <StoryPage $bg={cyan.m50}>
       <MaxWidth>
         <Card $accent={cyan.m500}>
-          <CardHeader $bg='#fff' $border={cyan.m100}>
+          <CardHeader $bg={white} $border={cyan.m100}>
             <div>
               <FnName $color={cyan.m900} $bg={cyan.m100}>
                 cancelablePromise

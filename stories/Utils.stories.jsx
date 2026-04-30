@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import blueGray from '../src/colors/blueGray';
 import violet from '../src/colors/violet';
 import teal from '../src/colors/teal';
+import white from '../src/colors/white';
 
 import compose from '../src/utils/compose';
 
@@ -26,7 +27,7 @@ const MaxWidth = styled.div`
 // ─── Card ─────────────────────────────────────────────────────────────────────
 
 const Card = styled.div`
-  background: #fff;
+  background: ${white};
   border-radius: 14px;
   border-left: 6px solid ${({ $accent }) => $accent};
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.09);
@@ -144,7 +145,7 @@ const ExamplesTable = ({ rows, outputColor }) => (
 
 const Pre = styled.pre`
   background: ${blueGray.m900};
-  color: #e2e8f0;
+  color: ${blueGray.m100};
   border-radius: 10px;
   padding: 2rem 2.4rem;
   font-size: 1.25rem;
@@ -161,7 +162,7 @@ const ComposePage = () => (
   <StoryPage $bg={teal.m50}>
     <MaxWidth>
       <Card $accent={teal.m500}>
-        <CardHeader $bg='#fff' $border={teal.m100}>
+        <CardHeader $bg={white} $border={teal.m100}>
           <div>
             <FnName $color={teal.m900} $bg={teal.m100}>
               compose

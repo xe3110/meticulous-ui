@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import Modal from '../src/components/Modal/Modal';
 import Button from '../src/components/Button/Button';
+import green from '../src/colors/green';
+import red from '../src/colors/red';
+import grey from '../src/colors/grey';
+import white from '../src/colors/white';
 
 export default {
   title: 'Atoms/Modal',
@@ -128,6 +132,49 @@ export const NoFooter = () => {
 
 NoFooter.storyName = 'No Footer';
 
+export const CustomTitleComponent = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const TitleWithBadge = (
+    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+      <span style={{ fontSize: '2.4rem', fontWeight: 600 }}>Team Settings</span>
+      <span
+        style={{
+          fontSize: '1.2rem',
+          fontWeight: 600,
+          padding: '0.2rem 0.6rem',
+          borderRadius: '999px',
+          background: green.m50,
+          color: green.m800,
+        }}
+      >
+        Pro
+      </span>
+    </div>
+  );
+
+  return (
+    <>
+      <Button onClick={() => setIsOpen(true)} width='5rem'>
+        Open (Custom Title)
+      </Button>
+      <Modal
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        title={TitleWithBadge}
+        footer={<Button onClick={() => setIsOpen(false)}>Close</Button>}
+      >
+        <p style={{ margin: 0, fontSize: '1.6rem' }}>
+          The title prop accepts a React element, so you can render badges, icons, or any custom
+          markup alongside the heading.
+        </p>
+      </Modal>
+    </>
+  );
+};
+
+CustomTitleComponent.storyName = 'Custom Title Component';
+
 export const FooterAlignment = () => {
   const [align, setAlign] = useState('right');
   const [isOpen, setIsOpen] = useState(false);
@@ -238,7 +285,7 @@ export const ConfirmDelete = () => {
         Delete Item
       </Button>
       {deleted && (
-        <p style={{ marginTop: '1rem', fontSize: '1.6rem', color: '#c62828' }}>Item deleted.</p>
+        <p style={{ marginTop: '1rem', fontSize: '1.6rem', color: red.m800 }}>Item deleted.</p>
       )}
       <Modal
         isOpen={isOpen}
@@ -265,3 +312,75 @@ export const ConfirmDelete = () => {
 };
 
 ConfirmDelete.storyName = 'Confirm Delete';
+
+export const FullOnMobile = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setIsOpen(true)} width='5rem'>
+        Open Full-Screen on Mobile
+      </Button>
+      <p style={{ marginTop: '0.75rem', fontSize: '1.4rem', color: grey.m600 }}>
+        Resize the viewport below 640 px to see the bottom-sheet behaviour.
+      </p>
+      <Modal
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        title='Mobile Sheet'
+        isFullOnMobile
+        footer={
+          <>
+            <Button theme='grey' onClick={() => setIsOpen(false)}>
+              Cancel
+            </Button>
+            <Button onClick={() => setIsOpen(false)}>Confirm</Button>
+          </>
+        }
+      >
+        <p style={{ margin: 0, fontSize: '1.6rem' }}>
+          On mobile this sheet slides up from the bottom and covers the full width of the screen. On
+          desktop it behaves like a regular centered modal.
+        </p>
+      </Modal>
+    </>
+  );
+};
+
+FullOnMobile.storyName = 'Full On Mobile';
+
+export const ScrollableContent = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setIsOpen(true)} width='5rem'>
+        Open Tall Modal
+      </Button>
+      <Modal
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        title='Scrollable Content'
+        isFullOnMobile
+        width='80rem'
+        footer={
+          <>
+            <Button theme='grey' onClick={() => setIsOpen(false)}>
+              Cancel
+            </Button>
+            <Button onClick={() => setIsOpen(false)}>Confirm</Button>
+          </>
+        }
+      >
+        {Array.from({ length: 20 }, (_, i) => (
+          <p key={i} style={{ margin: '0 0 1rem', fontSize: '1.6rem' }}>
+            Paragraph {i + 1} — When content exceeds the modal's max height (90 vh), the body
+            scrolls independently while the header and footer stay fixed.
+          </p>
+        ))}
+      </Modal>
+    </>
+  );
+};
+
+ScrollableContent.storyName = 'Scrollable Content';

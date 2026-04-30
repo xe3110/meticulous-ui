@@ -11,6 +11,7 @@ import orange from '../src/colors/orange';
 import indigo from '../src/colors/indigo';
 import yellow from '../src/colors/yellow';
 import red from '../src/colors/red';
+import white from '../src/colors/white';
 
 import randomInt from '../src/utils/randomInt';
 import randomValue from '../src/utils/randomValue';
@@ -42,7 +43,7 @@ const MaxWidth = styled.div`
 // ─── Card ─────────────────────────────────────────────────────────────────────
 
 const Card = styled.div`
-  background: #fff;
+  background: ${white};
   border-radius: 14px;
   border-left: 6px solid ${({ $accent }) => $accent};
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.09);
@@ -160,7 +161,7 @@ const ExamplesTable = ({ rows, outputColor }) => (
 
 const Pre = styled.pre`
   background: ${blueGray.m900};
-  color: #e2e8f0;
+  color: ${blueGray.m100};
   border-radius: 10px;
   padding: 2rem 2.4rem;
   font-size: 1.25rem;
@@ -200,7 +201,7 @@ const NumInput = styled.input`
 const RunButton = styled.button`
   padding: 0.7rem 2.2rem;
   background: ${({ $bg }) => $bg};
-  color: #fff;
+  color: ${white};
   border: none;
   border-radius: 7px;
   font-size: 1.35rem;
@@ -237,7 +238,7 @@ const RandomValuePage = () => {
     <StoryPage $bg={blue.m50}>
       <MaxWidth>
         <Card $accent={blue.m500}>
-          <CardHeader $bg='#fff' $border={blue.m100}>
+          <CardHeader $bg={white} $border={blue.m100}>
             <div>
               <FnName $color={blue.m900} $bg={blue.m100}>
                 randomValue
@@ -326,7 +327,7 @@ const RandomIntPage = () => {
     <StoryPage $bg={pink.m50}>
       <MaxWidth>
         <Card $accent={pink.m500}>
-          <CardHeader $bg='#fff' $border={pink.m100}>
+          <CardHeader $bg={white} $border={pink.m100}>
             <div>
               <FnName $color={pink.m900} $bg={pink.m100}>
                 randomInt
@@ -418,7 +419,7 @@ const FormatNumberPage = () => (
   <StoryPage $bg={red.m50}>
     <MaxWidth>
       <Card $accent={red.m500}>
-        <CardHeader $bg='#fff' $border={red.m100}>
+        <CardHeader $bg={white} $border={red.m100}>
           <div>
             <FnName $color={red.m900} $bg={red.m100}>
               formatNumber
@@ -480,7 +481,7 @@ const FormatCurrencyPage = () => (
   <StoryPage $bg={green.m50}>
     <MaxWidth>
       <Card $accent={green.m500}>
-        <CardHeader $bg='#fff' $border={green.m100}>
+        <CardHeader $bg={white} $border={green.m100}>
           <div>
             <FnName $color={green.m900} $bg={green.m100}>
               formatCurrency
@@ -542,7 +543,7 @@ const FormatCompactNumberPage = () => (
   <StoryPage $bg={teal.m50}>
     <MaxWidth>
       <Card $accent={teal.m500}>
-        <CardHeader $bg='#fff' $border={teal.m100}>
+        <CardHeader $bg={white} $border={teal.m100}>
           <div>
             <FnName $color={teal.m900} $bg={teal.m100}>
               formatCompactNumber
@@ -601,7 +602,7 @@ const RoundToPage = () => (
   <StoryPage $bg={purple.m50}>
     <MaxWidth>
       <Card $accent={purple.m500}>
-        <CardHeader $bg='#fff' $border={purple.m100}>
+        <CardHeader $bg={white} $border={purple.m100}>
           <div>
             <FnName $color={purple.m900} $bg={purple.m100}>
               roundTo
@@ -662,7 +663,7 @@ const RandomBetweenPage = () => {
     <StoryPage $bg={orange.m50}>
       <MaxWidth>
         <Card $accent={orange.m600}>
-          <CardHeader $bg='#fff' $border={orange.m100}>
+          <CardHeader $bg={white} $border={orange.m100}>
             <div>
               <FnName $color={orange.m900} $bg={orange.m100}>
                 randomBetween
@@ -745,7 +746,7 @@ const ClampPage = () => (
   <StoryPage $bg={indigo.m50}>
     <MaxWidth>
       <Card $accent={indigo.m500}>
-        <CardHeader $bg='#fff' $border={indigo.m100}>
+        <CardHeader $bg={white} $border={indigo.m100}>
           <div>
             <FnName $color={indigo.m900} $bg={indigo.m100}>
               clamp
@@ -796,7 +797,7 @@ const PercentagePage = () => (
   <StoryPage $bg={yellow.m50}>
     <MaxWidth>
       <Card $accent={yellow.m800}>
-        <CardHeader $bg='#fff' $border={yellow.m200}>
+        <CardHeader $bg={white} $border={yellow.m200}>
           <div>
             <FnName $color={yellow.m900} $bg={yellow.m200}>
               percentage

@@ -1,6 +1,6 @@
 {
   "name": "meticulous-ui",
-  "version": "3.5.3",
+  "version": "3.5.4",
   "license": "ISC",
   "description": "A comprehensive React UI component library with a wide range of customizable components, icons, colors, and utilities for building modern web applications.",
   "types": "./index.d.ts",

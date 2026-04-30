@@ -9,6 +9,7 @@ import green from '../src/colors/green';
 import blue from '../src/colors/blue';
 import grey from '../src/colors/grey';
 import purple from '../src/colors/purple';
+import white from '../src/colors/white';
 
 import getQueryParams from '../src/utils/getQueryParams';
 import setQueryParam from '../src/utils/setQueryParam';
@@ -36,7 +37,7 @@ const MaxWidth = styled.div`
 `;
 
 const Card = styled.div`
-  background: #fff;
+  background: ${white};
   border-radius: 14px;
   border-left: 6px solid ${({ $accent }) => $accent};
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.09);
@@ -97,7 +98,7 @@ const Code = styled.code`
 
 const Pre = styled.pre`
   background: ${blueGray.m900};
-  color: #e2e8f0;
+  color: ${blueGray.m100};
   border-radius: 10px;
   padding: 2rem 2.4rem;
   font-size: 1.25rem;
@@ -114,7 +115,7 @@ const DemoButton = styled.button`
   font-size: 1.4rem;
   font-weight: 600;
   background: ${({ $bg }) => $bg};
-  color: #fff;
+  color: ${white};
   transition: opacity 0.15s;
   &:hover {
     opacity: 0.85;
@@ -185,7 +186,7 @@ const PTd = styled.td`
 
 const URLBar = styled.div`
   background: ${blueGray.m900};
-  color: #68d391;
+  color: ${green.m400};
   font-family: monospace;
   font-size: 1.3rem;
   padding: 1.2rem 1.8rem;
@@ -238,7 +239,7 @@ const GetQueryParamsPage = () => {
     <StoryPage $bg={teal.m50}>
       <MaxWidth>
         <Card $accent={teal.m500}>
-          <CardHeader $bg='#fff' $border={teal.m100}>
+          <CardHeader $bg={white} $border={teal.m100}>
             <div>
               <FnName $color={teal.m900} $bg={teal.m100}>
                 getQueryParams
@@ -331,7 +332,7 @@ const SetQueryParamPage = () => {
     <StoryPage $bg={indigo.m50}>
       <MaxWidth>
         <Card $accent={indigo.m500}>
-          <CardHeader $bg='#fff' $border={indigo.m100}>
+          <CardHeader $bg={white} $border={indigo.m100}>
             <div>
               <FnName $color={indigo.m900} $bg={indigo.m100}>
                 setQueryParam
@@ -426,7 +427,7 @@ const RemoveQueryParamPage = () => {
     <StoryPage $bg={deepOrange.m50}>
       <MaxWidth>
         <Card $accent={deepOrange.m500}>
-          <CardHeader $bg='#fff' $border={deepOrange.m100}>
+          <CardHeader $bg={white} $border={deepOrange.m100}>
             <div>
               <FnName $color={deepOrange.m900} $bg={deepOrange.m100}>
                 removeQueryParam
@@ -528,7 +529,7 @@ const BuildURLPage = () => {
     <StoryPage $bg={green.m50}>
       <MaxWidth>
         <Card $accent={green.m500}>
-          <CardHeader $bg='#fff' $border={green.m100}>
+          <CardHeader $bg={white} $border={green.m100}>
             <div>
               <FnName $color={green.m900} $bg={green.m100}>
                 buildURL
@@ -645,7 +646,7 @@ const RedirectToPage = () => {
     <StoryPage $bg={blue.m50}>
       <MaxWidth>
         <Card $accent={blue.m500}>
-          <CardHeader $bg='#fff' $border={blue.m100}>
+          <CardHeader $bg={white} $border={blue.m100}>
             <div>
               <FnName $color={blue.m900} $bg={blue.m100}>
                 redirectTo
@@ -730,7 +731,7 @@ const GetCurrentPathPage = () => {
     <StoryPage $bg={grey.m100}>
       <MaxWidth>
         <Card $accent={grey.m600}>
-          <CardHeader $bg='#fff' $border={grey.m200}>
+          <CardHeader $bg={white} $border={grey.m200}>
             <div>
               <FnName $color={grey.m900} $bg={grey.m200}>
                 getCurrentPath
@@ -809,7 +810,7 @@ const IsActiveRoutePage = () => {
     <StoryPage $bg={purple.m50}>
       <MaxWidth>
         <Card $accent={purple.m500}>
-          <CardHeader $bg='#fff' $border={purple.m100}>
+          <CardHeader $bg={white} $border={purple.m100}>
             <div>
               <FnName $color={purple.m900} $bg={purple.m100}>
                 isActiveRoute
@@ -847,7 +848,7 @@ const IsActiveRoutePage = () => {
                       fontSize: '1.3rem',
                       fontWeight: 600,
                       background: isActiveRoute(r) ? purple.m400 : 'transparent',
-                      color: isActiveRoute(r) ? '#fff' : purple.m200,
+                      color: isActiveRoute(r) ? white : purple.m200,
                       transition: 'background 0.15s',
                     }}
                   >
@@ -867,7 +868,7 @@ const IsActiveRoutePage = () => {
                   />
                   <Pill
                     $bg={isActive ? purple.m500 : blueGray.m200}
-                    $color='#fff'
+                    $color={white}
                     style={{ fontSize: '1.5rem', padding: '0.7rem 1.8rem' }}
                   >
                     {String(isActive)}

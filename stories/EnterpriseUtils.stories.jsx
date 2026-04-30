@@ -11,6 +11,7 @@ import deepOrange from '../src/colors/deepOrange';
 import lightBlue from '../src/colors/lightBlue';
 import orange from '../src/colors/orange';
 import red from '../src/colors/red';
+import white from '../src/colors/white';
 
 import trackEvent from '../src/utils/trackEvent';
 import trackPageView from '../src/utils/trackPageView';
@@ -40,7 +41,7 @@ const MaxWidth = styled.div`
 `;
 
 const Card = styled.div`
-  background: #fff;
+  background: ${white};
   border-radius: 14px;
   border-left: 6px solid ${({ $accent }) => $accent};
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.09);
@@ -101,7 +102,7 @@ const Code = styled.code`
 
 const Pre = styled.pre`
   background: ${blueGray.m900};
-  color: #e2e8f0;
+  color: ${blueGray.m100};
   border-radius: 10px;
   padding: 2rem 2.4rem;
   font-size: 1.25rem;
@@ -128,7 +129,7 @@ const Btn = styled.button`
   font-size: 1.3rem;
   font-weight: 600;
   background: ${({ $bg }) => $bg};
-  color: #fff;
+  color: ${white};
 `;
 
 const JsonOut = styled.pre`
@@ -190,7 +191,7 @@ const TrackEventDemo = () => {
         </Btn>
       </Row>
       {result && (
-        <JsonOut $bg='#fff' $border={indigo.m100} $color={indigo.m800}>
+        <JsonOut $bg={white} $border={indigo.m100} $color={indigo.m800}>
           {JSON.stringify(result, null, 2)}
         </JsonOut>
       )}
@@ -202,7 +203,7 @@ const TrackEventPage = () => (
   <StoryPage $bg={indigo.m50}>
     <MaxWidth>
       <Card $accent={indigo.m500}>
-        <CardHeader $bg='#fff' $border={indigo.m100}>
+        <CardHeader $bg={white} $border={indigo.m100}>
           <div>
             <FnName $color={indigo.m900} $bg={indigo.m100}>
               trackEvent
@@ -266,7 +267,7 @@ const TrackPageViewDemo = () => {
         ))}
       </Row>
       {result && (
-        <JsonOut $bg='#fff' $border={blue.m100} $color={blue.m800}>
+        <JsonOut $bg={white} $border={blue.m100} $color={blue.m800}>
           {JSON.stringify(result, null, 2)}
         </JsonOut>
       )}
@@ -278,7 +279,7 @@ const TrackPageViewPage = () => (
   <StoryPage $bg={blue.m50}>
     <MaxWidth>
       <Card $accent={blue.m500}>
-        <CardHeader $bg='#fff' $border={blue.m100}>
+        <CardHeader $bg={white} $border={blue.m100}>
           <div>
             <FnName $color={blue.m900} $bg={blue.m100}>
               trackPageView
@@ -353,7 +354,7 @@ const MeasurePerformanceDemo = () => {
         ))}
       </Row>
       {result && (
-        <JsonOut $bg='#fff' $border={teal.m100} $color={teal.m800}>
+        <JsonOut $bg={white} $border={teal.m100} $color={teal.m800}>
           {JSON.stringify(result, null, 2)}
         </JsonOut>
       )}
@@ -365,7 +366,7 @@ const MeasurePerformancePage = () => (
   <StoryPage $bg={teal.m50}>
     <MaxWidth>
       <Card $accent={teal.m500}>
-        <CardHeader $bg='#fff' $border={teal.m100}>
+        <CardHeader $bg={white} $border={teal.m100}>
           <div>
             <FnName $color={teal.m900} $bg={teal.m100}>
               measurePerformance
@@ -465,7 +466,7 @@ const FeatureGatePage = () => (
   <StoryPage $bg={amber.m50}>
     <MaxWidth>
       <Card $accent={amber.m700}>
-        <CardHeader $bg='#fff' $border={amber.m200}>
+        <CardHeader $bg={white} $border={amber.m200}>
           <div>
             <FnName $color={amber.m900} $bg={amber.m200}>
               featureGate
@@ -560,7 +561,7 @@ const PermissionGuardPage = () => (
   <StoryPage $bg={green.m50}>
     <MaxWidth>
       <Card $accent={green.m500}>
-        <CardHeader $bg='#fff' $border={green.m100}>
+        <CardHeader $bg={white} $border={green.m100}>
           <div>
             <FnName $color={green.m900} $bg={green.m100}>
               permissionGuard
@@ -642,7 +643,7 @@ const AuditLogDemo = () => {
         </Btn>
       </Row>
       {entries.map((e, i) => (
-        <JsonOut key={i} $bg='#fff' $border={deepOrange.m100} $color={deepOrange.m800}>
+        <JsonOut key={i} $bg={white} $border={deepOrange.m100} $color={deepOrange.m800}>
           {JSON.stringify(e, null, 2)}
         </JsonOut>
       ))}
@@ -654,7 +655,7 @@ const AuditLogPage = () => (
   <StoryPage $bg={deepOrange.m50}>
     <MaxWidth>
       <Card $accent={deepOrange.m500}>
-        <CardHeader $bg='#fff' $border={deepOrange.m100}>
+        <CardHeader $bg={white} $border={deepOrange.m100}>
           <div>
             <FnName $color={deepOrange.m900} $bg={deepOrange.m100}>
               auditLog
@@ -732,7 +733,7 @@ const LogInfoDemo = () => {
         </Btn>
       </Row>
       {entries.map((e, i) => (
-        <JsonOut key={i} $bg='#fff' $border={lightBlue.m100} $color={lightBlue.m800}>
+        <JsonOut key={i} $bg={white} $border={lightBlue.m100} $color={lightBlue.m800}>
           {JSON.stringify(e, null, 2)}
         </JsonOut>
       ))}
@@ -744,7 +745,7 @@ const LogInfoPage = () => (
   <StoryPage $bg={lightBlue.m50}>
     <MaxWidth>
       <Card $accent={lightBlue.m500}>
-        <CardHeader $bg='#fff' $border={lightBlue.m100}>
+        <CardHeader $bg={white} $border={lightBlue.m100}>
           <div>
             <FnName $color={lightBlue.m900} $bg={lightBlue.m100}>
               logInfo
@@ -815,7 +816,7 @@ const LogWarnDemo = () => {
         </Btn>
       </Row>
       {entries.map((e, i) => (
-        <JsonOut key={i} $bg='#fff' $border={orange.m100} $color={orange.m800}>
+        <JsonOut key={i} $bg={white} $border={orange.m100} $color={orange.m800}>
           {JSON.stringify(e, null, 2)}
         </JsonOut>
       ))}
@@ -827,7 +828,7 @@ const LogWarnPage = () => (
   <StoryPage $bg={orange.m50}>
     <MaxWidth>
       <Card $accent={orange.m600}>
-        <CardHeader $bg='#fff' $border={orange.m100}>
+        <CardHeader $bg={white} $border={orange.m100}>
           <div>
             <FnName $color={orange.m900} $bg={orange.m100}>
               logWarn
@@ -889,7 +890,7 @@ const CaptureExceptionDemo = () => {
         </Btn>
       </Row>
       {entries.map((e, i) => (
-        <JsonOut key={i} $bg='#fff' $border={red.m100} $color={red.m800}>
+        <JsonOut key={i} $bg={white} $border={red.m100} $color={red.m800}>
           {JSON.stringify(e, null, 2)}
         </JsonOut>
       ))}
@@ -901,7 +902,7 @@ const CaptureExceptionPage = () => (
   <StoryPage $bg={red.m50}>
     <MaxWidth>
       <Card $accent={red.m500}>
-        <CardHeader $bg='#fff' $border={red.m100}>
+        <CardHeader $bg={white} $border={red.m100}>
           <div>
             <FnName $color={red.m900} $bg={red.m100}>
               captureException

@@ -48,6 +48,7 @@ const Carousel = ({
   showProgress = false,
   defaultIndex = 0,
   onSlideChange,
+  ...rest
 }) => {
   const [currentIndex, setCurrentIndex] = useState(defaultIndex);
   const [arrowsVisible, setArrowsVisible] = useState(true);
@@ -198,6 +199,7 @@ const Carousel = ({
       onKeyDown={handleKeyDown}
       role='region'
       aria-label='Carousel'
+      {...rest}
     >
       <SlideArea
         onTouchStart={handleTouchStart}

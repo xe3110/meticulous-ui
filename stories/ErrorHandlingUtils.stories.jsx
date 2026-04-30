@@ -7,6 +7,7 @@ import orange from '../src/colors/orange';
 import teal from '../src/colors/teal';
 import indigo from '../src/colors/indigo';
 import green from '../src/colors/green';
+import white from '../src/colors/white';
 
 import logError from '../src/utils/logError';
 import captureException from '../src/utils/captureException';
@@ -32,7 +33,7 @@ const MaxWidth = styled.div`
 `;
 
 const Card = styled.div`
-  background: #fff;
+  background: ${white};
   border-radius: 14px;
   border-left: 6px solid ${({ $accent }) => $accent};
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.09);
@@ -93,7 +94,7 @@ const Code = styled.code`
 
 const Pre = styled.pre`
   background: ${blueGray.m900};
-  color: #e2e8f0;
+  color: ${blueGray.m100};
   border-radius: 10px;
   padding: 2rem 2.4rem;
   font-size: 1.25rem;
@@ -110,7 +111,7 @@ const DemoButton = styled.button`
   font-size: 1.4rem;
   font-weight: 600;
   background: ${({ $bg }) => $bg};
-  color: #fff;
+  color: ${white};
   transition: opacity 0.15s;
   &:hover {
     opacity: 0.85;
@@ -203,7 +204,7 @@ const LogErrorPage = () => {
     <StoryPage $bg={red.m50}>
       <MaxWidth>
         <Card $accent={red.m500}>
-          <CardHeader $bg='#fff' $border={red.m100}>
+          <CardHeader $bg={white} $border={red.m100}>
             <div>
               <FnName $color={red.m900} $bg={red.m100}>
                 logError
@@ -282,7 +283,7 @@ const CaptureExceptionPage = () => {
     <StoryPage $bg={orange.m50}>
       <MaxWidth>
         <Card $accent={orange.m500}>
-          <CardHeader $bg='#fff' $border={orange.m100}>
+          <CardHeader $bg={white} $border={orange.m100}>
             <div>
               <FnName $color={orange.m900} $bg={orange.m100}>
                 captureException
@@ -380,7 +381,7 @@ const SafeJSONParsePage = () => {
     <StoryPage $bg={teal.m50}>
       <MaxWidth>
         <Card $accent={teal.m500}>
-          <CardHeader $bg='#fff' $border={teal.m100}>
+          <CardHeader $bg={white} $border={teal.m100}>
             <div>
               <FnName $color={teal.m900} $bg={teal.m100}>
                 safeJSONParse
@@ -495,7 +496,7 @@ const SafeJSONStringifyPage = () => {
     <StoryPage $bg={indigo.m50}>
       <MaxWidth>
         <Card $accent={indigo.m500}>
-          <CardHeader $bg='#fff' $border={indigo.m100}>
+          <CardHeader $bg={white} $border={indigo.m100}>
             <div>
               <FnName $color={indigo.m900} $bg={indigo.m100}>
                 safeJSONStringify
@@ -589,7 +590,7 @@ const FallbackPage = () => {
     <StoryPage $bg={green.m50}>
       <MaxWidth>
         <Card $accent={green.m500}>
-          <CardHeader $bg='#fff' $border={green.m100}>
+          <CardHeader $bg={white} $border={green.m100}>
             <div>
               <FnName $color={green.m900} $bg={green.m100}>
                 fallback
@@ -625,7 +626,7 @@ const FallbackPage = () => {
                         padding: '1rem 1.4rem',
                         borderRadius: 8,
                         cursor: 'pointer',
-                        background: isSelected ? green.m100 : '#fff',
+                        background: isSelected ? green.m100 : white,
                         border: `2px solid ${isSelected ? green.m400 : green.m100}`,
                         transition: 'background 0.15s, border-color 0.15s',
                       }}

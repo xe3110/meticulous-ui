@@ -7,6 +7,7 @@ import teal from '../src/colors/teal';
 import green from '../src/colors/green';
 import red from '../src/colors/red';
 import orange from '../src/colors/orange';
+import white from '../src/colors/white';
 
 import isFeatureEnabled from '../src/utils/isFeatureEnabled';
 import getVariant from '../src/utils/getVariant';
@@ -29,7 +30,7 @@ const MaxWidth = styled.div`
 `;
 
 const Card = styled.div`
-  background: #fff;
+  background: ${white};
   border-radius: 14px;
   border-left: 6px solid ${({ $accent }) => $accent};
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.09);
@@ -90,7 +91,7 @@ const Code = styled.code`
 
 const Pre = styled.pre`
   background: ${blueGray.m900};
-  color: #e2e8f0;
+  color: ${blueGray.m100};
   border-radius: 10px;
   padding: 2rem 2.4rem;
   font-size: 1.25rem;
@@ -107,7 +108,7 @@ const DemoButton = styled.button`
   font-size: 1.4rem;
   font-weight: 600;
   background: ${({ $bg }) => $bg};
-  color: #fff;
+  color: ${white};
   transition: opacity 0.15s;
   &:hover {
     opacity: 0.85;
@@ -196,7 +197,7 @@ const IsFeatureEnabledPage = () => {
     <StoryPage $bg={indigo.m50}>
       <MaxWidth>
         <Card $accent={indigo.m500}>
-          <CardHeader $bg='#fff' $border={indigo.m100}>
+          <CardHeader $bg={white} $border={indigo.m100}>
             <div>
               <FnName $color={indigo.m900} $bg={indigo.m100}>
                 isFeatureEnabled
@@ -227,7 +228,7 @@ const IsFeatureEnabledPage = () => {
                         gap: '1.2rem',
                         padding: '1rem 1.4rem',
                         borderRadius: 10,
-                        background: enabled ? indigo.m50 : '#fff',
+                        background: enabled ? indigo.m50 : white,
                         border: `2px solid ${enabled ? indigo.m300 : blueGray.m100}`,
                         transition: 'background 0.15s, border-color 0.15s',
                       }}
@@ -254,7 +255,7 @@ const IsFeatureEnabledPage = () => {
                             width: '1.8rem',
                             height: '1.8rem',
                             borderRadius: '50%',
-                            background: '#fff',
+                            background: white,
                             transition: 'left 0.2s',
                             boxShadow: '0 1px 4px rgba(0,0,0,0.2)',
                           }}
@@ -387,7 +388,7 @@ const GetVariantPage = () => {
     <StoryPage $bg={teal.m50}>
       <MaxWidth>
         <Card $accent={teal.m500}>
-          <CardHeader $bg='#fff' $border={teal.m100}>
+          <CardHeader $bg={white} $border={teal.m100}>
             <div>
               <FnName $color={teal.m900} $bg={teal.m100}>
                 getVariant
@@ -416,7 +417,7 @@ const GetVariantPage = () => {
                       style={{
                         padding: '1.6rem',
                         borderRadius: 10,
-                        background: '#fff',
+                        background: white,
                         border: `1.5px solid ${active ? teal.m200 : blueGray.m100}`,
                       }}
                     >

@@ -12,6 +12,8 @@ import indigo from '../src/colors/indigo';
 import orange from '../src/colors/orange';
 import cyan from '../src/colors/cyan';
 import brown from '../src/colors/brown';
+import red from '../src/colors/red';
+import white from '../src/colors/white';
 
 import isMobile from '../src/utils/isMobile';
 import isIOS from '../src/utils/isIOS';
@@ -44,7 +46,7 @@ const MaxWidth = styled.div`
 // ─── Card ─────────────────────────────────────────────────────────────────────
 
 const Card = styled.div`
-  background: #fff;
+  background: ${white};
   border-radius: 14px;
   border-left: 6px solid ${({ $accent }) => $accent};
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.09);
@@ -105,7 +107,7 @@ const Code = styled.code`
 
 const Pre = styled.pre`
   background: ${blueGray.m900};
-  color: #e2e8f0;
+  color: ${blueGray.m100};
   border-radius: 10px;
   padding: 2rem 2.4rem;
   font-size: 1.25rem;
@@ -137,7 +139,7 @@ const Badge = styled.span`
   padding: 0.5rem 1.4rem;
   border-radius: 999px;
   background: ${({ $true, $trueColor, $falseColor }) => ($true ? $trueColor : $falseColor)};
-  color: #fff;
+  color: ${white};
 `;
 
 const BoolBadge = ({ value, trueColor, falseColor }) => (
@@ -159,7 +161,7 @@ const DemoButton = styled.button`
   font-size: 1.4rem;
   font-weight: 600;
   background: ${({ $bg }) => $bg};
-  color: #fff;
+  color: ${white};
   transition: opacity 0.15s;
   &:hover {
     opacity: 0.85;
@@ -218,7 +220,7 @@ const IsMobilePage = () => (
   <StoryPage $bg={blue.m50}>
     <MaxWidth>
       <Card $accent={blue.m500}>
-        <CardHeader $bg='#fff' $border={blue.m100}>
+        <CardHeader $bg={white} $border={blue.m100}>
           <div>
             <FnName $color={blue.m900} $bg={blue.m100}>
               isMobile
@@ -263,7 +265,7 @@ const IsIOSPage = () => (
   <StoryPage $bg={grey.m100}>
     <MaxWidth>
       <Card $accent={grey.m600}>
-        <CardHeader $bg='#fff' $border={grey.m200}>
+        <CardHeader $bg={white} $border={grey.m200}>
           <div>
             <FnName $color={grey.m900} $bg={grey.m200}>
               isIOS
@@ -309,7 +311,7 @@ const IsAndroidPage = () => (
   <StoryPage $bg={green.m50}>
     <MaxWidth>
       <Card $accent={green.m500}>
-        <CardHeader $bg='#fff' $border={green.m100}>
+        <CardHeader $bg={white} $border={green.m100}>
           <div>
             <FnName $color={green.m900} $bg={green.m100}>
               isAndroid
@@ -352,7 +354,7 @@ const IsSafariPage = () => (
   <StoryPage $bg={lightBlue.m50}>
     <MaxWidth>
       <Card $accent={lightBlue.m500}>
-        <CardHeader $bg='#fff' $border={lightBlue.m100}>
+        <CardHeader $bg={white} $border={lightBlue.m100}>
           <div>
             <FnName $color={lightBlue.m900} $bg={lightBlue.m100}>
               isSafari
@@ -406,7 +408,7 @@ const IsDarkModePage = () => {
     <StoryPage $bg={deepPurple.m50}>
       <MaxWidth>
         <Card $accent={deepPurple.m500}>
-          <CardHeader $bg='#fff' $border={deepPurple.m100}>
+          <CardHeader $bg={white} $border={deepPurple.m100}>
             <div>
               <FnName $color={deepPurple.m900} $bg={deepPurple.m100}>
                 isDarkMode
@@ -463,7 +465,7 @@ const IsOnlinePage = () => {
     <StoryPage $bg={teal.m50}>
       <MaxWidth>
         <Card $accent={teal.m500}>
-          <CardHeader $bg='#fff' $border={teal.m100}>
+          <CardHeader $bg={white} $border={teal.m100}>
             <div>
               <FnName $color={teal.m900} $bg={teal.m100}>
                 isOnline
@@ -522,7 +524,7 @@ const CopyToClipboardPage = () => {
     <StoryPage $bg={indigo.m50}>
       <MaxWidth>
         <Card $accent={indigo.m500}>
-          <CardHeader $bg='#fff' $border={indigo.m100}>
+          <CardHeader $bg={white} $border={indigo.m100}>
             <div>
               <FnName $color={indigo.m900} $bg={indigo.m100}>
                 copyToClipboard
@@ -546,7 +548,7 @@ const CopyToClipboardPage = () => {
                   <StatusChip $color={indigo.m600}>Copied to clipboard!</StatusChip>
                 )}
                 {status === 'error' && (
-                  <StatusChip $color='#e53e3e'>Failed — check permissions</StatusChip>
+                  <StatusChip $color={red.m600}>Failed — check permissions</StatusChip>
                 )}
               </DemoRow>
             </div>
@@ -600,7 +602,7 @@ const DownloadFilePage = () => {
     <StoryPage $bg={orange.m50}>
       <MaxWidth>
         <Card $accent={orange.m500}>
-          <CardHeader $bg='#fff' $border={orange.m100}>
+          <CardHeader $bg={white} $border={orange.m100}>
             <div>
               <FnName $color={orange.m900} $bg={orange.m100}>
                 downloadFile
@@ -659,7 +661,7 @@ const OpenInNewTabPage = () => (
   <StoryPage $bg={cyan.m50}>
     <MaxWidth>
       <Card $accent={cyan.m500}>
-        <CardHeader $bg='#fff' $border={cyan.m100}>
+        <CardHeader $bg={white} $border={cyan.m100}>
           <div>
             <FnName $color={cyan.m900} $bg={cyan.m100}>
               openInNewTab
@@ -725,7 +727,7 @@ const GetScreenSizePage = () => {
     <StoryPage $bg={brown.m50}>
       <MaxWidth>
         <Card $accent={brown.m500}>
-          <CardHeader $bg='#fff' $border={brown.m100}>
+          <CardHeader $bg={white} $border={brown.m100}>
             <div>
               <FnName $color={brown.m900} $bg={brown.m100}>
                 getScreenSize
