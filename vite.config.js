@@ -43,6 +43,24 @@ function removeVirtualDir() {
   }
 }
 
+function buildEntries(root) {
+  const entries = { index: resolve(root, 'src/index.js') };
+
+  // Add each util as its own entry (no barrel index in utils)
+  const utilsDir = resolve(root, 'src/utils');
+  fs.readdirSync(utilsDir)
+    .filter((f) => f.endsWith('.js'))
+    .forEach((f) => {
+      entries[`utils/${f.replace('.js', '')}`] = resolve(utilsDir, f);
+    });
+
+  // hooks and reactUtils have index files
+  entries['hooks/index'] = resolve(root, 'src/hooks/index.js');
+  entries['reactUtils/index'] = resolve(root, 'src/reactUtils/index.js');
+
+  return entries;
+}
+
 export default defineConfig({
   plugins: [
     react(),
@@ -66,7 +84,7 @@ export default defineConfig({
       transformMixedEsModules: false,
     },
     lib: {
-      entry: resolve(__dirname, 'src/index.js'),
+      entry: buildEntries(__dirname),
       formats: ['es'],
     },
     rollupOptions: {
