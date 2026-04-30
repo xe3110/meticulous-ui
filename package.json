@@ -1,6 +1,6 @@
 {
   "name": "meticulous-ui",
-  "version": "3.4.1",
+  "version": "3.4.2",
   "license": "ISC",
   "description": "A comprehensive React UI component library with a wide range of customizable components, icons, colors, and utilities for building modern web applications.",
   "types": "./index.d.ts",
@@ -49,7 +49,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "deploy-storybook": "gh-pages -d storybook-static",
-    "prepublish": "npm run build && node -e \"const fs=require('fs'); const p=JSON.parse(fs.readFileSync('package.json','utf8')); p.main='./index.js'; p.module='./index.js'; p.exports={'.':'./index.js','./components/*':'./components/*/index.js','./hooks':'./hooks/index.js','./hooks/*':'./hooks/*.js','./utils/*':'./utils/*.js','./reactUtils':'./reactUtils/index.js','./reactUtils/*':'./reactUtils/*.js','./colors':'./colors/index.js','./colors/*':'./colors/*.js'}; delete p.scripts; delete p.devDependencies; delete p.type; fs.writeFileSync('dist/package.json', JSON.stringify(p,null,2))\" && cp README.md dist/",
+    "prepublish": "npm run build && node -e \"const fs=require('fs'); const p=JSON.parse(fs.readFileSync('package.json','utf8')); p.main='./index.js'; p.module='./index.js'; delete p.exports; delete p.scripts; delete p.devDependencies; fs.writeFileSync('dist/package.json', JSON.stringify(p,null,2))\" && cp README.md dist/",
     "publish:dist": "npm publish dist/"
   },
   "devDependencies": {
