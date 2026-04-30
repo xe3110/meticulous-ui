@@ -7,6 +7,8 @@ export const ButtonWrapper = styled.button`
   border-radius: 0.96rem;
   border: none;
   padding: 0.96rem 0.64rem;
+  position: relative;
+  overflow: hidden;
   background-color: ${({ $selectedColor, disabled }) => (disabled ? grey.m500 : $selectedColor)};
   cursor: ${({ disabled, $isLoading }) =>
     disabled ? 'not-allowed' : $isLoading ? 'auto' : 'pointer'};
@@ -40,6 +42,8 @@ export const Content = styled.div`
   max-width: 100%;
   overflow: hidden;
   color: ${({ $textColor }) => $textColor};
+  opacity: ${({ $isLoading }) => ($isLoading ? 0 : 1)};
+  transition: opacity 0.3s ease;
 `;
 
 export const ButtonContainer = styled.div`
@@ -66,8 +70,12 @@ export const ButtonContainer = styled.div`
 `;
 
 export const SpinnerWrapper = styled.div`
-  width: 100%;
+  position: absolute;
+  inset: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  opacity: ${({ $isLoading }) => ($isLoading ? 1 : 0)};
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 `;

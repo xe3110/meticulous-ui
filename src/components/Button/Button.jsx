@@ -58,20 +58,12 @@ const Button = (props) => {
         $isLoading: isLoading,
       }}
     >
-      {isLoading ? (
-        <SpinnerWrapper>
-          <Spinner size='small' color={textColor || txtClr} />
-        </SpinnerWrapper>
-      ) : (
-        <Content
-          {...{
-            $textColor: textColor || txtClr,
-            $font,
-          }}
-        >
-          {children}
-        </Content>
-      )}
+      <SpinnerWrapper $isLoading={isLoading}>
+        <Spinner size='small' color={textColor || txtClr} />
+      </SpinnerWrapper>
+      <Content $isLoading={isLoading} $textColor={textColor || txtClr} $font={$font}>
+        {children}
+      </Content>
     </ButtonWrapper>
   );
 

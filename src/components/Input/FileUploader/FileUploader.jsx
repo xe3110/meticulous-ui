@@ -1,5 +1,13 @@
 import { useRef } from 'react';
-import { UploadBtnContainer, Wrapper, PWrapper, HiddenInput } from './styles';
+import Spinner from '../../Spinner/Spinner';
+import {
+  UploadBtnContainer,
+  Wrapper,
+  PWrapper,
+  HiddenInput,
+  SpinnerWrapper,
+  ContentWrapper,
+} from './styles';
 import white from '../../../colors/white';
 import blue from '../../../colors/blue';
 import grey from '../../../colors/grey';
@@ -70,26 +78,28 @@ const FileUploader = ({
         onChange={onChange}
         tabIndex={-1}
       />
-      {PrefixIcon && <PrefixIcon color={txtClr} size={$font + 19} />}
-      <PWrapper
-        color={txtClr}
-        size={`${$font}rem`}
-        $prefixIcon={!!PrefixIcon}
-        $suffixIcon={!!SuffixIcon}
-        $iconSize={$font + 19}
-        title={label}
-      >
-        {label}
-      </PWrapper>
-      {SuffixIcon && <SuffixIcon color={txtClr} size={$font + 19} />}
+      <SpinnerWrapper $isLoading={isLoading}>
+        <Spinner size='small' color={txtClr} />
+      </SpinnerWrapper>
+      <ContentWrapper $isLoading={isLoading}>
+        {PrefixIcon && <PrefixIcon color={txtClr} size={$font + 19} />}
+        <PWrapper
+          color={txtClr}
+          size={`${$font}rem`}
+          $prefixIcon={!!PrefixIcon}
+          $suffixIcon={!!SuffixIcon}
+          $iconSize={$font + 19}
+          title={label}
+        >
+          {label}
+        </PWrapper>
+        {SuffixIcon && <SuffixIcon color={txtClr} size={$font + 19} />}
+      </ContentWrapper>
     </Wrapper>
   );
 
   return (
-    <UploadBtnContainer
-      {...{ $height, $width: width || $width, disabled, $isLoading: isLoading }}
-      {...rest}
-    >
+    <UploadBtnContainer {...{ $height, disabled, $isLoading: isLoading }} {...rest}>
       {isLoading || disabled ? btnChild : <Rippled theme={theme}>{btnChild}</Rippled>}
     </UploadBtnContainer>
   );

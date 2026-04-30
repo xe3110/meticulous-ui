@@ -4,8 +4,6 @@ import grey from '../../../colors/grey';
 
 export const UploadBtnContainer = styled.div`
   height: ${({ $height }) => $height}rem;
-  width: fit-content;
-  max-width: ${({ $width }) => $width}rem;
   display: inline-block;
   position: relative;
   border-radius: 0.96rem;
@@ -36,6 +34,8 @@ export const Wrapper = styled.label`
   align-items: center;
   gap: 0.8rem;
   outline: none;
+  position: relative;
+  overflow: hidden;
   background-color: ${({ $selectedColor, disabled }) => (disabled ? grey.m500 : $selectedColor)};
   cursor: ${({ disabled, $isLoading }) =>
     disabled ? 'not-allowed' : $isLoading ? 'auto' : 'pointer'};
@@ -73,6 +73,27 @@ export const PWrapper = styled(P)`
         $iconSize,
       }) => ($suffixIcon ? ` - ${$iconSize}px - 0.8rem` : '')}
   );
+`;
+
+export const SpinnerWrapper = styled.div`
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: ${({ $isLoading }) => ($isLoading ? 1 : 0)};
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+`;
+
+export const ContentWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex: 1;
+  min-width: 0;
+  opacity: ${({ $isLoading }) => ($isLoading ? 0 : 1)};
+  transition: opacity 0.3s ease;
 `;
 
 export const HiddenInput = styled.input`

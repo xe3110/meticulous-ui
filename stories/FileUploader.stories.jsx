@@ -101,6 +101,9 @@ export default {
     isMultiple: {
       control: 'boolean',
     },
+    isLoading: {
+      control: 'boolean',
+    },
     size: {
       control: 'select',
       options: ['small', 'medium', 'large', 'ex-large'],
@@ -148,6 +151,7 @@ Default.args = {
   type: 'file',
   accept: '',
   isMultiple: false,
+  isLoading: false,
   disabled: false,
   prefixIcon: 'Link',
   suffixIcon: 'None',
@@ -275,7 +279,7 @@ const Disabled = () => (
     },
   },
   render: () => (
-    <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
+    <div style={{ display: 'flex', gap: '3rem', alignItems: 'center', flexWrap: 'wrap' }}>
       <div>
         <H6 style={{ marginBottom: '0.5rem' }}>Enabled</H6>
         <FileUploader label='Upload' prefixIcon={icons.Link} />
@@ -283,6 +287,50 @@ const Disabled = () => (
       <div>
         <H6 style={{ marginBottom: '0.5rem' }}>Disabled</H6>
         <FileUploader label='Upload' prefixIcon={icons.Link} disabled />
+      </div>
+    </div>
+  ),
+};
+
+// Loading story
+export const LoadingState = {
+  name: 'Loading State',
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import FileUploader from 'meticulous-ui/components/Input/FileUploader';
+import { H6 } from 'meticulous-ui/components/Typography/Headings';
+import { Link } from 'meticulous-ui/components/Icons';
+
+const LoadingState = () => (
+  <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+    <div>
+      <H6 style={{ marginBottom: '0.5rem' }}>Default</H6>
+      <FileUploader label='Upload' prefixIcon={Link} />
+    </div>
+    <div>
+      <H6 style={{ marginBottom: '0.5rem' }}>Loading</H6>
+      <FileUploader label='Upload' prefixIcon={Link} isLoading />
+    </div>
+  </div>
+);
+        `,
+      },
+    },
+  },
+  render: () => (
+    <div style={{ display: 'flex', gap: '3rem', alignItems: 'center', flexWrap: 'wrap' }}>
+      <div>
+        <H6 style={{ marginBottom: '0.5rem' }}>Default</H6>
+        <FileUploader label='Upload' prefixIcon={icons.Link} />
+      </div>
+      <div>
+        <H6 style={{ marginBottom: '0.5rem' }}>Loading</H6>
+        <FileUploader label='Upload' prefixIcon={icons.Link} isLoading />
       </div>
     </div>
   ),
