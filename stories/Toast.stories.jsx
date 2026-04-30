@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-import { ToastContainer } from '../src/components/Toast/Toast';
+import Toast, { ToastContainer } from '../src/components/Toast/Toast';
 import grey from '../src/colors/grey';
 import { ERROR, INFO, SUCCESS, WARNING } from '../src/components/Toast/constants';
 
@@ -234,3 +234,29 @@ export const Default = () => {
 };
 
 Default.storyName = 'Toasts';
+
+export const ClockwiseRotation = () => (
+  <div style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start' }}>
+    <div>
+      <P style={{ marginBottom: '0.8rem', fontSize: '1.2rem' }}>Counter-clockwise (default)</P>
+      <Toast
+        title='Default rotation'
+        subtitle='Progress ring rotates counter-clockwise'
+        visible
+        duration={10}
+      />
+    </div>
+    <div>
+      <P style={{ marginBottom: '0.8rem', fontSize: '1.2rem' }}>Clockwise</P>
+      <Toast
+        title='Clockwise rotation'
+        subtitle='Progress ring rotates clockwise'
+        visible
+        duration={10}
+        hasClockwiseRotation
+      />
+    </div>
+  </div>
+);
+
+ClockwiseRotation.storyName = 'Has Clockwise Rotation';

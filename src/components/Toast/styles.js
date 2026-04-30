@@ -213,7 +213,8 @@ export const CloseButtonContainer = styled.div`
 export const ProgressRing = styled.svg`
   position: absolute;
   inset: 0;
-  transform: rotate(-90deg);
+  transform: ${({ $hasClockwiseRotation }) =>
+    $hasClockwiseRotation ? 'rotate(-90deg)' : 'rotate(90deg) scaleX(-1)'};
   pointer-events: none;
 
   circle {

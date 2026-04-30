@@ -52,6 +52,7 @@ const Toast = ({
   visible = true,
   duration = 5,
   onExpire = noop,
+  hasClockwiseRotation = false,
   title,
   subtitle,
   ...rest
@@ -115,6 +116,7 @@ const Toast = ({
             $duration={duration}
             $color={$main}
             $paused={paused}
+            $hasClockwiseRotation={hasClockwiseRotation}
           >
             <circle cx='14' cy='14' r='12' />
             <circle cx='14' cy='14' r='12' />
