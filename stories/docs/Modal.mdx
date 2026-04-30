@@ -1,0 +1,164 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+
+import * as ModalStories from '../Modal.stories';
+
+<Meta title='Atoms/Modal' of={ModalStories} />
+
+# Modal
+
+A Modal renders in a portal over the page. It can be imported as `meticulous-ui/components/Modal`.
+
+Supports an optional title, body content, footer, keyboard dismissal (`Esc`), and overlay click to close.
+
+## Default
+
+<Canvas of={ModalStories.Default} />
+
+## No Title
+
+<Canvas of={ModalStories.NoTitle} />
+
+## No Footer
+
+<Canvas of={ModalStories.NoFooter} />
+
+## Footer Alignment
+
+<Canvas of={ModalStories.FooterAlignment} />
+
+## Custom Width
+
+<Canvas of={ModalStories.CustomWidth} />
+
+## Overlay Click Disabled
+
+<Canvas of={ModalStories.OverlayClickDisabled} />
+
+## Confirm Delete
+
+A common pattern — destructive action confirmation with `closeOnOverlayClick={false}` to prevent accidental dismissal.
+
+<Canvas of={ModalStories.ConfirmDelete} />
+
+## Props
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>isOpen</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>—</td>
+      <td>Controls whether the modal is rendered</td>
+    </tr>
+    <tr>
+      <td>
+        <code>onClose</code>
+      </td>
+      <td>
+        <code>() =&gt; void</code>
+      </td>
+      <td>—</td>
+      <td>Called when the modal requests to close (Esc, overlay click, or close button)</td>
+    </tr>
+    <tr>
+      <td>
+        <code>title</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>Optional header title; omit to render no header</td>
+    </tr>
+    <tr>
+      <td>
+        <code>children</code>
+      </td>
+      <td>
+        <code>ReactNode</code>
+      </td>
+      <td>—</td>
+      <td>Body content of the modal</td>
+    </tr>
+    <tr>
+      <td>
+        <code>footer</code>
+      </td>
+      <td>
+        <code>ReactNode</code>
+      </td>
+      <td>—</td>
+      <td>Optional footer content (typically action buttons)</td>
+    </tr>
+    <tr>
+      <td>
+        <code>footerAlign</code>
+      </td>
+      <td>
+        <code>'left' | 'center' | 'right'</code>
+      </td>
+      <td>
+        <code>'right'</code>
+      </td>
+      <td>Horizontal alignment of footer content</td>
+    </tr>
+    <tr>
+      <td>
+        <code>width</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>
+        Any valid CSS width value for the modal panel (e.g. <code>'56rem'</code>)
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>closeOnOverlayClick</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>true</code>
+      </td>
+      <td>
+        Whether clicking the backdrop calls <code>onClose</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>showCloseButton</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>true</code>
+      </td>
+      <td>Whether the ✕ close button is shown in the header</td>
+    </tr>
+  </tbody>
+</table>
+
+## Accessibility
+
+- Renders with `role="dialog"` and `aria-modal="true"` so screen readers announce it as a dialog
+- The overlay receives `aria-label` from the `title` prop when provided
+- `Esc` always calls `onClose` while the modal is open
+- Body scroll is locked (`overflow: hidden`) while the modal is open and restored on close
+- The close button has `aria-label="Close modal"` for screen reader support

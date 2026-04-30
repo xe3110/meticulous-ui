@@ -9,6 +9,7 @@ export { default as Dropdown } from './components/Dropdown';
 export { default as RootComponent } from './components/RootComponent';
 export { default as Selectbox } from './components/Selectbox';
 export { default as Button } from './components/Button';
+export { default as Modal } from './components/Modal';
 export { default as Timer } from './components/Timer';
 export { default as Shimmer } from './components/Shimmer';
 export { default as VideoPlayer } from './components/VideoPlayer';
