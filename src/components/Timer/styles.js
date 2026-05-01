@@ -58,9 +58,9 @@ export const Time = styled.div`
 export const TimeTxt = styled.div`
   color: ${white};
   font-size: ${getSize(13.33)}rem;
-  font-weight: 600;
+  font-weight: 650;
   text-align: center;
-  opacity: 0.8;
+  opacity: 0.84;
 `;
 
 export const Dots = styled.span`
@@ -124,15 +124,73 @@ const dismissAnimation = keyframes`
   to   { opacity: 0; transform: scale(0.9); }
 `;
 
+const digitSlideIn = keyframes`
+  from { opacity: 0; transform: translateY(-5px); }
+  to   { opacity: 1; transform: translateY(0); }
+`;
+
+const labelEnter = keyframes`
+  from { opacity: 0; transform: translateX(-50%) translateY(calc(-100% + 8px)) scale(0.9); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(-100%) scale(1); }
+`;
+
+const labelExit = keyframes`
+  from { opacity: 1; transform: translateX(-50%) translateY(-100%) scale(1); }
+  to   { opacity: 0; transform: translateX(-50%) translateY(calc(-100% + 8px)) scale(0.85); }
+`;
+
+export const TimerDigit = styled.span`
+  display: inline-block;
+  animation: ${digitSlideIn} 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+`;
+
 export const AlarmRing = styled.div`
   position: absolute;
   inset: 0;
   pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(
+    ellipse 88% 88% at 50% 48%,
+    rgba(0, 0, 0, 0) 18%,
+    rgba(0, 0, 0, 0.05) 42%,
+    rgba(0, 0, 0, 0.16) 65%,
+    rgba(0, 0, 0, 0.3) 85%,
+    rgba(0, 0, 0, 0.42) 100%
+  );
   ${({ $dismissing }) =>
     $dismissing &&
     css`
       animation: ${dismissAnimation} 0.6s ease-out forwards;
     `}
+`;
+
+export const AlarmLabel = styled.div`
+  position: absolute;
+  left: 50%;
+  top: calc(${getSize(100 / 12)}rem - ${getSize(55)}rem);
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: ${getSize(21)}rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.22em 0.6em;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+  animation: ${({ $dismissing }) =>
+    $dismissing
+      ? css`
+          ${labelExit} 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards
+        `
+      : css`
+          ${labelEnter} 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both
+        `};
 `;
 
 export const LeftActions = styled.div`
@@ -163,8 +221,10 @@ export const ActionBtn = styled.button`
   height: ${getSize(8.33)}rem;
   width: ${getSize(8.33)}rem;
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.4);
-  border: none;
+  background-color: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: ${getSize(50)}rem;
   padding: 0;
 

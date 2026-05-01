@@ -59,7 +59,8 @@ const Example = () => {
       options: THEMES,
     },
     mode: {
-      description: 'Initial selection mode. Can be switched via the built-in toggle unless `showModeToggle` is false.',
+      description:
+        'Initial selection mode. Can be switched via the built-in toggle unless `showModeToggle` is false.',
       control: 'select',
       options: ['single', 'range'],
     },
@@ -68,7 +69,8 @@ const Example = () => {
       control: 'boolean',
     },
     showFooter: {
-      description: 'Shows or hides the Clear / Apply footer. When false, `onChange` fires immediately on each click.',
+      description:
+        'Shows or hides the Clear / Apply footer. When false, `onChange` fires immediately on each click.',
       control: 'boolean',
     },
     value: {

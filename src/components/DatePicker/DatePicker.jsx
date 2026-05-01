@@ -178,7 +178,7 @@ const DatePicker = ({
 
   useEffect(() => {
     switchMode(initialMode);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialMode]);
 
   const handleApply = () => {

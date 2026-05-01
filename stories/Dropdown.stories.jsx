@@ -146,12 +146,14 @@ export default {
       description: 'Shows a spinner at the bottom while loading more options',
       control: 'boolean',
     },
-    options: { description: "Array of option objects: `{ value, label, disabled? }`" },
+    options: { description: 'Array of option objects: `{ value, label, disabled? }`' },
     value: { description: 'Currently selected value (controlled)' },
     onChange: { description: 'Called with the selected value when an option is picked' },
     width: { description: 'CSS width of the dropdown trigger' },
     menuHeight: { description: 'Maximum CSS height of the dropdown menu' },
-    onLoadMore: { description: 'Called when the user scrolls to the bottom of the list (infinite scroll)' },
+    onLoadMore: {
+      description: 'Called when the user scrolls to the bottom of the list (infinite scroll)',
+    },
   },
 };
 

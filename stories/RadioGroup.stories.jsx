@@ -50,7 +50,7 @@ export default {
       description: 'Renders options in a row when true',
       control: 'boolean',
     },
-    options: { description: "Array of option objects: `{ value, label, disabled? }`" },
+    options: { description: 'Array of option objects: `{ value, label, disabled? }`' },
     onChange: { description: 'Called with the selected value when a radio is clicked' },
     label: { description: 'Visible legend text for the radio group' },
     ariaLabel: { description: 'Accessible label when no visible label is provided' },

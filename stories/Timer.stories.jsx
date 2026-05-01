@@ -45,10 +45,19 @@ export default {
       ],
     },
     size: { description: 'Diameter of the clock in pixels', control: 'number' },
-    timerSeconds: { description: 'Countdown duration in seconds. Shows timer controls when > 0', control: 'number' },
-    isDigital: { description: 'Shows a digital readout when true; analog hands when false', control: 'boolean' },
+    timerSeconds: {
+      description: 'Countdown duration in seconds. Shows timer controls when > 0',
+      control: 'number',
+    },
+    isDigital: {
+      description: 'Shows a digital readout when true; analog hands when false',
+      control: 'boolean',
+    },
     showTime: { description: 'Whether to display the time readout', control: 'boolean' },
-    showTimeWithSec: { description: 'Includes seconds in the digital readout when true', control: 'boolean' },
+    showTimeWithSec: {
+      description: 'Includes seconds in the digital readout when true',
+      control: 'boolean',
+    },
     timeZone: { description: "IANA timezone string (e.g. `'Asia/Kolkata'`)", control: 'text' },
     onTimerAdd: { description: 'Called when the timer is started' },
     onTimerComplete: { description: 'Called when the countdown reaches zero' },

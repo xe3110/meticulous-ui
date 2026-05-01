@@ -5,6 +5,7 @@ import Glass from '../Glass';
 import TimerRing from './components/TimerRing/TimerRing';
 
 import white from '../../colors/white';
+import ClockCircleOutline from '../Icons/ClockCircleOutline';
 
 import {
   Wrapper,
@@ -18,6 +19,8 @@ import {
   MinuteHand,
   SecondHand,
   AlarmRing,
+  AlarmLabel,
+  TimerDigit,
   RightActions,
   VisuallyHidden,
   Bullet,
@@ -146,6 +149,10 @@ const Timer = ({
   const withoutSec = currentTime.split(':').slice(0, 2).join(':');
   const hasNoTimer = !(Number.isInteger(timerSec) && timerSec > 0);
 
+  const timerMinutes = String(Math.floor(timerSec / 60)).padStart(2, '0');
+  const timerSeconds_ = String(timerSec % 60).padStart(2, '0');
+  const timerLabel = `${timerMinutes}:${timerSeconds_}`;
+
   const timeLabel = `${showTimeWithSec ? currentTimeWithoutAmPm : withoutSec} ${amPm}`;
 
   return (
@@ -248,6 +255,27 @@ const Timer = ({
             </ActionBtn>
           )}
         </LeftActions>
+      )}
+      {(!hasNoTimer || isDismissing) && (
+        <AlarmLabel
+          {...{ $size }}
+          $dismissing={isDismissing}
+          aria-label={`${timerSec} seconds remaining`}
+        >
+          <ClockCircleOutline
+            color='rgba(255,255,255,0.82)'
+            style={{ width: '1em', height: '1em', flexShrink: 0 }}
+          />
+          {timerLabel
+            .split('')
+            .map((char, i) =>
+              char === ':' ? (
+                <span key={i}>{char}</span>
+              ) : (
+                <TimerDigit key={`${i}-${char}`}>{char}</TimerDigit>
+              )
+            )}
+        </AlarmLabel>
       )}
       {timerSeconds > 0 && (
         <RightActions role='group' {...{ $size }} aria-label='Start timer'>
