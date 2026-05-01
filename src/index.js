@@ -17,6 +17,7 @@ export { default as Image } from './components/Image';
 export { default as Carousel } from './components/Carousel';
 export { default as Headings } from './components/Typography/Headings';
 export { default as P } from './components/Typography/P';
+export { default as DatePicker } from './components/DatePicker';
 
 // input
 export { default as Input } from './components/Input/Input';

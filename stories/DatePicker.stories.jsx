@@ -128,6 +128,71 @@ const RangeSelection = () => {
   },
 };
 
+/* ── All themes ── */
+export const Themes = {
+  name: 'All Themes',
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    docs: {
+      description: {
+        story: 'Every available theme key rendered side-by-side.',
+      },
+      source: {
+        language: 'jsx',
+        code: `
+import DatePicker from 'meticulous-ui/components/DatePicker';
+
+const today = new Date();
+const weekEnd = new Date();
+weekEnd.setDate(today.getDate() + 4);
+
+const Themes = () => (
+  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', padding: '2rem' }}>
+    {['amber','blue','cyan','deepPurple','green','indigo','orange','pink','purple','red','teal','violet'].map((t) => (
+      <div key={t}>
+        <p style={{ marginBottom: '0.5rem', fontWeight: 600, fontSize: '12px', color: '#5f6368' }}>{t}</p>
+        <DatePicker theme={t} mode="range" rangeValue={[today, weekEnd]} showModeToggle={false} showFooter={false} />
+      </div>
+    ))}
+  </div>
+);
+        `,
+      },
+    },
+  },
+  render: () => {
+    const today = new Date();
+    const weekEnd = new Date();
+    weekEnd.setDate(today.getDate() + 4);
+    return (
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', padding: '2rem' }}>
+        {THEMES.map((t) => (
+          <div key={t}>
+            <P
+              style={{
+                marginBottom: '0.5rem',
+                fontWeight: 600,
+                fontSize: '12px',
+                color: '#5f6368',
+              }}
+            >
+              {t}
+            </P>
+            <DatePicker
+              theme={t}
+              mode='range'
+              rangeValue={[today, weekEnd]}
+              showModeToggle={false}
+              showFooter={false}
+            />
+          </div>
+        ))}
+      </div>
+    );
+  },
+};
+
 /* ── Pre-selected single date ── */
 export const PreSelectedDate = {
   name: 'Pre-selected Date',
@@ -385,71 +450,6 @@ const SideBySide = () => {
           <H6 style={{ marginBottom: '0.75rem' }}>Range</H6>
           <DatePicker mode='range' rangeValue={range} onChange={setRange} showModeToggle={false} />
         </div>
-      </div>
-    );
-  },
-};
-
-/* ── All themes ── */
-export const Themes = {
-  name: 'All Themes',
-  parameters: {
-    controls: { disable: true },
-    actions: { disable: true },
-    docs: {
-      description: {
-        story: 'Every available theme key rendered side-by-side.',
-      },
-      source: {
-        language: 'jsx',
-        code: `
-import DatePicker from 'meticulous-ui/components/DatePicker';
-
-const today = new Date();
-const weekEnd = new Date();
-weekEnd.setDate(today.getDate() + 4);
-
-const Themes = () => (
-  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', padding: '2rem' }}>
-    {['amber','blue','cyan','deepPurple','green','indigo','orange','pink','purple','red','teal','violet'].map((t) => (
-      <div key={t}>
-        <p style={{ marginBottom: '0.5rem', fontWeight: 600, fontSize: '12px', color: '#5f6368' }}>{t}</p>
-        <DatePicker theme={t} mode="range" rangeValue={[today, weekEnd]} showModeToggle={false} showFooter={false} />
-      </div>
-    ))}
-  </div>
-);
-        `,
-      },
-    },
-  },
-  render: () => {
-    const today = new Date();
-    const weekEnd = new Date();
-    weekEnd.setDate(today.getDate() + 4);
-    return (
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', padding: '2rem' }}>
-        {THEMES.map((t) => (
-          <div key={t}>
-            <P
-              style={{
-                marginBottom: '0.5rem',
-                fontWeight: 600,
-                fontSize: '12px',
-                color: '#5f6368',
-              }}
-            >
-              {t}
-            </P>
-            <DatePicker
-              theme={t}
-              mode='range'
-              rangeValue={[today, weekEnd]}
-              showModeToggle={false}
-              showFooter={false}
-            />
-          </div>
-        ))}
       </div>
     );
   },
