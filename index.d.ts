@@ -276,6 +276,36 @@ export interface DropdownProps extends Omit<React.HTMLAttributes<HTMLDivElement>
 export declare const Dropdown: React.FC<DropdownProps>;
 
 // ---------------------------------------------------------------------------
+// DatePicker
+// ---------------------------------------------------------------------------
+
+export type DatePickerMode = 'single' | 'range';
+
+export interface DatePickerSingleProps {
+  mode?: 'single';
+  value?: Date | null;
+  rangeValue?: never;
+  onChange?: (value: Date | null) => void;
+}
+
+export interface DatePickerRangeProps {
+  mode: 'range';
+  value?: never;
+  rangeValue?: [Date | null, Date | null];
+  onChange?: (value: [Date, Date] | [null, null]) => void;
+}
+
+export type DatePickerProps = (DatePickerSingleProps | DatePickerRangeProps) & {
+  theme?: ThemeColor;
+  minDate?: Date;
+  maxDate?: Date;
+  showModeToggle?: boolean;
+  showFooter?: boolean;
+};
+
+export declare const DatePicker: React.FC<DatePickerProps>;
+
+// ---------------------------------------------------------------------------
 // Selectbox
 // ---------------------------------------------------------------------------
 

@@ -1,0 +1,198 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+
+import * as DatePickerStories from '../DatePicker.stories';
+
+<Meta title='Molecules/DatePicker' of={DatePickerStories} />
+
+# DatePicker
+
+A calendar picker supporting both single-date and date-range selection. Can be imported as `meticulous-ui/components/DatePicker`.
+
+Includes an inline month/year navigator, a hover-preview range band, and an optional footer with Clear / Apply actions.
+
+## Default
+
+<Canvas of={DatePickerStories.Default} />
+
+<Controls of={DatePickerStories.Default} />
+
+## Range Selection
+
+Click a start date then hover and click an end date. The band fills in live as you move the cursor.
+
+<Canvas of={DatePickerStories.RangeSelection} />
+
+## Themes
+
+<Canvas of={DatePickerStories.Themes} />
+
+## Pre-selected Date
+
+Pass `value` to open the picker with a date already highlighted.
+
+<Canvas of={DatePickerStories.PreSelectedDate} />
+
+## Pre-selected Range
+
+Pass `rangeValue` to open the picker with an existing range filled in.
+
+<Canvas of={DatePickerStories.PreSelectedRange} />
+
+## Min / Max Dates
+
+Use `minDate` and `maxDate` to restrict which dates are selectable. Dates outside the window are rendered dimmed and cannot be clicked.
+
+<Canvas of={DatePickerStories.MinMaxDates} />
+
+## No Footer
+
+`showFooter={false}` removes the Clear / Apply row and fires `onChange` immediately on each click — useful when embedding the picker inline without a confirmation step.
+
+<Canvas of={DatePickerStories.NoFooter} />
+
+## No Mode Toggle
+
+`showModeToggle={false}` hides the Single / Range pill. Combine with a fixed `mode` prop to lock the picker into one behaviour.
+
+<Canvas of={DatePickerStories.NoModeToggle} />
+
+## Single vs Range
+
+<Canvas of={DatePickerStories.SideBySide} />
+
+## Props
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>theme</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>'blue'</code>
+      </td>
+      <td>Color theme key from the meticulous-ui color map</td>
+    </tr>
+    <tr>
+      <td>
+        <code>mode</code>
+      </td>
+      <td>
+        <code>'single' | 'range'</code>
+      </td>
+      <td>
+        <code>'single'</code>
+      </td>
+      <td>
+        Initial selection mode. Can be switched at runtime via the built-in toggle unless{' '}
+        <code>showModeToggle</code> is false
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>value</code>
+      </td>
+      <td>
+        <code>Date | null</code>
+      </td>
+      <td>
+        <code>null</code>
+      </td>
+      <td>Controlled selected date for single mode</td>
+    </tr>
+    <tr>
+      <td>
+        <code>rangeValue</code>
+      </td>
+      <td>
+        <code>[Date | null, Date | null]</code>
+      </td>
+      <td>
+        <code>[null, null]</code>
+      </td>
+      <td>
+        Controlled selected range for range mode — <code>[start, end]</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>onChange</code>
+      </td>
+      <td>
+        <code>{'(value: Date | [Date, Date]) => void'}</code>
+      </td>
+      <td>—</td>
+      <td>
+        Called with a <code>Date</code> in single mode or a <code>[Date, Date]</code> tuple in range
+        mode. Fires on Apply when <code>showFooter</code> is true, or immediately on click when
+        false
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>minDate</code>
+      </td>
+      <td>
+        <code>Date</code>
+      </td>
+      <td>—</td>
+      <td>Dates before this value are disabled</td>
+    </tr>
+    <tr>
+      <td>
+        <code>maxDate</code>
+      </td>
+      <td>
+        <code>Date</code>
+      </td>
+      <td>—</td>
+      <td>Dates after this value are disabled</td>
+    </tr>
+    <tr>
+      <td>
+        <code>showModeToggle</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>true</code>
+      </td>
+      <td>Shows or hides the Single / Range mode toggle pill</td>
+    </tr>
+    <tr>
+      <td>
+        <code>showFooter</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>true</code>
+      </td>
+      <td>
+        Shows or hides the Clear / Apply footer. When false, <code>onChange</code> is called
+        immediately on selection
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Accessibility
+
+- All interactive elements render as native `<button>` elements — fully keyboard focusable and activatable via `Enter` / `Space`
+- Navigation arrows carry `aria-label="Previous month"` / `"Next month"`
+- Each day button has `aria-label` set to the full date string (e.g. `"Thu May 01 2025"`) and `aria-pressed` reflecting the selected state
+- Disabled days receive the native `disabled` attribute and are removed from the tab order (`tabIndex={-1}`)
+- Focus outlines use the active theme color and are visible on `:focus-visible` for keyboard-only navigation
