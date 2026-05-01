@@ -94,12 +94,24 @@ const Example = () => {
 /* ── Default ── */
 export const Default = (args) => {
   const [value, setValue] = useState(null);
+  const isRange = Array.isArray(value);
   return (
     <div style={{ padding: '2rem' }}>
-      <DatePicker {...args} onChange={setValue} value={value} />
-      {value && (
+      <DatePicker
+        {...args}
+        onChange={setValue}
+        value={isRange ? undefined : value}
+        rangeValue={isRange ? value : undefined}
+      />
+      {!isRange && value && (
         <P style={{ marginTop: '1rem', color: grey.m700 }}>
           Selected: <strong>{value.toDateString()}</strong>
+        </P>
+      )}
+      {isRange && value[0] && value[1] && (
+        <P style={{ marginTop: '1rem', color: grey.m700 }}>
+          Range: <strong>{value[0].toDateString()}</strong> →{' '}
+          <strong>{value[1].toDateString()}</strong>
         </P>
       )}
     </div>
