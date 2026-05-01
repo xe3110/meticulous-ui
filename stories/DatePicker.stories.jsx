@@ -2,6 +2,7 @@ import { useState } from 'react';
 import DatePicker from '../src/components/DatePicker/DatePicker';
 import { H6 } from '../src/components/Typography/Headings';
 import P from '../src/components/Typography/P';
+import grey from '../src/colors/grey';
 
 const THEMES = [
   'amber',
@@ -72,7 +73,7 @@ export const Default = (args) => {
     <div style={{ padding: '2rem' }}>
       <DatePicker {...args} onChange={setValue} value={value} />
       {value && (
-        <P style={{ marginTop: '1rem', color: '#5f6368' }}>
+        <P style={{ marginTop: '1rem', color: grey.m700 }}>
           Selected: <strong>{value.toDateString()}</strong>
         </P>
       )}
@@ -119,7 +120,7 @@ const RangeSelection = () => {
       <div style={{ padding: '2rem' }}>
         <DatePicker mode='range' onChange={setRange} rangeValue={range} />
         {from && to && (
-          <P style={{ marginTop: '1rem', color: '#5f6368' }}>
+          <P style={{ marginTop: '1rem', color: grey.m700 }}>
             Range: <strong>{from.toDateString()}</strong> → <strong>{to.toDateString()}</strong>
           </P>
         )}
@@ -151,7 +152,7 @@ const Themes = () => (
   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', padding: '2rem' }}>
     {['amber','blue','cyan','deepPurple','green','indigo','orange','pink','purple','red','teal','violet'].map((t) => (
       <div key={t}>
-        <p style={{ marginBottom: '0.5rem', fontWeight: 600, fontSize: '12px', color: '#5f6368' }}>{t}</p>
+        <p style={{ marginBottom: '0.5rem', fontWeight: 600, fontSize: '12px', color: grey.m700 }}>{t}</p>
         <DatePicker theme={t} mode="range" rangeValue={[today, weekEnd]} showModeToggle={false} showFooter={false} />
       </div>
     ))}
@@ -166,15 +167,15 @@ const Themes = () => (
     const weekEnd = new Date();
     weekEnd.setDate(today.getDate() + 4);
     return (
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', padding: '2rem' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2.6rem', padding: '2rem' }}>
         {THEMES.map((t) => (
           <div key={t}>
             <P
               style={{
-                marginBottom: '0.5rem',
+                marginBottom: '1rem',
                 fontWeight: 600,
-                fontSize: '12px',
-                color: '#5f6368',
+                fontSize: '1.8rem',
+                color: grey.m700,
               }}
             >
               {t}
@@ -313,7 +314,7 @@ const MinMaxDates = () => {
     const [date, setDate] = useState(null);
     return (
       <div style={{ padding: '2rem' }}>
-        <P style={{ marginBottom: '1rem', color: '#5f6368', fontSize: '13px' }}>
+        <P style={{ marginBottom: '1rem', color: grey.m700, fontSize: '13px' }}>
           Only the next 7 days are selectable.
         </P>
         <DatePicker value={date} onChange={setDate} minDate={today} maxDate={weekEnd} />
@@ -353,7 +354,7 @@ const NoFooter = () => {
       <div style={{ padding: '2rem' }}>
         <DatePicker showFooter={false} value={date} onChange={setDate} />
         {date && (
-          <P style={{ marginTop: '1rem', color: '#5f6368' }}>
+          <P style={{ marginTop: '1rem', color: grey.m700 }}>
             Picked: <strong>{date.toDateString()}</strong>
           </P>
         )}
@@ -398,7 +399,7 @@ const NoModeToggle = () => {
     const [range, setRange] = useState([null, null]);
     return (
       <div style={{ padding: '2rem' }}>
-        <P style={{ marginBottom: '1rem', color: '#5f6368', fontSize: '13px' }}>
+        <P style={{ marginBottom: '1rem', color: grey.m700, fontSize: '13px' }}>
           Range-only picker — no mode toggle shown.
         </P>
         <DatePicker mode='range' showModeToggle={false} rangeValue={range} onChange={setRange} />
