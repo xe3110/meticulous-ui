@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import PropTypes from 'prop-types';
 import grey from '../../../colors/grey';
 import P from '../../Typography/P';
 import white from '../../../colors/white';
@@ -73,6 +74,27 @@ const Checkbox = ({
       </P>
     </Wrapper>
   );
+};
+
+Checkbox.propTypes = {
+  /** Text label rendered next to the checkbox */
+  label: PropTypes.string,
+  /** Controlled checked state */
+  value: PropTypes.bool,
+  /** Color theme key for the checkbox accent. Defaults to 'blue' */
+  color: PropTypes.string,
+  /** Color of the label text */
+  textColor: PropTypes.string,
+  /** Disables the checkbox */
+  disabled: PropTypes.bool,
+  /** Called with the new boolean value on change */
+  onChange: PropTypes.func,
+  /** Tab order index for the checkbox input */
+  tabIndex: PropTypes.number,
+  /** Override the inner fill color (checked state) */
+  innerShade: PropTypes.string,
+  /** Override the outer border/ring color (checked state) */
+  outerShade: PropTypes.string,
 };
 
 export default Checkbox;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const H4Wrapper = styled.h4`
   color: ${({ $color }) => $color};
@@ -11,6 +12,13 @@ const H4 = ({ color, children, ...rest }) => {
       {children}
     </H4Wrapper>
   );
+};
+
+H4.propTypes = {
+  /** Heading content */
+  children: PropTypes.node,
+  /** Text color (CSS color value or token) */
+  color: PropTypes.string,
 };
 
 export default H4;

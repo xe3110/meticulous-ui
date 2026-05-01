@@ -29,6 +29,7 @@ export default {
   },
   argTypes: {
     color: {
+      description: 'Color theme key for the clock and accent elements',
       control: 'select',
       options: [
         'green',
@@ -43,12 +44,17 @@ export default {
         'yellow',
       ],
     },
-    size: { control: 'number' },
-    timerSeconds: { control: 'number' },
-    isDigital: { control: 'boolean' },
-    showTime: { control: 'boolean' },
-    showTimeWithSec: { control: 'boolean' },
-    timeZone: { control: 'text' },
+    size: { description: 'Diameter of the clock in pixels', control: 'number' },
+    timerSeconds: { description: 'Countdown duration in seconds. Shows timer controls when > 0', control: 'number' },
+    isDigital: { description: 'Shows a digital readout when true; analog hands when false', control: 'boolean' },
+    showTime: { description: 'Whether to display the time readout', control: 'boolean' },
+    showTimeWithSec: { description: 'Includes seconds in the digital readout when true', control: 'boolean' },
+    timeZone: { description: "IANA timezone string (e.g. `'Asia/Kolkata'`)", control: 'text' },
+    onTimerAdd: { description: 'Called when the timer is started' },
+    onTimerComplete: { description: 'Called when the countdown reaches zero' },
+    onTimerRemove: { description: 'Called when the timer is stopped' },
+    onTimerPause: { description: 'Called when the timer is paused' },
+    onTimerPlay: { description: 'Called when a paused timer is resumed' },
   },
 };
 

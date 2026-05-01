@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { OTPWrapper } from './styles';
 import { renderNums } from './helpers';
 
@@ -114,6 +115,17 @@ const OtpInput = ({ length = 6, value = '', onChange, onComplete, ...rest }) => 
       {otp.map(renderNums({ inputsRef, handleChange, handleKeyDown, handleFocus, length }))}
     </OTPWrapper>
   );
+};
+
+OtpInput.propTypes = {
+  /** Number of OTP input boxes. Defaults to 6 */
+  length: PropTypes.number,
+  /** Controlled OTP value (digits only) */
+  value: PropTypes.string,
+  /** Called with the current OTP string on each keystroke */
+  onChange: PropTypes.func,
+  /** Called with the completed OTP string when all boxes are filled */
+  onComplete: PropTypes.func,
 };
 
 export default OtpInput;

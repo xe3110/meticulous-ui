@@ -30,6 +30,7 @@ export default {
   },
   argTypes: {
     color: {
+      description: "Color theme key (e.g. `'green'`, `'blue'`) or a raw color value",
       control: 'select',
       options: [
         'amber',
@@ -58,6 +59,7 @@ export default {
       ],
     },
     size: {
+      description: "Spinner size: `'small'`, `'medium'`, or `'large'`",
       control: 'select',
       options: ['small', 'medium', 'large'],
     },

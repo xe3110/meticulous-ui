@@ -54,15 +54,38 @@ const Example = () => {
   },
   argTypes: {
     theme: {
+      description: 'Color theme key from the meticulous-ui color map',
       control: 'select',
       options: THEMES,
     },
     mode: {
+      description: 'Initial selection mode. Can be switched via the built-in toggle unless `showModeToggle` is false.',
       control: 'select',
       options: ['single', 'range'],
     },
-    showModeToggle: { control: 'boolean' },
-    showFooter: { control: 'boolean' },
+    showModeToggle: {
+      description: 'Shows or hides the Single / Range mode toggle pill',
+      control: 'boolean',
+    },
+    showFooter: {
+      description: 'Shows or hides the Clear / Apply footer. When false, `onChange` fires immediately on each click.',
+      control: 'boolean',
+    },
+    value: {
+      description: 'Controlled selected date for single mode',
+    },
+    rangeValue: {
+      description: 'Controlled selected range for range mode — `[start, end]`',
+    },
+    onChange: {
+      description: 'Called with a `Date` in single mode or `[Date, Date]` tuple in range mode',
+    },
+    minDate: {
+      description: 'Dates before this value are disabled',
+    },
+    maxDate: {
+      description: 'Dates after this value are disabled',
+    },
   },
 };
 

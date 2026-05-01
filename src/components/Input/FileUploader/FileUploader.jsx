@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import PropTypes from 'prop-types';
 import Spinner from '../../Spinner/Spinner';
 import {
   UploadBtnContainer,
@@ -103,6 +104,35 @@ const FileUploader = ({
       {isLoading || disabled ? btnChild : <Rippled theme={theme}>{btnChild}</Rippled>}
     </UploadBtnContainer>
   );
+};
+
+FileUploader.propTypes = {
+  /** Button label text */
+  label: PropTypes.string,
+  /** Override the label text color */
+  labelColor: PropTypes.string,
+  /** Color theme key. Defaults to 'blue' */
+  theme: PropTypes.string,
+  /** Button size variant: 'small', 'medium', 'large', or 'ex-large'. Defaults to 'medium' */
+  size: PropTypes.string,
+  /** Override the button width */
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** Shows a spinner and disables interaction while true */
+  isLoading: PropTypes.bool,
+  /** Disables the file uploader */
+  disabled: PropTypes.bool,
+  /** Icon component rendered before the label. Defaults to the Link icon */
+  prefixIcon: PropTypes.elementType,
+  /** Icon component rendered after the label */
+  suffixIcon: PropTypes.elementType,
+  /** Input type attribute. Defaults to 'file' */
+  type: PropTypes.string,
+  /** Accepted file types (passed to the hidden input) */
+  accept: PropTypes.string,
+  /** Allows selecting multiple files */
+  isMultiple: PropTypes.bool,
+  /** Called when files are selected */
+  onChange: PropTypes.func,
 };
 
 export default FileUploader;

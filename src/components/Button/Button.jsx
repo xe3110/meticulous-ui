@@ -7,6 +7,7 @@ import Ripple from '../Ripple';
 import white from '../../colors/white';
 import grey from '../../colors/grey';
 import { MEDIUM, SIZE } from './constants';
+import PropTypes from 'prop-types';
 
 const Rippled = ({ theme, children }) => <Ripple rippleColor={theme['m100']}>{children}</Ripple>;
 
@@ -74,6 +75,27 @@ const Button = (props) => {
       {isLoading ? btnChild : <Rippled theme={theme}>{btnChild}</Rippled>}
     </ButtonContainer>
   );
+};
+
+Button.propTypes = {
+  /** Button label or content */
+  children: PropTypes.node,
+  /** Color theme key from the meticulous-ui color map. Defaults to `'blue'` */
+  theme: PropTypes.string,
+  /** Button size variant: `'small'`, `'medium'`, `'large'`, or `'ex-large'` */
+  size: PropTypes.string,
+  /** Override the button width */
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** Icon component rendered to the left of the label */
+  leftIcon: PropTypes.elementType,
+  /** Icon component rendered to the right of the label */
+  rightIcon: PropTypes.elementType,
+  /** Shows a spinner and disables interaction while true */
+  isLoading: PropTypes.bool,
+  /** Override the label and icon color */
+  textColor: PropTypes.string,
+  /** Disables the button */
+  disabled: PropTypes.bool,
 };
 
 export default Button;

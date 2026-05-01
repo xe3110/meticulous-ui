@@ -20,19 +20,23 @@ export default {
         `,
       },
     },
-    argTypes: {
-      width: {
-        control: 'text',
-      },
-      height: {
-        control: 'text',
-      },
-      label: {
-        control: 'text',
-      },
-      borderRadius: {
-        control: 'text',
-      },
+  },
+  argTypes: {
+    width: {
+      description: 'Width of the shimmer block (rem string or number)',
+      control: 'text',
+    },
+    height: {
+      description: 'Height of the shimmer block (rem string or number)',
+      control: 'text',
+    },
+    label: {
+      description: 'Accessible label for screen readers',
+      control: 'text',
+    },
+    borderRadius: {
+      description: 'Border-radius of the shimmer block',
+      control: 'text',
     },
   },
 };

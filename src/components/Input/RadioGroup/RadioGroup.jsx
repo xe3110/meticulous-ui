@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { getColor } from '../Checkbox/helpers';
 import Radio from '../Radio/Radio';
 import { Wrapper } from './styles';
@@ -43,6 +44,31 @@ const RadioGroup = ({
       {options.map(renderOption)}
     </Wrapper>
   );
+};
+
+RadioGroup.propTypes = {
+  /** Array of option objects, each with { value, label, disabled? } */
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.any,
+      label: PropTypes.string,
+      disabled: PropTypes.bool,
+    })
+  ),
+  /** Currently selected value */
+  value: PropTypes.any,
+  /** Called with the selected value when a radio is clicked */
+  onChange: PropTypes.func,
+  /** Color theme key for the radio accent. Defaults to 'blue' */
+  color: PropTypes.string,
+  /** Renders options in a row when true */
+  isHorizonatal: PropTypes.bool,
+  /** Visible legend text for the radio group */
+  label: PropTypes.string,
+  /** Accessible label when no visible label is provided */
+  ariaLabel: PropTypes.string,
+  /** HTML name attribute shared by all radio inputs in the group */
+  name: PropTypes.string,
 };
 
 export default RadioGroup;

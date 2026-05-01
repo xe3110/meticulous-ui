@@ -1,6 +1,7 @@
 // Libraries
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
+import PropTypes from 'prop-types';
 const noop = () => {};
 
 // helpers
@@ -37,6 +38,20 @@ export const ToastContainer = ({ toasts, ...rest }) => {
     <ToastsContainer {...rest}>{[...allToasts].reverse().map(renderToasts)}</ToastsContainer>,
     document.body
   );
+};
+
+ToastContainer.propTypes = {
+  /** Array of toast config objects, each with `{ id, type, title, subtitle, duration, onExpire }` */
+  toasts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.any,
+      type: PropTypes.string,
+      title: PropTypes.string,
+      subtitle: PropTypes.string,
+      duration: PropTypes.number,
+      onExpire: PropTypes.func,
+    })
+  ),
 };
 
 const remove = (setFadeOut, setShow, onExpire) => () => {
@@ -131,6 +146,23 @@ const Toast = ({
       </ToastWrapper>
     );
   }
+};
+
+Toast.propTypes = {
+  /** Notification variant: `'info'`, `'success'`, `'warning'`, or `'error'`. Defaults to `'info'` */
+  type: PropTypes.string,
+  /** Controls initial visibility. Defaults to `true` */
+  visible: PropTypes.bool,
+  /** Auto-dismiss delay in seconds. Defaults to `5` */
+  duration: PropTypes.number,
+  /** Called when the toast auto-dismisses or is closed */
+  onExpire: PropTypes.func,
+  /** Reverses the progress ring rotation direction */
+  hasClockwiseRotation: PropTypes.bool,
+  /** Primary notification text */
+  title: PropTypes.string,
+  /** Secondary detail text shown below the title */
+  subtitle: PropTypes.string,
 };
 
 export default Toast;

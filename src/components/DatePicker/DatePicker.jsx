@@ -1,4 +1,5 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import colors from '../../colors/colorMap';
 import blue from '../../colors/blue';
 import { DAYS_SHORT, MONTHS, MODE } from './constants';
@@ -94,6 +95,7 @@ const DatePicker = ({
   maxDate,
   showModeToggle = true,
   showFooter = true,
+  ...rest
 }) => {
   const palette = useMemo(() => colors[theme] ?? blue, [theme]);
   const $primary = palette.m500;
@@ -173,6 +175,11 @@ const DatePicker = ({
     setPicking(false);
     setHovered(null);
   };
+
+  useEffect(() => {
+    switchMode(initialMode);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialMode]);
 
   const handleApply = () => {
     if (mode === MODE.SINGLE) {
@@ -301,7 +308,7 @@ const DatePicker = ({
   );
 
   return (
-    <Wrapper>
+    <Wrapper {...rest}>
       <SelectedDisplay>
         {mode === MODE.RANGE ? (
           <>
@@ -393,6 +400,27 @@ const DatePicker = ({
       )}
     </Wrapper>
   );
+};
+
+DatePicker.propTypes = {
+  /** Color theme key from the meticulous-ui color map */
+  theme: PropTypes.string,
+  /** Initial selection mode. Can be switched via the built-in toggle unless `showModeToggle` is false. */
+  mode: PropTypes.oneOf(['single', 'range']),
+  /** Controlled selected date for single mode */
+  value: PropTypes.instanceOf(Date),
+  /** Controlled selected range for range mode — `[start, end]` */
+  rangeValue: PropTypes.arrayOf(PropTypes.instanceOf(Date)),
+  /** Called with a `Date` in single mode or `[Date, Date]` tuple in range mode */
+  onChange: PropTypes.func,
+  /** Dates before this value are disabled */
+  minDate: PropTypes.instanceOf(Date),
+  /** Dates after this value are disabled */
+  maxDate: PropTypes.instanceOf(Date),
+  /** Shows or hides the Single / Range mode toggle pill */
+  showModeToggle: PropTypes.bool,
+  /** Shows or hides the Clear / Apply footer. When false, `onChange` fires immediately on each click. */
+  showFooter: PropTypes.bool,
 };
 
 export default DatePicker;

@@ -1,4 +1,5 @@
 import { useEffect, useCallback, useRef, useState, isValidElement, useId } from 'react';
+import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 import {
   Overlay,
@@ -155,6 +156,29 @@ const Modal = ({
     </Overlay>,
     document.body
   );
+};
+
+Modal.propTypes = {
+  /** Controls whether the modal is visible */
+  isOpen: PropTypes.bool,
+  /** Called when the modal requests to close (Escape key, overlay click, or close button) */
+  onClose: PropTypes.func,
+  /** Modal header title — string or React element */
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  /** Modal body content */
+  children: PropTypes.node,
+  /** Content rendered in the modal footer (e.g. action buttons) */
+  footer: PropTypes.node,
+  /** Horizontal alignment of footer content: `'left'`, `'center'`, or `'right'`. Defaults to `'right'` */
+  footerAlign: PropTypes.string,
+  /** CSS width of the modal dialog */
+  width: PropTypes.string,
+  /** Closes the modal when the backdrop is clicked. Defaults to `true` */
+  closeOnOverlayClick: PropTypes.bool,
+  /** Shows the × close button in the header. Defaults to `true` */
+  showCloseButton: PropTypes.bool,
+  /** Expands the modal to full-screen on small viewports */
+  isFullOnMobile: PropTypes.bool,
 };
 
 export default Modal;

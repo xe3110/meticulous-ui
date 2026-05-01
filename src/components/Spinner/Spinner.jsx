@@ -3,6 +3,7 @@ import colors from '../../colors/colorMap';
 import green from '../../colors/green';
 import white from '../../colors/white';
 import grey from '../../colors/grey';
+import PropTypes from 'prop-types';
 
 const SIZE_PARAMS = {
   small: { strokeWidth: 6, $length: '2.4rem' },
@@ -35,6 +36,13 @@ const Spinner = ({ color = 'green', size = 'medium', ...rest }) => {
       />
     </SpinnerSVG>
   );
+};
+
+Spinner.propTypes = {
+  /** Color theme key (e.g. `'green'`, `'blue'`) or a raw color value. Defaults to `'green'` */
+  color: PropTypes.string,
+  /** Spinner size: `'small'`, `'medium'`, or `'large'`. Defaults to `'medium'` */
+  size: PropTypes.string,
 };
 
 export default Spinner;

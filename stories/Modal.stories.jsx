@@ -51,11 +51,16 @@ const Example = () => {
     actions: { disable: true },
   },
   argTypes: {
-    title: { control: 'text' },
-    width: { control: 'text' },
-    closeOnOverlayClick: { control: 'boolean' },
-    showCloseButton: { control: 'boolean' },
-    footerAlign: { control: 'select', options: ['left', 'center', 'right'] },
+    title: { description: 'Modal header title — string or React element', control: 'text' },
+    width: { description: 'CSS width of the modal dialog', control: 'text' },
+    closeOnOverlayClick: { description: 'Closes the modal when the backdrop is clicked', control: 'boolean' },
+    showCloseButton: { description: 'Shows the × close button in the header', control: 'boolean' },
+    footerAlign: { description: "Horizontal alignment of footer content: `'left'`, `'center'`, or `'right'`", control: 'select', options: ['left', 'center', 'right'] },
+    isOpen: { description: 'Controls whether the modal is visible' },
+    onClose: { description: 'Called when the modal requests to close (Escape key, overlay click, or close button)' },
+    children: { description: 'Modal body content' },
+    footer: { description: 'Content rendered in the modal footer (e.g. action buttons)' },
+    isFullOnMobile: { description: 'Expands the modal to full-screen on small viewports' },
   },
 };
 

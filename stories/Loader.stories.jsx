@@ -44,20 +44,25 @@ const Example = () => {
   },
   argTypes: {
     size: {
+      description: "Loader size: `'small'`, `'medium'`, or `'large'`",
       control: 'select',
       options: ['small', 'medium', 'large'],
     },
     theme: {
+      description: 'Color theme key',
       control: 'select',
       options: THEMES,
     },
     isBounce: {
+      description: 'Switches dots to a bounce animation instead of fade',
       control: 'boolean',
     },
     isMini: {
+      description: 'Renders a compact 3-dot variant',
       control: 'boolean',
     },
     isMiniDark: {
+      description: 'Renders a compact dark 3-dot variant',
       control: 'boolean',
     },
   },

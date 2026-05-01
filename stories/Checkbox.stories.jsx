@@ -30,6 +30,7 @@ export default {
   },
   argTypes: {
     color: {
+      description: 'Color theme key for the checkbox accent',
       control: 'select',
       options: [
         'blue',
@@ -46,14 +47,19 @@ export default {
       ],
     },
     label: {
+      description: 'Text label rendered next to the checkbox',
       control: 'text',
     },
     value: {
+      description: 'Controlled checked state',
       control: { type: 'boolean' },
     },
     textColor: {
+      description: 'Color of the label text',
       control: 'text',
     },
+    disabled: { description: 'Disables the checkbox' },
+    onChange: { description: 'Called with the new boolean value on change' },
   },
 };
 

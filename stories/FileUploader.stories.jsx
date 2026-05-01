@@ -77,38 +77,49 @@ export default {
   },
   argTypes: {
     label: {
+      description: 'Button label text',
       control: 'text',
     },
     labelColor: {
+      description: 'Override the label text color',
       control: 'text',
     },
     theme: {
+      description: 'Color theme key',
       control: 'select',
       options: THEMES,
     },
     type: {
+      description: "Input type attribute (e.g. `'file'`)",
       control: 'text',
     },
     accept: {
+      description: "Accepted file types passed to the hidden input (e.g. `'image/*'`)",
       control: 'text',
     },
     disabled: {
+      description: 'Disables the file uploader',
       control: 'boolean',
     },
     width: {
+      description: 'Override the button width',
       control: 'number',
     },
     isMultiple: {
+      description: 'Allows selecting multiple files',
       control: 'boolean',
     },
     isLoading: {
+      description: 'Shows a spinner and disables interaction while true',
       control: 'boolean',
     },
     size: {
+      description: "Button size variant: `'small'`, `'medium'`, `'large'`, or `'ex-large'`",
       control: 'select',
       options: ['small', 'medium', 'large', 'ex-large'],
     },
     prefixIcon: {
+      description: 'Icon component rendered before the label',
       control: 'select',
       options: Object.keys(icons).concat(['None']),
       mapping: {
@@ -117,6 +128,7 @@ export default {
       },
     },
     suffixIcon: {
+      description: 'Icon component rendered after the label',
       control: 'select',
       options: Object.keys(icons).concat(['None']),
       mapping: {
@@ -124,6 +136,7 @@ export default {
         None: null,
       },
     },
+    onChange: { description: 'Called when files are selected' },
   },
 };
 

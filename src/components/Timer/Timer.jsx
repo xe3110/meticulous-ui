@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import Glass from '../Glass';
 import TimerRing from './components/TimerRing/TimerRing';
@@ -262,6 +263,33 @@ const Timer = ({
       )}
     </Wrapper>
   );
+};
+
+Timer.propTypes = {
+  /** Color theme key for the clock and accent elements. Defaults to `'green'` */
+  color: PropTypes.string,
+  /** Diameter of the clock in pixels. Defaults to `30` */
+  size: PropTypes.number,
+  /** Whether to display the time readout. Defaults to `true` */
+  showTime: PropTypes.bool,
+  /** Includes seconds in the digital readout when true. Defaults to `true` */
+  showTimeWithSec: PropTypes.bool,
+  /** IANA timezone string (e.g. `'Asia/Kolkata'`). Defaults to `'Asia/Kolkata'` */
+  timeZone: PropTypes.string,
+  /** Shows a digital readout when true; analog hands when false. Defaults to `true` */
+  isDigital: PropTypes.bool,
+  /** Countdown duration in seconds. Shows timer controls when > 0 */
+  timerSeconds: PropTypes.number,
+  /** Called when the timer is started */
+  onTimerAdd: PropTypes.func,
+  /** Called when the countdown reaches zero */
+  onTimerComplete: PropTypes.func,
+  /** Called when the timer is stopped */
+  onTimerRemove: PropTypes.func,
+  /** Called when the timer is paused */
+  onTimerPause: PropTypes.func,
+  /** Called when a paused timer is resumed */
+  onTimerPlay: PropTypes.func,
 };
 
 export default Timer;

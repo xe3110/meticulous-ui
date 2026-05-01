@@ -26,14 +26,18 @@ export default {
         `,
       },
     },
-    argTypes: {
-      length: {
-        control: 'number',
-      },
-      value: {
-        control: 'text',
-      },
+  },
+  argTypes: {
+    length: {
+      description: 'Number of OTP input boxes',
+      control: 'number',
     },
+    value: {
+      description: 'Controlled OTP value (digits only)',
+      control: 'text',
+    },
+    onChange: { description: 'Called with the current OTP string on each keystroke' },
+    onComplete: { description: 'Called with the completed OTP string when all boxes are filled' },
   },
 };
 

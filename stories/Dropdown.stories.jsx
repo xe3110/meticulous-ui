@@ -61,6 +61,7 @@ export default {
   },
   argTypes: {
     theme: {
+      description: 'Color theme key',
       control: 'select',
       options: [
         'amber',
@@ -89,6 +90,7 @@ export default {
       ],
     },
     loaderColor: {
+      description: 'Color key for the loading spinner',
       control: 'select',
       options: [
         'amber',
@@ -117,26 +119,39 @@ export default {
       ],
     },
     isLoading: {
+      description: 'Shows a spinner inside the trigger and disables interaction',
       control: 'boolean',
     },
     isDisabled: {
+      description: 'Disables the dropdown',
       control: 'boolean',
     },
     placeholder: {
+      description: 'Placeholder text shown when no value is selected',
       control: 'text',
     },
     searchPh: {
+      description: 'Placeholder text for the search input',
       control: 'text',
     },
     searchable: {
+      description: 'Adds a search input inside the dropdown menu',
       control: 'boolean',
     },
     hasMore: {
+      description: 'Whether more options are available to load',
       control: 'boolean',
     },
     isLoadingMore: {
+      description: 'Shows a spinner at the bottom while loading more options',
       control: 'boolean',
     },
+    options: { description: "Array of option objects: `{ value, label, disabled? }`" },
+    value: { description: 'Currently selected value (controlled)' },
+    onChange: { description: 'Called with the selected value when an option is picked' },
+    width: { description: 'CSS width of the dropdown trigger' },
+    menuHeight: { description: 'Maximum CSS height of the dropdown menu' },
+    onLoadMore: { description: 'Called when the user scrolls to the bottom of the list (infinite scroll)' },
   },
 };
 

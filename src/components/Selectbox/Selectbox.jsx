@@ -1,4 +1,5 @@
 import { useEffect, useId, useLayoutEffect, useRef, useState, useMemo, useCallback } from 'react';
+import PropTypes from 'prop-types';
 import grey from '../../colors/grey';
 import colors from '../../colors/colorMap';
 import blue from '../../colors/blue';
@@ -320,6 +321,45 @@ const Selectbox = ({
       )}
     </SelectBoxWrapper>
   );
+};
+
+Selectbox.propTypes = {
+  /** Array of option objects: `{ value, label, disabled? }` */
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.any,
+      label: PropTypes.string,
+      disabled: PropTypes.bool,
+    })
+  ),
+  /** Array of currently selected values (controlled multi-select). Defaults to `[]` */
+  value: PropTypes.arrayOf(PropTypes.any),
+  /** Called with the updated array of selected values on each change */
+  onChange: PropTypes.func,
+  /** CSS width of the selectbox trigger. Defaults to `'32rem'` */
+  width: PropTypes.string,
+  /** Maximum CSS height of the dropdown menu. Defaults to `'32rem'` */
+  menuHeight: PropTypes.string,
+  /** Placeholder text shown when nothing is selected */
+  placeholder: PropTypes.string,
+  /** Color theme key. Defaults to `'blue'` */
+  theme: PropTypes.string,
+  /** Disables the selectbox */
+  isDisabled: PropTypes.bool,
+  /** Shows a spinner inside the trigger and disables interaction */
+  isLoading: PropTypes.bool,
+  /** Color key for the loading spinner */
+  loaderColor: PropTypes.string,
+  /** Adds a search input inside the dropdown menu */
+  searchable: PropTypes.bool,
+  /** Placeholder text for the search input. Defaults to `'Search...'` */
+  searchPh: PropTypes.string,
+  /** Called when the user scrolls to the bottom of the list (infinite scroll) */
+  onLoadMore: PropTypes.func,
+  /** Whether more options are available to load */
+  hasMore: PropTypes.bool,
+  /** Shows a spinner at the bottom while loading more options */
+  isLoadingMore: PropTypes.bool,
 };
 
 export default Selectbox;

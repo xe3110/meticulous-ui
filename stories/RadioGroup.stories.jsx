@@ -43,12 +43,20 @@ export default {
   },
   argTypes: {
     value: {
+      description: 'Currently selected value',
       control: 'text',
     },
     isHorizonatal: {
+      description: 'Renders options in a row when true',
       control: 'boolean',
     },
+    options: { description: "Array of option objects: `{ value, label, disabled? }`" },
+    onChange: { description: 'Called with the selected value when a radio is clicked' },
+    label: { description: 'Visible legend text for the radio group' },
+    ariaLabel: { description: 'Accessible label when no visible label is provided' },
+    name: { description: 'HTML name attribute shared by all radio inputs in the group' },
     color: {
+      description: 'Color theme key for the radio accent',
       control: 'select',
       options: [
         'blue',

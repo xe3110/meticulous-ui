@@ -74,6 +74,7 @@ export default {
   },
   argTypes: {
     theme: {
+      description: 'Color theme key from the meticulous-ui color map',
       control: 'select',
       options: [
         'amber',
@@ -102,14 +103,32 @@ export default {
       ],
     },
     size: {
+      description: "Button size variant: `'small'`, `'medium'`, `'large'`, or `'ex-large'`",
       control: 'select',
       options: ['small', 'medium', 'large', 'ex-large'],
     },
     width: {
+      description: 'Override the button width',
       control: 'number',
     },
     textColor: {
+      description: 'Override the label and icon color',
       control: 'text',
+    },
+    isLoading: {
+      description: 'Shows a spinner and disables interaction while true',
+    },
+    disabled: {
+      description: 'Disables the button',
+    },
+    leftIcon: {
+      description: 'Icon component rendered to the left of the label',
+    },
+    rightIcon: {
+      description: 'Icon component rendered to the right of the label',
+    },
+    children: {
+      description: 'Button label or content',
     },
   },
 };
