@@ -25,8 +25,6 @@ export const TextareaBox = styled.textarea`
     $isDynamic &&
     css`
       resize: none;
-      display: block;
-      overflow: hidden;
     `}
 
   &:-webkit-autofill,

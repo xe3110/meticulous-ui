@@ -30,17 +30,21 @@ const Textarea = ({
   const $shade = getColor(color);
   const textAreaRef = useRef(null);
 
+  const resizeToContent = (element) => {
+    element.style.height = '';
+    const overflow = element.scrollHeight - element.clientHeight;
+    if (overflow > 0) {
+      const currentHeight = parseFloat(window.getComputedStyle(element).height);
+      element.style.height = `${currentHeight + overflow}px`;
+    }
+  };
+
   const handleFocus = () => setIsFocused(true);
   const handleBlur = () => setIsFocused(false);
 
   const handleChange = (e) => {
-    if (isDynamic) {
-      const element = textAreaRef.current;
-      if (element) {
-        element.style.height = '0px';
-        const scrollHeight = element.scrollHeight;
-        element.style.height = `${scrollHeight}px`;
-      }
+    if (isDynamic && textAreaRef.current) {
+      resizeToContent(textAreaRef.current);
     }
     onChange(e);
   };
@@ -53,7 +57,7 @@ const Textarea = ({
   const $hasError = hasError;
   const $isDynamic = isDynamic;
   const $background = background;
-  const rowsObj = isDynamic ? {} : { rows };
+  const rowsObj = { rows };
   const textareaId = `textarea-${name}`;
   const helperId = helperText ? `${textareaId}-helper` : undefined;
 
