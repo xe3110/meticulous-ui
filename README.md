@@ -1,6 +1,11 @@
 # meticulous-ui
 
-A lightweight, modern React component library, following Semantic HTML & ARIA, designed for elegance and precision ✨
+Build production-ready React apps faster with components, hooks, utilities, icons, and design tokens — all in one package ✨
+⚡ Tree-shakable
+🎯 TypeScript ready
+♿ Accessible (ARIA + Semantic HTML)
+🎨 23 color palettes
+🧩 Components + Hooks + Utils
 
 [![npm version](https://img.shields.io/npm/v/meticulous-ui)](https://www.npmjs.com/package/meticulous-ui)
 [![npm downloads](https://img.shields.io/npm/dm/meticulous-ui)](https://www.npmjs.com/package/meticulous-ui)
@@ -24,6 +29,20 @@ yarn add meticulous-ui
 ```bash
 npm install react react-dom styled-components
 ```
+
+## Why Meticulous UI?
+
+Unlike many UI libraries, meticulous-ui combines:
+
+✅ Components
+✅ Hooks
+✅ Utilities
+✅ Icons
+✅ Tokens
+✅ Tree-shaking
+✅ Styled-components theming
+
+One install instead of 5 packages.
 
 ## 🧩 Quick Start
 
@@ -88,108 +107,38 @@ import blue from 'meticulous-ui/colors/blue';
 
 ## 📦 Icon Components
 
-| Group                 | Icons                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Arrows & Chevrons     | `ArrowDown`, `ArrowLeft`, `ArrowRight`, `ArrowUp`, `ChevronDown`, `ChevronLeft`, `ChevronRight`, `ChevronUp`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Actions               | `Add`, `AddCircle`, `AddCircleFilled`, `Minus`, `MinusCircle`, `MinusCircleFilled`, `Close`, `CloseCircleFilled`, `CloseCircleOutline`, `Check`, `CheckDouble`, `Link`, `Search`, `Loading`                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Bells & Dots          | `BellFilled`, `BellOutline`, `BellOffFilled`, `BellOffOutline`, `DotsHorizontalFilled`, `DotsHorizontalOutline`, `DotsVerticalFilled`, `DotsVerticalOutline`                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Bookmarks & Reactions | `BookmarkFilled`, `BookmarkOutline`, `HeartFilled`, `HeartOutline`, `StarFilled`, `StarOutline`, `ThumbsUpFilled`, `ThumbsUpOutline`, `ThumbsDownFilled`, `ThumbsDownOutline`                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Calendar & Clock      | `CalendarDays`, `CalendarLinesPen`, `ClockCircleOutline`, `ClockSquareOutline`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Commerce              | `BagFilled`, `BagOutline`, `CartFilled`, `CartOutline`, `CartCheckFilled`, `CartCheckOutline`, `CartCrossFilled`, `CartCrossOutline`, `CartMinusFilled`, `CartMinusOutline`, `CartPlusFilled`, `CartPlusOutline`, `PaymentCardFilled`, `PaymentCardOutline`, `WalletFilled`, `WalletOutline`, `MoneyBagOutline`, `MoneyBriefcaseFilled`, `MoneyBriefcaseOutline`, `RupeeOutlined`, `RupeeSign`                                                                                                                                                                                                                           |
-| Communication         | `CommentFilled`, `CommentOutline`, `CommentBubbleFilled`, `CommentBubbleOutline`, `CommentLineFilled`, `CommentLineOutline`, `EmailFilled`, `EmailOutline`, `PhoneFilled`, `PhoneOutline`, `PhoneCallingFilled`, `PhoneCallingOutline`, `ContactDetailsFilled`, `ContactDetailsOutline`                                                                                                                                                                                                                                                                                                                                  |
-| Delivery & Boxes      | `BoxFilled`, `BoxOutline`, `BoxCoveredFilled`, `BoxCoveredOutline`, `DeliveryTruckFastFilled`, `DeliveryTruckFastOutline`, `DeliveryTruckLeftFilled`, `DeliveryTruckLeftOutline`, `DeliveryTruckRightFilled`, `DeliveryTruckRightOutline`                                                                                                                                                                                                                                                                                                                                                                                |
-| Doors & Exit          | `DoorClosedFilled`, `DoorClosedOutline`, `DoorOpenFilled`, `DoorOpenOutline`, `ExitArrowInOutline`, `ExitArrowOutOutline`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Edit & Files          | `EditBoxThick`, `EditBoxThin`, `SaveFilled`, `SaveOutline`, `Download`, `DownloadBoxFilled`, `DownloadBoxOutline`, `Upload`, `UploadBoxFilled`, `UploadBoxOutline`                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Eye & Fullscreen      | `EyeClosed`, `EyeFilled`, `EyeOutline`, `FullScreenFilled`, `FullScreenOutline`, `FullScreenArrowThick`, `FullScreenArrowThin`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Filter, Sort & Menu   | `Filter`, `FilterList`, `FilterThickFilled`, `FilterThickOutline`, `SortBottomToTop`, `SortTopToBottom`, `SortHorizontal`, `SortVertical`, `HamburgerMenu`, `HamburgerSpaced`, `SettingFilled`, `SettingOutline`                                                                                                                                                                                                                                                                                                                                                                                                         |
-| Home & Location       | `HomeFilled`, `HomeOutline`, `LocationFilled`, `LocationOutline`, `LocationArrowFilled`, `LocationArrowOutline`, `Pin`, `PinFilled`, `PinOutline`, `PinAddFilled`, `PinAddOutline`, `PinCircleFilled`, `PinCircleOutline`, `PinSubFilled`, `PinSubOutline`                                                                                                                                                                                                                                                                                                                                                               |
-| Info & Help           | `Info`, `InfoCircleFilled`, `InfoCircleOutline`, `InfoSquareFilled`, `InfoSquareOutline`, `Help`, `HelpCircleFilled`, `HelpCircleOutline`, `DetailsOutline`                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Keys & Locks          | `KeyFilled`, `KeyOutline`, `KeyInSquareFilled`, `KeyInSquareOutline`, `KeySideSquareFilled`, `KeySideSquareOutline`, `KeySquareFilled`, `KeySquareOutline`, `LockKeyhole`, `LockKeyholeOutline`, `LockKeyholeUnlocked`, `LockKeyholeUnlockedOutline`                                                                                                                                                                                                                                                                                                                                                                     |
-| Media & Volume        | `MediaPlayFilled`, `MediaPlayOutline`, `MediaPlayCircleFilled`, `MediaPlayCircleOutline`, `MediaPauseFilled`, `MediaPauseOutline`, `MediaPauseCircleFilled`, `MediaPauseCircleOuline`, `MediaStopFilled`, `MediaStopOutline`, `MediaStopCircleFilled`, `MediaStopCircleOutline`, `VolumeFilled`, `VolumeOutline`, `VolumeMuteFilled`, `VolumeMuteOutline`, `VolumeOffFilled`, `VolumeOffOutline`                                                                                                                                                                                                                         |
-| Profile               | `ProfileMaleFilled`, `ProfileMaleOutline`, `ProfileFemaleOutline`, `ProfileGroupFilled`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Security & Shield     | `ShieldFilled`, `ShieldOutline`, `ShieldCheckFilled`, `ShieldCheckOutline`, `ShieldCrossFilled`, `ShieldCrossOutline`, `ShieldWarningFilled`, `ShieldWarningOutline`, `NoEntry`, `NoEntryFilled`, `NoEntryOutline`                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Share                 | `ShareFilled`, `ShareOutline`, `ShareAllFilled`, `ShareAllOutline`, `ShareBoxOutline`, `ShareThickFilled`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Social Media          | `DiscordConversation`, `DiscordFilled`, `DiscordOutline`, `FacebookFilled`, `FacebookOutline`, `FacebookMessengerOutline`, `FacebookRoundFilled`, `InstagramOuline`, `InstagramRoundFilled`, `LinkedinFilled`, `LinkedinOutline`, `LinkedinRoundFilled`, `PinterestFilled`, `PinterestOutline`, `RedditFilled`, `RedditOutline`, `RedditRoundFilled`, `RedditRoundOutline`, `SnapchatFilled`, `SnapchatOutline`, `TelegramFilled`, `TelegramOutline`, `TelegramRoundFilled`, `TiktokBox`, `TiktokThickFilled`, `TiktokThinFilled`, `WhatsappFilled`, `WhatsappOutline`, `Youtube`, `YoutubeFilled`, `YoutubeRoundFilled` |
-| Trash                 | `TrashFilled`, `TrashOutline`, `TrashBigFilled`, `TrashBigOutline`, `TrashLinesFilled`, `TrashLinesOutline`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Warnings & Errors     | `Warning`, `WarningSmall`, `WarningCircleFilled`, `WarningCircleOutline`, `WarningTriangleFilled`, `WarningTriangleOutline`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+100+ modern SVG icons:
+Arrows, Commerce, Social, Media, Security, UI controls...
+
+See full icon gallery → [Demo site](https://meticulous-ui.vercel.app/?path=/story/tokens-icons--default)
 
 ## 📦 Tokens
 
-| Types    | Description                     |
-| -------- | ------------------------------- |
-| `Colors` | At least 10 shades of 23 colors |
+At least 10 shades of 23 colors:
+blue, red, green, grey, cider, amber...
 
-| Colors       | Shades                                                                            |
-| ------------ | --------------------------------------------------------------------------------- |
-| `amber`      | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
-| `black`      | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900                         |
-| `blue`       | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
-| `blueGray`   | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900                         |
-| `brown`      | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900                         |
-| `cider`      | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900                         |
-| `cyan`       | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
-| `deepOrange` | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
-| `deepPurple` | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
-| `green`      | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
-| `grey`       | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900                         |
-| `indigo`     | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
-| `lightBlue`  | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
-| `lightGreen` | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
-| `lime`       | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
-| `orange`     | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
-| `pink`       | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
-| `purple`     | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
-| `red`        | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
-| `teal`       | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
-| `violet`     | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
-| `white`      | #FFFFFF                                                                           |
-| `yellow`     | m50, m100, m200, m300, m400, m500, m600, m700, m800, m900, a100, a200, a400, a700 |
+See full color gallery → [Demo site](https://meticulous-ui.vercel.app/?path=/story/tokens-colors--default)
 
 ## 📦 Utils
 
-| Category           | Functions                                                                                                                                                                          |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **String**         | `capFirstLetter`, `capitalize`, `titleCase`, `camelCase`, `snakeCase`, `kebabCase`, `slugify`, `truncate`, `removeExtraSpaces`, `maskEmail`, `maskPhone`, `generateInitials`,      |
-| **Number**         | `clamp`, `formatCurrency`, `formatNumber`, `formatCompactNumber`, `percentage`, `randomInt`, `randomBetween`, `randomValue`, `roundTo`,                                            |
-| **Date-Time**      | `formatDate`, `formatTime`, `addDays`, `differenceInDays`, `isToday`, `isPast`, `timeAgo`, `getGreetingByTime`, `countdown`,                                                       |
-| **Data**           | `deepClone`, `mergeDeep`, `pick`, `omit`, `isEmpty`, `isEqual`, `hasEqualProps`, `isNonEmptyArray`, `flattenObject`, `groupBy`, `keyBy`, `uniqueBy`, `sortBy`, `chunk`, `compose`, |
-| **Validation**     | `isEmail`, `isPhone`, `isURL`, `isPasswordStrong`, `isPAN`, `isAadhaar`, `isGST`, `isRequired`, `minLength`, `maxLength`,                                                          |
-| **Device**         | `isMobile`, `isIOS`, `isAndroid`, `isSafari`, `isDarkMode`, `isOnline`, `copyToClipboard`, `downloadFile`, `openInNewTab`, `getScreenSize`,                                        |
-| **Storage**        | `setLocalStorage`, `getLocalStorage`, `removeLocalStorage`, `setSessionStorage`, `getSessionStorage`, `clearStorage`,                                                              |
-| **Routing**        | `getQueryParams`, `setQueryParam`, `removeQueryParam`, `buildURL`, `redirectTo`, `getCurrentPath`, `isActiveRoute`,                                                                |
-| **UI**             | `scrollToTop`, `scrollToElement`, `lockBodyScroll`, `unlockBodyScroll`, `toggleFullscreen`, `focusElement`, `detectOutsideClick`, `measureElement`,                                |
-| **Performance**    | `debounce`, `throttle`, `memoize`, `lazyLoadComponent`, `requestIdleTask`, `rafThrottle`,                                                                                          |
-| **Async**          | `retry`, `sleep`, `withTimeout`, `parallel`, `sequential`, `safeAsync`, `cancelablePromise`                                                                                        |
-| **Accessibility**  | `announceToScreenReader`, `trapFocus`, `generateAriaId`, `handleKeyboardNavigation`                                                                                                |
-| **Error Handling** | `logError`, `captureException`, `safeJSONParse`, `safeJSONStringify`, `fallback`                                                                                                   |
-| **Auth**           | `isAuthenticated`, `getToken`, `setToken`, `removeToken`, `decodeJWT`, `hasPermission`                                                                                             |
-| **Feature Flags**  | `isFeatureEnabled`, `getVariant`                                                                                                                                                   |
-| **Enterprise**     | `trackEvent`, `trackPageView`, `measurePerformance`, `featureGate`, `permissionGuard`, `auditLog`, `logInfo`, `logWarn`, `captureException`                                        |
-| **Filter**         | `fuzzySearch`, `filterByKey`, `multiSort`, `paginate`                                                                                                                              |
-| **Animation**      | `fadeIn`, `fadeOut`, `smoothScroll`, `waitForTransitionEnd`                                                                                                                        |
-| **Function**       | `once`, `noop`, `identity`, `pipe`, `singleton`, `createPubSub`, `deepFreeze`                                                                                                      |
+Util functions of 19 categories are present:
+String, Number, Object, Validation, UI...
+
+See full util gallery → [Demo site](https://meticulous-ui.vercel.app/?path=/story/utilities-api-utilities--retry)
 
 ## 📦 React Helper Functions
 
-| Function            | Description                                                                        |
-| ------------------- | ---------------------------------------------------------------------------------- |
-| `createContextHook` | Creates a React context + typed hook pair; throws if consumed outside its Provider |
-| `composeProviders`  | Merges N provider components into one wrapper, eliminating the provider pyramid    |
-| `lazyImport`        | Extends `React.lazy` to work with named exports, not just default exports          |
-| `withErrorBoundary` | HOC wrapping a component in an error boundary with a configurable fallback         |
-| `withSuspense`      | HOC wrapping a component in `<Suspense>` with a co-located fallback UI             |
-| `memoCompare`       | Typed wrapper around `React.memo` with a custom equality comparator                |
-| `createPortalNode`  | Creates and appends a DOM node to `document.body` for use as a portal container    |
+There are a few react helper functions and not custom hooks like:
+lazyImport, composeProviders, withSuspense, memoCompare...
+
+See all react helper functions → [Demo site](https://meticulous-ui.vercel.app/?path=/story/react-utilities-react-helper-functions)
 
 ## 📦 Hooks
 
-| Category        | Hooks                                                                                                                 |
-| --------------- | --------------------------------------------------------------------------------------------------------------------- |
-| **State**       | `usePrevious`, `useDebounce`, `useThrottle`, `useToggle`                                                              |
-| **Lifecycle**   | `useIsMounted`, `useUnmount`, `useFirstRender`, `useTimeout`, `useInterval`                                           |
-| **DOM/Browser** | `useEventListener`, `useIntersectionObserver`, `useMediaQuery`, `useOutsideClick`, `useWindowSize`, `useOnlineStatus` |
-| **Storage**     | `useLocalStorage`, `useSessionStorage`                                                                                |
-| **Utility**     | `useCopyToClipboard`                                                                                                  |
+There are a few custom hooks based on 5 categories like:
+State, Lifecycle, DOM/Browser, Storage & Utility
+
+Check all custom hooks here: [Demo site](https://meticulous-ui.vercel.app/?path=/story/hooks-custom-hooks)
 
 ## 🌱 Features
 
