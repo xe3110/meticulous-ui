@@ -19,6 +19,15 @@ export { default as Headings } from './components/Typography/Headings';
 export { default as P } from './components/Typography/P';
 export { default as DatePicker } from './components/DatePicker';
 
+// utils
+export * from './utils';
+
+// hooks
+export * from './hooks';
+
+// reactUtils
+export * from './reactUtils';
+
 // input
 export { default as Input } from './components/Input/Input';
 export { default as Textarea } from './components/Input/Textarea';

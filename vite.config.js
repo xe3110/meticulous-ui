@@ -8,8 +8,7 @@ import fs from 'fs';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Auto-create missing folder index.js files after build
-function createIndexes(dir) {
+function createIndexes(dir, ext = 'js') {
   if (!fs.existsSync(dir)) return;
 
   const items = fs.readdirSync(dir, { withFileTypes: true });
@@ -18,17 +17,18 @@ function createIndexes(dir) {
     const fullPath = resolve(dir, item.name);
 
     if (item.isDirectory()) {
-      createIndexes(fullPath);
+      createIndexes(fullPath, ext);
 
       const files = fs.readdirSync(fullPath);
-      const jsFiles = files.filter((f) => f.endsWith('.js') && f !== 'index.js');
-      const hasIndex = files.includes('index.js');
+      const extFiles = files.filter((f) => f.endsWith(`.${ext}`) && f !== `index.${ext}`);
+      const hasIndex = files.includes(`index.${ext}`);
 
-      if (!hasIndex && jsFiles.length === 1) {
-        fs.writeFileSync(
-          resolve(fullPath, 'index.js'),
-          `export { default } from './${jsFiles[0]}';\n`
-        );
+      if (!hasIndex && extFiles.length === 1) {
+        const isCjs = ext === 'cjs';
+        const content = isCjs
+          ? `'use strict';\nmodule.exports = require('./${extFiles[0]}');\n`
+          : `export * from './${extFiles[0]}';\nexport { default } from './${extFiles[0]}';\n`;
+        fs.writeFileSync(resolve(fullPath, `index.${ext}`), content);
       }
     }
   });
@@ -70,6 +70,7 @@ export default defineConfig({
       name: 'meticulous-ui-post-build',
       closeBundle() {
         createIndexes(resolve(__dirname, 'dist/components'));
+        createIndexes(resolve(__dirname, 'dist/cjs/components'), 'cjs');
         removeVirtualDir();
       },
     },
@@ -88,19 +89,32 @@ export default defineConfig({
       formats: ['es'],
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'react/jsx-runtime', 'styled-components'],
-      output: {
-        format: 'es',
-        dir: 'dist',
-        preserveModules: true,
-        preserveModulesRoot: 'src',
-        entryFileNames: '[name].js',
-        chunkFileNames: 'chunks/[name]-[hash].js',
-        assetFileNames: 'assets/[name].[ext]',
-        exports: 'named',
-        interop: 'auto',
-        generatedCode: 'es2015',
-      },
+      treeshake: true,
+      preserveEntrySignatures: 'strict',
+      external: ['react', 'react-dom', 'react/jsx-runtime', 'styled-components', 'prop-types'],
+      output: [
+        {
+          format: 'es',
+          dir: 'dist',
+          preserveModules: true,
+          preserveModulesRoot: 'src',
+          entryFileNames: '[name].js',
+          chunkFileNames: 'chunks/[name]-[hash].js',
+          assetFileNames: 'assets/[name].[ext]',
+          exports: 'named',
+          interop: 'auto',
+        },
+        {
+          format: 'cjs',
+          dir: 'dist/cjs',
+          preserveModules: true,
+          preserveModulesRoot: 'src',
+          entryFileNames: '[name].cjs',
+          chunkFileNames: 'chunks/[name]-[hash].cjs',
+          exports: 'named',
+          interop: 'auto',
+        },
+      ],
     },
   },
 });
