@@ -1,10 +1,10 @@
 # meticulous-ui
 
-Build production-ready React apps faster with components, hooks, utilities, icons, and design tokens — all in one package ✨
-⚡ Tree-shakable
-🎯 TypeScript ready
-♿ Accessible (ARIA + Semantic HTML)
-🎨 23 color palettes
+Build production-ready React apps faster with components, hooks, utilities, icons, and design tokens — all in one package ✨  
+⚡ Tree-shakable  
+🎯 TypeScript ready  
+♿ Accessible (ARIA + Semantic HTML)  
+🎨 23 color palettes  
 🧩 Components + Hooks + Utils
 
 [![npm version](https://img.shields.io/npm/v/meticulous-ui)](https://www.npmjs.com/package/meticulous-ui)
