@@ -56,6 +56,9 @@ function buildEntries(root) {
       entries[`utils/${f.replace('.js', '')}`] = resolve(utilsDir, f);
     });
 
+  // Icons as a standalone entry for tree-shakeable icon imports
+  entries['components/Icons/index'] = resolve(root, 'src/components/Icons/index.js');
+
   // hooks and reactUtils have index files
   entries['hooks/index'] = resolve(root, 'src/hooks/index.js');
   entries['reactUtils/index'] = resolve(root, 'src/reactUtils/index.js');
