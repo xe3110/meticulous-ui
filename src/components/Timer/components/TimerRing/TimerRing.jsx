@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react';
 import white from '../../../../colors/white';
-import { SVG } from './styles';
+import styled from 'styled-components';
+
+const SVG = styled.svg``;
 
 const RADIUS = 33;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;

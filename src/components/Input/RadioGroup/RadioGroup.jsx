@@ -1,7 +1,51 @@
 import PropTypes from 'prop-types';
-import { getColor } from '../Checkbox/helpers';
 import Radio from '../Radio/Radio';
-import { Wrapper } from './styles';
+import styled, { css } from 'styled-components';
+import blue from '../../../colors/blue';
+import green from '../../../colors/green';
+import red from '../../../colors/red';
+import yellow from '../../../colors/yellow';
+import orange from '../../../colors/orange';
+import black from '../../../colors/black';
+import grey from '../../../colors/grey';
+import violet from '../../../colors/violet';
+import teal from '../../../colors/teal';
+import purple from '../../../colors/purple';
+import pink from '../../../colors/pink';
+
+const COLOR_SHADE_MAP = {
+  blue,
+  green,
+  red,
+  yellow,
+  orange,
+  black,
+  grey,
+  violet,
+  teal,
+  purple,
+  pink,
+};
+
+const getColor = (clr) => COLOR_SHADE_MAP[clr] ?? blue.m500;
+
+const Wrapper = styled.fieldset`
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: ${({ $isHorizonatal }) => ($isHorizonatal ? 'row' : 'column')};
+
+  ${({ $isHorizonatal }) =>
+    $isHorizonatal
+      ? css`
+          flex-wrap: wrap;
+          justify-content: space-between;
+        `
+      : css`
+          gap: 1.92rem;
+        `};
+`;
 
 const RadioGroup = ({
   options,

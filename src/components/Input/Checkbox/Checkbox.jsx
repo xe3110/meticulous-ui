@@ -4,8 +4,82 @@ import grey from '../../../colors/grey';
 import P from '../../Typography/P';
 import white from '../../../colors/white';
 import blue from '../../../colors/blue';
-import { Box, Wrapper, CbInput } from './styles';
-import { getColor } from './helpers';
+import green from '../../../colors/green';
+import red from '../../../colors/red';
+import yellow from '../../../colors/yellow';
+import orange from '../../../colors/orange';
+import black from '../../../colors/black';
+import violet from '../../../colors/violet';
+import teal from '../../../colors/teal';
+import purple from '../../../colors/purple';
+import pink from '../../../colors/pink';
+import styled, { css } from 'styled-components';
+import Check from '../../Icons/Check';
+
+const COLOR_SHADE_MAP = {
+  blue,
+  green,
+  red,
+  yellow,
+  orange,
+  black,
+  grey,
+  violet,
+  teal,
+  purple,
+  pink,
+};
+
+const getColor = (clr) => COLOR_SHADE_MAP[clr] ?? blue.m500;
+
+const Wrapper = styled.div`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1.28rem;
+  width: max-content;
+  position: relative;
+
+  ${({ $disabled }) =>
+    $disabled &&
+    css`
+      pointer-events: none;
+      opacity: 0.4;
+    `}
+`;
+
+const Box = styled(Check)`
+  width: 1.92rem;
+  height: 1.92rem;
+  border: 1px solid ${({ $value, $outerShade }) => ($value ? $outerShade : grey.m800)};
+  border-radius: 0.32rem;
+  background-color: ${({ $value, $innerShade }) => ($value ? $innerShade : 'transparent')};
+  transition:
+    background-color 0.5s ease,
+    border-color 0.5s ease,
+    box-shadow 0.5s ease;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px ${({ $focused, $outerShade }) => ($focused ? $outerShade : 'transparent')};
+
+  path {
+    stroke-width: 3;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: scale(${({ $value }) => ($value ? 1 : 0)});
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+`;
+
+const CbInput = styled.input`
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  whitespace: nowrap;
+`;
 
 const Checkbox = ({
   label,

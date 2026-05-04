@@ -1,7 +1,69 @@
 import { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { OTPWrapper } from './styles';
-import { renderNums } from './helpers';
+import styled from 'styled-components';
+import grey from '../../colors/grey';
+
+const OTPWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  @media screen and (max-width: 768px) {\
+    gap: 0.32rem;
+  }
+`;
+
+const OtpInputBox = styled.input`
+  height: 3.2rem;
+  width: 3.2rem;
+  font-size: 1.92rem;
+  text-align: center;
+  color: ${grey.m600};
+  border: 1px solid ${grey.m800};
+  border-radius: 0.32rem;
+`;
+
+const changeHandler = (handleChange, index) => (e) => {
+  handleChange(e.target.value, index);
+};
+
+const keyDownHandler = (handleKeyDown, index) => (e) => handleKeyDown(e, index);
+
+const Num = ({ inputsRef, handleChange, handleKeyDown, handleFocus, digit, index, length }) => {
+  const getRef = (el) => (inputsRef.current[index] = el);
+
+  return (
+    <OtpInputBox
+      key={`key-${index}`}
+      ref={getRef}
+      maxLength={1}
+      inputMode='numeric'
+      autoComplete='one-time-code'
+      aria-label={`Digit ${index + 1} of ${length}`}
+      value={digit}
+      onChange={changeHandler(handleChange, index)}
+      onKeyDown={keyDownHandler(handleKeyDown, index)}
+      onFocus={() => handleFocus(index)}
+    />
+  );
+};
+
+const renderNums =
+  ({ inputsRef, handleChange, handleKeyDown, handleFocus, length }) =>
+  (digit, index) => (
+    <Num
+      key={`otp-num-${index}`}
+      {...{
+        inputsRef,
+        handleChange,
+        handleKeyDown,
+        handleFocus,
+        digit,
+        index,
+        length,
+      }}
+    />
+  );
 
 const OtpInput = ({ length = 6, value = '', onChange, onComplete, ...rest }) => {
   const [otp, setOtp] = useState(Array(length).fill(''));

@@ -1,9 +1,39 @@
-import { SpinnerSVG, SpinnerCircle } from './styles';
 import colors from '../../colors/colorMap';
 import green from '../../colors/green';
 import white from '../../colors/white';
 import grey from '../../colors/grey';
 import PropTypes from 'prop-types';
+import styled, { keyframes } from 'styled-components';
+
+const rotate = keyframes`
+  100% {
+    transform: rotate(360deg);
+  }
+`;
+
+const dash = keyframes`
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 100, 200;
+    stroke-dashoffset: -15;
+  }
+  100% {
+    stroke-dasharray: 100, 200;
+    stroke-dashoffset: -125;
+  }
+`;
+
+const SpinnerSVG = styled.svg`
+  animation: ${rotate} 1.4s linear infinite;
+  transform-origin: center;
+`;
+
+const SpinnerCircle = styled.circle`
+  animation: ${dash} 1.4s ease-in-out infinite;
+`;
 
 const SIZE_PARAMS = {
   small: { strokeWidth: 6, $length: '2.4rem' },
