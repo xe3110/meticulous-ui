@@ -67,7 +67,7 @@ export default defineConfig({
   plugins: [
     react(),
     svgr(),
-    analyzer(),
+    // analyzer(),
     {
       name: 'meticulous-ui-post-build',
       closeBundle() {
