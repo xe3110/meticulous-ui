@@ -84,7 +84,7 @@ export default defineConfig({
     outDir: 'dist',
     emptyOutDir: true,
     sourcemap: false,
-    target: 'esnext',
+    target: 'es2018',
     minify: 'esbuild',
     commonjsOptions: {
       transformMixedEsModules: false,
