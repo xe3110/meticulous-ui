@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import Input from '../src/components/Input/Input';
+import Search from '../src/components/Icons/Search';
+import StarOutline from '../src/components/Icons/StarOutline';
 
 export default {
   title: 'Atoms/Input',
@@ -61,12 +63,12 @@ export default {
       description: 'Defines background color of Label, when over Input box line',
     },
     leftIcon: {
-      control: { type: 'text' },
-      description: 'Defines the left icon placed in the input box.',
+      control: false,
+      description: 'Icon component placed on the left inside the input box.',
     },
     rightIcon: {
-      control: { type: 'text' },
-      description: 'Defines the right icon placed in the input box.',
+      control: false,
+      description: 'Icon component placed on the right inside the input box.',
     },
     disabled: {
       control: { type: 'boolean' },
@@ -513,6 +515,7 @@ export const WithLeftIcon = {
         code: `
 import { useState } from 'react';
 import Input from 'meticulous-ui/components/Input/Input';
+import Search from 'meticulous-ui/components/Icons/Search';
 
 const WithLeftIcon = () => {
   const [val, setVal] = useState('');
@@ -523,7 +526,7 @@ const WithLeftIcon = () => {
       color='blue'
       size='30'
       onChange={(e) => setVal(e.target.value)}
-      leftIcon='Search'
+      leftIcon={Search}
     />
   );
 };
@@ -546,7 +549,7 @@ const WithLeftIcon = () => {
           color='blue'
           size='30'
           onChange={onChange1}
-          leftIcon='Search'
+          leftIcon={Search}
         />
       </div>
     );
@@ -564,6 +567,7 @@ export const WithRightIcon = {
         code: `
 import { useState } from 'react';
 import Input from 'meticulous-ui/components/Input/Input';
+import StarOutline from 'meticulous-ui/components/Icons/StarOutline';
 
 const WithRightIcon = () => {
   const [val, setVal] = useState('');
@@ -574,7 +578,7 @@ const WithRightIcon = () => {
       color='blue'
       size='30'
       onChange={(e) => setVal(e.target.value)}
-      rightIcon='StarOutline'
+      rightIcon={StarOutline}
     />
   );
 };
@@ -597,7 +601,7 @@ const WithRightIcon = () => {
           color='blue'
           size='30'
           onChange={onChange1}
-          rightIcon='StarOutline'
+          rightIcon={StarOutline}
         />
       </div>
     );
@@ -613,8 +617,6 @@ Default.args = {
   helperText: '',
   background: 'transparent',
   outerBackground: 'white',
-  leftIcon: '',
-  rightIcon: '',
   disableAutoComplete: false,
   disabled: false,
   hasError: false,

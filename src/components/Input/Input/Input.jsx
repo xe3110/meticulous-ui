@@ -12,7 +12,6 @@ import violet from '../../../colors/violet';
 import teal from '../../../colors/teal';
 import purple from '../../../colors/purple';
 import pink from '../../../colors/pink';
-import allIcons from '../../Icons/iconsMap';
 import SvgIcon from '../Textarea/SvgIcon';
 
 const COLOR_SHADE_MAP = {
@@ -30,8 +29,6 @@ const COLOR_SHADE_MAP = {
 };
 
 const getColor = (clr) => COLOR_SHADE_MAP[clr] ?? grey.m500;
-
-const getIcon = (iconName) => allIcons[iconName] ?? null;
 
 const getCssShade = ({ $hasError, $shade, $isFocused, value, $onlyPh }) => {
   if ($hasError) {
@@ -178,11 +175,8 @@ const Input = ({
 
   const iconStyles = { color: grey.m500, size: 22 };
 
-  const leftIconRef = getIcon(leftIcon);
-  const rightIconRef = getIcon(rightIcon);
-
-  const $hasLeftIcon = !!leftIconRef;
-  const $hasRightIcon = !!rightIconRef;
+  const $hasLeftIcon = !!leftIcon;
+  const $hasRightIcon = !!rightIcon;
 
   const $hasError = hasError;
   const $background = background;
@@ -213,14 +207,14 @@ const Input = ({
         autoComplete={disableAutoComplete ? 'off' : 'on'}
         {...params}
       />
-      {leftIconRef && (
+      {leftIcon && (
         <LeftIconWrapper aria-hidden='true'>
-          <SvgIcon svgIcon={leftIconRef} iconStyles={iconStyles} />
+          <SvgIcon svgIcon={leftIcon} iconStyles={iconStyles} />
         </LeftIconWrapper>
       )}
-      {rightIconRef && (
+      {rightIcon && (
         <RightIconWrapper aria-hidden='true'>
-          <SvgIcon svgIcon={rightIconRef} iconStyles={iconStyles} />
+          <SvgIcon svgIcon={rightIcon} iconStyles={iconStyles} />
         </RightIconWrapper>
       )}
       {(label || (placeholder && !value)) && (

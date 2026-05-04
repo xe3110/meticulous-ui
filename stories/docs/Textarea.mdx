@@ -34,6 +34,16 @@ A multi-line text input with a floating label, optional helper text, dynamic hei
 
 <Canvas of={TextareaStories.ErrorState} />
 
+## With Left Icon
+
+Pass an icon component directly — import only the icon you need.
+
+<Canvas of={TextareaStories.WithLeftIcon} />
+
+## With Right Icon
+
+<Canvas of={TextareaStories.WithRightIcon} />
+
 ## Props
 
 <table>
@@ -203,6 +213,26 @@ A multi-line text input with a floating label, optional helper text, dynamic hei
         <code>false</code>
       </td>
       <td>Focuses the textarea on mount</td>
+    </tr>
+    <tr>
+      <td>
+        <code>leftIcon</code>
+      </td>
+      <td>
+        <code>React.ComponentType</code>
+      </td>
+      <td>—</td>
+      <td>Icon component rendered on the left inside the textarea</td>
+    </tr>
+    <tr>
+      <td>
+        <code>rightIcon</code>
+      </td>
+      <td>
+        <code>React.ComponentType</code>
+      </td>
+      <td>—</td>
+      <td>Icon component rendered on the right inside the textarea</td>
     </tr>
     <tr>
       <td>

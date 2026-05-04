@@ -13,8 +13,6 @@ import violet from '../../../colors/violet';
 import teal from '../../../colors/teal';
 import purple from '../../../colors/purple';
 import pink from '../../../colors/pink';
-import allIcons from '../../Icons/iconsMap';
-
 const COLOR_SHADE_MAP = {
   blue: blue.m500,
   red: red.m500,
@@ -30,8 +28,6 @@ const COLOR_SHADE_MAP = {
 };
 
 const getColor = (clr) => COLOR_SHADE_MAP[clr] ?? grey.m500;
-
-const getIcon = (iconName) => allIcons[iconName] ?? null;
 
 const getCssShade = ({ $hasError, $shade, $isFocused, value, $onlyPh }) => {
   if ($hasError) {
@@ -196,10 +192,8 @@ const Textarea = ({
   };
 
   const iconStyles = { color: grey.m500, size: 20 };
-  const leftIconRef = getIcon(leftIcon);
-  const rightIconRef = getIcon(rightIcon);
-  const $hasLeftIcon = !!leftIconRef;
-  const $hasRightIcon = !!rightIconRef;
+  const $hasLeftIcon = !!leftIcon;
+  const $hasRightIcon = !!rightIcon;
   const $hasError = hasError;
   const $isDynamic = isDynamic;
   const $background = background;
@@ -234,15 +228,15 @@ const Textarea = ({
         onChange={handleChange}
         {...params}
       />
-      {leftIconRef && (
+      {leftIcon && (
         <LeftIconWrapper aria-hidden='true' style={{ top: '1.2rem', transform: 'none' }}>
-          <SvgIcon svgIcon={leftIconRef} iconStyles={iconStyles} />
+          <SvgIcon svgIcon={leftIcon} iconStyles={iconStyles} />
         </LeftIconWrapper>
       )}
 
-      {rightIconRef && (
+      {rightIcon && (
         <RightIconWrapper aria-hidden='true' style={{ top: '1.2rem', transform: 'none' }}>
-          <SvgIcon svgIcon={rightIconRef} iconStyles={iconStyles} />
+          <SvgIcon svgIcon={rightIcon} iconStyles={iconStyles} />
         </RightIconWrapper>
       )}
       <Parent>

@@ -32,6 +32,8 @@ A text input field with a floating label, optional helper text, and icon slots. 
 
 ## With Left Icon
 
+Pass an icon component directly — import only the icon you need.
+
 <Canvas of={InputStories.WithLeftIcon} />
 
 ## With Right Icon
@@ -165,20 +167,20 @@ A text input field with a floating label, optional helper text, and icon slots. 
         <code>leftIcon</code>
       </td>
       <td>
-        <code>string</code>
+        <code>React.ComponentType</code>
       </td>
       <td>—</td>
-      <td>Icon name placed on the left inside the input</td>
+      <td>Icon component rendered on the left inside the input</td>
     </tr>
     <tr>
       <td>
         <code>rightIcon</code>
       </td>
       <td>
-        <code>string</code>
+        <code>React.ComponentType</code>
       </td>
       <td>—</td>
-      <td>Icon name placed on the right inside the input</td>
+      <td>Icon component rendered on the right inside the input</td>
     </tr>
     <tr>
       <td>

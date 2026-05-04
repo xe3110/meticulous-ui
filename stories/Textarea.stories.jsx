@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import Textarea from '../src/components/Input/Textarea';
+import Search from '../src/components/Icons/Search';
+import StarOutline from '../src/components/Icons/StarOutline';
 
 export default {
   title: 'Atoms/Textarea',
@@ -464,6 +466,92 @@ const WithoutLabel = () => {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
         <Textarea placeholder='With helper text' value={val1} color='blue' onChange={onChange1} />
       </div>
+    );
+  },
+};
+
+export const WithLeftIcon = {
+  name: 'With Left Icon',
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Textarea from 'meticulous-ui/components/Input/Textarea';
+import Search from 'meticulous-ui/components/Icons/Search';
+
+const WithLeftIcon = () => {
+  const [val, setVal] = useState('');
+  return (
+    <Textarea
+      label='With Left Icon'
+      value={val}
+      color='blue'
+      onChange={(e) => setVal(e.target.value)}
+      leftIcon={Search}
+    />
+  );
+};
+        `,
+      },
+    },
+  },
+  render: () => {
+    const [val, setVal] = useState('');
+    return (
+      <Textarea
+        label='With Left Icon'
+        value={val}
+        color='blue'
+        onChange={(v) => setVal(v.target.value)}
+        leftIcon={Search}
+      />
+    );
+  },
+};
+
+export const WithRightIcon = {
+  name: 'With Right Icon',
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    docs: {
+      source: {
+        language: 'jsx',
+        code: `
+import { useState } from 'react';
+import Textarea from 'meticulous-ui/components/Input/Textarea';
+import StarOutline from 'meticulous-ui/components/Icons/StarOutline';
+
+const WithRightIcon = () => {
+  const [val, setVal] = useState('');
+  return (
+    <Textarea
+      label='With Right Icon'
+      value={val}
+      color='blue'
+      onChange={(e) => setVal(e.target.value)}
+      rightIcon={StarOutline}
+    />
+  );
+};
+        `,
+      },
+    },
+  },
+  render: () => {
+    const [val, setVal] = useState('');
+    return (
+      <Textarea
+        label='With Right Icon'
+        value={val}
+        color='blue'
+        onChange={(v) => setVal(v.target.value)}
+        rightIcon={StarOutline}
+      />
     );
   },
 };
