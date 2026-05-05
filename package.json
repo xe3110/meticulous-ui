@@ -1,11 +1,11 @@
 {
   "name": "meticulous-ui",
-  "version": "3.7.10",
+  "version": "3.7.11",
   "license": "ISC",
   "description": "A comprehensive React UI component library with a wide range of customizable components, icons, colors, and utilities for building modern web applications.",
   "types": "./index.d.ts",
-  "main": "./cjs/index.cjs",
-  "module": "./index.js",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/index.js",
   "type": "module",
   "repository": {
     "type": "git",
@@ -90,6 +90,7 @@
     "@storybook/mdx2-csf": "^1.1.0",
     "@storybook/react-vite": "^9.1.10",
     "@vitejs/plugin-react": "^5.0.4",
+    "babel-plugin-annotate-pure-calls": "^0.5.0",
     "eslint-plugin-storybook": "^9.1.10",
     "gh-pages": "^6.3.0",
     "prop-types": "^15.8.1",
