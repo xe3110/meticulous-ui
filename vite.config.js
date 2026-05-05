@@ -68,25 +68,7 @@ function buildEntries(root) {
 
 export default defineConfig({
   plugins: [
-    react({
-      babel: {
-        plugins: ['annotate-pure-calls'],
-      },
-    }),
-    {
-      name: 'pure-styled-components',
-      // generateBundle fires once per output after rollup emits — the only place where
-      // pure annotations survive into dist (rollup strips them from transform/renderChunk output).
-      generateBundle(_options, bundle) {
-        for (const chunk of Object.values(bundle)) {
-          if (chunk.type !== 'chunk' || !chunk.code.includes('styled')) continue;
-          chunk.code = chunk.code.replace(
-            /\b(styled(?:\.[a-zA-Z]\w*|\([^)]*\)(?:\.attrs\([^)]*\))?))`/g,
-            '/*@__PURE__*/$1`'
-          );
-        }
-      },
-    },
+    react(),
     svgr(),
     // analyzer(),
     {
