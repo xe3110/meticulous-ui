@@ -103,7 +103,7 @@ export default defineConfig({
     emptyOutDir: true,
     sourcemap: false,
     target: 'es2018',
-    minify: false,
+    minify: 'esbuild',
     commonjsOptions: {
       transformMixedEsModules: false,
     },
