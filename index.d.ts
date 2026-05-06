@@ -50,6 +50,22 @@ export type ThemeColor =
 export type ComponentSize = 'small' | 'medium' | 'large';
 
 // ---------------------------------------------------------------------------
+// Link
+// ---------------------------------------------------------------------------
+
+export interface LinkProps extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> {
+  label: string;
+  theme?: ThemeColor;
+  shade?: string;
+  href?: string;
+  disabled?: boolean;
+  underline?: boolean;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+}
+
+export declare const Link: React.FC<LinkProps>;
+
+// ---------------------------------------------------------------------------
 // Button
 // ---------------------------------------------------------------------------
 

@@ -1,0 +1,166 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+
+import * as LinkStories from '../Link.stories';
+
+<Meta title='Atoms/Link' of={LinkStories} />
+
+# Link
+
+A semantic `<a>`-based link with a sliding underline and nudging arrow animation on hover. Import it as `meticulous-ui/components/Link`.
+
+## Default
+
+<Canvas of={LinkStories.Default} />
+
+<Controls of={LinkStories.Default} />
+
+## Themes
+
+<Canvas of={LinkStories.Themes} />
+
+## Underline
+
+<Canvas of={LinkStories.WithUnderline} />
+
+## Disabled State
+
+<Canvas of={LinkStories.Disabled} />
+
+## Disabled Across Themes
+
+<Canvas of={LinkStories.MultipleThemesDisabled} />
+
+## Props
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>label</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>Required. The visible link text.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>theme</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>'red'</code>
+      </td>
+      <td>
+        Palette color key (e.g. <code>'red'</code>, <code>'blue'</code>, <code>'green'</code>).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>shade</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>'m500'</code>
+      </td>
+      <td>
+        Shade token within the palette (e.g. <code>'m300'</code>, <code>'a400'</code>).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>href</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>'#'</code>
+      </td>
+      <td>Destination URL for the anchor.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>target</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>
+        Forwarded to the <code>&lt;a&gt;</code> tag (e.g. <code>'_blank'</code>).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>rel</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>
+        Forwarded to the <code>&lt;a&gt;</code> tag. Defaults to <code>'noopener noreferrer'</code>{' '}
+        when <code>target="_blank"</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>underline</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>When true, shows a sliding underline animation on hover.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>disabled</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        Reduces opacity, removes <code>href</code>, and sets <code>aria-disabled</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>onClick</code>
+      </td>
+      <td>
+        <code>(e: MouseEvent) =&gt; void</code>
+      </td>
+      <td>—</td>
+      <td>
+        Click handler. Suppressed when <code>disabled</code> is true.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Accessibility
+
+- Renders a native `<a>` element — keyboard focusable and activatable via `Enter` by default
+- When `disabled` is true, `href` is removed and `aria-disabled="true"` is set so screen readers announce the state while the element remains in the tab order
+- The decorative arrow `▶` carries `aria-hidden="true"` so screen readers only announce the label text
+- When `target="_blank"`, `rel="noopener noreferrer"` is applied automatically to prevent tab-napping
