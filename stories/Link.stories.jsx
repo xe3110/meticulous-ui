@@ -125,7 +125,7 @@ const Themes = () => (
           }}
         >
           <Link label='Report now' theme={theme} href='#' />
-          <P style={{ fontSize: '0.75rem', opacity: 0.6 }}>{theme}</P>
+          <P style={{ fontSize: '1.2rem', opacity: 0.6 }}>{theme}</P>
         </div>
       ))}
     </div>
