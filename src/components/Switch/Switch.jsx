@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import grey from '../../colors/grey';
@@ -65,7 +65,10 @@ const Thumb = styled.div`
       ? css`
           width: ${TRACK_H * 1.55}rem;
           height: ${TRACK_H * 1.9}rem;
-          left: ${$checked ? `calc(100% - ${TRACK_H * 1.2 + 0.1}rem)` : '-0.75rem'};
+          left: -0.75rem;
+          transform: translateY(-50%) translateX(${$checked ? 'var(--glass-travel, 0rem)' : '0'});
+          transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+          will-change: transform;
 
           /* transparent center, rim-only glass */
           background: radial-gradient(
@@ -168,6 +171,23 @@ const Switch = ({
   const isControlled = controlledChecked !== undefined;
   const checked = isControlled ? controlledChecked : internalChecked;
 
+  const trackRef = useRef(null);
+  const [glassTravel, setGlassTravel] = useState(null);
+
+  useEffect(() => {
+    if (!isGlass || !trackRef.current) return;
+    const el = trackRef.current;
+    const update = () => {
+      const rootFs = parseFloat(getComputedStyle(document.documentElement).fontSize);
+      const travel = el.getBoundingClientRect().width / rootFs - (TRACK_H * 1.2 + 0.1 - 0.75);
+      setGlassTravel(`${travel.toFixed(4)}rem`);
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [isGlass]);
+
   const handleToggle = (e) => {
     e.preventDefault();
     if (disabled) return;
@@ -184,6 +204,7 @@ const Switch = ({
   return (
     <Track
       {...rest}
+      ref={trackRef}
       id={id}
       type='button'
       role='switch'
@@ -196,6 +217,7 @@ const Switch = ({
       $onColor={onColor}
       $offColor={offColor}
       $hasLabel={hasLabel}
+      style={glassTravel != null ? { ...rest.style, '--glass-travel': glassTravel } : rest.style}
     >
       <Thumb aria-hidden='true' $checked={checked} $isGlass={isGlass}>
         {isGlass ? (

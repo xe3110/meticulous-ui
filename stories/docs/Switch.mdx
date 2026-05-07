@@ -28,6 +28,12 @@ Icons are placed inside the thumb. Combine with `onColor` / `offColor` to match 
 
 <Canvas of={SwitchStories.WithIcons} />
 
+## With Glass
+
+A frosted-glass thumb variant designed for use on dark or coloured backgrounds. Enable with `isGlass`. Pair with `onIcon` / `offIcon` for a glowing icon effect inside the glass.
+
+<Canvas of={SwitchStories.WithGlass} />
+
 ## All States
 
 <Canvas of={SwitchStories.States} />
@@ -179,6 +185,19 @@ Icons are placed inside the thumb. Combine with `onColor` / `offColor` to match 
       <td>
         Disables interaction. Sets both the native <code>disabled</code> attribute and{' '}
         <code>aria-disabled</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>isGlass</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>—</td>
+      <td>
+        Renders the thumb as a frosted-glass lens. Designed for dark or coloured backgrounds. Pair
+        with <code>onIcon</code> / <code>offIcon</code> for a glowing icon effect.
       </td>
     </tr>
   </tbody>
