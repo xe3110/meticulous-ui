@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Switch from '../src/components/Switch/Switch';
 import Check from '../src/components/Icons/Check';
 import Close from '../src/components/Icons/Close';
-import { green, grey, blue, red, purple } from '../src/colors';
+import { green, grey, blue, red, purple, white } from '../src/colors';
 
 export default {
   title: 'Atoms/Switch',
@@ -193,4 +193,31 @@ export const States = {
       ))}
     </div>
   ),
+};
+
+export const WithGlass = {
+  name: 'With Glass',
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => {
+    const [on, setOn] = useState(false);
+
+    return (
+      <div style={{ backgroundColor: '#444', width: '100%', padding: '3rem 2rem' }}>
+        <Switch
+          checked={on}
+          onChange={setOn}
+          onLabel='Enabled'
+          offLabel='Disabled'
+          onColor={green.m500}
+          offColor={grey.m400}
+          onIcon={<Check size={14} color={white} />}
+          offIcon={<Close size={12} color={white} />}
+          isGlass
+        />
+      </div>
+    );
+  },
 };

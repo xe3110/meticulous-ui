@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import grey from '../../colors/grey';
 import green from '../../colors/green';
+import white from '../../colors/white';
 
 const THUMB_D = 1.9;
 const THUMB_PAD = 0.28;
@@ -18,13 +19,12 @@ const Track = styled.button`
   min-width: 4.8rem;
   max-width: 20rem;
   border-radius: ${TRACK_H / 2}rem;
-  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  border: 0.094rem solid rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
   box-sizing: border-box;
   flex-shrink: 0;
-  overflow: hidden;
-  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  cursor: ${({ $disabled }) => ($disabled ? 'not-allowed' : 'pointer')};
   outline: none;
 
   padding-left: ${({ $checked, $hasLabel }) =>
@@ -38,33 +38,81 @@ const Track = styled.button`
     padding-left 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
     padding-right 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  background-color: ${({ $checked, $onColor, $offColor, disabled }) => {
-    if (disabled) return grey.m300;
+  background-color: ${({ $checked, $onColor, $offColor, $disabled }) => {
+    if ($disabled) return grey.m300;
     return $checked ? $onColor || green.m500 : $offColor || grey.m400;
   }};
 
   &:focus-visible {
-    outline: 3px solid ${({ $onColor }) => ($onColor ? `${$onColor}88` : `${green.m500}88`)};
-    outline-offset: 2px;
+    outline: 0.188rem solid ${({ $onColor }) => ($onColor ? `${$onColor}88` : `${green.m500}88`)};
+    outline-offset: 0.125rem;
   }
 `;
 
 const Thumb = styled.div`
   position: absolute;
-  top: calc(50% - ${THUMB_D / 2}rem);
-  left: ${({ $checked }) =>
-    $checked ? `calc(100% - ${THUMB_D + THUMB_PAD}rem)` : `${THUMB_PAD}rem`};
-  width: ${THUMB_D}rem;
-  height: ${THUMB_D}rem;
-  border-radius: 50%;
-  background: white;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 45%;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  transition: left 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-  z-index: 1;
+  transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 10;
+
+  ${({ $isGlass, $checked }) =>
+    $isGlass
+      ? css`
+          width: ${TRACK_H * 1.55}rem;
+          height: ${TRACK_H * 1.9}rem;
+          left: ${$checked ? `calc(100% - ${TRACK_H * 1.2 + 0.1}rem)` : '-0.75rem'};
+
+          /* transparent center, rim-only glass */
+          background: radial-gradient(
+            circle at 50% 50%,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0) 55%,
+            rgba(255, 255, 255, 0.04) 80%,
+            rgba(255, 255, 255, 0.1) 100%
+          );
+
+          border: 0.094rem solid rgba(255, 255, 255, 0.28);
+
+          box-shadow:
+            0 0.25rem 1rem rgba(0, 0, 0, 0.35),
+            0 0 0 0.125rem rgba(255, 255, 255, 0.06),
+            inset 0 0.0625rem 0.125rem rgba(255, 255, 255, 0.2),
+            inset 0 -0.0625rem 0.125rem rgba(0, 0, 0, 0.3);
+
+          /* subtle top specular rim */
+          &::before {
+            content: '';
+            position: absolute;
+            top: 6%;
+            left: 15%;
+            width: 40%;
+            height: 18%;
+            background: radial-gradient(
+              circle,
+              rgba(255, 255, 255, 0.35) 0%,
+              rgba(255, 255, 255, 0) 80%
+            );
+            border-radius: 50%;
+            transform: rotate(-10deg);
+            filter: blur(0.0625rem);
+          }
+
+          &::after {
+            display: none;
+          }
+        `
+      : css`
+          width: ${THUMB_D}rem;
+          height: ${THUMB_D}rem;
+          left: ${$checked ? `calc(100% - ${THUMB_ZONE}rem)` : `${THUMB_PAD}rem`};
+          background: ${white};
+          box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.25);
+        `}
 `;
 
 const InnerLabel = styled.span`
@@ -79,8 +127,25 @@ const InnerLabel = styled.span`
   text-overflow: ellipsis;
   user-select: none;
   pointer-events: none;
-  padding: 0 ${LABEL_PAD}rem;
+  padding: ${({ $isGlass, $checked }) =>
+    $isGlass ? ($checked ? '0 1.6rem 0 0.6rem' : '0 0.6rem 0 1.6rem') : `0 ${LABEL_PAD}rem`};
   color: rgba(255, 255, 255, 0.95);
+`;
+
+const GlassIcon = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg path {
+    stroke-width: 2.5;
+  }
+
+  filter: drop-shadow(0 0 0.25rem ${({ $color }) => $color || white})
+    drop-shadow(0 0 0.625rem ${({ $color }) => $color || white})
+    drop-shadow(0 0 1.25rem ${({ $color }) => $color || white})
+    drop-shadow(0 0 2.5rem ${({ $color }) => ($color ? `${$color}99` : `${grey.m100}99`)})
+    drop-shadow(0 0 3.75rem ${({ $color }) => ($color ? `${$color}4D` : `${grey.m200}4D`)});
 `;
 
 const Switch = ({
@@ -96,6 +161,8 @@ const Switch = ({
   label,
   id,
   disabled = false,
+  isGlass,
+  ...rest
 }) => {
   const [internalChecked, setInternalChecked] = useState(defaultChecked);
   const isControlled = controlledChecked !== undefined;
@@ -116,24 +183,33 @@ const Switch = ({
 
   return (
     <Track
+      {...rest}
       id={id}
       type='button'
       role='switch'
       aria-checked={checked}
-      aria-label={label}
-      aria-disabled={disabled}
+      aria-label={label || currentLabel || undefined}
+      aria-disabled={disabled || undefined}
       onClick={handleToggle}
-      disabled={disabled}
       $checked={checked}
+      $disabled={disabled}
       $onColor={onColor}
       $offColor={offColor}
       $hasLabel={hasLabel}
     >
-      <Thumb aria-hidden='true' $checked={checked}>
-        {hasIcons && currentIcon}
+      <Thumb aria-hidden='true' $checked={checked} $isGlass={isGlass}>
+        {isGlass ? (
+          <GlassIcon $color={checked ? onColor : offColor}>{currentIcon}</GlassIcon>
+        ) : (
+          hasIcons && currentIcon
+        )}
       </Thumb>
 
-      {hasLabel && currentLabel && <InnerLabel>{currentLabel}</InnerLabel>}
+      {hasLabel && currentLabel && (
+        <InnerLabel $isGlass={isGlass} $checked={checked} aria-live='polite' aria-atomic='true'>
+          {currentLabel}
+        </InnerLabel>
+      )}
     </Track>
   );
 };
@@ -151,6 +227,7 @@ Switch.propTypes = {
   label: PropTypes.string,
   id: PropTypes.string,
   disabled: PropTypes.bool,
+  isGlass: PropTypes.bool,
 };
 
 export default Switch;
