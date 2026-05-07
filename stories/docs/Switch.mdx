@@ -1,0 +1,193 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+
+import * as SwitchStories from '../Switch.stories';
+
+<Meta title='Atoms/Switch' of={SwitchStories} />
+
+# Switch
+
+A toggle switch that reports `true` / `false` via `onChange`. Renders as a semantic `<button role="switch">`. Supports optional icons in the thumb and per-state colours and labels rendered inside the track.
+
+Import as `meticulous-ui/components/Switch`.
+
+## Default
+
+<Canvas of={SwitchStories.Default} />
+
+<Controls of={SwitchStories.Default} />
+
+## With Labels
+
+Labels are rendered **inside** the track on the opposite side of the thumb and slide in sync with it.
+
+<Canvas of={SwitchStories.WithLabels} />
+
+## With Icons
+
+Icons are placed inside the thumb. Combine with `onColor` / `offColor` to match the icon style to the track.
+
+<Canvas of={SwitchStories.WithIcons} />
+
+## All States
+
+<Canvas of={SwitchStories.States} />
+
+## Props
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>checked</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>—</td>
+      <td>Controlled checked state.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>defaultChecked</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Initial state for uncontrolled usage.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>onChange</code>
+      </td>
+      <td>
+        <code>(value: boolean) =&gt; void</code>
+      </td>
+      <td>—</td>
+      <td>Called with the new boolean value on every toggle.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>onIcon</code>
+      </td>
+      <td>
+        <code>ReactNode</code>
+      </td>
+      <td>—</td>
+      <td>Icon rendered inside the thumb when ON.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>offIcon</code>
+      </td>
+      <td>
+        <code>ReactNode</code>
+      </td>
+      <td>—</td>
+      <td>Icon rendered inside the thumb when OFF.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>onColor</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>green.m500</code>
+      </td>
+      <td>Track background colour when ON (any CSS colour string).</td>
+    </tr>
+    <tr>
+      <td>
+        <code>offColor</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>grey.m400</code>
+      </td>
+      <td>Track background colour when OFF (any CSS colour string).</td>
+    </tr>
+    <tr>
+      <td>
+        <code>onLabel</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>Label text displayed inside the track when ON.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>offLabel</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>Label text displayed inside the track when OFF.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>label</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>
+        Accessible name (<code>aria-label</code>) for screen readers. Use when no visible{' '}
+        <code>onLabel</code> / <code>offLabel</code> is provided.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>id</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>
+        Forwarded to the underlying <code>&lt;button&gt;</code>. Pair with an external{' '}
+        <code>&lt;label htmlFor&gt;</code> or <code>aria-labelledby</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>disabled</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        Disables interaction. Sets both the native <code>disabled</code> attribute and{' '}
+        <code>aria-disabled</code>.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Accessibility
+
+- Renders a native `<button>` with `role="switch"` and `aria-checked` — keyboard focusable and togglable via `Space` or `Enter` by default
+- `aria-checked` reflects the current boolean state so screen readers announce _"on"_ or _"off"_ automatically
+- When no visible label is present, pass `label` to set `aria-label`, or use `id` with an external `<label htmlFor>`
+- The thumb and all decorative glass layers carry `aria-hidden="true"` so assistive technology only reads the button's accessible name and state
+- Both native `disabled` and `aria-disabled` are set when disabled

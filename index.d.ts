@@ -508,6 +508,38 @@ export interface RootComponentProps extends React.HTMLAttributes<HTMLDivElement>
 export declare const RootComponent: React.FC<RootComponentProps>;
 
 // ---------------------------------------------------------------------------
+// Switch
+// ---------------------------------------------------------------------------
+
+export interface SwitchProps {
+  /** Controlled checked state */
+  checked?: boolean;
+  /** Initial state for uncontrolled usage */
+  defaultChecked?: boolean;
+  /** Called with the new boolean value on every toggle */
+  onChange?: (value: boolean) => void;
+  /** Icon rendered inside the thumb when ON */
+  onIcon?: React.ReactNode;
+  /** Icon rendered inside the thumb when OFF */
+  offIcon?: React.ReactNode;
+  /** Track background colour when ON (any CSS colour string) */
+  onColor?: string;
+  /** Track background colour when OFF (any CSS colour string) */
+  offColor?: string;
+  /** Label text displayed inside the track when ON */
+  onLabel?: string;
+  /** Label text displayed inside the track when OFF */
+  offLabel?: string;
+  /** Accessible name for screen readers when no visible label is present */
+  label?: string;
+  /** id forwarded to the underlying button element */
+  id?: string;
+  disabled?: boolean;
+}
+
+export declare const Switch: React.FC<SwitchProps>;
+
+// ---------------------------------------------------------------------------
 // Hooks
 // ---------------------------------------------------------------------------
 
