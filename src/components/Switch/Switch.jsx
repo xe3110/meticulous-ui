@@ -172,6 +172,7 @@ const Switch = ({
   const checked = isControlled ? controlledChecked : internalChecked;
 
   const trackRef = useRef(null);
+  const lastKeyPressRef = useRef(0);
   const [glassTravel, setGlassTravel] = useState(null);
 
   useEffect(() => {
@@ -196,6 +197,21 @@ const Switch = ({
     onChange?.(next);
   };
 
+  const keyDownHandler = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      if (e.repeat) {
+        e.preventDefault();
+        return;
+      }
+      e.preventDefault();
+      if (!disabled) {
+        const next = !checked;
+        if (!isControlled) setInternalChecked(next);
+        onChange?.(next);
+      }
+    }
+  };
+
   const hasIcons = onIcon != null || offIcon != null;
   const hasLabel = onLabel != null || offLabel != null;
   const currentIcon = checked ? onIcon : offIcon;
@@ -212,6 +228,7 @@ const Switch = ({
       aria-label={label || currentLabel || undefined}
       aria-disabled={disabled || undefined}
       onClick={handleToggle}
+      onKeyDown={keyDownHandler}
       $checked={checked}
       $disabled={disabled}
       $onColor={onColor}
