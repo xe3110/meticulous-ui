@@ -1,0 +1,511 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+
+import * as GridStories from '../Grid.stories';
+
+<Meta title='Layout/Grid' of={GridStories} />
+
+# Grid
+
+A CSS Grid layout primitive. Use `Grid` to define the track structure and `GridItem` to control individual cell placement. Both accept an `as` prop so you can render any semantic HTML element.
+
+Import:
+
+```jsx
+import Grid, { GridItem } from 'meticulous-ui/components/Grid';
+```
+
+## Default
+
+<Canvas of={GridStories.Default} />
+
+<Controls of={GridStories.Default} />
+
+## Fixed Columns
+
+Pass a number to `columns` for N equal-width `1fr` columns, or any valid CSS value for full control.
+
+<Canvas of={GridStories.FixedColumns} />
+
+## Responsive (minChildWidth)
+
+`minChildWidth` sets up `repeat(auto-fit, minmax(value, 1fr))` — columns wrap automatically as the container shrinks. No media queries needed.
+
+<Canvas of={GridStories.Responsive} />
+
+## Template Areas
+
+Named areas let you describe a layout as a visual map. Each string in `areas` is one row; repeated names span multiple tracks.
+
+<Canvas of={GridStories.TemplateAreas} />
+
+## Item Placement (spans)
+
+Use `columnSpan` / `rowSpan` on `GridItem` to make a cell occupy multiple tracks. Use `column` / `row` for explicit `grid-column` / `grid-row` shorthand.
+
+<Canvas of={GridStories.ItemPlacement} />
+
+## Semantic List
+
+Render the grid as a `<ul>` and each item as an `<li>` for correct list semantics — screen readers will announce the count and navigate by list item.
+
+<Canvas of={GridStories.SemanticList} />
+
+## Alignment
+
+<Canvas of={GridStories.Alignment} />
+
+---
+
+## Grid Props
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>as</code>
+      </td>
+      <td>
+        <code>ElementType</code>
+      </td>
+      <td>
+        <code>'div'</code>
+      </td>
+      <td>
+        Semantic HTML element to render as (e.g. <code>'ul'</code>, <code>'section'</code>,{' '}
+        <code>'main'</code>).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>columns</code>
+      </td>
+      <td>
+        <code>number | string</code>
+      </td>
+      <td>—</td>
+      <td>
+        A number produces <code>repeat(N, 1fr)</code>. A string is passed through as-is (e.g.{' '}
+        <code>'200px 1fr'</code>).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>rows</code>
+      </td>
+      <td>
+        <code>number | string</code>
+      </td>
+      <td>—</td>
+      <td>
+        Same as <code>columns</code> but for <code>grid-template-rows</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>areas</code>
+      </td>
+      <td>
+        <code>string[]</code>
+      </td>
+      <td>—</td>
+      <td>
+        Grid template areas. Each string is one row (e.g.{' '}
+        <code>['header header', 'sidebar main']</code>).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>gap</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>
+        Gap between all cells (CSS value, e.g. <code>'1rem'</code>).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>columnGap</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>
+        Column-only gap. Overrides <code>gap</code> for the inline axis.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>rowGap</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>
+        Row-only gap. Overrides <code>gap</code> for the block axis.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>minChildWidth</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>
+        Enables responsive auto-fit columns via <code>repeat(auto-fit, minmax(value, 1fr))</code>.
+        Takes precedence over <code>columns</code> when set.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>autoFlow</code>
+      </td>
+      <td>
+        <code>'row' | 'column' | 'dense' | 'row dense' | 'column dense'</code>
+      </td>
+      <td>—</td>
+      <td>Controls how the auto-placement algorithm fills grid cells.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>autoColumns</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>Size of implicitly created column tracks.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>autoRows</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>Size of implicitly created row tracks.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>alignItems</code>
+      </td>
+      <td>
+        <code>'start' | 'end' | 'center' | 'stretch' | 'baseline'</code>
+      </td>
+      <td>—</td>
+      <td>Aligns all grid items along the block (vertical) axis within their cells.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>justifyItems</code>
+      </td>
+      <td>
+        <code>'start' | 'end' | 'center' | 'stretch'</code>
+      </td>
+      <td>—</td>
+      <td>Justifies all grid items along the inline (horizontal) axis within their cells.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>alignContent</code>
+      </td>
+      <td>
+        <code>
+          'start' | 'end' | 'center' | 'stretch' | 'space-between' | 'space-around' | 'space-evenly'
+        </code>
+      </td>
+      <td>—</td>
+      <td>Aligns the grid tracks within the container when there is extra block-axis space.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>justifyContent</code>
+      </td>
+      <td>
+        <code>
+          'start' | 'end' | 'center' | 'stretch' | 'space-between' | 'space-around' | 'space-evenly'
+        </code>
+      </td>
+      <td>—</td>
+      <td>Justifies the grid tracks within the container when there is extra inline-axis space.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>inline</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        Switches from <code>grid</code> to <code>inline-grid</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>role</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>ARIA role override forwarded to the root element.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>aria-label</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>Accessible label for the grid region.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>aria-labelledby</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>ID of an element that labels the grid region.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>children</code>
+      </td>
+      <td>
+        <code>ReactNode</code>
+      </td>
+      <td>—</td>
+      <td>
+        Grid cells — typically <code>GridItem</code> or plain elements.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>className</code> / <code>style</code>
+      </td>
+      <td>
+        <code>string</code> / <code>object</code>
+      </td>
+      <td>—</td>
+      <td>Forwarded to the root element for custom overrides.</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## GridItem Props
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>as</code>
+      </td>
+      <td>
+        <code>ElementType</code>
+      </td>
+      <td>
+        <code>'div'</code>
+      </td>
+      <td>
+        Semantic HTML element (e.g. <code>'li'</code>, <code>'article'</code>,{' '}
+        <code>'section'</code>).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>column</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>
+        <code>grid-column</code> shorthand (e.g. <code>'1 / 3'</code>, <code>'1 / -1'</code>).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>columnStart</code>
+      </td>
+      <td>
+        <code>number | string</code>
+      </td>
+      <td>—</td>
+      <td>Explicit column start line.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>columnEnd</code>
+      </td>
+      <td>
+        <code>number | string</code>
+      </td>
+      <td>—</td>
+      <td>Explicit column end line.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>columnSpan</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>—</td>
+      <td>
+        Shortcut for <code>span N</code> — item occupies N column tracks.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>row</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>
+        <code>grid-row</code> shorthand.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>rowStart</code>
+      </td>
+      <td>
+        <code>number | string</code>
+      </td>
+      <td>—</td>
+      <td>Explicit row start line.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>rowEnd</code>
+      </td>
+      <td>
+        <code>number | string</code>
+      </td>
+      <td>—</td>
+      <td>Explicit row end line.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>rowSpan</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>—</td>
+      <td>
+        Shortcut for <code>span N</code> — item occupies N row tracks.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>area</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>
+        Places the item in a named <code>grid-area</code> defined on the parent <code>Grid</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>alignSelf</code>
+      </td>
+      <td>
+        <code>'auto' | 'start' | 'end' | 'center' | 'stretch' | 'baseline'</code>
+      </td>
+      <td>—</td>
+      <td>
+        Overrides <code>alignItems</code> for this individual item.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>justifySelf</code>
+      </td>
+      <td>
+        <code>'auto' | 'start' | 'end' | 'center' | 'stretch'</code>
+      </td>
+      <td>—</td>
+      <td>
+        Overrides <code>justifyItems</code> for this individual item.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>placeSelf</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>
+        <code>place-self</code> shorthand (e.g. <code>'center stretch'</code>).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>children</code>
+      </td>
+      <td>
+        <code>ReactNode</code>
+      </td>
+      <td>—</td>
+      <td>Content of the grid cell.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>className</code> / <code>style</code>
+      </td>
+      <td>
+        <code>string</code> / <code>object</code>
+      </td>
+      <td>—</td>
+      <td>Forwarded to the root element.</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## Accessibility
+
+- `Grid` is a pure layout primitive — it has no implicit ARIA role. When the grid represents a meaningful region, pass `as="section"` (or another landmark) and pair it with `aria-label` or `aria-labelledby`.
+- For list-like grids (galleries, card decks, search results) render `as="ul"` with each `GridItem as="li"`. Screen readers will announce the item count and allow list-item navigation.
+- `GridItem` forwards all HTML attributes including `aria-*`, `data-*`, and event handlers so each cell can carry its own semantics.
+- Avoid relying on visual grid position alone to communicate meaning — order items logically in the DOM so keyboard and reading order matches visual order.

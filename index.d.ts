@@ -540,6 +540,86 @@ export interface SwitchProps {
 export declare const Switch: React.FC<SwitchProps>;
 
 // ---------------------------------------------------------------------------
+// Grid
+// ---------------------------------------------------------------------------
+
+type GridAlignItems = 'start' | 'end' | 'center' | 'stretch' | 'baseline';
+type GridJustifyItems = 'start' | 'end' | 'center' | 'stretch';
+type GridAlignContent =
+  | 'start'
+  | 'end'
+  | 'center'
+  | 'stretch'
+  | 'space-between'
+  | 'space-around'
+  | 'space-evenly';
+type GridJustifyContent =
+  | 'start'
+  | 'end'
+  | 'center'
+  | 'stretch'
+  | 'space-between'
+  | 'space-around'
+  | 'space-evenly';
+type GridAutoFlow = 'row' | 'column' | 'dense' | 'row dense' | 'column dense';
+
+export interface GridProps extends React.HTMLAttributes<HTMLElement> {
+  as?: React.ElementType;
+  /** Number of equal columns or a CSS grid-template-columns value */
+  columns?: number | string;
+  /** Number of equal rows or a CSS grid-template-rows value */
+  rows?: number | string;
+  /** Template areas — each string is one row, e.g. ['header header', 'sidebar main'] */
+  areas?: string[];
+  /** Gap between all cells */
+  gap?: string;
+  /** Column-only gap */
+  columnGap?: string;
+  /** Row-only gap */
+  rowGap?: string;
+  /** Enables responsive auto-fit columns: repeat(auto-fit, minmax(value, 1fr)) */
+  minChildWidth?: string;
+  autoFlow?: GridAutoFlow;
+  autoColumns?: string;
+  autoRows?: string;
+  alignItems?: GridAlignItems;
+  justifyItems?: GridJustifyItems;
+  alignContent?: GridAlignContent;
+  justifyContent?: GridJustifyContent;
+  /** Render as inline-grid instead of grid */
+  inline?: boolean;
+  children?: React.ReactNode;
+  'aria-label'?: string;
+  'aria-labelledby'?: string;
+}
+
+export interface GridItemProps extends React.HTMLAttributes<HTMLElement> {
+  as?: React.ElementType;
+  /** grid-column shorthand, e.g. '1 / 3' */
+  column?: string;
+  columnStart?: number | string;
+  columnEnd?: number | string;
+  /** Shortcut for span N columns */
+  columnSpan?: number;
+  /** grid-row shorthand, e.g. '1 / 3' */
+  row?: string;
+  rowStart?: number | string;
+  rowEnd?: number | string;
+  /** Shortcut for span N rows */
+  rowSpan?: number;
+  /** Named grid-area defined on the parent Grid */
+  area?: string;
+  alignSelf?: 'auto' | GridAlignItems;
+  justifySelf?: 'auto' | GridJustifyItems;
+  /** place-self shorthand */
+  placeSelf?: string;
+  children?: React.ReactNode;
+}
+
+export declare const Grid: React.FC<GridProps>;
+export declare const GridItem: React.FC<GridItemProps>;
+
+// ---------------------------------------------------------------------------
 // Hooks
 // ---------------------------------------------------------------------------
 
