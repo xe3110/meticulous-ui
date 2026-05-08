@@ -37,9 +37,9 @@ import Grid, { GridItem } from 'meticulous-ui/components/Grid';
 
 const Example = () => (
   <Grid columns={3} gap="1rem">
-    <div>One</div>
-    <div>Two</div>
-    <div>Three</div>
+    {['One', 'Two', 'Three', 'Four', 'Five', 'Six'].map((label) => (
+      <div key={label}>{label}</div>
+    ))}
   </Grid>
 );
         `,
@@ -104,9 +104,13 @@ export const FixedColumns = {
       source: {
         language: 'jsx',
         code: `
-<Grid columns={4} gap="1rem">
-  {items.map((item) => <div key={item}>{item}</div>)}
-</Grid>
+{[2, 3, 4].map((cols) => (
+  <Grid key={cols} columns={cols} gap="0.75rem">
+    {Array.from({ length: cols * 2 }, (_, i) => (
+      <div key={i}>{i + 1}</div>
+    ))}
+  </Grid>
+))}
         `,
       },
     },
@@ -143,7 +147,9 @@ export const Responsive = {
         language: 'jsx',
         code: `
 <Grid minChildWidth="12rem" gap="1rem">
-  {cards.map((card) => <Card key={card.id} {...card} />)}
+  {['Alpha', 'Beta', 'Gamma', 'Delta', 'Epsilon', 'Zeta', 'Eta', 'Theta'].map((label) => (
+    <div key={label}>{label}</div>
+  ))}
 </Grid>
         `,
       },
@@ -172,7 +178,7 @@ export const TemplateAreas = {
   rows="auto 1fr auto"
   areas={['header header', 'sidebar main', 'footer footer']}
   gap="1rem"
-  style={{ minHeight: '18rem' }}
+  style={{ minHeight: '18rem', padding: '1rem' }}
 >
   <GridItem area="header">Header</GridItem>
   <GridItem area="sidebar">Sidebar</GridItem>
@@ -218,13 +224,13 @@ export const ItemPlacement = {
       source: {
         language: 'jsx',
         code: `
-<Grid columns={4} gap="1rem">
-  <GridItem columnSpan={2}>Spans 2 cols</GridItem>
+<Grid columns={4} gap="0.75rem">
+  <GridItem columnSpan={2}>col-span 2</GridItem>
   <div>C</div>
   <div>D</div>
   <div>E</div>
-  <GridItem columnSpan={3}>Spans 3 cols</GridItem>
-  <GridItem rowSpan={2}>Spans 2 rows</GridItem>
+  <GridItem columnSpan={3}>col-span 3</GridItem>
+  <GridItem rowSpan={2}>row-span 2</GridItem>
   <div>G</div>
   <div>H</div>
   <div>I</div>
@@ -271,9 +277,9 @@ export const SemanticList = {
       source: {
         language: 'jsx',
         code: `
-<Grid as="ul" columns={3} gap="1rem" aria-label="Product list">
-  {products.map((p) => (
-    <GridItem as="li" key={p.id}>{p.name}</GridItem>
+<Grid as="ul" columns={3} gap="1rem" aria-label="Product list" style={{ listStyle: 'none', padding: '1rem', margin: 0 }}>
+  {['Apples', 'Bananas', 'Cherries', 'Dates', 'Elderberries', 'Figs'].map((fruit) => (
+    <GridItem as="li" key={fruit}>{fruit}</GridItem>
   ))}
 </Grid>
         `,
@@ -306,10 +312,23 @@ export const Alignment = {
       source: {
         language: 'jsx',
         code: `
-<Grid columns={3} gap="1rem" alignItems="center" justifyItems="center">
-  <div>A</div>
-  <div>B</div>
-  <div>C</div>
+{/* alignItems variants */}
+<Grid columns={3} gap="0.75rem" alignItems="start">
+  {['A', 'B', 'C'].map((l) => <div key={l}>{l}</div>)}
+</Grid>
+<Grid columns={3} gap="0.75rem" alignItems="center">
+  {['A', 'B', 'C'].map((l) => <div key={l}>{l}</div>)}
+</Grid>
+<Grid columns={3} gap="0.75rem" alignItems="end">
+  {['A', 'B', 'C'].map((l) => <div key={l}>{l}</div>)}
+</Grid>
+
+{/* justifyItems variants */}
+<Grid columns={3} gap="0.75rem" justifyItems="start">
+  {['A', 'B', 'C'].map((l) => <div key={l}>{l}</div>)}
+</Grid>
+<Grid columns={3} gap="0.75rem" justifyItems="center">
+  {['A', 'B', 'C'].map((l) => <div key={l}>{l}</div>)}
 </Grid>
         `,
       },
