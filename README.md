@@ -4,12 +4,22 @@
 [![npm downloads](https://img.shields.io/npm/dm/meticulous-ui)](https://www.npmjs.com/package/meticulous-ui)
 [![license](https://img.shields.io/npm/l/meticulous-ui)](https://www.npmjs.com/package/meticulous-ui)
 
+[![meticulous-ui](./assets/readme-banner.png)](https://meticulous-ui.vercel.app/)
+
+<p align="center">
+  <a href="https://meticulous-ui.vercel.app/">Documentation</a> •
+  <a href="https://bundlephobia.com/package/meticulous-ui">Bundle Size</a> •
+  <a href="https://github.com/xe3110/meticulous-ui">GitHub</a>
+</p>
+
 An engineering-first React ecosystem — components, hooks, utilities, tokens, and icons unified in a single tree-shakeable package.  
 Built for scalable, production-grade applications.
 
-⚡ Fully tree-shakeable &nbsp;·&nbsp; 🪶 Side-effect free &nbsp;·&nbsp; 🎯 TypeScript-first &nbsp;·&nbsp; ♿ Accessible by default &nbsp;·&nbsp; 💅 styled-components
-
-**Demo & Docs → [https://meticulous-ui.vercel.app/](https://meticulous-ui.vercel.app/)**
+⚡ Fully tree-shakeable  
+🪶 Side-effect free  
+🎯 TypeScript-first  
+♿ Accessible by default  
+💅 styled-components
 
 ---
 
