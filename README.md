@@ -4,7 +4,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/meticulous-ui)](https://www.npmjs.com/package/meticulous-ui)
 [![license](https://img.shields.io/npm/l/meticulous-ui)](https://www.npmjs.com/package/meticulous-ui)
 
-[![meticulous-ui](./assets/readme-banner.png)](https://meticulous-ui.vercel.app/)
+<a href="https://meticulous-ui.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./assets/readme_banner.png" alt="meticulous-ui" /></a>
 
 <p align="center">
   <a href="https://meticulous-ui.vercel.app/">Documentation</a> •
