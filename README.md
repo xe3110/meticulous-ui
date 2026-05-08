@@ -1,22 +1,54 @@
 # meticulous-ui
 
-Build production-ready React apps faster with components, hooks, utilities, icons, and design tokens — all in one package ✨  
-⚡ Tree-shakable  
-🎯 TypeScript ready  
-♿ Accessible (ARIA + Semantic HTML)  
-🎨 23 color palettes  
-🧩 Components + Hooks + Utils
-
 [![npm version](https://img.shields.io/npm/v/meticulous-ui)](https://www.npmjs.com/package/meticulous-ui)
 [![npm downloads](https://img.shields.io/npm/dm/meticulous-ui)](https://www.npmjs.com/package/meticulous-ui)
+[![license](https://img.shields.io/npm/l/meticulous-ui)](https://www.npmjs.com/package/meticulous-ui)
+
+An engineering-first React ecosystem — components, hooks, utilities, tokens, and icons unified in a single tree-shakeable package.  
+Built for scalable, production-grade applications.
+
+⚡ Fully tree-shakeable &nbsp;·&nbsp; 🪶 Side-effect free &nbsp;·&nbsp; 🎯 TypeScript-first &nbsp;·&nbsp; ♿ Accessible by default &nbsp;·&nbsp; 💅 styled-components
+
+**Demo & Docs → [https://meticulous-ui.vercel.app/](https://meticulous-ui.vercel.app/)**
 
 ---
 
-## 🚀 Demo
+## Why meticulous-ui?
 
-[meticulous-ui.vercel.app](https://meticulous-ui.vercel.app/)
+Modern frontends rely on fragmented ecosystems:
 
-## 🚀 Installation
+- 🧩 One package for components
+- 🪝 Another for hooks
+- 🔧 Another for utilities
+- 🎨 Another for icons
+- 🎯 Another for tokens
+
+This leads to:
+
+- 📦 Dependency bloat
+- ⚠️ Inconsistent APIs
+- 🏋️ Larger bundles
+- 🔧 Growing maintenance overhead
+
+meticulous-ui consolidates all of it into **one install** while staying fully tree-shakeable — you only pay for what you import.
+
+### Why not multiple packages?
+
+Most frontend ecosystems force developers to combine disconnected packages — each with its own API conventions, versioning, peer dependency conflicts, and documentation. The result is a fragmented developer experience that compounds over time.
+
+meticulous-ui treats components, hooks, utilities, tokens, and foundations as a **single cohesive system** — designed together, versioned together, and documented together. One mental model. One import. One upgrade.
+
+### Best suited for
+
+- Enterprise dashboards and internal tools
+- Design system foundations
+- Frontend platform teams
+- TypeScript-heavy projects
+- Performance-sensitive applications
+
+---
+
+## Installation
 
 ```bash
 npm install meticulous-ui
@@ -24,149 +56,258 @@ npm install meticulous-ui
 yarn add meticulous-ui
 ```
 
-**Peer dependencies** — install these if you haven't already:
+### Peer dependencies
 
 ```bash
-npm install react react-dom styled-components
+npm install react@^18 react-dom@^18 styled-components@^6
 ```
 
-## Why Meticulous UI?
+---
 
-Unlike many UI libraries, meticulous-ui combines:
+## Quick Start
 
-✅ Components  
-✅ Hooks  
-✅ Utilities  
-✅ Icons  
-✅ Tokens  
-✅ Tree-shaking  
-✅ Styled-components theming
-
-One install instead of 5 packages.
-
-## 🧩 Quick Start
-
-```jsx
-import { Button, Input, Shimmer, Toast } from 'meticulous-ui';
+```tsx
+import { Button, Input, Toast, Shimmer, useLocalStorage, validateEmail } from 'meticulous-ui';
 import blue from 'meticulous-ui/colors/blue';
 
 function App() {
+  const [email, setEmail] = useLocalStorage<string>('email', '');
+
+  const handleSubmit = () => {
+    if (!validateEmail(email)) {
+      Toast.error('Invalid email');
+      return;
+    }
+    Toast.success('Submitted successfully');
+  };
+
   return (
     <>
-      {/* Loading skeleton */}
       <Shimmer width={200} height={20} />
-
-      {/* Themed button */}
-      <Button theme={blue} onClick={() => console.log('clicked')}>
+      <Input label='Email' color='blue' value={email} onChange={(e) => setEmail(e.target.value)} />
+      <Button theme={blue} onClick={handleSubmit}>
         Submit
       </Button>
-
-      {/* Controlled input */}
-      <Input label='Email' color='blue' value={email} onChange={handleChange} />
     </>
   );
 }
 ```
 
-Or import directly from the component path for the smallest bundle:
+For minimal bundle size, import directly from component paths:
 
-```js
+```ts
 import Button from 'meticulous-ui/components/Button';
 import blue from 'meticulous-ui/colors/blue';
 ```
 
-## 📦 Components
+meticulous-ui is fully tree-shakeable and side-effect free — optimized for Vite, Webpack, Rollup, and Next.js.
 
-Production-ready React components for forms, feedback, layout, media, navigation, and interactions.
+---
+
+## Documentation & Storybook
+
+Full interactive docs: [https://meticulous-ui.vercel.app/](https://meticulous-ui.vercel.app/)
+
+- Colors → [Tokens: Colors](https://meticulous-ui.vercel.app/?path=/story/tokens-colors--default)
+- Icons → [Tokens: Icons](https://meticulous-ui.vercel.app/?path=/story/tokens-icons--default)
+- Hooks → [Custom Hooks](https://meticulous-ui.vercel.app/?path=/story/hooks-custom-hooks)
+- Utilities → [Engineering Utilities](https://meticulous-ui.vercel.app/?path=/story/utilities-api-utilities--retry)
+- React helpers → [React Utilities](https://meticulous-ui.vercel.app/?path=/story/react-utilities-react-helper-functions)
+
+---
+
+## Ecosystem Architecture
+
+meticulous-ui is organized into layered abstractions. Higher layers build on lower ones; you can use any layer independently.
+
+```
+┌─────────────────────────────────────────────────┐
+│                   Organisms                     │  Complex production-ready UI systems
+│         Toast · Pagination · VideoPlayer        │
+├─────────────────────────────────────────────────┤
+│                   Molecules                     │  Composed interactive components
+│      Dropdown · DatePicker · OtpInput           │
+├─────────────────────────────────────────────────┤
+│                    Atoms                        │  Basic UI building blocks
+│       Button · Input · Checkbox · Switch        │
+├─────────────────────────────────────────────────┤
+│                  Foundations                    │  Layout & application primitives
+│              Grid · RootComponent               │
+├──────────────────┬──────────────────────────────┤
+│      Hooks       │       Utilities              │  Reusable logic, framework-agnostic
+│  useLocalStorage │  validateEmail · formatDate  │
+├──────────────────┴──────────────────────────────┤
+│                   Tokens                        │  Design primitives
+│       23 color palettes · 100+ SVG icons        │
+└─────────────────────────────────────────────────┘
+```
+
+---
+
+## Components
 
 ### Core UI
 
-`Button` · `Input` · `Textarea` · `Checkbox` · `RadioGroup` · `Dropdown` · `Selectbox`
+Button · Input · Textarea · Checkbox · RadioGroup · Dropdown · Selectbox · Switch · Link
 
 ### Feedback & Loading
 
-`Toast` · `ToastContainer` · `Spinner` · `Loader` · `PageLoader` · `Shimmer`
+Toast · ToastContainer · Spinner · Loader · PageLoader · Shimmer
 
 ### Overlays & Navigation
 
-`Modal` · `Pagination` · `Carousel`
+Modal · Pagination · Carousel
 
 ### Forms & Productivity
 
-`OtpInput` · `FileUploader` · `DatePicker`
+OtpInput · FileUploader · DatePicker
 
 ### Media
 
-`Image` · `VideoPlayer`
+Image · VideoPlayer
 
 ### Typography
 
-`Headings` (`H1`–`H6`) · `P`
+H1–H6 · P
 
-### Utility Components
+### Utility
 
-`Timer` · `RootComponent`
+Timer · RootComponent
 
-👉 Explore full docs and live examples on the [demo site](https://meticulous-ui.vercel.app/).
+---
 
-## 📦 Icon Components
+## Tokens
 
-100+ modern SVG icons:
-Arrows, Commerce, Social, Media, Security, UI controls...
+### Colors
 
-See full icon gallery → [Demo site](https://meticulous-ui.vercel.app/?path=/story/tokens-icons--default)
+23 production-ready palettes (blue, red, green, amber, grey, cider, and more) with multiple shades each.  
+→ [Explore colors](https://meticulous-ui.vercel.app/?path=/story/tokens-colors--default)
 
-## 📦 Tokens
+### Icons
 
-At least 10 shades of 23 colors:
-blue, red, green, grey, cider, amber...
+100+ modern SVG icons across categories: arrows, commerce, social, media, security, UI controls.  
+→ [Explore icons](https://meticulous-ui.vercel.app/?path=/story/tokens-icons--default)
 
-See full color gallery → [Demo site](https://meticulous-ui.vercel.app/?path=/story/tokens-colors--default)
+---
 
-## 📦 Utils
+## Hooks
 
-Util functions of 19 categories are present:
-String, Number, Object, Validation, UI...
+Custom hooks organized by purpose:
 
-See full util gallery → [Demo site](https://meticulous-ui.vercel.app/?path=/story/utilities-api-utilities--retry)
+| Category    | Examples                               |
+| ----------- | -------------------------------------- |
+| State       | `useToggle`, `useCounter`              |
+| Lifecycle   | `useMountEffect`, `usePrevious`        |
+| Storage     | `useLocalStorage`, `useSessionStorage` |
+| DOM/Browser | `useMediaQuery`, `useClickOutside`     |
+| Utility     | `useDebounce`, `useThrottle`           |
 
-## 📦 React Helper Functions
+---
 
-There are a few react helper functions and not custom hooks like:
-lazyImport, composeProviders, withSuspense, memoCompare...
+## Engineering Utilities
 
-See all react helper functions → [Demo site](https://meticulous-ui.vercel.app/?path=/story/react-utilities-react-helper-functions)
+Production-focused utility functions organized by domain:
 
-## 📦 Hooks
+| Category       | Examples                       |
+| -------------- | ------------------------------ |
+| Validation     | `validateEmail`, `validateUrl` |
+| String         | `truncate`, `slugify`          |
+| Number         | `clamp`, `formatCurrency`      |
+| Date-time      | `formatDate`, `timeAgo`        |
+| API            | `retry`, `debounceAsync`       |
+| Auth           | token helpers                  |
+| Feature flags  | `isFeatureEnabled`             |
+| Accessibility  | `getFocusableElements`         |
+| Performance    | `memoize`, `measureTime`       |
+| Error handling | `tryCatch`, `safeJSON`         |
+| Storage        | `safeGet`, `safeSet`           |
 
-There are a few custom hooks based on 5 categories like:
-State, Lifecycle, DOM/Browser, Storage & Utility
+---
 
-Check all custom hooks here: [Demo site](https://meticulous-ui.vercel.app/?path=/story/hooks-custom-hooks)
+## React Utilities
 
-## 🌱 Features
+Helper functions for scalable React patterns:
 
-⚛️ Built with React + Styled Components
+- `lazyImport` — code-split any module with a consistent API
+- `composeProviders` — flatten deeply nested providers
+- `withSuspense` — wrap any component with a Suspense boundary
+- `memoCompare` — custom comparator for `React.memo`
 
-💨 Zero external CSS dependencies
+---
 
-🧱 Easy to extend and customize
+## Performance
 
-🪶 Small bundle size
+meticulous-ui is built to have zero performance cost at the bundler level.
 
-📦 ESM + CJS support out of the box
+- ⚡ **Fully tree-shakeable** — unused code is eliminated at build time
+- 🪶 **Side-effect free** — safe for aggressive dead code elimination
+- 📦 **Import only what you use** — one component, one hook, or the whole library
+- 🔀 **ESM + CJS** — works with every modern bundler and runtime
+- 🚀 **Optimized for Vite, Webpack, Rollup, and Next.js** — no config needed
 
-## 🛠️ Build Setup (for contributors)
+```ts
+// pays for Button only — nothing else ships
+import Button from 'meticulous-ui/components/Button';
 
+// or use named imports — tree-shaking handles the rest
+import { Button, useLocalStorage } from 'meticulous-ui';
 ```
 
-# install dependencies
-npm install
+Bundle size: [bundlephobia.com/package/meticulous-ui](https://bundlephobia.com/package/meticulous-ui)
 
-# run development build
-npm run dev
+---
 
-# build for production (dist/)
-npm run build
+## Philosophy
 
+- **Minimal dependencies** — no opinion on state management or routing
+- **Consistent developer experience** — predictable APIs across all layers
+- **Accessibility by default** — ARIA + semantic HTML throughout
+- **Performance-first** — tree-shakeable, side-effect free, zero external CSS
+- **Scalable architecture** — layered design you can adopt incrementally
+
+---
+
+## Development Setup
+
+```bash
+npm install      # install dependencies
+npm run dev      # start Storybook dev server
+npm run build    # build the library
 ```
+
+---
+
+## Contributing
+
+Contributions, bug reports, and feature requests are welcome.
+
+**Adding a component**
+
+1. Create the component under `src/components/<ComponentName>/`
+2. Export it from the component's `index.ts` and from the root `src/index.ts`
+3. Add a Storybook story under `src/stories/`
+4. Use color tokens from `src/colors/` — never hardcode hex values
+
+**Adding a hook or utility**
+
+1. Add the function to the appropriate file under `src/hooks/` or `src/utils/`
+2. Export it from the root `src/index.ts`
+3. Add a Storybook story or docs entry if it has non-obvious usage
+
+**General guidelines**
+
+- All public APIs must be typed — no `any`
+- Stories act as documentation; write them for the consumer, not the implementer
+- Open an issue or discussion first for significant changes
+
+---
+
+## Changelog
+
+See [CHANGELOG.md](./CHANGELOG.md) for release history and migration guides between major versions.
+
+---
+
+## License
+
+ISC

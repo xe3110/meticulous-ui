@@ -14,6 +14,8 @@
 /svg
 /src/scripts
 
+/memory
+
 # misc
 package-lock.json
 .DS_Store
