@@ -49,85 +49,35 @@ const Example = () => (
   argTypes: {
     columns: {
       description: 'Number of equal columns or a CSS `grid-template-columns` value',
-      control: 'text',
-    },
-    rows: {
-      description: 'Number of equal rows or a CSS `grid-template-rows` value',
-      control: 'text',
+      control: 'number',
     },
     gap: {
       description: 'Gap between all cells (CSS value)',
       control: 'text',
     },
-    columnGap: {
-      description: 'Column gap — overrides `gap` for columns',
-      control: 'text',
-    },
-    rowGap: {
-      description: 'Row gap — overrides `gap` for rows',
-      control: 'text',
-    },
-    minChildWidth: {
-      description: 'Enables responsive auto-fit columns with this minimum child width',
-      control: 'text',
-    },
-    autoFlow: {
-      description: 'CSS `grid-auto-flow` value',
-      control: 'select',
-      options: ['row', 'column', 'dense', 'row dense', 'column dense'],
-    },
-    autoColumns: {
-      description: 'CSS `grid-auto-columns` value',
-      control: 'text',
-    },
-    autoRows: {
-      description: 'CSS `grid-auto-rows` value',
-      control: 'text',
-    },
-    alignItems: {
-      description: 'Align all items along the block axis',
-      control: 'select',
-      options: ['start', 'end', 'center', 'stretch', 'baseline'],
-    },
-    justifyItems: {
-      description: 'Justify all items along the inline axis',
-      control: 'select',
-      options: ['start', 'end', 'center', 'stretch'],
-    },
-    alignContent: {
-      description: 'Align the grid tracks along the block axis',
-      control: 'select',
-      options: [
-        'start',
-        'end',
-        'center',
-        'stretch',
-        'space-between',
-        'space-around',
-        'space-evenly',
-      ],
-    },
-    justifyContent: {
-      description: 'Justify the grid tracks along the inline axis',
-      control: 'select',
-      options: [
-        'start',
-        'end',
-        'center',
-        'stretch',
-        'space-between',
-        'space-around',
-        'space-evenly',
-      ],
-    },
+    rows: { table: { disable: true } },
+    areas: { table: { disable: true } },
+    columnGap: { table: { disable: true } },
+    rowGap: { table: { disable: true } },
     inline: {
       description: 'Render as `inline-grid` instead of `grid`',
       control: 'boolean',
     },
-    as: {
-      description: 'Semantic HTML element to render as',
-      control: 'text',
-    },
+    as: { table: { disable: true } },
+    autoFlow: { table: { disable: true } },
+    autoColumns: { table: { disable: true } },
+    autoRows: { table: { disable: true } },
+    minChildWidth: { table: { disable: true } },
+    alignItems: { table: { disable: true } },
+    justifyItems: { table: { disable: true } },
+    alignContent: { table: { disable: true } },
+    justifyContent: { table: { disable: true } },
+    children: { table: { disable: true } },
+    className: { table: { disable: true } },
+    style: { table: { disable: true } },
+    role: { table: { disable: true } },
+    'aria-label': { table: { disable: true } },
+    'aria-labelledby': { table: { disable: true } },
   },
 };
 
@@ -149,6 +99,7 @@ export const FixedColumns = {
   name: 'Fixed Columns',
   parameters: {
     controls: { disable: true },
+    actions: { disable: true },
     docs: {
       source: {
         language: 'jsx',
@@ -182,6 +133,7 @@ export const Responsive = {
   name: 'Responsive (minChildWidth)',
   parameters: {
     controls: { disable: true },
+    actions: { disable: true },
     docs: {
       description: {
         story:
@@ -210,6 +162,7 @@ export const TemplateAreas = {
   name: 'Template Areas',
   parameters: {
     controls: { disable: true },
+    actions: { disable: true },
     docs: {
       source: {
         language: 'jsx',
@@ -260,6 +213,7 @@ export const ItemPlacement = {
   name: 'Item Placement (spans)',
   parameters: {
     controls: { disable: true },
+    actions: { disable: true },
     docs: {
       source: {
         language: 'jsx',
@@ -308,6 +262,7 @@ export const SemanticList = {
   name: 'Semantic List (ul + li)',
   parameters: {
     controls: { disable: true },
+    actions: { disable: true },
     docs: {
       description: {
         story:
@@ -346,6 +301,7 @@ export const Alignment = {
   name: 'Alignment',
   parameters: {
     controls: { disable: true },
+    actions: { disable: true },
     docs: {
       source: {
         language: 'jsx',
