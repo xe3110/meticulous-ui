@@ -29,7 +29,16 @@ const changeHandler = (handleChange, index) => (e) => {
 
 const keyDownHandler = (handleKeyDown, index) => (e) => handleKeyDown(e, index);
 
-const Num = ({ inputsRef, handleChange, handleKeyDown, handleFocus, digit, index, length }) => {
+const Num = ({
+  inputsRef,
+  handleChange,
+  handleKeyDown,
+  handleFocus,
+  digit,
+  index,
+  length,
+  isTabStop,
+}) => {
   const getRef = (el) => (inputsRef.current[index] = el);
 
   return (
@@ -40,6 +49,7 @@ const Num = ({ inputsRef, handleChange, handleKeyDown, handleFocus, digit, index
       inputMode='numeric'
       autoComplete='one-time-code'
       aria-label={`Digit ${index + 1} of ${length}`}
+      tabIndex={isTabStop ? 0 : -1}
       value={digit}
       onChange={changeHandler(handleChange, index)}
       onKeyDown={keyDownHandler(handleKeyDown, index)}
@@ -49,7 +59,7 @@ const Num = ({ inputsRef, handleChange, handleKeyDown, handleFocus, digit, index
 };
 
 const renderNums =
-  ({ inputsRef, handleChange, handleKeyDown, handleFocus, length }) =>
+  ({ inputsRef, handleChange, handleKeyDown, handleFocus, length, tabStopIndex }) =>
   (digit, index) => (
     <Num
       key={`otp-num-${index}`}
@@ -61,6 +71,7 @@ const renderNums =
         digit,
         index,
         length,
+        isTabStop: index === tabStopIndex,
       }}
     />
   );
@@ -136,13 +147,6 @@ const OtpInput = ({ length = 6, value = '', onChange, onComplete, ...rest }) => 
     } else if (e.key === 'ArrowRight') {
       e.preventDefault();
       if (index + 1 <= lastValid) focusCell(index + 1);
-    } else if (e.key === 'Tab') {
-      e.preventDefault();
-      if (e.shiftKey) {
-        if (index > 0) focusCell(index - 1);
-      } else {
-        focusCell(lastValid);
-      }
     }
   };
 
@@ -172,9 +176,14 @@ const OtpInput = ({ length = 6, value = '', onChange, onComplete, ...rest }) => 
     focusCell(lastIndex);
   };
 
+  const firstEmpty = otp.findIndex((d) => d === '');
+  const tabStopIndex = firstEmpty === -1 ? length - 1 : firstEmpty;
+
   return (
     <OTPWrapper onPaste={handlePaste} {...rest}>
-      {otp.map(renderNums({ inputsRef, handleChange, handleKeyDown, handleFocus, length }))}
+      {otp.map(
+        renderNums({ inputsRef, handleChange, handleKeyDown, handleFocus, length, tabStopIndex })
+      )}
     </OTPWrapper>
   );
 };

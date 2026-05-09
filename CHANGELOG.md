@@ -7,6 +7,22 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [3.9.0] — 2026-05-09
+
+### Added
+
+- Form component (`src/components/Form/`, `src/index.js`) — field-level validation, imperative `getValues` ref, `disableUntilValid` support
+- `Form` and `FormHandle` types added to `index.d.ts`
+- `showSelectedDisplay` prop added to `DatePicker` and `index.d.ts`
+
+### Fixed
+
+- Form validation and layout shift now only trigger on submit button click, not on every field change (`src/components/Form/FormField.jsx`)
+- DatePicker buttons inside a `<form>` no longer trigger form submission — all buttons now carry `type="button"` (`src/components/DatePicker/DatePicker.jsx`)
+- OtpInput Tab key now exits the component in one press instead of cycling through each cell; only the active cell (first empty / last filled) is in the tab order (`src/components/OtpInput/OtpInput.jsx`)
+
+---
+
 ## [3.8.6] — 2026-05-08
 
 ### Added

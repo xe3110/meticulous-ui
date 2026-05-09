@@ -317,9 +317,55 @@ export type DatePickerProps = (DatePickerSingleProps | DatePickerRangeProps) & {
   maxDate?: Date;
   showModeToggle?: boolean;
   showFooter?: boolean;
+  showSelectedDisplay?: boolean;
 };
 
 export declare const DatePicker: React.FC<DatePickerProps>;
+
+// ---------------------------------------------------------------------------
+// Form
+// ---------------------------------------------------------------------------
+
+export interface FormFieldDef {
+  /** Unique key used to identify the field in the submitted values map */
+  id: string;
+  label: string;
+  /** Any meticulous-ui (or custom) input component */
+  component: React.ComponentType<any>;
+  isMandatory?: boolean;
+  /** Extra props merged on top of the shared `allProps` for this field only */
+  allProps?: Record<string, unknown>;
+  /** Props passed directly to the component. `defaultValue` seeds the initial value; `onChange` is called alongside the form's internal tracking. */
+  compProps?: {
+    defaultValue?: string;
+    onChange?: (value: string) => void;
+    [key: string]: unknown;
+  };
+  /** Return an error string when invalid, or `null` when valid */
+  validate?: (value: string) => string | null;
+}
+
+export interface FormHandle {
+  /** Returns the current value of every field keyed by field `id` */
+  getValues: () => Record<string, string>;
+}
+
+export interface FormProps extends Omit<React.FormHTMLAttributes<HTMLFormElement>, 'onSubmit'> {
+  fields?: FormFieldDef[];
+  /** Props spread onto every field component (can be overridden per field via `allProps`) */
+  allProps?: Record<string, unknown>;
+  /** Called with the collected values when the form passes validation */
+  onSubmit?: (values: Record<string, string>) => void;
+  submitLabel?: string;
+  /** Keep the submit button disabled until all fields with a `validate` function are valid */
+  disableUntilValid?: boolean;
+  gap?: string;
+  labelMarginBottom?: string;
+}
+
+export declare const Form: React.ForwardRefExoticComponent<
+  FormProps & React.RefAttributes<FormHandle>
+>;
 
 // ---------------------------------------------------------------------------
 // Selectbox

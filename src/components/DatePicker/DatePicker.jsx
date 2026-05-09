@@ -381,6 +381,7 @@ const DatePicker = ({
   maxDate,
   showModeToggle = true,
   showFooter = true,
+  showSelectedDisplay = true,
   ...rest
 }) => {
   const palette = useMemo(() => colors[theme] ?? blue, [theme]);
@@ -515,6 +516,7 @@ const DatePicker = ({
       {MONTHS.map((m, i) => (
         <PickerItem
           key={m}
+          type='button'
           $active={i === viewMonth}
           {...themeProps}
           onClick={() => {
@@ -534,6 +536,7 @@ const DatePicker = ({
       {YEARS.map((y) => (
         <PickerItem
           key={y}
+          type='button'
           $active={y === viewYear}
           {...themeProps}
           onClick={() => {
@@ -572,6 +575,7 @@ const DatePicker = ({
             $primaryLight={$primaryLight}
           >
             <DayBtn
+              type='button'
               $empty={empty}
               $selected={selected}
               $today={today_}
@@ -595,30 +599,37 @@ const DatePicker = ({
 
   return (
     <Wrapper {...rest}>
-      <SelectedDisplay>
-        {mode === MODE.RANGE ? (
-          <>
-            <DateChip $active={picking || (!rangeStart && !rangeEnd)} $primary={$primary}>
-              <span>From</span>
+      {showSelectedDisplay && (
+        <SelectedDisplay>
+          {mode === MODE.RANGE ? (
+            <>
+              <DateChip $active={picking || (!rangeStart && !rangeEnd)} $primary={$primary}>
+                <span>From</span>
+                {displayStart}
+              </DateChip>
+              <RangeArrow>→</RangeArrow>
+              <DateChip $active={!picking && !!rangeEnd} $primary={$primary}>
+                <span>To</span>
+                {displayEnd}
+              </DateChip>
+            </>
+          ) : (
+            <DateChip
+              $active={!!single}
+              $primary={$primary}
+              style={{ flex: 'none', width: '100%' }}
+            >
+              <span>Selected</span>
               {displayStart}
             </DateChip>
-            <RangeArrow>→</RangeArrow>
-            <DateChip $active={!picking && !!rangeEnd} $primary={$primary}>
-              <span>To</span>
-              {displayEnd}
-            </DateChip>
-          </>
-        ) : (
-          <DateChip $active={!!single} $primary={$primary} style={{ flex: 'none', width: '100%' }}>
-            <span>Selected</span>
-            {displayStart}
-          </DateChip>
-        )}
-      </SelectedDisplay>
+          )}
+        </SelectedDisplay>
+      )}
 
       {showModeToggle && (
         <ModeToggle>
           <ModeBtn
+            type='button'
             $active={mode === MODE.SINGLE}
             $primary={$primary}
             onClick={() => switchMode(MODE.SINGLE)}
@@ -626,6 +637,7 @@ const DatePicker = ({
             Single
           </ModeBtn>
           <ModeBtn
+            type='button'
             $active={mode === MODE.RANGE}
             $primary={$primary}
             onClick={() => switchMode(MODE.RANGE)}
@@ -636,24 +648,26 @@ const DatePicker = ({
       )}
 
       <Nav>
-        <NavBtn $primary={$primary} onClick={prevMonth} aria-label='Previous month'>
+        <NavBtn type='button' $primary={$primary} onClick={prevMonth} aria-label='Previous month'>
           <ChevronLeft />
         </NavBtn>
         <div style={{ display: 'flex', gap: 4 }}>
           <MonthLabel
+            type='button'
             $primary={$primary}
             onClick={() => setPanel(panel === PANEL.MONTH ? PANEL.CALENDAR : PANEL.MONTH)}
           >
             {MONTHS[viewMonth]}
           </MonthLabel>
           <MonthLabel
+            type='button'
             $primary={$primary}
             onClick={() => setPanel(panel === PANEL.YEAR ? PANEL.CALENDAR : PANEL.YEAR)}
           >
             {viewYear}
           </MonthLabel>
         </div>
-        <NavBtn $primary={$primary} onClick={nextMonth} aria-label='Next month'>
+        <NavBtn type='button' $primary={$primary} onClick={nextMonth} aria-label='Next month'>
           <ChevronRight />
         </NavBtn>
       </Nav>
@@ -665,6 +679,7 @@ const DatePicker = ({
       {showFooter && panel === PANEL.CALENDAR && (
         <Footer>
           <ActionBtn
+            type='button'
             $primary={$primary}
             $primaryDark={$primaryDark}
             $primaryLight={$primaryLight}
@@ -673,6 +688,7 @@ const DatePicker = ({
             Clear
           </ActionBtn>
           <ActionBtn
+            type='button'
             $isPrimary
             $primary={$primary}
             $primaryDark={$primaryDark}

@@ -1,0 +1,273 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+
+import * as FormStories from '../Form.stories';
+
+<Meta title='Molecules/Form' of={FormStories} />
+
+# Form
+
+A field-driven form that renders any component per field. Can be imported as `meticulous-ui/components/Form`.
+
+The core design goal is **isolated re-renders**: when the user changes field A, field B does not re-render. Each field owns its own value and error state internally. The parent `Form` collects values through a ref, not state.
+
+## All Components
+
+A single form covering every supported input type: `Input` (text / email / password / URL), `Textarea`, `OtpInput`, `Dropdown` (single-select), `Selectbox` (multi-select), `RadioGroup`, `DatePicker`, `Switch`, and `Checkbox`.
+
+<Canvas of={FormStories.AllComponents} />
+
+## Default
+
+<Canvas of={FormStories.Default} />
+
+<Controls of={FormStories.Default} />
+
+## With Validation
+
+Each field has an optional `validate` function that runs on every keystroke. Return a string to show an inline error, or `null` to clear it.
+
+Pressing Submit without filling required fields triggers validation on all fields at once and scrolls the viewport to the first invalid one.
+
+<Canvas of={FormStories.WithValidation} />
+
+## With Textarea
+
+The `component` prop accepts any React component. Mix `Input`, `Textarea`, `Dropdown`, or your own custom input — the form treats them uniformly.
+
+<Canvas of={FormStories.WithTextarea} />
+
+## Imperative getValues()
+
+Pass a `ref` to read current field values from outside the form (e.g. a modal footer button). The ref exposes `getValues()` which returns a `{ [fieldId]: value }` snapshot.
+
+<Canvas of={FormStories.ImperativeGetValues} />
+
+## Shared allProps
+
+`allProps` at the Form level is spread onto every field component. A field-level `allProps` merges on top and can override specific keys for that field only.
+
+<Canvas of={FormStories.SharedAllProps} />
+
+## Props
+
+### Form
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>fields</code>
+      </td>
+      <td>
+        <code>FieldConfig[]</code>
+      </td>
+      <td>
+        <code>[]</code>
+      </td>
+      <td>Array of field configuration objects (see Field config table below)</td>
+    </tr>
+    <tr>
+      <td>
+        <code>allProps</code>
+      </td>
+      <td>
+        <code>object</code>
+      </td>
+      <td>
+        <code>{'{}'}</code>
+      </td>
+      <td>
+        Props spread onto every field component. Per-field <code>allProps</code> merges on top
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>onSubmit</code>
+      </td>
+      <td>
+        <code>{'(values: Record<string, any>) => void'}</code>
+      </td>
+      <td>—</td>
+      <td>
+        Called with a <code>{'{fieldId: value}'}</code> map when the form is submitted and all
+        fields are valid. When omitted, no submit button is rendered
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>submitLabel</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>'Submit'</code>
+      </td>
+      <td>Label text for the submit button</td>
+    </tr>
+    <tr>
+      <td>
+        <code>disableUntilValid</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        When true, the submit button stays disabled until every field with a <code>validate</code>{' '}
+        function passes. Validity is computed in real time on each keystroke
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>ref</code>
+      </td>
+      <td>
+        <code>React.Ref</code>
+      </td>
+      <td>—</td>
+      <td>
+        Exposes <code>getValues()</code> — returns a snapshot of all current field values
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Field config
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>id</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>Yes</td>
+      <td>
+        Unique identifier. Used as the React key and as the key in the <code>onSubmit</code> values
+        map
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>label</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>Yes</td>
+      <td>Label text rendered above the component</td>
+    </tr>
+    <tr>
+      <td>
+        <code>component</code>
+      </td>
+      <td>
+        <code>React.ComponentType</code>
+      </td>
+      <td>Yes</td>
+      <td>
+        The input component to render. Receives <code>value</code> and <code>onChange</code> at
+        minimum. Both event-based (<code>onChange(e)</code>) and value-based (
+        <code>onChange(value)</code>) components are supported
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>isMandatory</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>No</td>
+      <td>
+        Renders a red <code>*</code> superscript on the label. Visual only — wire up{' '}
+        <code>validate</code> to enforce the rule
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>allProps</code>
+      </td>
+      <td>
+        <code>object</code>
+      </td>
+      <td>No</td>
+      <td>
+        Merged with (and overrides) the Form-level <code>allProps</code> for this field only
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>compProps</code>
+      </td>
+      <td>
+        <code>object</code>
+      </td>
+      <td>No</td>
+      <td>
+        Component-specific props. <code>defaultValue</code> seeds the initial state. Any{' '}
+        <code>onChange</code> inside is called alongside the Form's internal handler
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>validate</code>
+      </td>
+      <td>
+        <code>{'(value: any) => string | null'}</code>
+      </td>
+      <td>No</td>
+      <td>
+        Runs on every change and on submit. Return an error string to show inline, or{' '}
+        <code>null</code> to clear. Also drives <code>disableUntilValid</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Submit behaviour
+
+When the submit button is clicked:
+
+1. `validate` is called on every field in order, regardless of whether the field has been touched.
+2. All inline errors are shown simultaneously.
+3. The viewport scrolls smoothly to the first invalid field.
+4. `onSubmit` is only called if every field passes — it never fires with invalid data.
+
+## Re-render isolation
+
+1. Each `FormField` is wrapped in `React.memo` — it only re-renders when its own props change.
+2. Value collection uses a `useRef` in Form, not state — a field change never triggers a Form re-render or a sibling re-render.
+3. Validity tracking uses `useState` in Form (needed to drive the disabled button), but all FormField props remain stable references, so `React.memo` still blocks sibling re-renders.
+4. Per-field `onValueChange` and `onValidityChange` callbacks are each created once and stored in ref maps — stable across every render.
+5. `handleChange` inside each `FormField` has empty `useCallback` deps. All closured values (`validate`, callbacks) are accessed through refs.
+
+The practical result: typing in one field causes exactly one component to re-render — the field you typed in.
+
+## Accessibility
+
+- Labels are rendered as native `<label>` elements.
+- Mandatory markers use `aria-hidden="true"` so screen readers skip the `*` glyph.
+- Inline error messages use `role="alert"` so they are announced immediately by screen readers.
+- The submit button receives the native `disabled` attribute when `disableUntilValid` is active.

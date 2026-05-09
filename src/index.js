@@ -19,6 +19,7 @@ export { default as Carousel } from './components/Carousel';
 export { default as Headings } from './components/Typography/Headings';
 export { default as P } from './components/Typography/P';
 export { default as DatePicker } from './components/DatePicker';
+export { default as Form } from './components/Form';
 
 // utils
 export * from './utils';
