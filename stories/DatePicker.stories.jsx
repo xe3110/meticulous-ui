@@ -155,7 +155,7 @@ const RangeSelection = () => {
     const [from, to] = range;
     return (
       <div style={{ padding: '2rem' }}>
-        <DatePicker mode='range' onChange={setRange} rangeValue={range} />
+        <DatePicker mode='range' showModeToggle={false} onChange={setRange} rangeValue={range} />
         {from && to && (
           <P style={{ marginTop: '1rem', color: grey.m700 }}>
             Range: <strong>{from.toDateString()}</strong> → <strong>{to.toDateString()}</strong>

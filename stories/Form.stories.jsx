@@ -137,36 +137,46 @@ const DefaultForm = () => (
       },
     },
   },
-  render: () => (
-    <Form
-      fields={[
-        {
-          id: 'firstName',
-          label: 'First Name',
-          component: Input,
-          isMandatory: true,
-          compProps: { defaultValue: '', placeholder: 'First name' },
-          validate: required,
-        },
-        {
-          id: 'lastName',
-          label: 'Last Name',
-          component: Input,
-          compProps: { defaultValue: '', placeholder: 'Last name' },
-        },
-        {
-          id: 'email',
-          label: 'Email',
-          component: Input,
-          isMandatory: true,
-          compProps: { defaultValue: '', placeholder: 'email@example.com' },
-          validate: emailValidator,
-        },
-      ]}
-      onSubmit={(values) => console.log('submitted:', values)}
-      submitLabel='Submit'
-    />
-  ),
+  render: () => {
+    const [snapshot, setSnapshot] = useState(null);
+    return (
+      <div>
+        <Form
+          fields={[
+            {
+              id: 'firstName',
+              label: 'First Name',
+              component: Input,
+              isMandatory: true,
+              compProps: { defaultValue: '', placeholder: 'First name' },
+              validate: required,
+            },
+            {
+              id: 'lastName',
+              label: 'Last Name',
+              component: Input,
+              compProps: { defaultValue: '', placeholder: 'Last name' },
+            },
+            {
+              id: 'email',
+              label: 'Email',
+              component: Input,
+              isMandatory: true,
+              compProps: { defaultValue: '', placeholder: 'email@example.com' },
+              validate: emailValidator,
+            },
+          ]}
+          onSubmit={(values) => setSnapshot(values)}
+          submitLabel='Submit'
+        />
+        {snapshot && (
+          <pre style={{ marginTop: '1.5rem', fontSize: '1.2rem' }}>
+            {JSON.stringify(snapshot, null, 2)}
+          </pre>
+        )}
+      </div>
+    );
+  },
 };
 
 export const WithValidation = {
@@ -221,45 +231,59 @@ const WithValidation = () => (
       },
     },
   },
-  render: () => (
-    <Form
-      fields={[
-        {
-          id: 'username',
-          label: 'Username',
-          component: Input,
-          isMandatory: true,
-          compProps: { defaultValue: '', placeholder: 'At least 4 characters' },
-          validate: minLength(4),
-        },
-        {
-          id: 'password',
-          label: 'Password',
-          component: Input,
-          isMandatory: true,
-          compProps: { defaultValue: '', placeholder: 'At least 8 characters', type: 'password' },
-          validate: minLength(8),
-        },
-        {
-          id: 'website',
-          label: 'Website',
-          component: Input,
-          compProps: { defaultValue: '', placeholder: 'https://example.com' },
-          validate: (v) => {
-            if (!v) return null;
-            try {
-              new URL(v);
-              return null;
-            } catch {
-              return 'Enter a valid URL';
-            }
-          },
-        },
-      ]}
-      onSubmit={(values) => console.log('submitted:', values)}
-      submitLabel='Create account'
-    />
-  ),
+  render: () => {
+    const [snapshot, setSnapshot] = useState(null);
+    return (
+      <div>
+        <Form
+          fields={[
+            {
+              id: 'username',
+              label: 'Username',
+              component: Input,
+              isMandatory: true,
+              compProps: { defaultValue: '', placeholder: 'At least 4 characters' },
+              validate: minLength(4),
+            },
+            {
+              id: 'password',
+              label: 'Password',
+              component: Input,
+              isMandatory: true,
+              compProps: {
+                defaultValue: '',
+                placeholder: 'At least 8 characters',
+                type: 'password',
+              },
+              validate: minLength(8),
+            },
+            {
+              id: 'website',
+              label: 'Website',
+              component: Input,
+              compProps: { defaultValue: '', placeholder: 'https://example.com' },
+              validate: (v) => {
+                if (!v) return null;
+                try {
+                  new URL(v);
+                  return null;
+                } catch {
+                  return 'Enter a valid URL';
+                }
+              },
+            },
+          ]}
+          onSubmit={(values) => setSnapshot(values)}
+          submitLabel='Create account'
+        />
+        {snapshot && (
+          <pre style={{ marginTop: '1.5rem', fontSize: '1.2rem' }}>
+            {JSON.stringify(snapshot, null, 2)}
+          </pre>
+        )}
+      </div>
+    );
+  },
 };
 
 export const WithTextarea = {
@@ -305,31 +329,41 @@ const WithTextarea = () => (
       },
     },
   },
-  render: () => (
-    <Form
-      fields={[
-        {
-          id: 'subject',
-          label: 'Subject',
-          component: Input,
-          isMandatory: true,
-          compProps: { defaultValue: '', placeholder: 'Message subject' },
-          validate: required,
-        },
-        {
-          id: 'body',
-          label: 'Message',
-          component: Textarea,
-          isMandatory: true,
-          compProps: { defaultValue: '', placeholder: 'Write your message here…', rows: 5 },
-          validate: (v) =>
-            v.trim().length >= 10 ? null : 'Message must be at least 10 characters',
-        },
-      ]}
-      onSubmit={(values) => console.log('submitted:', values)}
-      submitLabel='Send'
-    />
-  ),
+  render: () => {
+    const [snapshot, setSnapshot] = useState(null);
+    return (
+      <div>
+        <Form
+          fields={[
+            {
+              id: 'subject',
+              label: 'Subject',
+              component: Input,
+              isMandatory: true,
+              compProps: { defaultValue: '', placeholder: 'Message subject' },
+              validate: required,
+            },
+            {
+              id: 'body',
+              label: 'Message',
+              component: Textarea,
+              isMandatory: true,
+              compProps: { defaultValue: '', placeholder: 'Write your message here…', rows: 5 },
+              validate: (v) =>
+                v.trim().length >= 10 ? null : 'Message must be at least 10 characters',
+            },
+          ]}
+          onSubmit={(values) => setSnapshot(values)}
+          submitLabel='Send'
+        />
+        {snapshot && (
+          <pre style={{ marginTop: '1.5rem', fontSize: '1.2rem' }}>
+            {JSON.stringify(snapshot, null, 2)}
+          </pre>
+        )}
+      </div>
+    );
+  },
 };
 
 export const ImperativeGetValues = {
@@ -345,7 +379,7 @@ export const ImperativeGetValues = {
       source: {
         language: 'jsx',
         code: `
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import Form from 'meticulous-ui/components/Form';
 import Input from 'meticulous-ui/components/Input';
 
@@ -366,20 +400,16 @@ const fields = [
 
 const ImperativeForm = () => {
   const formRef = useRef(null);
-  const [snapshot, setSnapshot] = useState(null);
 
   return (
     <div>
       <Form ref={formRef} fields={fields} />
       <button
         style={{ marginTop: '1rem' }}
-        onClick={() => setSnapshot(formRef.current.getValues())}
+        onClick={() => console.log(formRef.current.getValues())}
       >
         Read values
       </button>
-      {snapshot && (
-        <pre style={{ marginTop: '0.5rem' }}>{JSON.stringify(snapshot, null, 2)}</pre>
-      )}
     </div>
   );
 };
@@ -417,7 +447,7 @@ const ImperativeForm = () => {
           Read values
         </Button>
         {snapshot && (
-          <pre style={{ marginTop: '0.5rem', fontSize: '0.85rem' }}>
+          <pre style={{ marginTop: '2rem', fontSize: '1.4rem' }}>
             {JSON.stringify(snapshot, null, 2)}
           </pre>
         )}
@@ -476,34 +506,44 @@ const SharedAllProps = () => (
       },
     },
   },
-  render: () => (
-    <Form
-      fields={[
-        {
-          id: 'first',
-          label: 'First Name',
-          component: Input,
-          compProps: { defaultValue: '', placeholder: 'First name' },
-        },
-        {
-          id: 'last',
-          label: 'Last Name',
-          component: Input,
-          compProps: { defaultValue: '', placeholder: 'Last name' },
-        },
-        {
-          id: 'handle',
-          label: 'Handle',
-          component: Input,
-          allProps: { shade: 'violet' },
-          compProps: { defaultValue: '', placeholder: '@handle' },
-        },
-      ]}
-      allProps={{ shade: 'blue' }}
-      onSubmit={(values) => console.log('submitted:', values)}
-      submitLabel='Save'
-    />
-  ),
+  render: () => {
+    const [snapshot, setSnapshot] = useState(null);
+    return (
+      <div>
+        <Form
+          fields={[
+            {
+              id: 'first',
+              label: 'First Name',
+              component: Input,
+              compProps: { defaultValue: '', placeholder: 'First name' },
+            },
+            {
+              id: 'last',
+              label: 'Last Name',
+              component: Input,
+              compProps: { defaultValue: '', placeholder: 'Last name' },
+            },
+            {
+              id: 'handle',
+              label: 'Handle',
+              component: Input,
+              allProps: { shade: 'violet' },
+              compProps: { defaultValue: '', placeholder: '@handle' },
+            },
+          ]}
+          allProps={{ shade: 'blue' }}
+          onSubmit={(values) => setSnapshot(values)}
+          submitLabel='Save'
+        />
+        {snapshot && (
+          <pre style={{ marginTop: '1.5rem', fontSize: '1.2rem' }}>
+            {JSON.stringify(snapshot, null, 2)}
+          </pre>
+        )}
+      </div>
+    );
+  },
 };
 
 // ─── All Components ───────────────────────────────────────────────────────────
@@ -680,11 +720,18 @@ const AllComponents = () => (
       },
     },
   },
-  render: () => (
-    <Form
-      fields={ALL_FIELDS}
-      onSubmit={(values) => console.log('submitted:', values)}
-      submitLabel='Submit'
-    />
-  ),
+  render: () => {
+    const [snapshot, setSnapshot] = useState(null);
+
+    return (
+      <div>
+        <Form fields={ALL_FIELDS} onSubmit={(values) => setSnapshot(values)} submitLabel='Submit' />
+        {snapshot && (
+          <pre style={{ marginTop: '2rem', fontSize: '1.4rem' }}>
+            {JSON.stringify(snapshot, null, 2)}
+          </pre>
+        )}
+      </div>
+    );
+  },
 };

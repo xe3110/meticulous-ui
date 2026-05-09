@@ -7,13 +7,23 @@ import {
   useRef,
   useState,
 } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import red from '../../colors/red';
+
+const shake = keyframes`
+  0%   { transform: translateX(0); }
+  20%  { transform: translateX(-6px); }
+  40%  { transform: translateX(6px); }
+  60%  { transform: translateX(-4px); }
+  80%  { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+`;
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+  animation: ${({ $shake }) => ($shake ? shake : 'none')} 0.35s ease;
 `;
 
 const LabelWrapper = styled.div`
@@ -61,6 +71,8 @@ const FormFieldInner = forwardRef(
 
     const [value, setValue] = useState(defaultValue ?? '');
     const [error, setError] = useState(null);
+    const [shakeKey, setShakeKey] = useState(0);
+    const errorRef = useRef(null);
 
     // Keep a ref so triggerValidation always sees the latest value
     const valueRef = useRef(defaultValue ?? '');
@@ -78,9 +90,11 @@ const FormFieldInner = forwardRef(
     useImperativeHandle(ref, () => ({
       triggerValidation: () => {
         const err = validateRef.current?.(valueRef.current) ?? null;
+        errorRef.current = err;
         setError(err);
         return err === null;
       },
+      triggerShake: () => setShakeKey((k) => k + 1),
       scrollIntoView: () =>
         wrapperRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' }),
     }));
@@ -91,10 +105,16 @@ const FormFieldInner = forwardRef(
       setValue(val);
       compOnChangeRef.current?.(val);
       onValueChangeRef.current?.(val);
+
+      if (errorRef.current !== null) {
+        errorRef.current = null;
+        setError(null);
+        onValidityChangeRef.current?.(true);
+      }
     }, []);
 
     return (
-      <Wrapper ref={wrapperRef}>
+      <Wrapper ref={wrapperRef} key={shakeKey} $shake={shakeKey > 0}>
         <LabelWrapper $labelMarginBottom={labelMarginBottom}>
           <Label>
             {label}

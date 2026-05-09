@@ -98,7 +98,9 @@ const Form = forwardRef(
         setValidityMap(newValidity);
 
         if (firstInvalidId) {
-          fieldRefsMap.current[firstInvalidId]?.current?.scrollIntoView();
+          const fieldRef = fieldRefsMap.current[firstInvalidId]?.current;
+          fieldRef?.scrollIntoView();
+          setTimeout(() => fieldRef?.triggerShake(), 500);
           return;
         }
 
@@ -108,7 +110,7 @@ const Form = forwardRef(
     );
 
     return (
-      <StyledForm onSubmit={handleSubmit} $gap={gap} {...rest}>
+      <StyledForm onSubmit={handleSubmit} $gap={gap} noValidate {...rest}>
         {fields.map(({ id, label, component, isMandatory, allProps, compProps, validate }) => (
           <FormField
             key={id}

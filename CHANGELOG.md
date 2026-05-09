@@ -7,6 +7,16 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [3.9.1] — 2026-05-09
+
+### Fixed
+
+- Form: errors clear immediately on any field value change instead of waiting for re-validation (`src/components/Form/FormField.jsx`)
+- Form: invalid field shakes after scroll-into-view on submit, sequenced so the animation fires once the viewport shift settles (`src/components/Form/FormField.jsx`, `src/components/Form/Form.jsx`)
+- Form: browser-native validation tooltip suppressed via `noValidate` so custom field errors always take precedence (`src/components/Form/Form.jsx`)
+
+---
+
 ## [3.9.0] — 2026-05-09
 
 ### Added
