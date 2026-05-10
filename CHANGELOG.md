@@ -7,6 +7,38 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [3.9.3] — 2026-05-10
+
+### Added
+
+- Sidebar: `hoverExpand` prop — sidebar stays collapsed and expands on hover; collapses again after any nav action or mouse leave
+- Sidebar: `showStoreInfo` prop — when `false` (default) the header renders a large hamburger beside the logo only; when `true` renders the full logo + store name + store URL + small hamburger layout
+- Sidebar: store name rendered beside the logo in expanded state when `showStoreInfo` is false
+- Sidebar: `aria-label` on the logo wrapper set to `storeName` when provided
+- Sidebar: rest props (`...rest`) spread onto the root element
+
+### Changed
+
+- Sidebar: all inline styles migrated to styled-components with transient `$`-prefixed props
+- Sidebar: all inline JSX callbacks extracted as named arrow functions
+- Sidebar: bottom items hidden when sidebar is collapsed
+- Sidebar: company logo hidden when manually collapsed; visible during hover-expanded state and when `hoverExpand` is true
+- Sidebar: hamburger icon remains visible in collapsed state as the sole expand trigger; company logo hidden to reduce visual noise
+- Sidebar: hamburger icon size reduced and stroke thinned for a lighter visual weight
+- `index.d.ts`: `SidebarProps` extended with `hoverExpand`, `showStoreInfo`, and `React.HTMLAttributes<HTMLDivElement>`
+
+---
+
+## [3.9.2] — 2026-05-10
+
+### Added
+
+- Sidebar component (`src/components/Sidebar/Sidebar.jsx`) — minimal sidebar navigation with light/dark themes, collapsed icon-only mode, collapsible nested nav sections, numeric badges, pinned bottom actions, and store switcher
+- Sidebar story (`stories/Sidebar.stories.jsx`) — light/dark × expanded/collapsed variants plus interactive toggle story
+- Sidebar docs (`stories/docs/Sidebar.mdx`) — prop table, `NavItem` and `BottomItem` type shapes, usage example
+
+---
+
 ## [3.9.1] — 2026-05-09
 
 ### Fixed

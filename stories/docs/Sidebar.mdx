@@ -1,0 +1,261 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+
+import * as SidebarStories from '../Sidebar.stories';
+
+<Meta title='Navigation/Sidebar' of={SidebarStories} />
+
+# Sidebar
+
+A minimal sidebar navigation component. Supports light and dark themes, collapsible icon-only mode, nested nav sections with badges, and pinned bottom actions. Can be imported as `meticulous-ui/components/Sidebar`.
+
+## Light – Expanded
+
+<Canvas of={SidebarStories.LightExpanded} />
+
+## Dark – Expanded
+
+<Canvas of={SidebarStories.DarkExpanded} />
+
+## Light – Collapsed
+
+Icon-only mode. Pass `collapsed={true}` to render a narrow sidebar showing only icons.
+
+<Canvas of={SidebarStories.LightCollapsed} />
+
+## Dark – Collapsed
+
+<Canvas of={SidebarStories.DarkCollapsed} />
+
+## Interactive (toggle theme + collapse)
+
+<Canvas of={SidebarStories.Toggleable} />
+
+<Controls of={SidebarStories.Toggleable} />
+
+## Props
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>logo</code>
+      </td>
+      <td>
+        <code>ReactNode</code>
+      </td>
+      <td>—</td>
+      <td>Logo rendered at the top of the sidebar</td>
+    </tr>
+    <tr>
+      <td>
+        <code>storeName</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>'Untitled UI'</code>
+      </td>
+      <td>Primary store or app name shown next to the logo</td>
+    </tr>
+    <tr>
+      <td>
+        <code>storeUrl</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>'store.untitleui.com'</code>
+      </td>
+      <td>Secondary line shown below the store name</td>
+    </tr>
+    <tr>
+      <td>
+        <code>onSwitchStore</code>
+      </td>
+      <td>
+        <code>() =&gt; void</code>
+      </td>
+      <td>—</td>
+      <td>
+        Called when the "Switch stores" row is clicked. Row is hidden when this prop is omitted.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>navItems</code>
+      </td>
+      <td>
+        <code>NavItem[]</code>
+      </td>
+      <td>
+        <code>[]</code>
+      </td>
+      <td>
+        Ordered list of navigation items. See <strong>NavItem</strong> shape below.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>activeId</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>
+        The <code>id</code> of the currently active nav item (or child item). Controls highlight
+        state.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>onNavChange</code>
+      </td>
+      <td>
+        <code>(id: string) =&gt; void</code>
+      </td>
+      <td>—</td>
+      <td>
+        Called with the item's <code>id</code> whenever a nav item or child item is clicked
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>bottomItems</code>
+      </td>
+      <td>
+        <code>BottomItem[]</code>
+      </td>
+      <td>
+        <code>[]</code>
+      </td>
+      <td>
+        Icon actions pinned to the bottom of the sidebar. See <strong>BottomItem</strong> shape
+        below.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>collapsed</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        When <code>true</code>, renders a narrow (68 px) icon-only sidebar. Labels, store info, and
+        sub-items are hidden.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>onCollapseToggle</code>
+      </td>
+      <td>
+        <code>() =&gt; void</code>
+      </td>
+      <td>—</td>
+      <td>
+        Called when the chevron button in the header is clicked. Wire this to toggle{' '}
+        <code>collapsed</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>theme</code>
+      </td>
+      <td>
+        <code>'light' | 'dark'</code>
+      </td>
+      <td>
+        <code>'light'</code>
+      </td>
+      <td>Color scheme for the entire sidebar</td>
+    </tr>
+  </tbody>
+</table>
+
+## NavItem shape
+
+```ts
+{
+  id: string;
+  label: string;
+  icon: ReactNode;
+  badge?: number;           // numeric badge shown on the right
+  onAdd?: () => void;       // renders a + button; called on click
+  children?: {              // collapsible sub-items
+    id: string;
+    label: string;
+    badge?: number;
+  }[];
+}
+```
+
+## BottomItem shape
+
+```ts
+{
+  id: string;
+  label?: string;   // shown in expanded mode
+  icon: ReactNode;
+  onClick?: () => void;
+}
+```
+
+## Usage
+
+```jsx
+import Sidebar from 'meticulous-ui/components/Sidebar';
+
+const NAV_ITEMS = [
+  { id: 'analytics', label: 'Analytics', icon: <AnalyticsIcon /> },
+  {
+    id: 'posts',
+    label: 'Posts',
+    icon: <PostsIcon />,
+    onAdd: handleAddPost,
+    children: [
+      { id: 'drafts', label: 'Drafts', badge: 10 },
+      { id: 'published', label: 'Published', badge: 28 },
+    ],
+  },
+];
+
+const BOTTOM_ITEMS = [
+  { id: 'settings', label: 'Settings', icon: <SettingsIcon />, onClick: openSettings },
+];
+
+function App() {
+  const [active, setActive] = useState('analytics');
+  const [collapsed, setCollapsed] = useState(false);
+
+  return (
+    <Sidebar
+      logo={<Logo />}
+      storeName='Acme Corp'
+      storeUrl='acme.store.com'
+      onSwitchStore={handleSwitch}
+      navItems={NAV_ITEMS}
+      activeId={active}
+      onNavChange={setActive}
+      bottomItems={BOTTOM_ITEMS}
+      collapsed={collapsed}
+      onCollapseToggle={() => setCollapsed((c) => !c)}
+      theme='light'
+    />
+  );
+}
+```

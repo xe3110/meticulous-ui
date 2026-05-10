@@ -666,6 +666,52 @@ export declare const Grid: React.FC<GridProps>;
 export declare const GridItem: React.FC<GridItemProps>;
 
 // ---------------------------------------------------------------------------
+// Sidebar
+// ---------------------------------------------------------------------------
+
+export interface SidebarChildItem {
+  id: string;
+  label: string;
+  badge?: number;
+}
+
+export interface SidebarNavItem {
+  id: string;
+  label: string;
+  icon: React.ReactNode;
+  badge?: number;
+  onAdd?: () => void;
+  children?: SidebarChildItem[];
+}
+
+export interface SidebarBottomItem {
+  id: string;
+  label?: string;
+  icon: React.ReactNode;
+  onClick?: () => void;
+}
+
+export interface SidebarProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+  logo?: React.ReactNode;
+  storeName?: string;
+  storeUrl?: string;
+  onSwitchStore?: () => void;
+  navItems?: SidebarNavItem[];
+  activeId?: string;
+  onNavChange?: (id: string) => void;
+  bottomItems?: SidebarBottomItem[];
+  collapsed?: boolean;
+  onCollapseToggle?: () => void;
+  /** Stays collapsed; expands on hover and collapses again after any nav action */
+  hoverExpand?: boolean;
+  /** When true shows logo + store name + store URL + small hamburger. When false (default) shows a large hamburger beside the logo only. */
+  showStoreInfo?: boolean;
+  theme?: 'light' | 'dark';
+}
+
+export declare const Sidebar: React.FC<SidebarProps>;
+
+// ---------------------------------------------------------------------------
 // Hooks
 // ---------------------------------------------------------------------------
 
