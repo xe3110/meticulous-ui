@@ -20,6 +20,7 @@ export { default as Headings } from './components/Typography/Headings';
 export { default as P } from './components/Typography/P';
 export { default as DatePicker } from './components/DatePicker';
 export { default as Form } from './components/Form';
+export { default as Sidebar } from './components/Sidebar';
 
 // utils
 export * from './utils';
