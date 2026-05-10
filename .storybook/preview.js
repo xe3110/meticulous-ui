@@ -21,6 +21,7 @@ const preview = {
           'Molecules',
           'Organisms',
           'Layout',
+          'Navigation',
           'Foundation',
           'Tokens',
           'Utilities',
