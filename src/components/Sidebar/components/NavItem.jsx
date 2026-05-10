@@ -1,11 +1,13 @@
 import React from 'react';
 import {
+  NavListItem,
   NavItemRow,
   NavIconWrapper,
   NavLabel,
   NavControls,
   InlineAction,
   SubList,
+  ChildListItem,
   ChildLabel,
 } from './NavItem.styles';
 import { ChevronIcon, PlusIcon } from './icons';
@@ -37,7 +39,7 @@ const NavItem = ({
   };
 
   return (
-    <div>
+    <NavListItem>
       <NavItemRow
         $collapsed={collapsed}
         $isChild={false}
@@ -50,8 +52,11 @@ const NavItem = ({
         onClick={handleClick}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={onClearHover}
+        aria-current={active ? 'page' : undefined}
       >
-        <NavIconWrapper $color={active ? c.activeText : c.subText}>{item.icon}</NavIconWrapper>
+        <NavIconWrapper $color={active ? c.activeText : c.subText} aria-hidden='true'>
+          {item.icon}
+        </NavIconWrapper>
 
         {!collapsed && (
           <>
@@ -59,12 +64,21 @@ const NavItem = ({
             <NavControls>
               {item.badge != null && <Badge count={item.badge} isDark={isDark} />}
               {hasChildren && (
-                <InlineAction $color={c.subText} onClick={handleToggleExpand}>
+                <InlineAction
+                  $color={c.subText}
+                  onClick={handleToggleExpand}
+                  aria-label={isExpanded ? `Collapse ${item.label}` : `Expand ${item.label}`}
+                  aria-expanded={isExpanded}
+                >
                   <ChevronIcon direction={isExpanded ? 'up' : 'down'} />
                 </InlineAction>
               )}
               {item.onAdd && (
-                <InlineAction $color={c.subText} onClick={handleAdd}>
+                <InlineAction
+                  $color={c.subText}
+                  onClick={handleAdd}
+                  aria-label={`Add ${item.label}`}
+                >
                   <PlusIcon />
                 </InlineAction>
               )}
@@ -80,28 +94,30 @@ const NavItem = ({
             const handleChildMouseEnter = () => onHover(child.id);
 
             return (
-              <NavItemRow
-                key={child.id}
-                $collapsed={false}
-                $isChild={true}
-                $isActive={isActive(child.id)}
-                $isHovered={hoveredId === child.id}
-                $activeText={c.activeText}
-                $text={c.text}
-                $activeBg={c.activeBg}
-                $hoverBg={c.hoverBg}
-                onClick={handleChildClick}
-                onMouseEnter={handleChildMouseEnter}
-                onMouseLeave={onClearHover}
-              >
-                <ChildLabel>{child.label}</ChildLabel>
-                {child.badge != null && <Badge count={child.badge} isDark={isDark} />}
-              </NavItemRow>
+              <ChildListItem key={child.id}>
+                <NavItemRow
+                  $collapsed={false}
+                  $isChild={true}
+                  $isActive={isActive(child.id)}
+                  $isHovered={hoveredId === child.id}
+                  $activeText={c.activeText}
+                  $text={c.text}
+                  $activeBg={c.activeBg}
+                  $hoverBg={c.hoverBg}
+                  onClick={handleChildClick}
+                  onMouseEnter={handleChildMouseEnter}
+                  onMouseLeave={onClearHover}
+                  aria-current={isActive(child.id) ? 'page' : undefined}
+                >
+                  <ChildLabel>{child.label}</ChildLabel>
+                  {child.badge != null && <Badge count={child.badge} isDark={isDark} />}
+                </NavItemRow>
+              </ChildListItem>
             );
           })}
         </SubList>
       )}
-    </div>
+    </NavListItem>
   );
 };
 

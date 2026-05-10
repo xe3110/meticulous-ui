@@ -8,10 +8,10 @@ import { HamburgerIcon, SwitchIcon } from './components/icons';
 
 // ─── Styled components ────────────────────────────────────────────────────────
 
-const Root = styled.div`
+const Root = styled.nav`
   display: flex;
   flex-direction: column;
-  width: ${({ $collapsed }) => ($collapsed ? '68px' : '240px')};
+  width: ${({ $collapsed }) => ($collapsed ? '7.5rem' : '28.5rem')};
   min-height: 100vh;
   background: ${({ $bg }) => $bg};
   border-right: 1px solid ${({ $border }) => $border};
@@ -24,18 +24,18 @@ const Root = styled.div`
 const Header = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: ${({ $collapsed }) => ($collapsed ? '16px 0' : '16px 12px')};
+  gap: 0.625rem;
+  padding: ${({ $collapsed }) => ($collapsed ? '1.875rem 0' : '1.875rem 1.5rem')};
   justify-content: ${({ $collapsed }) => ($collapsed ? 'center' : 'flex-start')};
   border-bottom: 1px solid ${({ $divider }) => $divider};
-  min-height: 64px;
+  min-height: 6.75rem;
   box-sizing: border-box;
 `;
 
 const LogoWrapper = styled.div`
   flex-shrink: 0;
-  width: 36px;
-  height: 36px;
+  width: 3.375rem;
+  height: 3.375rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,7 +47,7 @@ const StoreInfo = styled.div`
 `;
 
 const StoreName = styled.div`
-  font-size: 14px;
+  font-size: 1.5rem;
   font-weight: 600;
   color: ${({ $color }) => $color};
   white-space: nowrap;
@@ -56,7 +56,7 @@ const StoreName = styled.div`
 `;
 
 const StoreUrl = styled.div`
-  font-size: 12px;
+  font-size: 1.25rem;
   color: ${({ $color }) => $color};
   white-space: nowrap;
   overflow: hidden;
@@ -71,37 +71,39 @@ const IconButton = styled.button`
   border: none;
   cursor: pointer;
   color: ${({ $color }) => $color};
-  padding: 2px;
+  padding: 0.125rem;
   flex-shrink: 0;
-  ${({ $marginRight }) => $marginRight && `margin-right: ${$marginRight}px;`}
+  ${({ $marginRight }) => $marginRight && `margin-right: ${$marginRight}rem;`}
 `;
 
 const SwitchStoreRow = styled.div`
-  padding: 8px 12px;
+  padding: 0.9375rem 1.5rem;
   border-bottom: 1px solid ${({ $divider }) => $divider};
 `;
 
 const SwitchButton = styled.button`
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 0.375rem;
   background: none;
   border: none;
   cursor: pointer;
   color: ${({ $color }) => $color};
-  font-size: 13px;
+  font-size: 1.3125rem;
   font-weight: 500;
-  padding: 4px 0;
+  padding: 0.375rem 0;
 `;
 
-const NavList = styled.div`
+const NavList = styled.ul`
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 8px;
+  padding: 1.5rem 1.125rem;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 0.375rem;
+  list-style: none;
+  margin: 0;
 `;
 
 // ─── Component ────────────────────────────────────────────────────────────────
@@ -179,6 +181,7 @@ const Sidebar = ({
 
   return (
     <Root
+      aria-label='Sidebar navigation'
       $collapsed={effectiveCollapsed}
       $bg={c.bg}
       $border={c.border}
@@ -198,7 +201,12 @@ const Sidebar = ({
               </StoreInfo>
             )}
             {onCollapseToggle && (
-              <IconButton onClick={onCollapseToggle} $color={c.subText}>
+              <IconButton
+                onClick={onCollapseToggle}
+                $color={c.subText}
+                aria-label={effectiveCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+                aria-expanded={!effectiveCollapsed}
+              >
                 <HamburgerIcon />
               </IconButton>
             )}
@@ -206,7 +214,13 @@ const Sidebar = ({
         ) : (
           <>
             {onCollapseToggle && (
-              <IconButton onClick={onCollapseToggle} $color={c.subText} $marginRight={4}>
+              <IconButton
+                onClick={onCollapseToggle}
+                $color={c.subText}
+                $marginRight={0.25}
+                aria-label={effectiveCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+                aria-expanded={!effectiveCollapsed}
+              >
                 <HamburgerIcon size={20} />
               </IconButton>
             )}
