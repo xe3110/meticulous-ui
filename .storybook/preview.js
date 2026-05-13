@@ -17,12 +17,12 @@ const preview = {
     options: {
       storySort: {
         order: [
+          'Foundation',
           'Atoms',
           'Molecules',
           'Organisms',
           'Layout',
           'Navigation',
-          'Foundation',
           'Tokens',
           'Utilities',
           'React Utilities',
