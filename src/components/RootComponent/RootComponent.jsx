@@ -8,15 +8,14 @@ const Root = styled.div`
 
 const RootComponent = ({ children, ...rest }) => {
   useMemo(() => {
-    // Set 1rem = 10px for easier calculations throughout the app
     document.documentElement.style.fontSize = '62.5%';
+    document.body.style.fontSize = '1.6rem';
   }, []);
 
   return <Root {...rest}>{children}</Root>;
 };
 
 RootComponent.propTypes = {
-  /** Content to render inside the root wrapper */
   children: PropTypes.node,
 };
 
