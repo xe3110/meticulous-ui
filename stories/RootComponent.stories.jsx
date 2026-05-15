@@ -45,7 +45,10 @@ import P from 'meticulous-ui/components/Typography/P';
 const App = () => (
   <RootComponent>
     <H4>Hello from meticulous-ui</H4>
-    <P>All rem values resolve correctly inside RootComponent.</P>
+    <P>
+      This content is rendered inside RootComponent. The font-size baseline is set to 62.5% so
+      that 1rem equals 10px.
+    </P>
     <Button>Click me</Button>
   </RootComponent>
 );
