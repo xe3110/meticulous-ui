@@ -29,22 +29,6 @@ const App = () => (
 };
 
 export const Default = {
-  name: 'Default',
-  parameters: {
-    controls: { disable: true },
-    actions: { disable: true },
-  },
-  render: () => (
-    <RootComponent>
-      <P>
-        This content is rendered inside RootComponent. The font-size baseline is set to 62.5% so
-        that 1rem equals 10px.
-      </P>
-    </RootComponent>
-  ),
-};
-
-export const WithComponents = {
   name: 'With Meticulous UI Components',
   parameters: {
     controls: { disable: true },
@@ -73,7 +57,10 @@ const App = () => (
     <RootComponent>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.6rem', padding: '2rem' }}>
         <H4>Hello from meticulous-ui</H4>
-        <P>All rem values resolve correctly inside RootComponent.</P>
+        <P>
+          This content is rendered inside RootComponent. The font-size baseline is set to 62.5% so
+          that 1rem equals 10px.
+        </P>
         <Button>Click me</Button>
       </div>
     </RootComponent>
