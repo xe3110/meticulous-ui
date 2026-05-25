@@ -12,6 +12,8 @@
 
 # icons
 /svg
+
+# build/dev scripts (not part of published source)
 /src/scripts
 
 /memory

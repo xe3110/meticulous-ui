@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ES2020", "DOM"],
+    "strict": true,
+    "skipLibCheck": false,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    // Map 'meticulous-ui' → this file so declare-module self-references resolve
+    "paths": {
+      "meticulous-ui": ["./index.d.ts"]
+    }
+  },
+  "include": ["index.d.ts"]
+}
