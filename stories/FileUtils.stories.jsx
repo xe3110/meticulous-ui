@@ -289,11 +289,11 @@ const onChange = async (e) => {
 // ═════════════════════════════════════════════════════════════════════════════
 
 const LANG_OPTIONS = [
-  { value: 'eng', label: 'English (eng)' },
-  { value: 'hin', label: 'Hindi (hin)' },
-  { value: 'eng+hin', label: 'English + Hindi' },
-  { value: 'fra', label: 'French (fra)' },
-  { value: 'deu', label: 'German (deu)' },
+  { value: 'en', label: 'English (en)' },
+  { value: 'hi', label: 'Hindi (hi)' },
+  { value: 'en+hi', label: 'English + Hindi' },
+  { value: 'fr', label: 'French (fr)' },
+  { value: 'de', label: 'German (de)' },
 ];
 
 const Select = styled.select`
@@ -339,11 +339,12 @@ const RecognizeImagePage = () => {
               <Signature>(base64: string, lang?: string) → Promise&lt;object&gt;</Signature>
             </div>
             <Description>
-              Runs OCR on a base64 image using <Code>Tesseract.js</Code> — fully browser-based via
-              WebAssembly, no API key or network request needed. Returns the detected{' '}
-              <Code>text</Code>, a <Code>confidence</Code> score (0–100), the primary{' '}
-              <Code>detectedLanguage</Code>, and raw <Code>rawJson</Code> with word-level bounding
-              boxes. Use multi-language codes like <Code>eng+hin</Code> for mixed content.
+              Runs OCR on a base64 image in all browsers with no npm dependency. Powered by{' '}
+              <Code>Tesseract.js</Code> loaded on demand from a CDN (fetched once on first use, then
+              browser-cached). Returns the detected <Code>text</Code>, a <Code>confidence</Code>{' '}
+              score (0–100), the primary <Code>detectedLanguage</Code>, and <Code>rawJson</Code>{' '}
+              with full word-level bounding-box metadata. Use BCP-47 multi-language hints like{' '}
+              <Code>en+hi</Code> for mixed content.
             </Description>
           </CardHeader>
           <CardBody>
@@ -380,7 +381,8 @@ const RecognizeImagePage = () => {
 
               {loading && (
                 <ResultBox $bg={indigo.m50} $border={indigo.m200} $color={indigo.m700}>
-                  Downloading language model + running OCR… (first run may take a few seconds)
+                  Running OCR… (first run fetches Tesseract.js from CDN — subsequent runs are
+                  instant)
                 </ResultBox>
               )}
 
@@ -423,38 +425,48 @@ const RecognizeImagePage = () => {
 import recognizeImageContent from 'meticulous-ui/utils/getImageContentAsJson';
 
 const base64 = await fileToBase64(file);
-const result = await recognizeImageContent(base64, 'eng');
+const result = await recognizeImageContent(base64, 'en');
 
 if (result.success) {
   console.log(result.text);        // full OCR text
   console.log(result.confidence);  // 0–100
-  console.log(result.rawJson);     // word-level bounding boxes
+  console.log(result.rawJson);     // bounding boxes + metadata
 }`}</Pre>
             </div>
 
             <div>
               <SectionLabel $color={indigo.m700}>Multi-language</SectionLabel>
               <Pre>{`// Hindi + English mixed image
-const result = await recognizeImageContent(base64, 'hin+eng');`}</Pre>
+const result = await recognizeImageContent(base64, 'hi+en');`}</Pre>
             </div>
 
             <div>
               <SectionLabel $color={indigo.m700}>Source</SectionLabel>
-              <Pre>{`import { createWorker } from 'tesseract.js';
+              <Pre>{`// Tesseract.js loaded once on demand, cached by the browser
+let _tesseractImport = null;
+const loadTesseract = () => {
+  if (!_tesseractImport)
+    _tesseractImport = import('https://esm.sh/tesseract.js@5');
+  return _tesseractImport;
+};
 
-const recognizeImageContent = async (base64Image, lang = 'eng') => {
-  const worker = await createWorker(lang);
+const recognizeImageContent = async (base64Image, lang = 'en') => {
+  const src = base64Image.startsWith('data:')
+    ? base64Image
+    : \`data:image/png;base64,\${base64Image}\`;
+  const langs = lang.split('+').filter(Boolean);
+
+  const { createWorker } = await loadTesseract();
+  const worker = await createWorker(toTesseractLang(langs));
   try {
-    const { data } = await worker.recognize(base64Image);
+    const { data } = await worker.recognize(src);
     return {
       success: true,
-      detectedLanguage: lang.split('+')[0],
+      detectedLanguage: langs[0],
       text: data.text.trim(),
-      confidence: data.confidence,
+      confidence: data.confidence, // 0–100
       rawJson: data,
     };
-  } catch (error) {
-    return { success: false, error: error.message };
   } finally {
     await worker.terminate();
   }
