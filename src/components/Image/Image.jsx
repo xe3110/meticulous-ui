@@ -4,9 +4,14 @@ import styled from 'styled-components';
 
 const ImageWrapper = styled.span`
   position: relative;
-  display: inline-block;
+  display: ${({ $isAutoHeight }) => ($isAutoHeight ? 'block' : 'inline-block')};
   width: ${({ $width }) => $width};
   height: ${({ $height }) => $height};
+  /* aspect-ratio reserves space for shimmer before image bytes arrive */
+  aspect-ratio: ${({ $aspectRatio }) => $aspectRatio || 'unset'};
+  /* minHeight ensures shimmer is visible even without an aspectRatio hint */
+  min-height: ${({ $minHeight, $isAutoHeight, $aspectRatio }) =>
+    $isAutoHeight && !$aspectRatio ? $minHeight : 'unset'};
   border-radius: ${({ $borderRadius }) => $borderRadius};
   overflow: hidden;
 `;
@@ -14,8 +19,10 @@ const ImageWrapper = styled.span`
 const StyledImage = styled.img`
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  /* height: 100% breaks in auto-height parents — use auto instead */
+  height: ${({ $isAutoHeight }) => ($isAutoHeight ? 'auto' : '100%')};
+  /* object-fit: cover requires both dimensions to be set */
+  object-fit: ${({ $isAutoHeight }) => ($isAutoHeight ? 'initial' : 'cover')};
   border-radius: ${({ $borderRadius }) => $borderRadius};
   opacity: ${({ $loaded }) => ($loaded ? 1 : 0)};
   transition: opacity 0.5s ease-in-out;
@@ -56,6 +63,8 @@ const Image = ({
   alt = '',
   width = '100%',
   height = '100%',
+  aspectRatio,
+  minHeight = '12rem',
   borderRadius = '0.4rem',
   loadLow = false,
   lowSrc,
@@ -70,9 +79,17 @@ const Image = ({
   const onError = () => setError(true);
 
   const shimmerDone = loadLow ? lowLoaded : loaded;
+  const isAutoHeight = height === 'auto';
 
   return (
-    <ImageWrapper $width={toRem(width)} $height={toRem(height)} $borderRadius={toRem(borderRadius)}>
+    <ImageWrapper
+      $width={toRem(width)}
+      $height={toRem(height)}
+      $aspectRatio={aspectRatio}
+      $minHeight={toRem(minHeight)}
+      $isAutoHeight={isAutoHeight}
+      $borderRadius={toRem(borderRadius)}
+    >
       {!error && (
         <ShimmerOverlay $loaded={shimmerDone}>
           <Shimmer borderRadius={borderRadius} />
@@ -95,6 +112,7 @@ const Image = ({
           alt={alt}
           aria-hidden={alt === '' ? 'true' : undefined}
           $loaded={loaded}
+          $isAutoHeight={isAutoHeight}
           $borderRadius={toRem(borderRadius)}
           onLoad={onLoad}
           onError={onError}

@@ -474,7 +474,12 @@ export interface ImageProps extends React.HTMLAttributes<HTMLDivElement> {
   src: string;
   alt?: string;
   width?: string | number;
+  /** Pass `"auto"` for responsive images. Pair with `aspectRatio` so the shimmer reserves space before image bytes arrive. */
   height?: string | number;
+  /** CSS aspect-ratio hint (e.g. `"16/9"`, `"4/3"`, `"1/1"`). Required for correct shimmer behaviour when `height` is `"auto"`. */
+  aspectRatio?: string;
+  /** Fallback min-height when `height` is `"auto"` and no `aspectRatio` is given. Defaults to `"12rem"`. */
+  minHeight?: string | number;
   borderRadius?: string | number;
   loadLow?: boolean;
   lowSrc?: string;

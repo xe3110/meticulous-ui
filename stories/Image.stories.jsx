@@ -18,7 +18,8 @@ export default {
               src='https://picsum.photos/4000/3000?random=1'
               alt='Sample image'
               width='600px'
-              height='400px'
+              height='auto'
+              aspectRatio='4/3'
             />
           );
         `,
@@ -46,6 +47,16 @@ export default {
       control: { type: 'text' },
       description: 'Border radius of the image',
     },
+    aspectRatio: {
+      control: { type: 'text' },
+      description:
+        'CSS aspect-ratio hint (e.g. "16/9", "4/3", "1/1"). Reserves space for the shimmer before image bytes arrive. Required for correct shimmer behaviour when height is "auto".',
+    },
+    minHeight: {
+      control: { type: 'text' },
+      description:
+        'Fallback min-height applied when height is "auto" and no aspectRatio is given, so the shimmer has visible space. Defaults to "12rem".',
+    },
     loadLow: {
       control: { type: 'boolean' },
       description: 'Show a blurred low-res placeholder while the full image loads',
@@ -65,7 +76,9 @@ Default.args = {
   src: 'https://picsum.photos/4000/3000?random=1',
   alt: 'Sample image',
   width: '100%',
-  height: '400px',
+  height: 'auto',
+  aspectRatio: '4/3',
+  minHeight: '12rem',
   borderRadius: '0.4rem',
   loadLow: false,
   lowSrc: '',
@@ -123,7 +136,8 @@ LoadLow.args = {
   loadLow: true,
   alt: 'Progressive image',
   width: '100%',
-  height: '400px',
+  height: 'auto',
+  aspectRatio: '4/3',
   borderRadius: '0.4rem',
 };
 
@@ -147,7 +161,8 @@ LoadLow.parameters = {
             loadLow
             alt='Progressive image'
             width='600px'
-            height='400px'
+            height='auto'
+            aspectRatio='4/3'
           />
         );
       `,
