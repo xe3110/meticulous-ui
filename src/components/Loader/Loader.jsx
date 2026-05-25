@@ -103,7 +103,16 @@ const Loader = ({ size = MEDIUM, theme = BLUE, isBounce, isMini, isMiniDark, ...
   const dots = delays.map(() => dot);
 
   return (
-    <LoaderWrapper role='status' $gap={gap} {...rest}>
+    <LoaderWrapper
+      role='status'
+      $gap={gap}
+      $size={size}
+      $theme={theme}
+      $isMiniDark={isMiniDark}
+      $isMini={isMini}
+      $isBounce={isBounce}
+      {...rest}
+    >
       <VisuallyHidden>Loading</VisuallyHidden>
       {dots.map((dotSize, i) => (
         <Dot
