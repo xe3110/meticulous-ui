@@ -92,6 +92,7 @@ const Page = styled.button`
       : css`
           cursor: pointer;
           color: ${grey.m500};
+          background-color: transparent;
 
           &:hover {
             background-color: ${getShade(NOT_SELECTED_BG)};

@@ -341,6 +341,10 @@ const VersionTag = styled.span`
     $type === 'feature' ? green.m700 : $type === 'fix' ? amber.m700 : indigo.m700};
   flex-shrink: 0;
   margin-top: 0.4rem;
+  width: 9rem;
+  text-align: center;
+  display: inline-block;
+  box-sizing: border-box;
 `;
 
 const TestimonialCard = styled.div`
