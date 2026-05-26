@@ -1,0 +1,178 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+
+import * as SamplePageStories from '../SamplePage.stories';
+
+<Meta title='Foundation/SamplePage' of={SamplePageStories} />
+
+# SamplePage — Axion Analytics Landing Page
+
+A production-style interactive landing page built entirely from meticulous-ui primitives. It serves as a live reference for how components, hooks, utilities, icons, and color tokens compose into a real application.
+
+`RootComponent` is mounted **inside** the page component itself — no external wrapper is required in the story.
+
+## Live Demo
+
+<Canvas of={SamplePageStories.Default} />
+
+---
+
+## What's inside
+
+### Components used
+
+| Component                  | Purpose in the page                                                 |
+| -------------------------- | ------------------------------------------------------------------- |
+| `RootComponent`            | Rem baseline (`1rem = 10px`) — self-contained inside `LandingPage`  |
+| `Button`                   | CTA buttons (hero, navbar, pricing, changelog)                      |
+| `Switch`                   | Dark-mode toggle (navbar) and billing-period toggle (pricing)       |
+| `Modal`                    | "Book a live demo" form with scroll-chain guard (`onWheel` trap)    |
+| `Dropdown`                 | Language selector (navbar) and role selector (demo modal)           |
+| `ToastContainer` / `Toast` | Success / info / warning / error feedback throughout                |
+| `Carousel`                 | Auto-sliding testimonial carousel with drag, arrows, and progress   |
+| `Shimmer`                  | Skeleton loading state for the feature grid (fades out after 1.4 s) |
+| `Pagination`               | Changelog page navigation                                           |
+| `Timer`                    | Live digital clock in the footer                                    |
+| `Spinner`                  | Inline loading state on submit buttons via `Button isLoading`       |
+| `H1–H5`, `P`               | Typographic hierarchy throughout all sections                       |
+| `Link`                     | Inline navigation anchors                                           |
+
+### Hooks used
+
+| Hook                 | Where                                         |
+| -------------------- | --------------------------------------------- |
+| `useLocalStorage`    | Persists dark-mode preference across sessions |
+| `useToggle`          | Modal open/close, annual billing switch       |
+| `useInterval`        | Rotating hero words, live navbar clock        |
+| `useTimeout`         | Feature-grid shimmer → reveal after 1.4 s     |
+| `useCopyToClipboard` | Promo code "click to copy"                    |
+| `useOnlineStatus`    | Online/offline indicator in navbar and footer |
+| `useWindowSize`      | Responsive breakpoint (`isMobile < 768 px`)   |
+
+### Utilities used
+
+| Utility               | Where                                                              |
+| --------------------- | ------------------------------------------------------------------ |
+| `formatCompactNumber` | Metrics bar (148 K users, 9.4 M queries, $2.8 B revenue)           |
+| `formatCurrency`      | Pricing cards (monthly / annual prices)                            |
+| `timeAgo`             | Testimonial timestamps, changelog dates                            |
+| `truncate`            | Testimonial quote text capped at 160 characters                    |
+| `getGreetingByTime`   | Hero badge greeting ("Good morning — built for modern data teams") |
+| `capitalize`          | Changelog section label ("Updated every sprint")                   |
+
+### Icons used
+
+`ShieldCheckFilled`, `BellFilled`, `BoxFilled`, `FilterList`, `Download`, `MoneyBriefcaseFilled`,
+`ThumbsUpFilled`, `StarFilled`, `StarOutline`, `HeartFilled`, `EmailFilled`, `WalletFilled`,
+`PaymentCardFilled`, `InfoCircleFilled`, `LockKeyhole`, `ChevronRight`, `ArrowRight`, `Check`, `HomeFilled`
+
+### Color tokens used
+
+`indigo`, `cyan`, `blueGray`, `white`, `green`, `amber`, `red`, `purple`, `teal`, `violet`, `grey`, `lime`
+
+---
+
+## Key patterns
+
+### Self-contained RootComponent
+
+The page wraps its own `<RootComponent>` so consumers can drop it in without any extra wrapper:
+
+```jsx
+const LandingPage = () => {
+  // ...state...
+  return (
+    <RootComponent>
+      <Page>{/* sections */}</Page>
+    </RootComponent>
+  );
+};
+```
+
+### Dark mode with useLocalStorage
+
+Dark-mode preference survives page reloads:
+
+```jsx
+const [isDark, setIsDark] = useLocalStorage('axion-dark', false);
+```
+
+The `dk()` helper threads the `$dark` prop through styled-components without prop drilling:
+
+```js
+const dk =
+  (dark, light) =>
+  ({ $dark }) =>
+    $dark ? dark : light;
+
+const Card = styled.div`
+  background: ${dk(blueGray.m800, white)};
+  border: 1px solid ${dk(blueGray.m700, blueGray.m100)};
+`;
+```
+
+### Toast self-cleanup
+
+Each toast carries its own `onExpire` so no external `setToasts` prop is needed on `ToastContainer`:
+
+```jsx
+const pushToast = (type, title, subtitle) => {
+  const id = `${type}-${Math.random().toString(16).slice(2)}`;
+  setToasts((prev) => [
+    ...prev,
+    {
+      id,
+      type,
+      title,
+      subtitle,
+      onExpire: () => setToasts((p) => p.filter((t) => t.id !== id)),
+    },
+  ]);
+};
+```
+
+### Modal scroll-chain guard
+
+A `<div onWheel>` wrapper prevents the Storybook canvas from scrolling when the modal or its `Dropdown` captures wheel events:
+
+```jsx
+<div onWheel={(e) => e.stopPropagation()}>
+  <Modal isOpen={open} onClose={close} title="Book a live demo">
+    <Dropdown menuHeight="16rem" {/* bounded list — its own scroll container */} />
+  </Modal>
+</div>
+```
+
+### Pricing layout stability
+
+The "Save up to 26%" line uses `visibility` instead of conditional rendering so the layout never shifts when toggling between monthly and annual billing:
+
+```jsx
+<span
+  style={{
+    visibility: isAnnual ? 'visible' : 'hidden',
+    minHeight: '1.8rem',
+  }}
+>
+  ✓ Save up to 26% with annual billing
+</span>
+```
+
+### Shimmer → content reveal
+
+`useTimeout` drives a one-shot flag that swaps skeleton cards for real content:
+
+```jsx
+const [featuresLoaded, setFeaturesLoaded] = useState(false);
+useTimeout(() => setFeaturesLoaded(true), 1400);
+
+// In JSX:
+{
+  featuresLoaded ? (
+    <FeatureCard />
+  ) : (
+    <Card>
+      <Shimmer width='100%' height='2rem' />
+    </Card>
+  );
+}
+```

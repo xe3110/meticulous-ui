@@ -1403,10 +1403,7 @@ export interface JsonQrResult {
  * if (result.success) imgEl.src = result.dataUrl!;
  * ```
  */
-export declare function getJsonContentAsQr(
-  json: unknown,
-  options?: JsonQrOptions,
-): JsonQrResult;
+export declare function getJsonContentAsQr(json: unknown, options?: JsonQrOptions): JsonQrResult;
 
 // ---------------------------------------------------------------------------
 // Utility — OCR
