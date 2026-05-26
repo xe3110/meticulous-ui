@@ -1332,6 +1332,83 @@ export declare function waitForTransitionEnd(
 export declare function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T>;
 
 // ---------------------------------------------------------------------------
+// Utility — QR code
+// ---------------------------------------------------------------------------
+
+/** Options accepted by {@link getJsonContentAsQr}. */
+export interface JsonQrOptions {
+  /** Output image width in pixels (canvas square). Default: `256`. */
+  width?: number;
+  /**
+   * Reed-Solomon error correction level.
+   * Higher levels survive more physical damage but produce denser codes.
+   * - `'L'` ≈ 7 %   restored  (smallest code)
+   * - `'M'` ≈ 15 %  restored  (default)
+   * - `'Q'` ≈ 25 %  restored
+   * - `'H'` ≈ 30 %  restored  (densest code)
+   */
+  errorCorrectionLevel?: 'L' | 'M' | 'Q' | 'H';
+  /** Quiet-zone width in QR modules. Default: `2`. */
+  margin?: number;
+  /** CSS colour string for dark modules. Default: `'#000000'`. */
+  darkColor?: string;
+  /** CSS colour string for light modules. Default: `'#ffffff'`. */
+  lightColor?: string;
+}
+
+/** Result returned by {@link getJsonContentAsQr}. */
+export interface JsonQrResult {
+  /** `true` when a QR code was successfully generated. */
+  success: boolean;
+  /**
+   * PNG data URL (`data:image/png;base64,…`) ready to use as `<img src>`.
+   * Present only when `success` is `true`.
+   */
+  dataUrl?: string;
+  /**
+   * The exact string that was encoded — `JSON.stringify(json)`.
+   * Present only when `success` is `true`.
+   */
+  text?: string;
+  /**
+   * UTF-8 byte length of the encoded string.
+   * Present only when `success` is `true`.
+   */
+  byteSize?: number;
+  /**
+   * QR version selected (1–40). Higher versions encode more data but produce
+   * larger, denser codes.
+   * Present only when `success` is `true`.
+   */
+  version?: number;
+  /** Human-readable error message. Present only when `success` is `false`. */
+  error?: string;
+}
+
+/**
+ * Encodes a JSON-serialisable value into a standard 2D QR code (QR Code
+ * Model 2, ISO/IEC 18004) and returns the result as a PNG data URL.
+ *
+ * **Pure JavaScript — zero dependencies.**
+ * Implements GF(256) arithmetic, Reed-Solomon error correction, matrix
+ * construction, masking, and Canvas rendering entirely in browser JS.
+ * No CDN fetch, no npm package, no WASM.
+ *
+ * Requires a browser `Canvas` API (`document.createElement('canvas')`).
+ * Synchronous — no `await` needed.
+ *
+ * @example
+ * ```ts
+ * const result = getJsonContentAsQr({ userId: 42, role: 'admin' });
+ * if (result.success) imgEl.src = result.dataUrl!;
+ * ```
+ */
+export declare function getJsonContentAsQr(
+  json: unknown,
+  options?: JsonQrOptions,
+): JsonQrResult;
+
+// ---------------------------------------------------------------------------
 // Utility — OCR
 // ---------------------------------------------------------------------------
 

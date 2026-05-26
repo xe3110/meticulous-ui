@@ -63,6 +63,7 @@ export { default as copyToClipboard } from './copyToClipboard';
 export { default as downloadFile } from './downloadFile';
 export { default as fileToBase64 } from './fileToBase64';
 export { default as recognizeImageContent } from './getImageContentAsJson';
+export { default as getJsonContentAsQr } from './getJsonContentAsQr';
 export { default as openInNewTab } from './openInNewTab';
 export { default as getScreenSize } from './getScreenSize';
 export { default as getQueryParams } from './getQueryParams';
