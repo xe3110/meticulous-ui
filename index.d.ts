@@ -1332,16 +1332,15 @@ export declare function waitForTransitionEnd(
 export declare function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T>;
 
 // ---------------------------------------------------------------------------
-// Utility — QR code
+// Utility — QR code encoder
 // ---------------------------------------------------------------------------
 
 /** Options accepted by {@link getJsonContentAsQr}. */
 export interface JsonQrOptions {
-  /** Output image width in pixels (canvas square). Default: `256`. */
+  /** Output image width in pixels. Default: `256`. */
   width?: number;
   /**
    * Reed-Solomon error correction level.
-   * Higher levels survive more physical damage but produce denser codes.
    * - `'L'` ≈ 7 %   restored  (smallest code)
    * - `'M'` ≈ 15 %  restored  (default)
    * - `'Q'` ≈ 25 %  restored
@@ -1350,60 +1349,102 @@ export interface JsonQrOptions {
   errorCorrectionLevel?: 'L' | 'M' | 'Q' | 'H';
   /** Quiet-zone width in QR modules. Default: `2`. */
   margin?: number;
-  /** CSS colour string for dark modules. Default: `'#000000'`. */
+  /** Dark module colour as 6- or 8-char hex. Default: `'#000000ff'`. */
   darkColor?: string;
-  /** CSS colour string for light modules. Default: `'#ffffff'`. */
+  /** Light module colour as 6- or 8-char hex. Default: `'#ffffffff'`. */
   lightColor?: string;
 }
 
-/** Result returned by {@link getJsonContentAsQr}. */
-export interface JsonQrResult {
-  /** `true` when a QR code was successfully generated. */
-  success: boolean;
-  /**
-   * PNG data URL (`data:image/png;base64,…`) ready to use as `<img src>`.
-   * Present only when `success` is `true`.
-   */
-  dataUrl?: string;
-  /**
-   * The exact string that was encoded — `JSON.stringify(json)`.
-   * Present only when `success` is `true`.
-   */
-  text?: string;
-  /**
-   * UTF-8 byte length of the encoded string.
-   * Present only when `success` is `true`.
-   */
-  byteSize?: number;
-  /**
-   * QR version selected (1–40). Higher versions encode more data but produce
-   * larger, denser codes.
-   * Present only when `success` is `true`.
-   */
-  version?: number;
-  /** Human-readable error message. Present only when `success` is `false`. */
-  error?: string;
+/** Successful result from {@link getJsonContentAsQr}. */
+export interface JsonQrSuccess {
+  success: true;
+  /** PNG data URL (`data:image/png;base64,…`) ready for `<img src>` or download. */
+  dataUrl: string;
+  /** The exact string encoded — `JSON.stringify(json)`. */
+  text: string;
+  /** UTF-8 byte length of the encoded string. */
+  byteSize: number;
 }
 
+/** Failure result from {@link getJsonContentAsQr}. */
+export interface JsonQrFailure {
+  success: false;
+  error: string;
+}
+
+/** Result returned by {@link getJsonContentAsQr}. */
+export type JsonQrResult = JsonQrSuccess | JsonQrFailure;
+
 /**
- * Encodes a JSON-serialisable value into a standard 2D QR code (QR Code
- * Model 2, ISO/IEC 18004) and returns the result as a PNG data URL.
+ * Encodes a JSON-serialisable value into a QR code and returns a PNG data URL.
  *
- * **Pure JavaScript — zero dependencies.**
- * Implements GF(256) arithmetic, Reed-Solomon error correction, matrix
- * construction, masking, and Canvas rendering entirely in browser JS.
- * No CDN fetch, no npm package, no WASM.
- *
- * Requires a browser `Canvas` API (`document.createElement('canvas')`).
- * Synchronous — no `await` needed.
+ * Powered by the `qrcode` package loaded on demand from esm.sh.
+ * Requires a browser Canvas API.
  *
  * @example
  * ```ts
- * const result = getJsonContentAsQr({ userId: 42, role: 'admin' });
- * if (result.success) imgEl.src = result.dataUrl!;
+ * const result = await getJsonContentAsQr({ userId: 42, role: 'admin' });
+ * if (result.success) imgEl.src = result.dataUrl;
  * ```
  */
-export declare function getJsonContentAsQr(json: unknown, options?: JsonQrOptions): JsonQrResult;
+export declare function getJsonContentAsQr(
+  json: unknown,
+  options?: JsonQrOptions
+): Promise<JsonQrResult>;
+
+// ---------------------------------------------------------------------------
+// Utility — QR code decoder
+// ---------------------------------------------------------------------------
+
+/**
+ * Source types accepted by {@link getQrAsJsonContent}.
+ * - `string` — a data URL (`data:image/…`) or any URL fetchable by the browser
+ * - `HTMLImageElement` — an already-loaded `<img>` element
+ * - `HTMLCanvasElement` — a canvas whose pixels contain the QR image
+ * - `ImageData` — raw RGBA pixel data
+ * - `Blob` / `File` — image file (e.g. from `<input type="file">`)
+ */
+export type QrSource = string | HTMLImageElement | HTMLCanvasElement | ImageData | Blob | File;
+
+/** Decoder backend that successfully read the QR code. */
+export type QrDecodeSource = 'BarcodeDetector' | '@zxing/library' | 'jsQR';
+
+/** Successful result from {@link getQrAsJsonContent}. */
+export interface QrJsonSuccess {
+  success: true;
+  /** The parsed JavaScript object decoded from the QR. */
+  json: unknown;
+  /** Raw string decoded from the QR before JSON parsing. */
+  text: string;
+  /** Which decoder backend produced the result. */
+  source: QrDecodeSource;
+}
+
+/** Failure result from {@link getQrAsJsonContent}. */
+export interface QrJsonFailure {
+  success: false;
+  error: string;
+}
+
+/** Result returned by {@link getQrAsJsonContent}. */
+export type QrJsonResult = QrJsonSuccess | QrJsonFailure;
+
+/**
+ * Decodes a QR code image back to the JSON object that was originally encoded.
+ *
+ * Tries three decoders in priority order:
+ * 1. Native `BarcodeDetector` API (Chrome 83+, Edge 83+, Safari 17.4+)
+ * 2. `@zxing/library` — pure-JS ZXing port, loaded on demand from esm.sh
+ * 3. `jsQR` — pure-JS fallback, loaded on demand from esm.sh
+ *
+ * @example
+ * ```ts
+ * const [file] = event.target.files;
+ * const result = await getQrAsJsonContent(file);
+ * if (result.success) console.log(result.json);
+ * ```
+ */
+export declare function getQrAsJsonContent(source: QrSource): Promise<QrJsonResult>;
 
 // ---------------------------------------------------------------------------
 // Utility — OCR
