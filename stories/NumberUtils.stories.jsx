@@ -564,6 +564,8 @@ const FormatCompactNumberPage = () => (
                 { input: `formatCompactNumber(1000)`, output: `'1K'` },
                 { input: `formatCompactNumber(1500000)`, output: `'1.5M'` },
                 { input: `formatCompactNumber(2300000000)`, output: `'2.3B'` },
+                { input: `formatCompactNumber(1500000, 'en-In')`, output: `'15L'` },
+                { input: `formatCompactNumber(2300000000, 'en-In')`, output: `'230Cr'` },
                 {
                   input: `formatCompactNumber(42)`,
                   output: `'42'`,
