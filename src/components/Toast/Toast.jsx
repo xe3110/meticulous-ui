@@ -220,6 +220,7 @@ const CloseButtonContainer = styled.div`
   flex-shrink: 0;
   width: 2.8rem;
   height: 2.8rem;
+  cursor: pointer;
 `;
 
 const ProgressRing = styled.svg`
@@ -247,10 +248,6 @@ const ProgressRing = styled.svg`
     animation: ${timerProgress} ${({ $duration }) => $duration - 0.5}s linear forwards;
     animation-play-state: ${({ $paused }) => ($paused ? 'paused' : 'running')};
   }
-`;
-
-const CloseWrapper = styled(Close)`
-  cursor: pointer;
 `;
 
 const Title = styled.div`
@@ -449,7 +446,7 @@ const Toast = ({
           <Title>{title}</Title>
           {subtitle && <Subtitle>{subtitle}</Subtitle>}
         </Message>
-        <CloseButtonContainer>
+        <CloseButtonContainer onClick={remove(setFadeOut, setShow, onExpire)}>
           <ProgressRing
             aria-hidden='true'
             viewBox='0 0 28 28'
@@ -461,12 +458,7 @@ const Toast = ({
             <circle cx='14' cy='14' r='12' />
             <circle cx='14' cy='14' r='12' />
           </ProgressRing>
-          <CloseWrapper
-            aria-label='Close notification'
-            size={13}
-            color={grey.m600}
-            onClick={remove(setFadeOut, setShow, onExpire)}
-          />
+          <Close aria-label='Close notification' size={13} color={grey.m600} />
         </CloseButtonContainer>
       </ToastWrapper>
     );
