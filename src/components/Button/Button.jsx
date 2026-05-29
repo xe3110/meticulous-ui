@@ -88,7 +88,11 @@ const SpinnerWrapper = styled.div`
   pointer-events: none;
 `;
 
-const Rippled = ({ theme, children }) => <Ripple rippleColor={theme['m100']}>{children}</Ripple>;
+const Rippled = ({ theme, children }) => (
+  <Ripple rippleColor={theme['m100']} borderRadius='0.96rem'>
+    {children}
+  </Ripple>
+);
 
 const Button = (props) => {
   const {

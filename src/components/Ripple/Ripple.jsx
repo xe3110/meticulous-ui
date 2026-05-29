@@ -5,6 +5,7 @@ const RIPPLE_CSS = `.ripple-container{position:relative;overflow:hidden;display:
 const Ripple = ({
   children,
   rippleColor = 'rgba(255, 255, 255, 0.3)',
+  borderRadius,
   className = '',
   ...props
 }) => {
@@ -56,6 +57,7 @@ const Ripple = ({
       onClick={createRipple}
       onKeyDown={createRippleFromCenter}
       {...props}
+      style={{ borderRadius, ...props.style }}
     >
       {children}
     </div>
