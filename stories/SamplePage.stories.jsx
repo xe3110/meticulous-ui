@@ -706,6 +706,9 @@ const LandingPage = () => {
   const [demoModalOpen, toggleDemoModal] = useToggle(false);
   const [notifModalOpen, toggleNotifModal] = useToggle(false);
 
+  // ── Dropdown ──
+  const [language, setLanguage] = useState(LANG_OPTIONS[0]?.value);
+
   // ── Pricing ──
   const [isAnnual, toggleAnnual] = useToggle(false);
   const [currency, setCurrency] = useState('USD');
@@ -927,8 +930,8 @@ const LandingPage = () => {
             {!isMobile && (
               <Dropdown
                 options={LANG_OPTIONS}
-                value='en'
-                onChange={() => {}}
+                value={language}
+                onChange={setLanguage}
                 width='14rem'
                 theme='blueGray'
               />
