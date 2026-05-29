@@ -101,6 +101,7 @@ const Button = (props) => {
     isLoading,
     textColor,
     onKeyDown,
+    style,
     ...rest
   } = props || {};
 
@@ -149,6 +150,7 @@ const Button = (props) => {
 
   return (
     <ButtonContainer
+      style={style}
       {...{ $height, $width: width || $width, disabled: props.disabled, $isLoading: isLoading }}
     >
       {isLoading ? btnChild : <Rippled theme={theme}>{btnChild}</Rippled>}
