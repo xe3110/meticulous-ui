@@ -75,7 +75,6 @@ export default defineConfig({
       name: 'meticulous-ui-post-build',
       closeBundle() {
         createIndexes(resolve(__dirname, 'dist/components'));
-        createIndexes(resolve(__dirname, 'dist/cjs/components'), 'cjs');
         removeVirtualDir();
       },
     },
@@ -97,29 +96,17 @@ export default defineConfig({
       treeshake: true,
       preserveEntrySignatures: 'strict',
       external: ['react', 'react-dom', 'react/jsx-runtime', 'styled-components', 'prop-types'],
-      output: [
-        {
-          format: 'es',
-          dir: 'dist',
-          preserveModules: true,
-          preserveModulesRoot: 'src',
-          entryFileNames: '[name].js',
-          chunkFileNames: 'chunks/[name]-[hash].js',
-          assetFileNames: 'assets/[name].[ext]',
-          exports: 'named',
-          interop: 'auto',
-        },
-        {
-          format: 'cjs',
-          dir: 'dist/cjs',
-          preserveModules: true,
-          preserveModulesRoot: 'src',
-          entryFileNames: '[name].cjs',
-          chunkFileNames: 'chunks/[name]-[hash].cjs',
-          exports: 'named',
-          interop: 'auto',
-        },
-      ],
+      output: {
+        format: 'es',
+        dir: 'dist',
+        preserveModules: true,
+        preserveModulesRoot: 'src',
+        entryFileNames: '[name].js',
+        chunkFileNames: 'chunks/[name]-[hash].js',
+        assetFileNames: 'assets/[name].[ext]',
+        exports: 'named',
+        interop: 'auto',
+      },
     },
   },
 });

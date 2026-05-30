@@ -1,10 +1,9 @@
 {
   "name": "meticulous-ui",
-  "version": "3.11.5",
+  "version": "3.11.6",
   "license": "ISC",
   "description": "A comprehensive React UI component library with a wide range of customizable components, icons, colors, and utilities for building modern web applications.",
   "types": "./index.d.ts",
-  "main": "./cjs/index.cjs",
   "module": "./index.js",
   "type": "module",
   "repository": {
@@ -19,13 +18,11 @@
     ".": {
       "types": "./index.d.ts",
       "import": "./index.js",
-      "require": "./cjs/index.cjs",
       "default": "./index.js"
     },
     "./components/Icons/*": {
       "types": "./components/Icons/*.d.ts",
-      "import": "./components/Icons/*.js",
-      "require": "./cjs/components/Icons/*.cjs"
+      "import": "./components/Icons/*.js"
     },
     "./components/*": {
       "types": "./components/*/index.d.ts",
@@ -76,7 +73,6 @@
   "files": [
     "index.js",
     "index.d.ts",
-    "cjs",
     "chunks",
     "assets",
     "components",
