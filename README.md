@@ -3,6 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/meticulous-ui)](https://www.npmjs.com/package/meticulous-ui)
 [![npm downloads](https://img.shields.io/npm/dm/meticulous-ui)](https://www.npmjs.com/package/meticulous-ui)
 [![license](https://img.shields.io/npm/l/meticulous-ui)](https://www.npmjs.com/package/meticulous-ui)
+[![Socket](https://socket.dev/api/badge/npm/package/meticulous-ui)](https://socket.dev/npm/package/meticulous-ui)
 
 [![meticulous-ui](https://raw.githubusercontent.com/xe3110/meticulous-ui/main/assets/readme_banner.png)](https://meticulous-ui.vercel.app/)
 
