@@ -153,6 +153,39 @@ const TimerDigit = styled.span`
   animation: ${digitSlideIn} 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 `;
 
+const alarmColonSync = keyframes`
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+`;
+
+const AlarmColon = styled.span`
+  animation: ${alarmColonSync} 0.35s ease-out forwards;
+`;
+
+const alarmFlipOut = keyframes`
+  0%   { transform: perspective(200px) rotateX(0deg); }
+  100% { transform: perspective(200px) rotateX(-90deg); }
+`;
+
+const alarmFlipIn = keyframes`
+  0%   { transform: perspective(200px) rotateX(90deg); }
+  100% { transform: perspective(200px) rotateX(0deg); }
+`;
+
+const AlarmDigitSpan = styled.span`
+  display: inline-block;
+  ${({ $phase }) =>
+    $phase === 'out' &&
+    css`
+      animation: ${alarmFlipOut} 0.14s ease-in forwards;
+    `}
+  ${({ $phase }) =>
+    $phase === 'in' &&
+    css`
+      animation: ${alarmFlipIn} 0.14s ease-out forwards;
+    `}
+`;
+
 const AlarmRing = styled.div`
   position: absolute;
   inset: 0;
@@ -305,6 +338,30 @@ const BulletRing = styled.div`
       animation: ${dismissAnimation} 0.6s ease-out forwards;
     `}
 `;
+
+const AlarmDigit = ({ value }) => {
+  const [display, setDisplay] = useState(value);
+  const [phase, setPhase] = useState(null);
+
+  useEffect(() => {
+    if (value !== display) setPhase('out');
+  }, [value]);
+
+  const handleAnimEnd = () => {
+    if (phase === 'out') {
+      setDisplay(value);
+      setPhase('in');
+    } else {
+      setPhase(null);
+    }
+  };
+
+  return (
+    <AlarmDigitSpan $phase={phase} onAnimationEnd={handleAnimEnd}>
+      {display}
+    </AlarmDigitSpan>
+  );
+};
 
 const noop = () => {};
 
@@ -542,9 +599,9 @@ const Timer = ({
             .split('')
             .map((char, i) =>
               char === ':' ? (
-                <span key={i}>{char}</span>
+                <AlarmColon key={`colon-${timerSec}`}>:</AlarmColon>
               ) : (
-                <TimerDigit key={`${i}-${char}`}>{char}</TimerDigit>
+                <AlarmDigit key={i} value={char} />
               )
             )}
         </AlarmLabel>
