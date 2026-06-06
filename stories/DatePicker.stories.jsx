@@ -379,7 +379,15 @@ import DatePicker from 'meticulous-ui/components/DatePicker';
 
 const NoFooter = () => {
   const [date, setDate] = useState(null);
-  return <DatePicker showFooter={false} value={date} onChange={setDate} />;
+  const label = Array.isArray(date)
+    ? \`\${date[0]?.toDateString()} → \${date[1]?.toDateString()}\`
+    : date?.toDateString();
+  return (
+    <>
+      <DatePicker showFooter={false} value={date} onChange={setDate} />
+      {date && <p>Picked: <strong>{label}</strong></p>}
+    </>
+  );
 };
         `,
       },
@@ -392,7 +400,12 @@ const NoFooter = () => {
         <DatePicker showFooter={false} value={date} onChange={setDate} />
         {date && (
           <P style={{ marginTop: '1rem', color: grey.m700 }}>
-            Picked: <strong>{date.toDateString()}</strong>
+            Picked:{' '}
+            <strong>
+              {Array.isArray(date)
+                ? `${date[0]?.toDateString()} → ${date[1]?.toDateString()}`
+                : date.toDateString()}
+            </strong>
           </P>
         )}
       </div>
