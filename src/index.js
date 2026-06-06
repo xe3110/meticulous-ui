@@ -38,3 +38,4 @@ export { default as Checkbox } from './components/Input/Checkbox';
 export { default as RadioGroup } from './components/Input/RadioGroup';
 export { default as FileUploader } from './components/Input/FileUploader';
 export { default as Switch } from './components/Switch';
+export { default as Accordion } from './components/Accordion';

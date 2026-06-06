@@ -18,6 +18,7 @@ import Input from '../src/components/Input/Input/Input';
 import Link from '../src/components/Link/Link';
 import Spinner from '../src/components/Spinner/Spinner';
 import { SUCCESS, INFO, WARNING, ERROR } from '../src/components/Toast/constants';
+import Accordion from '../src/components/Accordion/Accordion';
 
 // ─── Icons ────────────────────────────────────────────────────────────────────
 import Check from '../src/components/Icons/Check';
@@ -630,6 +631,63 @@ const PLANS = [
   },
 ];
 
+const FAQ_ITEMS = [
+  {
+    id: 'free-trial',
+    title: 'Is there a free trial?',
+    icon: <InfoCircleFilled />,
+    iconColor: white,
+    iconBackground: indigo.m500,
+    content:
+      'Yes. Every plan starts with a 14-day free trial — no credit card required. You get full access to all features on the Growth plan during the trial period.',
+  },
+  {
+    id: 'billing',
+    title: 'How does billing work?',
+    icon: <PaymentCardFilled />,
+    iconColor: white,
+    iconBackground: teal.m600,
+    content:
+      'You are billed monthly or annually depending on the cycle you choose at signup. Annual billing gives you up to 26% off. Invoices are sent automatically on renewal and are available in your billing dashboard.',
+  },
+  {
+    id: 'security',
+    title: 'How secure is my data?',
+    icon: <ShieldCheckFilled />,
+    iconColor: white,
+    iconBackground: green.m600,
+    content:
+      'Axion is SOC 2 Type II certified and GDPR compliant. All data is encrypted at rest with AES-256 and in transit over TLS 1.3. We support SSO, SAML, and fine-grained role-based access control on the Enterprise plan.',
+  },
+  {
+    id: 'connectors',
+    title: 'Which data connectors are supported?',
+    icon: <BoxFilled />,
+    iconColor: white,
+    iconBackground: purple.m500,
+    content:
+      'Axion ships with 50+ pre-built connectors including Snowflake, BigQuery, Redshift, PostgreSQL, MySQL, Stripe, Salesforce, and more. Custom connectors can be built using our open Connector SDK.',
+  },
+  {
+    id: 'alerts',
+    title: 'Can I get notified when something looks wrong?',
+    icon: <BellFilled />,
+    iconColor: white,
+    iconBackground: amber.m600,
+    content:
+      'Yes. Axion includes ML-based anomaly detection that learns your data patterns over time. Alerts can be routed to Slack, PagerDuty, email, or any webhook. You can configure thresholds per metric or let the AI decide.',
+  },
+  {
+    id: 'cancel',
+    title: 'Can I cancel at any time?',
+    icon: <HomeFilled />,
+    iconColor: white,
+    iconBackground: cyan.m600,
+    content:
+      'Absolutely. There are no lock-in contracts on Starter or Growth plans. You can cancel from your account settings at any time and your data remains exportable for 30 days after cancellation.',
+  },
+];
+
 const LANG_OPTIONS = [
   { value: 'en', label: '🇺🇸 English' },
   { value: 'hi', label: '🇮🇳 Hindi' },
@@ -883,7 +941,7 @@ const LandingPage = () => {
           </Flex>
 
           <NavLinks $dark={isDark}>
-            {['Product', 'Pricing', 'Changelog', 'Docs'].map((item) => (
+            {['Product', 'Pricing', 'Changelog', 'FAQ', 'Docs'].map((item) => (
               <NavLink key={item} $dark={isDark}>
                 {item}
               </NavLink>
@@ -1525,6 +1583,61 @@ const LandingPage = () => {
 
         <Divider $dark={isDark} />
 
+        {/* ══════════ FAQ ══════════ */}
+        <Section>
+          <div style={{ textAlign: 'center', marginBottom: '5.6rem' }}>
+            <Badge
+              $bg={isDark ? indigo.m900 : indigo.m50}
+              $color={isDark ? indigo.m300 : indigo.m600}
+              style={{ marginBottom: '1.6rem' }}
+            >
+              <InfoCircleFilled style={{ fontSize: '1.2rem' }} /> Frequently asked
+            </Badge>
+            <H2
+              style={{
+                fontSize: '4rem',
+                fontWeight: 800,
+                color: isDark ? white : blueGray.m900,
+                letterSpacing: '-0.03rem',
+                marginBottom: '1.2rem',
+              }}
+            >
+              Questions we hear a lot
+            </H2>
+            <P
+              style={{
+                fontSize: '1.7rem',
+                color: isDark ? blueGray.m300 : blueGray.m600,
+                maxWidth: '48rem',
+                margin: '0 auto',
+              }}
+            >
+              Can't find what you're looking for?{' '}
+              <span
+                style={{ color: indigo.m500, cursor: 'pointer' }}
+                onClick={() => pushToast(INFO, 'Support', 'Opening chat…')}
+              >
+                Chat with us
+              </span>
+              .
+            </P>
+          </div>
+
+          <div style={{ maxWidth: '76rem', margin: '0 auto' }}>
+            <Accordion
+              items={FAQ_ITEMS}
+              allowMultiple
+              itemBackground={isDark ? blueGray.m800 : '#fff'}
+              itemBorderColor={isDark ? blueGray.m600 : undefined}
+              activeBackground={isDark ? blueGray.m700 : indigo.m50}
+              titleColor={isDark ? white : undefined}
+              bodyColor={isDark ? blueGray.m300 : undefined}
+            />
+          </div>
+        </Section>
+
+        <Divider $dark={isDark} />
+
         {/* ══════════ NEWSLETTER ══════════ */}
         <Section>
           <NewsletterBox>
@@ -1672,7 +1785,7 @@ export default {
     docs: {
       description: {
         component:
-          'A full-featured interactive landing page built entirely with meticulous-ui components, hooks, utilities, icons, and color tokens. Demonstrates real-world composition: sticky navbar, hero section, live metrics, feature grid with shimmer loading, testimonial carousel, pricing toggle, changelog pagination, newsletter, and footer — all with dark-mode support persisted via useLocalStorage.',
+          'A full-featured interactive landing page built entirely with meticulous-ui components, hooks, utilities, icons, and color tokens. Demonstrates real-world composition: sticky navbar, hero section, live metrics, feature grid with shimmer loading, testimonial carousel, pricing toggle, changelog pagination, FAQ accordion, newsletter, and footer — all with dark-mode support persisted via useLocalStorage.',
       },
       source: {
         language: 'jsx',
@@ -1689,6 +1802,7 @@ import { ToastContainer } from 'meticulous-ui/components/Toast';
 import Shimmer from 'meticulous-ui/components/Shimmer';
 import Pagination from 'meticulous-ui/components/Pagination';
 import Timer from 'meticulous-ui/components/Timer';
+import Accordion from 'meticulous-ui/components/Accordion';
 
 import useLocalStorage from 'meticulous-ui/hooks/useLocalStorage';
 import useToggle from 'meticulous-ui/hooks/useToggle';

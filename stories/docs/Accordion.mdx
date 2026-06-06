@@ -1,0 +1,238 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+
+import * as AccordionStories from '../Accordion.stories';
+
+<Meta title='Molecules/Accordion' of={AccordionStories} />
+
+# Accordion
+
+An Accordion renders a list of collapsible panels. Each panel has a header that toggles its body open or closed. It can be imported as `meticulous-ui/components/Accordion`.
+
+Supports optional per-item icons with configurable colors, an active-panel background, keyboard navigation, and a mode that allows multiple panels open simultaneously.
+
+## Default
+
+<Canvas of={AccordionStories.Default} />
+
+<Controls of={AccordionStories.Default} />
+
+## With Icons
+
+Each item can include an optional `icon` node rendered inside an icon box on the left of the header.
+
+<Canvas of={AccordionStories.WithIcons} />
+
+## Icon Color
+
+Set a default icon color for all items via the `iconColor` prop on the Accordion. Any item can override it with its own `iconColor` field — item-level always wins.
+
+<Canvas of={AccordionStories.IconColorOverride} />
+
+## Item Background
+
+`itemBackground` controls the resting (closed) item background. It defaults to `#fff` — pass any palette token to match your page background.
+
+<Canvas of={AccordionStories.ItemBackground} />
+
+## Active Background
+
+Pass any color token from the palette via `activeBackground` to tint the expanded item. The border is hidden when a background is active so the color reads cleanly.
+
+<Canvas of={AccordionStories.ActiveBackground} />
+
+## Rich Content (JSX title & content)
+
+Both `title` and `content` accept any `ReactNode` — pass plain strings for simple cases or full JSX trees for badges, code blocks, tables, or any other component.
+
+<Canvas of={AccordionStories.RichContent} />
+
+## Allow Multiple Open
+
+Set `allowMultiple` to `true` to let more than one panel be open at the same time.
+
+<Canvas of={AccordionStories.AllowMultiple} />
+
+## Single Item
+
+<Canvas of={AccordionStories.SingleItem} />
+
+## Props
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>items</code>
+      </td>
+      <td>
+        <code>AccordionItem[]</code>
+      </td>
+      <td>
+        <code>[]</code>
+      </td>
+      <td>Array of accordion items to render</td>
+    </tr>
+    <tr>
+      <td>
+        <code>items[].id</code>
+      </td>
+      <td>
+        <code>string | number</code>
+      </td>
+      <td>—</td>
+      <td>Unique identifier for the item (required)</td>
+    </tr>
+    <tr>
+      <td>
+        <code>items[].title</code>
+      </td>
+      <td>
+        <code>ReactNode</code>
+      </td>
+      <td>—</td>
+      <td>Header label text or element (required)</td>
+    </tr>
+    <tr>
+      <td>
+        <code>items[].content</code>
+      </td>
+      <td>
+        <code>ReactNode</code>
+      </td>
+      <td>—</td>
+      <td>Expanded body content — string or JSX (required)</td>
+    </tr>
+    <tr>
+      <td>
+        <code>items[].icon</code>
+      </td>
+      <td>
+        <code>ReactNode</code>
+      </td>
+      <td>—</td>
+      <td>Optional icon rendered in the icon box beside the title</td>
+    </tr>
+    <tr>
+      <td>
+        <code>items[].iconBackground</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>
+        Background color of this item's icon box — overrides accordion-level{' '}
+        <code>iconBackground</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>items[].iconColor</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>
+        Per-item icon color override — falls back to accordion-level <code>iconColor</code>, then{' '}
+        <code>black.m700</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>allowMultiple</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>When true, multiple panels can be open simultaneously</td>
+    </tr>
+    <tr>
+      <td>
+        <code>iconColor</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>black.m700</code>
+      </td>
+      <td>
+        Default icon color for all items — overridden per-item via <code>item.iconColor</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>iconBackground</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>
+        Default icon box background for all items — overridden per-item via{' '}
+        <code>item.iconBackground</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>activeBackground</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>—</td>
+      <td>
+        Background color applied to the expanded item — use a palette token e.g.{' '}
+        <code>blue.m50</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>itemBackground</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>#fff</code>
+      </td>
+      <td>
+        Background of every resting (closed) item. Defaults to <code>'#fff'</code> — pass any
+        palette token e.g. <code>indigo.m50</code> or <code>blueGray.m800</code> for dark mode
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>itemBorderColor</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>grey.m200</code>
+      </td>
+      <td>
+        Border color for all items — use a dark palette token e.g. <code>blueGray.m600</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Accessibility
+
+- Each header renders as a native `<button>` — keyboard focusable and activatable via `Enter` / `Space`
+- `aria-expanded` on the header reflects the open state for screen readers
+- The body panel uses `role="region"` with `aria-labelledby` pointing back to its header
+- `focus-visible` outline is applied on keyboard navigation without affecting mouse users
