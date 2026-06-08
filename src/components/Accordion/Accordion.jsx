@@ -31,6 +31,11 @@ const Item = styled.div`
     border-color 0.22s ease;
 `;
 
+const Heading = styled.h3`
+  margin: 0;
+  font: inherit;
+`;
+
 const Header = styled.button`
   width: 100%;
   display: flex;
@@ -133,38 +138,39 @@ const Accordion = ({
             $itemBackground={itemBackground}
             $itemBorderColor={itemBorderColor}
           >
-            <Header
-              type='button'
-              aria-expanded={isOpen}
-              aria-controls={`accordion-body-${item.id}`}
-              id={`accordion-header-${item.id}`}
-              onClick={() => toggle(item.id)}
-            >
-              {item.icon && (
-                <IconBox
-                  aria-hidden='true'
-                  $iconColor={item.iconColor ?? iconColor ?? DEFAULT_ICON_COLOR}
-                  $iconBackground={item.iconBackground ?? iconBackground}
-                  $borderColor={itemBorderColor}
-                >
-                  {item.icon}
-                </IconBox>
-              )}
-              <Title $titleColor={titleColor}>{item.title}</Title>
-              <ChevronWrap aria-hidden='true' $isOpen={isOpen} $chevronColor={titleColor}>
-                <ChevronDown size={18} />
-              </ChevronWrap>
-            </Header>
-            {isOpen && (
-              <Body
-                id={`accordion-body-${item.id}`}
-                role='region'
-                aria-labelledby={`accordion-header-${item.id}`}
-                $bodyColor={bodyColor}
+            <Heading>
+              <Header
+                type='button'
+                aria-expanded={isOpen}
+                aria-controls={`accordion-body-${item.id}`}
+                id={`accordion-header-${item.id}`}
+                onClick={() => toggle(item.id)}
               >
-                {item.content}
-              </Body>
-            )}
+                {item.icon && (
+                  <IconBox
+                    aria-hidden='true'
+                    $iconColor={item.iconColor ?? iconColor ?? DEFAULT_ICON_COLOR}
+                    $iconBackground={item.iconBackground ?? iconBackground}
+                    $borderColor={itemBorderColor}
+                  >
+                    {item.icon}
+                  </IconBox>
+                )}
+                <Title $titleColor={titleColor}>{item.title}</Title>
+                <ChevronWrap aria-hidden='true' $isOpen={isOpen} $chevronColor={titleColor}>
+                  <ChevronDown size={18} />
+                </ChevronWrap>
+              </Header>
+            </Heading>
+            <Body
+              id={`accordion-body-${item.id}`}
+              role='region'
+              aria-labelledby={`accordion-header-${item.id}`}
+              hidden={!isOpen}
+              $bodyColor={bodyColor}
+            >
+              {item.content}
+            </Body>
           </Item>
         );
       })}

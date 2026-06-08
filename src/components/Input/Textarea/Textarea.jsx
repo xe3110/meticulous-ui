@@ -50,6 +50,18 @@ const TextareaBox = styled.textarea`
   min-height: 2.24rem;
   min-width: 4.8rem;
 
+  ${({ $hasLeftIcon }) =>
+    $hasLeftIcon &&
+    css`
+      padding-left: 3.52rem;
+    `}
+
+  ${({ $hasRightIcon }) =>
+    $hasRightIcon &&
+    css`
+      padding-right: 3.52rem;
+    `}
+
   ${({ $isResizeNone }) =>
     $isResizeNone &&
     css`
@@ -127,7 +139,7 @@ const Label = styled.div`
         `
       : css`
           top: 1.28rem;
-          left: 0.8rem;
+          left: ${({ $hasLeftIcon }) => ($hasLeftIcon ? '3.52rem' : '0.8rem')};
           font-size: 2.24rem;
         `}
 `;
