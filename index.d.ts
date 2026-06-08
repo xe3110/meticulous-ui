@@ -1488,28 +1488,32 @@ export declare function getQrAsJsonContent(source: QrSource): Promise<QrJsonResu
 
 export interface RecognizeImageResult {
   success: boolean;
-  /** Whether the TextDetector API is available in this browser. */
-  supported?: boolean;
   /** BCP-47 code of the primary language used for recognition. */
   detectedLanguage?: string;
-  /** Full extracted text, newline-separated by detected region. */
+  /** Full extracted text from OCR, newline-separated by detected region. */
   text?: string;
-  /** OCR confidence score 0–100, or null when not available. */
+  /** OCR confidence score 0–100. */
   confidence?: number | null;
-  /** Raw per-region data including bounding boxes and corner points. */
-  rawJson?: Array<{
-    rawValue: string;
-    boundingBox: { x: number; y: number; width: number; height: number };
-    cornerPoints: Array<{ x: number; y: number }>;
-  }>;
+  /**
+   * All readable lines from the OCR output as a key-value object.
+   * Lines matching `ALL-CAPS KEY : value` use the label as the key.
+   * Lines without a recognisable label are assigned generic keys (`param_1`, `param_2`, …).
+   * Continuation lines (e.g. a wrapped address) are appended to the previous key.
+   */
+  fields?: Record<string, string>;
+  /** Raw Tesseract output including per-word bounding boxes and metadata. */
+  rawJson?: object;
   /** Human-readable error when success is false. */
   error?: string;
 }
 
 /**
- * Detect text in a base64 image using the browser-native TextDetector API.
- * No external dependencies or network requests.
- * Supported in Chrome 70+ and Edge 79+; returns supported:false on other browsers.
+ * Runs OCR on a base64 image in all browsers with no npm dependency.
+ * Powered by Tesseract.js loaded on demand from a CDN (fetched once, then
+ * browser-cached). Preprocesses the image (grayscale + 2× upscale + contrast
+ * boost) before recognition for higher accuracy. Returns structured `fields`
+ * with extracted key-value pairs alongside the raw `text`, `confidence` score,
+ * and `rawJson` with full word-level bounding-box metadata.
  */
 export declare function recognizeImageContent(
   base64Image: string,

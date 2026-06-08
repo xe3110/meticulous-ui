@@ -341,8 +341,10 @@ const RecognizeImagePage = () => {
             <Description>
               Runs OCR on a base64 image in all browsers with no npm dependency. Powered by{' '}
               <Code>Tesseract.js</Code> loaded on demand from a CDN (fetched once on first use, then
-              browser-cached). Returns the detected <Code>text</Code>, a <Code>confidence</Code>{' '}
-              score (0–100), the primary <Code>detectedLanguage</Code>, and <Code>rawJson</Code>{' '}
+              browser-cached). Preprocesses the image (grayscale + 2× upscale + contrast boost)
+              before recognition. Returns the detected <Code>text</Code>, a <Code>confidence</Code>{' '}
+              score (0–100), the primary <Code>detectedLanguage</Code>, a structured{' '}
+              <Code>fields</Code> object with extracted key-value pairs, and <Code>rawJson</Code>{' '}
               with full word-level bounding-box metadata. Use BCP-47 multi-language hints like{' '}
               <Code>en+hi</Code> for mixed content.
             </Description>
@@ -401,13 +403,15 @@ const RecognizeImagePage = () => {
                     </Stat>
                     <Stat $bg={blueGray.m50}>
                       <StatValue $color={blueGray.m600}>
-                        {result.text.trim().split(/\s+/).filter(Boolean).length}
+                        {Object.keys(result.fields ?? {}).length}
                       </StatValue>
-                      <StatLabel>words found</StatLabel>
+                      <StatLabel>fields found</StatLabel>
                     </Stat>
                   </StatBox>
                   <ResultBox $bg={indigo.m50} $border={indigo.m200} $color={indigo.m900}>
-                    {result.text.trim() || '(no text detected)'}
+                    {Object.keys(result.fields ?? {}).length > 0
+                      ? JSON.stringify(result.fields, null, 2)
+                      : result.text.trim() || '(no text detected)'}
                   </ResultBox>
                 </>
               )}
@@ -428,7 +432,8 @@ const base64 = await fileToBase64(file);
 const result = await recognizeImageContent(base64, 'en');
 
 if (result.success) {
-  console.log(result.text);        // full OCR text
+  console.log(result.fields);      // { NAME: 'REESE MILLER', ID: '123-456-7890', ... }
+  console.log(result.text);        // full raw OCR text
   console.log(result.confidence);  // 0–100
   console.log(result.rawJson);     // bounding boxes + metadata
 }`}</Pre>
@@ -442,12 +447,83 @@ const result = await recognizeImageContent(base64, 'hi+en');`}</Pre>
 
             <div>
               <SectionLabel $color={indigo.m700}>Source</SectionLabel>
-              <Pre>{`// Tesseract.js loaded once on demand, cached by the browser
-let _tesseractImport = null;
-const loadTesseract = () => {
-  if (!_tesseractImport)
-    _tesseractImport = import('https://esm.sh/tesseract.js@5');
-  return _tesseractImport;
+              <Pre>{`// Image preprocessing: 2× upscale + grayscale + contrast boost
+const preprocessImage = (src) =>
+  new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = img.width * 2;
+      canvas.height = img.height * 2;
+      const ctx = canvas.getContext('2d');
+      ctx.filter = 'grayscale(1) contrast(1.8)';
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      resolve(canvas.toDataURL('image/png'));
+    };
+    img.onerror = reject;
+    img.src = src;
+  });
+
+// data.text merges unrelated blocks that share a Y position (e.g. a header and
+// a corner logo). Rebuild lines from word bounding boxes instead, splitting on
+// outsized horizontal gaps — that's the signal two distinct blocks were merged.
+const segmentLines = (data) => {
+  const words = (data.words ?? [])
+    .map((w) => ({ text: w.text?.trim(), bbox: w.bbox }))
+    .filter((w) => w.text && w.bbox);
+  if (!words.length) return [];
+
+  const lines = [];
+  for (const word of words) {
+    const cy = (word.bbox.y0 + word.bbox.y1) / 2;
+    const halfHeight = (word.bbox.y1 - word.bbox.y0) / 2;
+    let line = lines.find((l) => Math.abs(l.cy - cy) < halfHeight);
+    if (!line) { line = { cy, words: [] }; lines.push(line); }
+    line.words.push(word);
+  }
+
+  const segments = [];
+  for (const line of lines) {
+    const sorted = line.words.slice().sort((a, b) => a.bbox.x0 - b.bbox.x0);
+    const gaps = sorted.slice(1).map((w, i) => w.bbox.x0 - sorted[i].bbox.x1);
+    const avgGap = gaps.length ? gaps.reduce((a, b) => a + b, 0) / gaps.length : 0;
+    const threshold = Math.max(avgGap * 3, (sorted[0].bbox.y1 - sorted[0].bbox.y0) * 1.5);
+    let current = [sorted[0]];
+    for (let i = 1; i < sorted.length; i++) {
+      if (sorted[i].bbox.x0 - sorted[i - 1].bbox.x1 > threshold) {
+        segments.push({ text: current.map((w) => w.text).join(' '), y: line.cy, x: current[0].bbox.x0 });
+        current = [];
+      }
+      current.push(sorted[i]);
+    }
+    segments.push({ text: current.map((w) => w.text).join(' '), y: line.cy, x: current[0].bbox.x0 });
+  }
+  segments.sort((a, b) => a.y - b.y || a.x - b.x);
+  return segments.map((s) => s.text);
+};
+
+// Named keys (KEY : VALUE) allow one continuation line; param_N keys do not.
+const parseKeyValuePairs = (lines) => {
+  const result = {};
+  let namedLastKey = null;
+  let paramCount = 0;
+  const clean = (s) => s.replace(/^[^A-Za-z0-9"'(]+/, '').trim();
+  for (const raw of lines) {
+    const line = clean(raw.trim());
+    if (!line) { namedLastKey = null; continue; }
+    const m = line.match(/\\b([A-Z][A-Z.]{0,}(?:\\s+[A-Z.]+){0,2})\\s*[:©]\\s*(.+)/);
+    if (m) {
+      result[m[1].trim()] = m[2].trim();
+      namedLastKey = m[1].trim();
+    } else if (namedLastKey && /^[A-Z0-9][A-Z0-9\\s.,'-]+$/.test(line)) {
+      result[namedLastKey] += ' ' + line;
+      namedLastKey = null;
+    } else if (/\\w{2,}/.test(line)) {
+      result[\`param_\${++paramCount}\`] = line;
+      namedLastKey = null;
+    } else { namedLastKey = null; }
+  }
+  return result;
 };
 
 const recognizeImageContent = async (base64Image, lang = 'en') => {
@@ -455,16 +531,20 @@ const recognizeImageContent = async (base64Image, lang = 'en') => {
     ? base64Image
     : \`data:image/png;base64,\${base64Image}\`;
   const langs = lang.split('+').filter(Boolean);
+  const preprocessed = await preprocessImage(src);
 
   const { createWorker } = await loadTesseract();
   const worker = await createWorker(toTesseractLang(langs));
   try {
-    const { data } = await worker.recognize(src);
+    await worker.setParameters({ tessedit_pageseg_mode: '3' });
+    const { data } = await worker.recognize(preprocessed);
+    const text = data.text.trim();
     return {
       success: true,
       detectedLanguage: langs[0],
-      text: data.text.trim(),
+      text,
       confidence: data.confidence, // 0–100
+      fields: parseKeyValuePairs(segmentLines(data)),
       rawJson: data,
     };
   } finally {
